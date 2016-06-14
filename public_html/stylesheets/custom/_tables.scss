@@ -1,0 +1,24 @@
+table{
+	tr{
+		td{
+
+			div.glyph{
+				position: absolute;
+				pointer: cursor;
+			}
+
+			div.glyphicon-minus{
+				width: 10px;
+				left: 100%;
+				top: 30%;
+			}
+
+			div.glyphicon-chevron-right{
+				cursor: pointer;
+				width: 12px;
+				right: 25px;
+				top: 30%;
+			}
+		}
+	}
+}

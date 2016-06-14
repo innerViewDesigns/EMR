@@ -1,0 +1,55 @@
+h1{ text-align: center; }
+h2{ text-align: center; }
+h3{ text-align: center; }
+
+.flash{
+
+	border-radius: 10px;
+	padding: 10px;
+	text-align: center;
+	color: $gray-lightest;
+	margin-bottom: 15px;
+
+	&.success{
+
+		background-color: $brand-success;
+	}
+
+	&.error{
+		background-color: $brand-danger;
+	}
+}
+
+.absolute{
+
+	position: absolute;
+
+}
+
+.relative{
+	position: relative;
+}
+
+.inline{
+
+	display: inline-block;
+
+}
+
+.not-complete{
+
+	&::before{
+		content: "!";
+		color: white;
+		position: absolute;
+		top: 0;
+		left: 0px;
+		width: 35px;
+		border: 2px solid white;
+		background-color: $brand-danger;
+	}
+
+}
+
+
+

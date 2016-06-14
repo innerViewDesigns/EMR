@@ -1,0 +1,17 @@
+section{
+	article{
+			ul{
+				list-style-type: none;
+				padding: 10px;
+				margin: 0px;
+				li.active{
+					background-color: white;
+					span.cpt{
+						color: $gray-light;
+						margin-left: 2em;
+						font-size: .8em;
+					}
+				}
+			}
+	}
+}

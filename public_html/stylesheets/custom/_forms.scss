@@ -1,0 +1,24 @@
+input.checkbox-custom{
+
+    display: none;
+
+}
+
+div.checkbox-custom{
+
+    height: 1.5em;
+    width: 1.5em;
+    border: 1px solid $gray-light;
+    margin: 5 auto;
+    cursor: pointer;
+    display: inline-block;
+
+
+    &.checked{
+
+        box-shadow: inset 0px 0px 0px 4px #fff;
+        background-color: blue;
+
+    }
+
+}

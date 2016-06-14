@@ -1,0 +1,143 @@
+html { 
+	color: black;
+body {
+
+	section{
+
+		position: relative;
+		padding: 20px;
+
+		div.tab-pane{
+			padding-top: 10px;
+		}
+
+		article{
+
+			padding: 20px 30px;
+			float: left;
+			border-radius: 10px;
+			color: black;
+			background-color: white;
+			border-radius: 0;
+			position: relative;
+
+			button.upper-right{
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: white;
+				border-radius: 0;
+				border: 1px solid $gray-lighter;
+
+			}
+
+			&.drop6
+			{
+			   -webkit-box-shadow: 0 10px 6px -6px #777;
+      	 -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+
+			}
+
+			ul{
+				list-style-type: none;
+				padding: 10px;
+				margin: 0px;
+				li.active{
+					background-color: white;
+				}
+			}
+
+			h3{
+				position: relative;
+				margin-top: 0px;
+			}
+
+			
+			&#patient_names{
+				position: absolute;
+				z-index: 0;
+				margin-right: 10px;
+				min-width: 15%;
+			}
+
+			&#infoTable{
+				width: 75%;
+
+				div.flash{
+
+					&.success{
+						background-color: $brand-success;
+					}
+
+					&.error,
+					&.parsererror{
+						background-color: $brand-danger;
+					}
+
+					min-height: 25px;
+					border-radius: 10px;
+					margin-bottom: 15px;
+					padding: 15px;
+
+					ul{
+						li{
+							margin-left: 15px;
+							display: inline;
+						}
+					}
+				}
+
+				div#add_patients_form{
+
+					button{
+						margin-top: 20px;
+						margin-left: 15px;
+
+					}
+
+				}
+
+				table{
+					width: 100%;
+					th{
+						text-align: center;
+						vertical-align: center;
+						line-height: 1em;
+						height: 2em;
+						border-bottom: 1px solid white;
+						margin-bottom: 15px;
+						padding-bottom: 15px; 
+					}
+					td{
+
+						text-align: center;
+						padding: 0 10px 0 10px;
+
+						input{
+							width: 75%;
+							color: black;
+							text-align: center;
+							padding: 0px;
+							margin-top: 15px;
+						}
+					}
+				}
+				div#buttons{
+					margin-top: 50px;
+					button:first-of-type{
+						margin-right: 15px;
+					}
+					input[type="checkbox"]{
+						margin-right: 5px;
+					}
+				}
+			}
+
+		}
+	}
+
+} //body
+
+}
+

@@ -1,0 +1,1 @@
+mysqldump --user=root --password=Winter10 --databases=therapy_practice > /Users/Apple/SkyDrive/Therapy\ Business/Practice\ Info\ Backup/2015-12-06.sql
