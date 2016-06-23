@@ -3,8 +3,8 @@
 	set_include_path(__DIR__ . "/private/views/");
 
 	require_once(__DIR__ . "/private/FirePHPCore/fb.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	require_once(__DIR__ . "/private/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, __DIR__ . '/private');
   $classLoader->register();
 
 
@@ -16,7 +16,7 @@
     public   $action;
     public   $params;
 
-    public   $basePath        = "~Apple/therapyBusiness";
+    public   $basePath        = "~Michael/innerView";
     private  $possibleModels  = ['patient', 'patients', 'service', 'services', 'insurance', 'insurances', 'dashboard', 'otherPayments', 'note', 'notes'];
     private  $possibleActions = ['post', 'get', 'create', 'update'];
 

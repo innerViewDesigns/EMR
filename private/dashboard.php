@@ -1,9 +1,8 @@
 <?php
-
+	date_default_timezone_set('America/Los_Angeles');
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	require_once(__DIR__ . "/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, __DIR__ . '/private');
   $classLoader->register();
 
 	class dashboard{

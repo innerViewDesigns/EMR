@@ -1,9 +1,10 @@
 <?php
 
+	require_once(__DIR__ . "/protected/dbHelper.php");
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/protected/dbHelper.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	
+	require_once(__DIR__ . "/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, __DIR__);
   $classLoader->register();
 
 	class dbObj{
@@ -39,6 +40,7 @@
 
 		public function open(){
 
+
 			try{
 			  	$this->db = new PDO("mysql:host={$this->hostname};dbname={$this->dbname}", $this->username, $this->password);
 				
@@ -51,6 +53,8 @@
 
 			catch(PDOException $e){
 				$this->databaseProblem = true;
+				echo "<br>Database problem";
+				echo "<br>".print_r($e, true);
 			}
 
 		} // open

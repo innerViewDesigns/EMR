@@ -2,9 +2,9 @@
 
 
   require_once(__DIR__ . "/dbObj.php");
-  require_once(__DIR__."/FirePHPCore/fb.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	require_once(__DIR__ . "/FirePHPCore/fb.php");
+	require_once(__DIR__ . "/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, __DIR__);
   $classLoader->register();
 
 function deal_with_null_case($value){

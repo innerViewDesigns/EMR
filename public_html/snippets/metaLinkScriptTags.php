@@ -1,5 +1,3 @@
-	<base href="//localhost/~Apple/therapyBusiness/" />
-
 	<meta charset = "UTF-8" />
 	<meta name="HandheldFriendly" content="true" />
 	<meta name="MobileOptimized" content="320" />

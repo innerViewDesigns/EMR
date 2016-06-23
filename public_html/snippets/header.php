@@ -33,7 +33,7 @@
 
 		$.ajax({
 
-			url : g.basePath + "patients/get",
+			url : "patients/get",
 
 			data: {
 
