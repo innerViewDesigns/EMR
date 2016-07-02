@@ -1,6 +1,6 @@
 <article class="drop6" id="add-patient-form-fields">
 	
-	<form action="http://localhost/~Apple/therapyBusiness/patient/create" method="post" id="add-patient-form">
+	<form action="patient/create" method="post" id="add-patient-form">
 	 <div id="add-patient-form-fields">
 	 
 	  <div class="row clearfix">

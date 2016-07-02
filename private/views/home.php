@@ -46,7 +46,7 @@
 			
 			}else{
 
-				include_once $this->getBaseFilePath() . '/private/views/patient_names.php';
+				include_once 'private/views/patient_names.php';
 
 			}
 			

@@ -43,7 +43,7 @@
 
 					if(preg_match('/name/', $r)){
 
-						echo "<td class='text-center'><a href='http://localhost/~Apple/therapyBusiness/patient/get/" . $value['patient_id'] . "'>$v</a></td>";
+						echo "<td class='text-center'><a href='patient/get/" . $value['patient_id'] . "'>$v</a></td>";
 
 					}else{
 

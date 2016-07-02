@@ -30,10 +30,9 @@
 		unset($value);
 	}
 	
-
 ?>
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 
 <?php include 'public_html/snippets/head.php'; ?>
 
@@ -57,7 +56,7 @@
 			</button>
 			<h3 id="hide-delete-buttons">Last weeks services</h3>
 
-			<form action="http://localhost/~Apple/therapyBusiness/dashboard/get" method="post">
+			<form action="dashboard/get" method="post">
 				<div class="row">
 				  <div class="form-group col-md-4 col-md-offset-1">
 				    <label for="start_date">Start</label>

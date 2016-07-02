@@ -1,11 +1,11 @@
 <?php
   
-  set_include_path(__DIR__ . "/views");
 
+  set_include_path(__DIR__ . "/views");
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
   require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+  require_once(__DIR__ . "/SplClassLoader.php");
+  $classLoader = new SplClassLoader(NULL, __DIR__);
   $classLoader->register();
 
   class appController{
@@ -18,10 +18,11 @@
     public $lastUpdatedIds;
     public $flash = [];
 
-  	public function __construct($model = null){
+  	public function __construct($model = null, $basePath = null){
 
   		//echo "appController::construct. model: $model";
       $this->model_name = $model;
+      $this->basePath = $basePath;
   	}
 
   	public function post($args=[]){
@@ -34,8 +35,8 @@
 
     public function get($args=[]){
 
-      //echo "<br>appController::get";
-      //echo "</br>args = ". print_r($args, true);
+      echo "<br>appController::get";
+      echo "</br>args = ". print_r($args, true);
         
       $this->model = new $this->model_name($args);
       $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
@@ -68,92 +69,149 @@
     public function create($args=[]){
 
      // echo "<br>appController::create.";
-      echo "<br>appController::create::args: " . print_r($args, true) . "<br>";
-
+     //echo "<br>appController::create::args: " . print_r($args, true) . "<br>";
+      
       $this->action = 'create';
-      $lastInsertIds = [];
-      $this->model = new $this->model_name();
 
       if ( !empty($args) ) { 
 
+        if( is_array($args) ) {
 
-        /////////////////////////////////////////////////
-        //when you send through ajax prunning is required
-        /////////////////////////////////////////////////
+          if (array_key_exists('data', $args) ){
 
-        if (array_key_exists('data', $args) ){
+             $data  = $args['data'];
+             $this->model = new $this->model_name($data);
 
-          
-          $this->template_name = $args['template_name'];
-          $args                = $args['data'];
+          }elseif (array_key_exists('template_name', $args) ){
+         
+              if( preg_match('/\//', $args['template_name']) ){
 
+                list($this->model_name, $this->template_name) = explode("/", $args['template_name']);
+                //$this->flash = array_merge_cust($this->flash, $this->model->getFlash());
+                $this->model = new $this->model_name();
+                $this->renderView($this->template_name);
+                return true;
 
-        }
+              }else{
 
-        /////////////////////////////////////////////////////
-        //Check to see if you need to consolidate the params
-        /////////////////////////////////////////////////////
+                $this->template_name = $args['template_name'];
+                $this->renderView($this->template_name);
+                return true;
 
-        if( is_array($args) ){
+              }
 
-          if( is_multi($args) ){
+          }else{
 
-            //echo "<br>is multi before: ".print_r($args, true);
-            $args = consolidateParams($args);
-            //echo "<br>is multi after: ".print_r($args, true);
+            //if neither array key "data" or array_key "template_name" exist then...
+            $this->model = new $this->model_name;
 
           }
 
-          foreach($args as $key => $value){
+          //if data was not set (i.e., this wasn't an ajax call)
+          //then try to consolidate the params. This would be the case
+          //for add patient, for instance, or add services
 
-            $id = $this->model->create($value);
+          if( !isset($data) ){
+          //  echo "<br>made it into data not being set";
+            if (is_multi($args) ){
+        //      echo "<br>made it into multi";
+              $data = consolidateParams($args);
+       //       echo "<br>".print_r($data, true);
+            }else{
 
-            if($id){
-
-              array_push( $lastInsertIds, $id);
+              $data = $args;
 
             }
-            
+
           }
 
-        }else{
+          $lastInsertIds = [];
+          foreach($data as $key => $value){
 
+              $id = $this->model->create($value);
+
+              if($id){
+
+                array_push( $lastInsertIds, $id);
+
+              }
+              
+          }
+
+
+        }else{ 
+
+          //if args wasn't an array:
           $id = $this->model->create($args);
 
+          if($id){
+
+            $lastInsertIds = [];
+            array_push( $lastInsertIds, $id);
+
+          }
+
         }
+
+        //Args wasn't empty and we already dealth with wether it was an array or not
 
         if( isset($lastInsertIds) ){
 
           $this->lastInsertIds = $lastInsertIds;
-          $this->flash = array("success" => count($lastInsertIds)." items were successfully added to the database.");
+          $this->flash = array("success" => count($lastInsertIds)." items were successfully created.");
 
         }else{
 
-           $this->flash = array("success" => "One item was successfully added to the database.");
+           $this->flash = array("success" => "One item was successfully created.");
 
         }
-
         
 
-        if( isset($model_name) ){
+        if( array_key_exists('template_name', $args) ){
 
-            $patient_id = $args['patient_id'];
-            $this->model_name = $this->model_name($patient_id);
-            
+          if( is_array($args['template_name'])){
+
+            $args['template_name'] = $args['template_name'][0];
+
+          }
+         
+          if( preg_match('/\//', $args['template_name']) ){
+            if(count(explode('/', $args['template_name'])) > 2){
+
+              list($this->model_name, $this->template_name, $params) = explode("/", $args['template_name']);
+
+            }else{
+
+              list($this->model_name, $this->template_name) = explode("/", $args['template_name']);
+              $params = null;
+
+            }
+
+            $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
+            $this->model = new $this->model_name($params);
+            $this->renderView($this->template_name);
+
+          }else{
+
+            $this->template_name = $args['template_name'];
+            $this->renderView($this->template_name);
+
+          }
+
 
         }else{
 
+          //"template_name" didn't exist
+
           $this->model_name = $this->model_name . 's';
+          $this->action = 'get';
+          $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
+          $this->model = new $this->model_name;
+          $this->renderView();
+
 
         }
-
-         
-         $this->action = 'get';
-         $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-         $this->model = new $this->model_name;
-         $this->renderView($this->template_name);
-
-       
+      
          
       }else{ 
 
@@ -162,7 +220,7 @@
 
       } 
       
-
+    
 
     } //create
 
@@ -191,6 +249,12 @@
           }
 
           if (is_multi($data) ){
+
+            $data = consolidateParams($data);
+
+          }
+
+          if(array_key_exists('0', $data)){
 
             foreach($data as $key => $value){
 

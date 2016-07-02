@@ -2,7 +2,7 @@
 
 		<title><?= $this->model_name ?></title>
 		
-		<?php include 'public_html/snippets/metaLinkScriptTags.php'; ?>
+		<?php include $_SERVER['DOCUMENT_ROOT']. '/therapyBusiness/public_html/snippets/metaLinkScriptTags.php'; ?>
 	
 
 </head>

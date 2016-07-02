@@ -6,7 +6,7 @@
 	$list = $patients->getNamesAndIds();
 
 ?>
-<a class="pull-left" href="http://localhost/~Apple/therapyBusiness/">dashboard</a>
+<a class="pull-left" href="http://localhost/therapyBusiness/">dashboard</a>
 <header class="row">
 	
 
@@ -46,6 +46,8 @@
 
 			complete : function(jqXHR, status){
 				
+				console.log(jqXHR);
+
 				options = {
 					
 					data 			: jqXHR.responseJSON,
@@ -100,7 +102,6 @@
 							$('#easyAuto').on('keydown.custom', function(e){
 
 								if(e.keyCode == 13){
-									console.log("about the redirect");
 									window.location = g.basePath + "patient/get/" + $('#easyAutoHidden').val();
 								}
 

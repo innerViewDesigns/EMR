@@ -1,6 +1,6 @@
 var g = {
 
-	'basePath'  : "localhost/~Michael/sites/innerView/",
+	'basePath'  : "http://localhost/therapyBusiness/",
 
 	'patient_id' : undefined,
 

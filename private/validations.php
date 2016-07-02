@@ -128,7 +128,9 @@ function consolidateParams($args){
 		foreach($args as $key => $value){    //pass in the fields with $value being the full param array 'first_name' => Array( 0 => 'Sam', 1 => 'george')
 			
 			if(count($value) <= $i) {
+
 				$organized[$i][$key] = null;
+			
 			}else{
 				
 				$organized[$i][$key] = $value[$i];	

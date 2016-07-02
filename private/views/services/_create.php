@@ -2,7 +2,7 @@
 
 <article class="drop6">
 
-	<form action="http://localhost/~Apple/therapyBusiness/service/create" method="post" id="add-services-form">
+	<form action= "service/create" method="post" id="add-services-form">
 		<table class="col-md-12 table" id="myTable">
 			<tr>
 				<th class="text-center col-md-3">Patient</th> 
@@ -251,13 +251,13 @@ $(document).ready(function(){
 							if( typeof jqXHR.responseJSON !== 'undefined'){
 
 								var s = jqXHR.responseJSON;
-								console.log(s);
+								//console.log(s);
 								
 								$row.find('td').slice(5, 9).each(function(i){
 
 									var $input = $(this).find('input');
 									var col   = $input.attr("data-column-name");
-									console.log(col);
+									//console.log(col);
 
 									$input.val(s[col]);
 

@@ -14,8 +14,6 @@
 		function __construct($args=[]){
 			
 			//echo "<br>dashboard::__construct::args: " . print_r($args, true);
-
-
 			$this->db = new dbObj;
 			$this->setLastWeeksServices($args);
 			//$this->setCurrentBalancesDue():
@@ -53,7 +51,9 @@
 			$in = [];
 
 			if( !empty($args) ){
-				//echo "<br> args was not empty";
+				
+				//echo "<br>dashboard::setLastWeeksServices - args was not empty";
+				
 				if(	array_key_exists('include_insurance', $args) ){
 					array_push($in, '1');
 					$include_insurance = true;
@@ -112,6 +112,7 @@ EOT;
 			if( isset($startDate) ) {
 
 				try{
+
 					$stmt = $db->db->prepare($sql);
 					
 					$stmt->bindParam(":startDate", $startDate);
@@ -134,12 +135,11 @@ EOT;
 						}
 						
 						$this->lastWeeksServices = $result;
-						
 
 					}else{
 
 						$this->lastWeeksServices = array("no results" => 'no results');
-					
+
 					}
 
 					$this->setDates($startDate, $endDate);
