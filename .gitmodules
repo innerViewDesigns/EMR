@@ -1,3 +1,6 @@
 [submodule "private/protected"]
 	path = private/protected
 	url = ../Librarys/dbHelper
+[submodule "private/AuthorizeNet"]
+	path = private/AuthorizeNet
+	url = https://github.com/AuthorizeNet/sdk-php

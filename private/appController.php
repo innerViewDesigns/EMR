@@ -68,157 +68,163 @@
 
     public function create($args=[]){
 
-     echo "<br>appController::create.";
+     //echo "<br>appController::create.";
      
       
       $this->action = 'create';
+      $this->lastInsertIds = [];
       
       if ( !empty($args) ) { 
 
-        echo "<br><pre>appController::create::args: " . print_r($args, true) . "</pre>";
-        /*
-        if( is_array($args) ) {
+        //echo "<br><pre>appController::create::args: " . print_r($args, true) . "</pre>";
+        //echo "<br><pre>" . print_r(consolidateParams($args), true) . "</pre></br>";
 
-          if (array_key_exists('data', $args) ){
 
-             $data  = $args['data'];
-             $this->model = new $this->model_name($data);
+              if (array_key_exists('data', $args) ){
 
-          }elseif (array_key_exists('template_name', $args) ){
-         
-              if( preg_match('/\//', $args['template_name']) ){
 
-                list($this->model_name, $this->template_name) = explode("/", $args['template_name']);
-                //$this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-                $this->model = new $this->model_name();
-                $this->renderView($this->template_name);
-                return true;
+                    //if this was an ajax call. then snag the data and send it to the model. It will have needed informaiton for constructing the model object.
+
+                    $data  = $args['data'];
+                    $this->model = new $this->model_name($data);
+
+
 
               }else{
 
-                $this->template_name = $args['template_name'];
-                $this->renderView($this->template_name);
-                return true;
+                    //if data was not set (i.e., this wasn't an ajax call) then try to consolidate the params. This would be the case for add patient, for instance, or add services
+                 
+
+                    $this->model = new $this->model_name;
+
+                    if (is_multi($args) ){
+                     
+
+                        $data = consolidateParams($args);
+                     
+
+                    }else{
+
+                        //this want's an ajax call, but you still only want to deal with the $data variable, so load it and make sure that it's an array
+
+                        $data = is_array($args) ? $args : array($args);
+
+
+                    }
 
               }
 
-          }else{
 
-            //if neither array key "data" or array_key "template_name" exist then...
-            $this->model = new $this->model_name;
+        //Loop through $data and send values to be created in the database. Save the ids.
 
-          }
+        foreach($data as $key => $value){
 
-          //if data was not set (i.e., this wasn't an ajax call)
-          //then try to consolidate the params. This would be the case
-          //for add patient, for instance, or add services
+            $id = $this->model->create($value);
 
-          if( !isset($data) ){
-          //  echo "<br>made it into data not being set";
-            if (is_multi($args) ){
-        //      echo "<br>made it into multi";
-              $data = consolidateParams($args);
-       //       echo "<br>".print_r($data, true);
-            }else{
+            if($id){
 
-              $data = $args;
+                array_push( $this->lastInsertIds, $id );
 
             }
-
-          }
-
-          $lastInsertIds = [];
-          foreach($data as $key => $value){
-
-              $id = $this->model->create($value);
-
-              if($id){
-
-                array_push( $lastInsertIds, $id);
-
-              }
-              
-          }
+        
+        }        
 
 
-        }else{ 
 
-          //if args wasn't an array:
-          $id = $this->model->create($args);
+        $new_record_count = count( $this->lastInsertIds);
 
-          if($id){
 
-            $lastInsertIds = [];
-            array_push( $lastInsertIds, $id);
 
-          }
+        switch($new_record_count){
+
+            case 1:
+
+                $this->flash = array("success" => "One item was successfully created.");
+                break;
+
+            case ($new_record_count > 1):
+
+                $this->flash = array("success" => count($this->lastInsertIds) . " items were successfully created.");
+                break;
+
+            default:
+
+                $this->flash = array("error" => "Something went wrong. Nothing added to the database");
+                break;
 
         }
 
-        //Args wasn't empty and we already dealth with wether it was an array or not
-
-        if( isset($lastInsertIds) ){
-
-          $this->lastInsertIds = $lastInsertIds;
-          $this->flash = array("success" => count($lastInsertIds)." items were successfully created.");
-
-        }else{
-
-           $this->flash = array("success" => "One item was successfully created.");
-
-        }
         
 
         if( array_key_exists('template_name', $args) ){
 
-          if( is_array($args['template_name'])){
+            //I'm not sure why template_name would be an array...
 
-            $args['template_name'] = $args['template_name'][0];
+            if( is_array($args['template_name'])){
 
-          }
+              $args['template_name'] = $args['template_name'][0];
+
+            }
          
-          if( preg_match('/\//', $args['template_name']) ){
-            if(count(explode('/', $args['template_name'])) > 2){
 
-              list($this->model_name, $this->template_name, $params) = explode("/", $args['template_name']);
+
+            if( preg_match('/\//', $args['template_name']) ){
+             
+                //if template_name is actually a url with model name included then grab those components
+
+                if(count(explode('/', $args['template_name'])) > 2){
+
+
+                  list($this->model_name, $this->template_name, $params) = explode("/", $args['template_name']);
+
+                
+                }else{
+
+
+                  list($this->model_name, $this->template_name) = explode("/", $args['template_name']);
+                  $params = null;
+
+                
+                }
+
+
+                $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
+                $this->model = new $this->model_name($params);
+                $this->renderView($this->template_name);
+
+
 
             }else{
 
-              list($this->model_name, $this->template_name) = explode("/", $args['template_name']);
-              $params = null;
+
+                $this->template_name = $args['template_name'];
+                $this->renderView($this->template_name);
+
 
             }
-
-            $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-            $this->model = new $this->model_name($params);
-            $this->renderView($this->template_name);
-
-          }else{
-
-            $this->template_name = $args['template_name'];
-            $this->renderView($this->template_name);
-
-          }
 
 
         }else{
 
-          //"template_name" didn't exist
+            //"template_name" didn't exist. The default action here will be to pluralize the model and return all of the representative objects of that class
 
-          $this->model_name = $this->model_name . 's';
-          $this->action = 'get';
-          $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-          $this->model = new $this->model_name;
-          $this->renderView();
+            $this->model_name = $this->model_name . 's';
+            $this->action = 'get';
+            $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
+            $this->model = new $this->model_name;
+            $this->renderView();
 
 
         }
       
-         */
+         
       }else{ 
 
-        //if there were no arguments, display the form
-        $this->renderView();
+
+          //if there were no arguments, display the form
+
+          $this->renderView();
+
 
       } 
       
@@ -301,6 +307,7 @@
         
 
         if( array_key_exists('template_name', $args) ){
+         
          
           if( preg_match('/\//', $args['template_name']) ){
 

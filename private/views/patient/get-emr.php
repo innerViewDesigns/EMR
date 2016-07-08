@@ -158,7 +158,7 @@ $(document).ready(function(){
 	
 	$('button#add-note').click(function(e){
 
-		$("div.modal-body").load(g.basePath + "note/create", {template_name : "note/_create"} , function(){
+		$("div.modal-body").load(g.basePath + "note/create", function(){
 			
 			$('#myModal').modal();
 		
