@@ -99,8 +99,7 @@ $("input[data-easy-auto='true']").each(function(){
 	$('input[name="date"]').datetimepicker({
 
 					validateOnBlur:false,
-					timepicker:false,
-					format:"Y-m-d"
+					allowTimes:g.timeOptions()
 
 
 		});

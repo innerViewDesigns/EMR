@@ -79,6 +79,8 @@
 				//Then give it something to compare with other claims by creating
 				//a unix timestamp
 
+				$c['cpt_code'] = $s['cpt_code'];
+
 				$c['datetime'] = strtotime( $s['dos'] );
 
 				//Then create another array indexed arbitrarly by service id. This will
@@ -153,10 +155,13 @@
 							</tr>";
 
 			if(is_array($claims)){
+
 				foreach( $claims as &$value ){
+
 					if(!array_key_exists('service_id_insurance_claim', $value) ){
 						$value['service_id_insurance_claim'] = 'undefined';
 					}
+
 					echo "<tr data-service_id = ".$value['service_id_insurance_claim'].">
 									<td class='text-center' data-edit='false'>".$value['dos']->format("Y/m/d")."</td>";
 
@@ -180,11 +185,20 @@
 
 						echo	"<td class='text-center' data-edit='false' style='background-color: #ADADAD; color: white;'>--</td>"
 									."<td class='text-center' data-column-name='allowable_insurance_amount' data-edit='true'>".$value['allowable_insurance_amount']."</td>"
-									."<td class='text-center' data-column-name='expected_copay_amount' data-edit='true'>".$value['expected_copay_amount']."</td>"
-									."<td class='text-center' data-column-name='recieved_insurance_amount' data-edit='true'>".$value['recieved_insurance_amount']."</td>"
-									."<td class='text-center' data-column-name='recieved_copay_amount' data-edit='true'>".$value['recieved_copay_amount']."</td>".
-
-								"</tr>";
+									."<td class='text-center' data-column-name='expected_copay_amount' data-edit='true'>".$value['expected_copay_amount']."</td>";
+									
+									if( preg_match('/late cancel/', $value['cpt_code']) ){
+									
+										echo "<td class='text-center' data-column-name='recieved_insurance_amount' data-edit='false' style='color: red;'>".$value['cpt_code']."</td>";
+									
+									}else{
+									
+										echo "<td class='text-center' data-column-name='recieved_insurance_amount' data-edit='true'>".$value['recieved_insurance_amount']."</td>";
+									
+									}
+									
+						echo "<td class='text-center' data-column-name='recieved_copay_amount' data-edit='true'>".$value['recieved_copay_amount']."</td></tr>";
+				
 					}
 
 				}

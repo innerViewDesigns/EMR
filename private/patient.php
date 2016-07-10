@@ -282,7 +282,7 @@ EOT;
 
 				$n['dos']							= new DateTime( $n['associated_date'] );
 				$n['associated_date'] = new DateTime( $n['associated_date'] );
-				$n['datetime'] 			  = strtotime( $n['associated_date']->format("Y-m-d") );
+				$n['datetime'] 			  = strtotime( $n['associated_date']->format("Y-m-d H:i:s") );
 
 			}
 
@@ -293,7 +293,7 @@ EOT;
 			foreach( $services as &$s ){
 
 				$s['dos'] 		 = new DateTime( $s['dos'] );
-				$s['datetime'] = strtotime( $s['dos']->format("Y-m-d") );
+				$s['datetime'] = strtotime( $s['dos']->format("Y-m-d H:i:s") );
 
 			}
 
