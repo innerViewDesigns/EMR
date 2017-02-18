@@ -121,7 +121,7 @@
 
 
       @list($model, $action, $params) = explode("/", $path, 3);
-
+      //echo $params . "<br>";
 
 
       if ( !empty($model) && !preg_match('/index/', $model) ) {

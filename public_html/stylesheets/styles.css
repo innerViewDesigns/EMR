@@ -123,15 +123,18 @@ html {
             margin-right: 5px; }
 
 header {
-  height: 80px;
   overflow: visible;
   background-color: #f7f7f7;
   margin: 0 -15px 0 -15px;
-  padding: 27px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   color: #555555;
   display: absolute; }
   header label {
     margin-right: 10px; }
+  header .dropdown {
+    margin-bottom: 10px; }
+    header .dropdown button {
+      margin-left: 0px; }
   header ul.custom-nav {
     display: block;
     list-style: none;
@@ -3391,7 +3394,7 @@ tbody.collapse.in {
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 0;
   z-index: 1000;
   display: none;
@@ -3418,6 +3421,7 @@ tbody.collapse.in {
     overflow: hidden;
     background-color: #e5e5e5; }
   .dropdown-menu > li > a {
+    cursor: pointer;
     display: block;
     padding: 3px 20px;
     clear: both;

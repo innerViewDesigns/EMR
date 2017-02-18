@@ -1,16 +1,28 @@
 <?php 
-
-	$patients = new patients;
-	$patients->getAll();
-	$patients->setNamesAndIds();
-	$list = $patients->getNamesAndIds();
-
-?>
-<a class="pull-left" href="http://localhost/therapyBusiness/">dashboard</a>
-<header class="row">
 	
 
-	<input id='easyAuto' onClick="this.select()">
+?>
+
+<header class="row">
+	
+	<a class="pull-right" href="http://localhost/therapyBusiness/">dashboard</a>
+
+	<div class="dropdown">
+	  
+	  <button id="choosePatients" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Choose Patients
+	    <span class="caret"></span>
+	  </button>
+
+	  <ul class="dropdown-menu" aria-labelledby="choosePatients">
+	    <li data-target='all'><a>All Patients</a></li>
+	    <li data-target='active'><a>Active Patients</a></li>
+	    <li data-target='inactive'><a>Inactive Patients</a></li>
+	  </ul>
+
+	</div>
+
+	<input id='easyAuto' data-easy-auto="true" onClick="this.select()">
 	<input id='easyAutoHidden' type="hidden">
 
 	<button id="get-patient" class="btn btn-default">submit</button>
@@ -25,15 +37,18 @@
 </header>
 
 <script src="public_html/scripts/jquery.easy-autocomplete.min.js"></script>
+
 <script>
 
  $(document).ready(function(){
+
+ 		$('.dropdown-toggle').dropdown();
 
 		var options = {};
 
 		$.ajax({
 
-			url : "patients/get",
+			url : "patients/get/active",
 
 			data: {
 
@@ -46,7 +61,8 @@
 
 			complete : function(jqXHR, status){
 				
-				console.log(jqXHR);
+				//console.log(jqXHR.responseJSON);
+				$('.dropdown li[data-target="active"').addClass('active');
 
 				options = {
 					
@@ -87,7 +103,7 @@
 									ev.keyCode = 13; // enter
 
 									$('#easyAuto').trigger(ev);
-									console.log("tab key pressed");
+									//console.log("tab key pressed");
 									e.preventDefault();
 								}
 							
@@ -129,6 +145,53 @@
 			var id = $('input[type="hidden"]').val();
 			window.location = g.basePath + "patient/get/" + id;
 		});
+
+
+		////////////////////////////////////////////
+		//Add event handler for all_patient dropdown
+		////////////////////////////////////////////
+
+		$('.dropdown li').click(function(){
+			
+			if(!$(this).hasClass('active')){
+				
+				var action = $(this).attr('data-target');
+
+				$.ajax({
+
+					url : "patients/get/" + action,
+
+					data: {
+
+						template_name : "_info-only",
+						remote				: 'true'
+
+					},
+
+					dataType : 'json',
+
+					complete : function(jqXHR, status){
+						
+						options.data = jqXHR.responseJSON;
+
+						$('input[data-easy-auto=true]').each(function(){
+
+							$(this).easyAutocomplete(options).parent('div').css('float', 'left');	
+
+						});
+						
+
+						$('.dropdown li.active').removeClass('active');
+						$('.dropdown li[data-target='+action).addClass('active');
+						
+					}
+				
+				});//Ajax
+
+			}
+
+		}); //click
+
 
 	});
 

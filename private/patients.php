@@ -12,12 +12,14 @@
   	private  $db;
   	private  $rawData;
   	private  $namesAndIds = [];
+  	public   $args;
   	public   $flash = [];
 
 		
 		function __construct($args=[]){
 
 			$this->db = new dbObj();
+			$this->args = $args;
 
 
 		} 
@@ -43,11 +45,41 @@
 
 				}catch (PDOException $e){
 
-					fb($e);
+					$this->setFlash('error', "in patients::getAll. The database error: ".$e->getMessage());
 
 				}
 
 		}   
+
+		public function getByActive($arg){
+			
+			$db = $this->db;
+			
+			try{
+
+					$stmt = $db->db->prepare("SELECT * FROM patients WHERE active = ?");
+					$stmt->bindParam(1, $arg);
+					$stmt->execute();
+					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if($result){
+
+						$this->rawData = $result;
+
+					}else{
+						echo "no results";
+					}
+					
+
+				}catch (PDOException $e){
+
+					$this->setFlash('error', "in patients::getByActive. The database error: ".$e->getMessage());
+
+				}
+
+		}   
+
+
 
 		public function getnamesAndIds(){
 

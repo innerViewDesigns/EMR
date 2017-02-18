@@ -1,5 +1,5 @@
 <?php 
-
+	
 	$dashboard = $this->model; 
 	//echo print_r($dashboard->getFlash(), true);
 
@@ -30,11 +30,14 @@
 		unset($value);
 	}
 	
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <?php include 'public_html/snippets/head.php'; ?>
+
+
 
 <!--  Begin content -->
 
@@ -162,11 +165,12 @@
 
 </body>
 
+<?php include 'public_html/scripts/customScript_checkbox.js'; ?>
 <script>
 	
 	(function(){
 
-		var $listItems = $('li');
+		var $listItems = $('section li');
 
 		
 		$listItems.each(function(){
@@ -224,7 +228,7 @@
 
 		});
 
-
+		/*
 		///////////////////////////////////////////
 		//Make sure the checkbox start synched up...
 		///////////////////////////////////////////
@@ -267,7 +271,8 @@
 			});
 
 		});
-
+		
+		*/
 
 		$('input[name="start_date"]').datetimepicker({
 
@@ -288,9 +293,12 @@
 
 
 
+
+
 	})();
 
 </script>
+
 
 
 </html>

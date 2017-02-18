@@ -1,15 +1,22 @@
 	header{
 
-		height: 80px;
+		//height: 80px;
 		overflow: visible;
 		background-color: $gray-lightest;
 		margin: 0 -15px 0 -15px;
-		padding: 27px 10px 10px 10px;
+		padding: 10px 10px 10px 10px;
 		color: $gray;
 		display: absolute;
 		
 		label{
 			margin-right: 10px;
+		}
+
+		.dropdown{
+			margin-bottom: 10px;
+			button {
+				margin-left: 0px;
+			}
 		}
 
 		ul.custom-nav{

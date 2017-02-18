@@ -28,7 +28,7 @@
 // The dropdown menu (ul)
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 0;
   z-index: $zindex-dropdown;
   display: none; // none by default, but block on "open" of the menu
@@ -61,6 +61,7 @@
 
   // Links within the dropdown menu
   > li > a {
+    cursor: pointer;
     display: block;
     padding: 3px 20px;
     clear: both;
