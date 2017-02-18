@@ -187,7 +187,7 @@
 									."<td class='text-center' data-column-name='allowable_insurance_amount' data-edit='true'>".$value['allowable_insurance_amount']."</td>"
 									."<td class='text-center' data-column-name='expected_copay_amount' data-edit='true'>".$value['expected_copay_amount']."</td>";
 									
-									if( preg_match('/late cancel/', $value['cpt_code']) ){
+									if( preg_match('/(late cancel)|(no show)/', $value['cpt_code']) ){
 									
 										echo "<td class='text-center' data-column-name='recieved_insurance_amount' data-edit='false' style='color: red;'>".$value['cpt_code']."</td>";
 									

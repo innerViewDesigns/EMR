@@ -98,9 +98,13 @@
 						
 						
 						if ( isset( $newList[$i]['dx2'] )){
+
 							$list_item = $list_item . ", " . $newList[$i]['dx2'];
+
 						}elseif( isset( $newList[$i]['dx3'] ) ){
+
 							$list_item = $list_item . ", " . $newList[$i]['dx3'];
+
 						}
 						
 						if( isset($newList[$i + 1]) ) {
