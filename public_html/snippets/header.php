@@ -5,7 +5,7 @@
 
 <header class="row">
 	
-	<a class="pull-right" href="http://localhost/therapyBusiness/">dashboard</a>
+	<a class="pull-right" id="dashboard-link" href="http://localhost/therapyBusiness/">dashboard</a>
 
 	<div class="dropdown">
 	  
@@ -173,6 +173,7 @@
 					complete : function(jqXHR, status){
 						
 						options.data = jqXHR.responseJSON;
+						g.easyAutoData = jqXHR.responseJSON;
 
 						$('input[data-easy-auto=true]').each(function(){
 

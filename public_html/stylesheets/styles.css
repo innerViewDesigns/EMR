@@ -131,7 +131,10 @@ header {
   display: absolute; }
   header label {
     margin-right: 10px; }
+  header a#dashboard-link {
+    max-width: 200px; }
   header .dropdown {
+    max-width: 200px;
     margin-bottom: 10px; }
     header .dropdown button {
       margin-left: 0px; }
@@ -288,6 +291,26 @@ h3 {
   -o-animation: fancy-header 3s 1000ms 1 forwards normal;
   animation: fancy-header 3s 1000ms 1 forwards normal; }
 
+section article button#add-note {
+  margin-bottom: 20px; }
+section article div#service-list {
+  padding: 0px 5px 10px 5px;
+  height: 400px;
+  overflow: scroll;
+  width: 100%; }
+  section article div#service-list div.trow {
+    width: 100%; }
+    section article div#service-list div.trow div.tcell {
+      display: inline-block; }
+      section article div#service-list div.trow div.tcell.tcell:first-of-type {
+        width: 20%;
+        text-align: center; }
+      section article div#service-list div.trow div.tcell.tcell:nth-of-type(2) {
+        width: 50%;
+        text-align: center; }
+      section article div#service-list div.trow div.tcell.tcell:last-of-type {
+        width: 30%;
+        text-align: center; }
 section article ul {
   list-style-type: none;
   padding: 10px;

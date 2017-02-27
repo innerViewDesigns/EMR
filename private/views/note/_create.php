@@ -32,7 +32,7 @@
 
 <script>
 
-$("input[data-easy-auto='true']").each(function(){
+$("#myModal input[data-easy-auto='true']").each(function(){
 
 					var $el    		= $(this),
 							$hiddenEl = $("input[name='patient_id[]']");

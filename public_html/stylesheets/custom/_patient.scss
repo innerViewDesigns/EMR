@@ -1,17 +1,66 @@
 section{
+	
 	article{
-			ul{
-				list-style-type: none;
-				padding: 10px;
-				margin: 0px;
-				li.active{
-					background-color: white;
-					span.cpt{
-						color: $gray-light;
-						margin-left: 2em;
-						font-size: .8em;
+
+		button#add-note{
+			margin-bottom: 20px;
+		}
+			
+		div#service-list{
+
+			padding: 0px 5px 10px 5px;
+			height: 400px;
+			overflow: scroll;
+			width: 100%;
+
+
+				div.trow{
+
+					width: 100%;
+
+					div.tcell{				
+
+						display: inline-block;
+
+						&.tcell:first-of-type{
+							width: 20%;
+							text-align: center;
+							
+						}
+
+						&.tcell:nth-of-type(2){
+							width: 50%;
+							text-align: center;
+						}
+
+						&.tcell:last-of-type{
+							width: 30%;
+							text-align: center;
+						}
 					}
 				}
+
 			}
+
+		ul{
+
+			list-style-type: none;
+			padding: 10px;
+			margin: 0px;
+
+			li.active{
+
+				background-color: white;
+
+				span.cpt{
+					color: $gray-light;
+					margin-left: 2em;
+					font-size: .8em;
+				
+				}
+			}
+		}
+		
 	}
 }
+

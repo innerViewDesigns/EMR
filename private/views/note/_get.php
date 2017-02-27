@@ -34,7 +34,7 @@
 
 												echo "data-notes-id='".$note['notes_id']."'";
 
-											} ?> class='col-md-9' >
+											} ?> class='col-md-9 col-lg-9' >
 
 	
 	<textarea class="form-control" name="note" style="width: 100%;" rows="15"><?php if(isset($note['note'])){echo $note['note'];} ?></textarea>
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 				complete : function(jqXHR, status){
 
-					$('article').append(jqXHR.responseText);
+					$('article div[data-target=put-note-here').append(jqXHR.responseText);
 					$('div.flash').css("width", "70%").addClass('pull-right').css('margin-right', "2.5%");
 					
 				}
@@ -99,7 +99,7 @@ $(document).ready(function(){
 	});
 
 	if( $('div.flash').size() > 0){
-		if( parseInt($('table#service-list').height()) < 55){
+		if( parseInt($('div#service-list').height()) < 55){
 			$('div#note').addClass('col-md-offset-3');
 		}
 	}
