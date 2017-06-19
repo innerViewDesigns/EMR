@@ -20,19 +20,24 @@
 			
 			echo "<table class='table'>";
 			echo "<tr>";
-			foreach($rows[0] as $key => $value){
 				
-				echo "<th class='text-center'>$key</th>";
-				
-			}
+				echo "<th class='text-center'>Name</th>";
+				echo "<th class='text-center'>DOS</th>";
+				echo "<th class='text-center'>Allowable</th>";
+				echo "<th class='text-center'>Expected Copay</th>";
+				echo "<th class='text-center'>Recieved</th>";
 
 			echo "</tr>";
 
-			foreach( $rows as $value ){
+			foreach( $rows as $v ){
 				echo "<tr>";
-				foreach( $value as $r => $v){
-					echo "<td class='text-center'>$v</td>";
-				}
+	
+					echo "<td class='text-center'>".$v['Name']."</td>";
+					echo "<td class='text-center'>".$v['dos']."</td>";
+					echo "<td class='text-center'>".$v['allowable_insurance_amount']."</td>";
+					echo "<td class='text-center'>".$v['expected_copay_amount']."</td>";
+					echo "<td class='text-center'>".$v['recieved_insurance_amount']."</td>";
+				
 				echo "</tr>";
 
 			}

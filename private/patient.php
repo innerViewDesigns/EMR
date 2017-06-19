@@ -9,7 +9,7 @@
 	class patient{
 
 		private  $personalInfo;
-		public   $services, $balance, $otherNotes;
+		public   $services, $balance, $otherNotes, $allNotes;
 		private  $flash = [];
 
 		public 	 $rowCount = 0;
@@ -23,10 +23,15 @@
 			$this->db = new dbObj();
 			
 			if( isset($id) ){
+
 				if(gettype($id) === 'array'){
+
 					$this->patient_id = $id[0];
-				}elseif( gettype($id) === 'string'){
+
+				}elseif( gettype($id) == 'string' || gettype($id) == 'integer'){
+
 					$this->patient_id = $id;
+
 				}
 
 				$this->populate();
@@ -86,7 +91,7 @@
 		return $this->balance;
 	}
 
-	private function setBalance(){
+	public function setBalance(){
 
 		$db = $this->db;
 		$sql =<<<EOT
@@ -176,6 +181,47 @@ EOT;
 
 	}
 
+	public function setAllNotes()
+	{
+			$db = $this->db;
+
+			$sql = "SELECT * FROM notes WHERE patient_id_notes = :patient_id ORDER BY dos DESC;";
+
+			try{
+
+					$stmt = $db->db->prepare($sql);
+					$stmt->bindParam(':patient_id', $this->patient_id, PDO::PARAM_INT);
+					$stmt->execute();
+					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if($result){
+
+						$this->allNotes = $result;
+
+					}
+
+				}catch(PDOException $e){
+
+					$this->setFlash('error', "This went wrong when trying to fetch all of that person's notes: ".$e->getMessage());
+
+				}
+
+
+
+	}
+
+	public function getAllNotes()
+	{
+		if(!empty($this->allNotes))
+		{	
+			return $this->allNotes;
+
+		}else
+		{
+			return $this->flash;
+		}
+	}
+
 	private function sanatizeParams($args){
 
 		$requiredKeys = ["first_name", "middle_name", "last_name", "dob", "phone1_type", "phone1", "phone2_type", "phone2", "email", "ss"];
@@ -261,7 +307,9 @@ EOT;
 
 				if($result){
 
+					//echo "<pre>".print_r($result,true)."</pre>";
 					$this->services = $result;
+					//$this->services = $this->setSessionCount($this->services);
 
 				}else{
 					$this->setFlash('error', 'Something went wrong when fetching this patients services.' );
@@ -272,6 +320,97 @@ EOT;
 				$this->setFlash('error', $e->getMessage());
 
 			}
+	}
+
+	public function setSessionCount($services=[]){
+
+		$lateCancels = 0;
+		$individual  = 0;
+		$familyW     = 0;
+		$familyWO    = 0;
+
+		$total_I       = 0;
+		$lateCancels_I = 0;
+		$individual_I  = 0;
+		$familyW_I     = 0;
+		$familyWO_I    = 0;
+
+		$total_NI       = 0;
+		$lateCancels_NI = 0;
+		$individual_NI  = 0;
+		$familyW_NI     = 0;
+		$familyWO_NI    = 0;
+
+		foreach($services as $value){
+			
+			if( preg_match('/late/', strval($value['cpt_code']) ) ){
+				$lateCancels++;
+			}
+
+			switch($value['cpt_code']){
+
+				case 90834:
+					$individual++;
+					if( $value['insurance_used'] == 1 ){$individual_I++; $total_I++;}
+					else{$individual_NI++; $total_NI++;}
+					break;
+
+				case 90791:
+					$individual++;
+					if( $value['insurance_used'] == 1 ){$individual_I++; $total_I++;}
+					else{$individual_NI++; $total_NI++;}
+					break;
+
+				case 90832:
+					$individual++;
+					if( $value['insurance_used'] == 1 ){$individual_I++; $total_I++;}
+					else{$individual_NI++; $total_NI++;}
+					break;
+
+				case 90846:
+					$familyWO++;
+					if( $value['insurance_used'] == 1 ){$familyWO_I++; $total_I++;}
+					else{$familyWO_NI++; $total_NI++;}					
+					break;
+
+				case 90847:
+					++$familyW;
+					if( $value['insurance_used'] == 1 ){$familyW_I++; $total_I++;}
+					else{$familyW_NI++; $total_NI++;}	
+					break;
+
+				default:
+					break;
+
+			}
+
+
+		}
+
+		$sessionCounts = array(
+				'total'          => count($services),
+				'total_I'			   => $total_I,
+				'total_NI'       => $total_NI,
+				"lateCancels"    => $lateCancels,
+				"individual"     => $individual,
+				'individual_I'   => $individual_I,
+				'individual_NI'  => $individual_NI,
+				"familyW"        => $familyW,
+				'familyW_I'      => $familyW_I,
+				'familyW_NI'     => $familyW_NI,
+				"familyWO"	     => $familyWO,
+				"familyWO_I"     => $familyWO_I,
+				"familyWO_NI"     => $familyWO_NI
+			);
+
+		//$services['sessionCounts'] = $sessionCounts;
+
+		return $sessionCounts;
+		
+
+
+
+
 	}
 
 	public function combineOtherNotesAndServices($otherNotes=[], $services=[]){
@@ -396,15 +535,22 @@ EOT;
 		$withNewDate = [];
 		//echo "<br>".print_r($this->services);
 
-		foreach($this->services as $value){
-			
-			$date = new DateTime($value['dos']);
-			$value['dos'] = $date->format($format);
+		$len = count($this->services);
+		$c = 0;
 
+		foreach($this->services as $value){
+
+			//check to see if this is the last key and therefore the session counts
+				
+			$timezone = new DateTimeZone('America/Los_Angeles');
+			$date = DateTime::createFromFormat('Y-m-d H:i:s', $value['dos'], $timezone);	
+			$value['dos'] = $date->format($format);
 			array_push($withNewDate, $value);
 
-		}
+			$c++;
 
+		}
+		//echo "<pre>".print_r($withNewDate, true)."</pre>";
 		return $withNewDate;
 
 

@@ -139,6 +139,7 @@
 			$stmt->bindParam(1, $args['note']);
 
 			if($serviceId){	$stmt->bindParam(2, $this->service_id, PDO::PARAM_INT); }
+
 			else{ $stmt->bindParam(2, $this->notes_id, PDO::PARAM_INT); }
 
 			if( $stmt->execute() ){
@@ -218,7 +219,16 @@
 
 	public function getNote(){
 
-		return $this->note;
+		if(!empty($this->note))
+		{
+				return $this->note;
+				
+		}else
+		{
+
+			return $this->flash;
+
+		}
 
 	}
 

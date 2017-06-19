@@ -44,7 +44,7 @@
 		}    
 		
 
-		private function populate(){
+		public function populate(){
 
 			$this->setInsurance();
 
@@ -79,6 +79,7 @@
 			}else{
 
 				$this->setFlash('error', 'The service_id and dos seem not to have been sent to insurance.php.');
+
 				return false;
 			}
 			
@@ -102,6 +103,7 @@
 				
 				if(!$this->getServiceId()){
 
+					echo $this->patient_id." ".$this->dos." It didn't work.";
 					return false;
 
 				}

@@ -17,11 +17,25 @@
 
 			$this->db = new dbObj();
 
-
-
 		}
 
-		public function update($service_id, $values){
+		public function update($service_id, $values=[]){
+
+			//echo print_r($service_id, true)."<br>";
+			//deal with the values coming in structured as 0=>[service_id=>[] allowable_insurance_amount=>[]]
+			//These will be from insurances::_update
+			
+			if(empty($values))
+			{
+
+					if( array_key_exists('service_id', $service_id) ){
+
+							$values = $service_id;
+							$service_id = $values['service_id'];
+
+					}
+
+			}
 
 			$db = $this->db;
 			//echo "<br>$service_id";
@@ -110,20 +124,22 @@
 			$sql = <<<EOD
 
 SELECT CONCAT(patient.first_name, ' ', patient.last_name) AS Name,
-	   	 services.DOS,
-       services.CPT,
-       insurances.allowable_insurance_amount AS Allowable,
-       insurances.expected_copay_amount AS 'Expected Copay',
-       insurances.recieved_copay_amount AS 'Recieved Copay',
-       insurances.recieved_insurance_amount AS 'Recieved Insurance'
+	   	 services.dos,
+       services.cpt_code,
+       insurances.allowable_insurance_amount,
+       insurances.expected_copay_amount,
+       insurances.recieved_copay_amount,
+       insurances.recieved_insurance_amount,
+       insurances.service_id_insurance_claim,
+       insurances.patient_id_insurance_claim
 
 
 FROM 
 
 	(SELECT patient_id_services AS patient_id,
-			DATE_FORMAT(dos, '%a %b %d') AS DOS,
-            cpt_code AS CPT,
-            id_services AS id
+						dos,
+            cpt_code,
+            id_services
     FROM therapy_practice.services 
     WHERE id_services IN (
 
@@ -142,7 +158,7 @@ EOD;
 	ON patient.patient_id = services.patient_id
 
 	JOIN therapy_practice.insurance_claim AS insurances
-	ON service_id_insurance_claim = services.id;
+	ON service_id_insurance_claim = services.id_services;
 EOD;
 
 			}else{
@@ -171,6 +187,7 @@ EOD;
 
 				}catch (PDOException $e){
 
+					//echo "\n*************$e";
 					$this->setFlash('error', "This from insurances::getSomeByServiceId - ".$e->getMessage());
 					return false;
 
@@ -178,6 +195,120 @@ EOD;
 
 
 		}
+
+	public function pairClaimsAndPayments($claims, $services, $payments=array(), $invoice = false)
+	{
+
+			///////////////////////////////////
+			//Payments will need a dos index for 
+		  //the usort function below
+		  ///////////////////////////////////
+
+			if( !empty( $payments )){
+
+				foreach( $payments as &$p ){
+
+					$p['datetime'] = strtotime( $p['date_recieved'] );
+					$p['dos'] = new DateTime( $p['date_recieved'] );
+
+				}
+
+			}
+
+			///////////////////////////////////
+			//pair each claim with it's own DOS
+		  ///////////////////////////////////
+
+			foreach($claims as &$c){
+
+
+				//if this WILL NOT be going to an invoice,
+				//deal with null cases which come in blank
+
+				if(!$invoice){
+
+
+						if( $c['allowable_insurance_amount'] == "" ){
+
+							$c['allowable_insurance_amount'] = "- ? -";
+
+						}
+
+						if( $c['expected_copay_amount'] == ""){
+
+							$c['expected_copay_amount'] = "- ? -";
+
+						}
+				}
+
+
+				///////////////////////////////////////////////
+				//Then loop through $services and match them up
+				///////////////////////////////////////////////
+
+				foreach($services as &$s){
+
+					
+					if($c['service_id_insurance_claim'] == $s['id_services']){
+
+						if(!$invoice)
+						{
+
+								//record whether insurance was used for this claim, and assign a contextual background class
+								$c['insurance_used'] = ( $s['insurance_used'] == 1 ? 'bg-info' : '' );
+
+								$timezone = new DateTimeZone('America/Los_Angeles');
+								$c['dos'] = DateTime::createFromFormat('Y-m-d H:i:s', $s['dos'], $timezone);
+
+								$c['cpt_code'] = $s['cpt_code'];
+
+						}
+
+
+
+						//Then give it something to compare with other claims by creating
+						//a unix timestamp	
+						$c['datetime'] = strtotime( $s['dos'] );
+
+
+						//Then create another array indexed arbitrarly by service id. This will
+						//be used for array multisort below
+						$date[$s['id_services']] = strtotime( $s['dos'] );
+
+						//Then shorten your loop and increase efficency
+						unset($s);
+
+						//Then break this loop and search for the next match.
+						break;
+					
+					}
+				}	
+			}
+
+			$claims =	array_merge($claims, $payments);
+
+
+			///////////////////
+			//Then sort by date
+		  ///////////////////
+
+		  usort($claims, function($a, $b) {
+
+			  $ab = $a['datetime'];
+			  $bd = $b['datetime'];
+
+			  if ($ab == $bd) {
+			    return 0;
+			  }
+
+			  return $ab < $bd ? 1 : -1;
+
+			});
+
+		  //now you have an ordered list of services with associated financial information and payments
+			return $claims;
+
+	}
 
 	public function getClaims(){
 

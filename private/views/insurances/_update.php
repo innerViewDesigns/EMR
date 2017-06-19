@@ -37,6 +37,7 @@
 		</table>
 		  <button type="submit" class="btn btn-default" id="submit">Submit</button>
 		  <button class="btn btn-default" id="add-more-services">Add Another</button>
+		  <button class="btn btn-default" id="remove-last-row">Remove Last Row</button>
 	</form>
 
 </article>
@@ -132,7 +133,7 @@ $(document).ready(function(){
 					var dos 				 = $row.find('input[name="dos"]').val();
 
 
-					console.log(patient_id + ", " + dos);
+					//console.log(patient_id + ", " + dos);
 
 					$.ajax({
 
@@ -155,19 +156,24 @@ $(document).ready(function(){
 
 						complete : function(jqXHR, status){
 
-							if( typeof jqXHR.responseJSON !== 'undefined'){
+							if( typeof jqXHR.responseJSON != 'undefined'){
 
 								var s = jqXHR.responseJSON;
-								console.log(s);
+
+								if(s['expected_copay_amount'] === null){ s['expected_copay_amount'] = '0.00';}
+
+								//console.log(s);
+
 								
 								$row.find('td').slice(2, 6).each(function(i){
 
-												//place an input with the valued pulled from database
+												//place an input with the value pulled from database
 												var $td  = $(this); 
+												var $row = $td.parents('tr');
 												var col  = $td.attr('data-column-name');
 
 												//set input with old data
-												if(s[col] !== undefined){
+												if(s[col] != undefined){
 
 													$td.html("<input class='form-control' name=" + col + " type='text' value=" + s[col] + ">"); 
 													$row.attr('data-type', 'update-data');
@@ -175,6 +181,20 @@ $(document).ready(function(){
 													//in case you already turned the background red on this row, turn them back when
 													//you finally get it right.
 													$td.css('background-color', '').css('box-shadow', '').css('opacity', '');
+
+													if( $td.index() == 5 )
+													{
+
+														$td.append('<div class="glyph glyphicon glyphicon-minus"></div>');
+														$td.find('.glyphicon-minus').css('cursor', 'pointer').click(function(){
+
+																$(this).parents('tr').remove();
+
+														});
+
+													}
+
+													$row.attr("data-type", "update-data");
 
 												}else{
 
@@ -191,7 +211,11 @@ $(document).ready(function(){
 								$row.find('input[name="service_id"]').val(s['service_id_insurance_claim']); 
 
 							}else{
-								$row.css('background-color', '#d9534f')
+
+								$row.css('background-color', '#d9534f');
+								console.log("else. Here's the returned object: ");
+								console.log(jqXHR);
+
 							}
 
 						} //complete
@@ -220,7 +244,9 @@ $(document).ready(function(){
 
 	$('#add-more-services').click(function(e){
 
-		var $row = $('table#payments tr:last');
+		e.preventDefault();
+		
+		var $row = $('table#payments tr').last();
 		var clone = $row.clone();
 		clone.find("input[data-easy-auto='true']").after("<input type='text' data-easy-auto='true' name='patient' onClick='this.select()'></input>").remove();
 		clone.find("td").slice(2, 6).each(function(){
@@ -228,14 +254,25 @@ $(document).ready(function(){
 			$(this).html("");
 
 		});	
-		clone.appendTo('table');
+		clone.appendTo('table#payments');
+
+		$('table#payments tr').last().find('.glyphicon-minus').css('cursor', "pointer").click(function(){
+
+			$(this).parents('tr').remove();
+
+		});
 
 		$row  = null;
 		clone = null;
 
-		
-		e.preventDefault();
 		waitForElement();
+
+	});
+
+	$('button#remove-last-row').click(function(e){
+
+		e.preventDefault();
+		$('table#payments tr:last').remove();
 
 	});
 
@@ -245,24 +282,23 @@ $(document).ready(function(){
 
 		//go row by row and pick up the data.
 		//select data by data-type attr (where = update-data);
-		var $rows = $('tr[data-type="update-data"]');
+		var $rows = $('table#payments tr[data-type="update-data"]');
 		var data = {};
 
 
-		$rows.each(function(){
+		$rows.each(function(i){
 			console.log('each function');
 
-			var $tr = $(this);
-			var service_id = $tr.find("input[name='service_id']").val();
+			var $tr = $(this); 
 
-			
-			console.log(service_id);
-			data[service_id] = {
+			//console.log(service_id);
+			data[i] = {
 				
-				allowable_insurance_amount : $tr.find('input[name="allowable_insurance_amount"]').val(),
-				expected_copay_amount      : $tr.find('input[name="expected_copay_amount"]').val(),
-				recieved_insurance_amount  : $tr.find('input[name="recieved_insurance_amount"]').val(),
-				recieved_copay_amount 	 	 : $tr.find('input[name="recieved_copay_amount"]').val()
+				'service_id'                   : $tr.find("input[name='service_id']").val(),
+				'allowable_insurance_amount'   : $tr.find('input[name="allowable_insurance_amount"]').val(),
+				'expected_copay_amount'        : $tr.find('input[name="expected_copay_amount"]').val(),
+				'recieved_insurance_amount'    : $tr.find('input[name="recieved_insurance_amount"]').val(),
+				'recieved_copay_amount' 	 	   : $tr.find('input[name="recieved_copay_amount"]').val()
 			} 
 
 
@@ -274,11 +310,13 @@ $(document).ready(function(){
 
 				url : g.basePath + "insurances/update",
 
+				method : "POST",
+
 				data: {
 
 					'remote'				: 'true',
 					'template_name' : '_get',
-					data 						: data
+					'data' 						: data
 
 				},
 
@@ -297,14 +335,6 @@ $(document).ready(function(){
 
 
 	}); //submit button click
-
-	$('div.glyphicon-minus').css("cursor", "pointer").click(function(){
-
-		$(this).parents('tr').remove();
-
-	});
-
-
 
 
 

@@ -104,7 +104,8 @@
 
 							$list_item = $list_item . ", " . $newList[$i]['dx2'];
 
-						}elseif( isset( $newList[$i]['dx3'] ) ){
+						}
+						if( isset( $newList[$i]['dx3'] ) ){
 
 							$list_item = $list_item . ", " . $newList[$i]['dx3'];
 
@@ -116,7 +117,7 @@
 
 							if( ($interval->d > 0) ){
 
-								$list_item = "<li style='margin-bottom: 25px;'>" . $list_item;
+								$list_item = "<li style='margin-bottom: 25px;'>" . $list_item . " /n";
 
 							}else{
 

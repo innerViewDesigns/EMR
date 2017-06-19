@@ -37,7 +37,7 @@
 											} ?> class='col-md-9 col-lg-9' >
 
 	
-	<textarea class="form-control" name="note" style="width: 100%;" rows="15"><?php if(isset($note['note'])){echo $note['note'];} ?></textarea>
+	<textarea class="form-control" name="note" id="noteTextarea" style="width: 100%;" rows="15"><?php if(isset($note['note'])){echo $note['note'];} ?></textarea>
 	<button id="update" class="pull-right btn btn-primary" style="margin-top: 15px;">Update</button>
 
 
@@ -61,7 +61,7 @@ $(document).ready(function(){
 					data 					: 
 
 						{
-							note 			 : $('textarea').val(),
+							note 			 : $('textarea#noteTextarea').val(),
 							service_id : $('div#note').attr('data-service-id'),
 							notes_id   : $('div#note').attr('data-notes-id')
 						}
@@ -85,6 +85,7 @@ $(document).ready(function(){
 						});
 					
 					}
+
 				},
 
 				complete : function(jqXHR, status){

@@ -23,110 +23,24 @@
 
 	$patient->setServices();
 	$services = $patient->getServices();
+	$sessionCount = $patient->setSessionCount($services);
+
+	//echo "<pre>".print_r($services, true)."</pre>";
 
 	
 	$other_payments = new otherPayments(array('patient_id'=>$patient->patient_id));
+	$other_payments->setPayments();
 	$payments = $other_payments->getPayments();
 
-	if(is_array($payments)){
-		foreach( $payments as &$p ){
-
-			$p['datetime'] = strtotime( $p['date_recieved'] );
-			$p['dos'] = new DateTime( $p['date_recieved'] );
-
-		}
-	}else{
-		$payments = [];
-	}
-
-
-	///////////////////////////////////
-	//pair each claim with it's own DOS
-  ///////////////////////////////////
-
-	foreach($claims as &$c){
-
-		//////////////////////////////////////////
-		//deal with null cases which come in blank
-		//////////////////////////////////////////
-
-		if( $c['allowable_insurance_amount'] == "" ){
-
-			$c['allowable_insurance_amount'] = "- ? -";
-
-		}
-
-		if( $c['expected_copay_amount'] == ""){
-
-			$c['expected_copay_amount'] = "- ? -";
-
-		}
-
-		
-		///////////////////////////////////////////////
-		//Then loop through $services and match them up
-		///////////////////////////////////////////////
-
-		foreach($services as &$s){
-
-			
-			if($c['service_id_insurance_claim'] == $s['id_services']){
-
-				//give this insurance claim a date and make it a date object
-
-				$c['dos'] = new DateTime( $s['dos'] );
-
-				//Then give it something to compare with other claims by creating
-				//a unix timestamp
-
-				$c['cpt_code'] = $s['cpt_code'];
-
-				$c['datetime'] = strtotime( $s['dos'] );
-
-				//Then create another array indexed arbitrarly by service id. This will
-				//be used for array multisort below
-
-				$date[$s['id_services']] = strtotime( $s['dos'] );
-
-				//Then shorten your loop and increase efficency
-
-				unset($s);
-
-				//Then break this loop and search for the next match.
-				break;
-			
-			}
-		}	
-	}
-
-	$sessionCount = count($claims);
-	$claims =	array_merge($claims, $payments);
-
-
-	///////////////////
-	//Then sort by date
-  ///////////////////
-
-  usort($claims, function($a, $b) {
-
-	  $ab = $a['datetime'];
-	  $bd = $b['datetime'];
-
-	  if ($ab == $bd) {
-	    return 0;
-	  }
-
-	  return $ab < $bd ? 1 : -1;
-
-	});
-
-
+	$claims = $insurance_claims->pairClaimsAndPayments($claims, $services, $payments, false);
+	//echo "<pre>".print_r($claims, true)."</pre>";
 ?>
 
 <article class="col-md-12 drop6">
-	<div style="width: 100%; margin-bottom: 25px;">
+	<div style="width: 100%;" class="clearfix">
 		<div class="pull-left">
-			<p style="margin-bottom: 35px;">Number of sessions: <?= $sessionCount; ?></p>
+			<p>Number of sessions: <?= $sessionCount['total']; ?></p>
+			<p style="">Late Cancels: <?= $sessionCount['lateCancels']; ?></p>
 		</div>
 
 		<div class="pull-right">
@@ -156,16 +70,40 @@
 
 			if(is_array($claims)){
 
+				//echo "<pre>".print_r($claims, true)."</pre>";
 				foreach( $claims as &$value ){
 
-					if(!array_key_exists('service_id_insurance_claim', $value) ){
-						$value['service_id_insurance_claim'] = 'undefined';
+					//echo "<pre>".print_r($value, true)."</pre>";
+
+					//You'll be using these keys in the table to set data attributes on the rows. 
+					//For payment entries, they won't have service_id so avoid a warning assign the
+					//value. Do the same thing for service entries that won't have a payment_id and
+					//for the insurance_used key
+
+					if(!array_key_exists('service_id_insurance_claim', $value) )
+					{
+
+							$value['service_id_insurance_claim'] = 'undefined';
+
+					}else
+					{
+
+							$value['id_other_payments'] = 'undefined';
+
 					}
 
-					echo "<tr data-service_id = ".$value['service_id_insurance_claim'].">
-									<td class='text-center' data-edit='false'>".$value['dos']->format("Y/m/d")."</td>";
+					if(!array_key_exists('insurance_used', $value)){
 
-					if( array_key_exists('id_other_payments', $value) ){
+						$value['insurance_used'] = "";
+
+					}
+
+
+
+					echo "<tr data-service-id = ".$value['service_id_insurance_claim']." data-payment-id = ".$value['id_other_payments']." class=".$value['insurance_used'].">
+									<td class='text-center' data-edit='false'><div class='checkbox-custom2'></div>".$value['dos']->format('Y-m-d')."</td>";
+
+					if( $value['id_other_payments'] !== 'undefined'){
 
 						echo	"<td class='text-center' ".
 
@@ -226,9 +164,13 @@ $(document).ready(function(){
 		if( i == 0 ){return true;}
 
 		$(this).hover(function(){
+
 			$(this).css('background-color', '#eee');
+
 		}, function(){
+
 			$(this).css('background-color', '');
+
 		});
 
 	});
@@ -236,9 +178,13 @@ $(document).ready(function(){
 	$('table tr td[data-edit="true"]').each(function(){
 
 		$(this).on('mouseenter.hoverBorder',function(){
+
 			$(this).css('border', '1px solid black');
+
 		}).on('mouseleave.hoverBorder', function(){
+
 			$(this).css('border', '');
+
 		});
 
 
@@ -355,7 +301,7 @@ $(document).ready(function(){
 		$rows.each(function(i){
 
 			var     $row = $(this),
-			  service_id = $(this).attr('data-service_id'),
+			  service_id = $(this).attr('data-service-id'),
 				 	 $inputs = $row.find('input');
 
 			data[i] = { 'service_id' : service_id };
@@ -387,6 +333,8 @@ $(document).ready(function(){
 
 				beforeSend : function(){
 
+					console.log(data);
+
 				},
 
 				complete : function(jqXHR, status){
@@ -397,14 +345,116 @@ $(document).ready(function(){
 				} 
 
 		}); //ajax 
-		//Ajax
 
 	}
+
+
+	/////////////////////////////////
+	//Now tackle the invoicing system
+	/////////////////////////////////
+
+
+	var $chkboxes = $('.checkbox-custom2');
+	var lastChecked = null;
+
+	$chkboxes.click(function(e) {
+	   
+	    if(!lastChecked) {
+	        lastChecked = this;
+	        return;
+	    }
+
+	    if(e.shiftKey) {
+
+	        var start = $chkboxes.index(this);
+	        var end = $chkboxes.index(lastChecked);
+
+	        $chkboxes.slice(Math.min(start,end), Math.max(start,end)).addClass('checked');
+
+	    }
+	    document.getSelection().removeAllRanges();
+	    lastChecked = this;
+	});
+
+	$('div.checkbox-custom2').each(function(){
+
+			$(this).click(function(){
+					
+					$(this).toggleClass('checked');
+
+			});
+
+	});
+
+	
+	
 
 	$(function () {
   	$('[data-toggle="popover"]').popover();
 	});
 
 });
+
+function createInvoice(){
+
+			//gather data
+
+			var data = { 'data-service-id' : [], 'data-payment-id' : [] };
+
+			$('div.checkbox-custom2.checked').each(function(){
+
+					var $el = $(this).parents('tr');
+
+
+					if( $el.attr('data-service-id') != 'undefined' ) 
+					{
+						
+							data['data-service-id'].push($el.attr('data-service-id'));
+
+
+					}else
+					{
+
+							data['data-payment-id'].push($el.attr('data-payment-id'));
+
+					}
+
+			});
+
+			//console.log(data);
+
+
+			
+
+			$.ajax({
+
+					url : g.basePath + "invoice/post",
+
+					data: {
+
+						'data'   : data
+
+					},
+
+					beforeSend : function(){
+
+						console.log("sending...");
+
+					},
+
+					complete : function(jqXHR, status){
+
+
+						console.log(jqXHR);
+
+
+					} 
+
+				}); //ajax 
+				
+
+
+	}
+
 
 </script>

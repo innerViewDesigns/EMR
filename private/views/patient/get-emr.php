@@ -5,7 +5,9 @@
 	}
 
 	$patient->setServices();
+	$sessionCount = $patient->setSessionCount($patient->getServices());
 	$patient->setOtherNotes();
+
 	$servicesAndNotes = $patient->combineOtherNotesAndServices($patient->getOtherNotes(), $patient->getServices());
 	$this->flash = array_merge_cust($this->flash, $patient->getFlash());
 
@@ -24,9 +26,9 @@
 					//echo "<ul class='service-list col-md-3' style='border: 1px solid grey;'>";
 					echo "<div id='service-list' style='border: 1px solid grey;'>";
 					if( $servicesAndNotes ){
-						//echo print_r($servicesAndNotes, true);
+						//echo '<pre>'.print_r($servicesAndNotes, true).'</pre>';
 						foreach( $servicesAndNotes as &$value){
-							
+
 							if( isset($value['cpt_code']) ){
 								if($value['cpt_code'] == ""){
 									$value["cpt_code"] = '(none)';
@@ -63,9 +65,15 @@
 								$completed = "'>";
 							}
 
+							if( isset($value['insurance_used']) && $value['insurance_used'] != '0'){
+								$insurance_used = 'bold';
+							}else{
+								$insurance_used = '';
+							}
+
 							//echo "<li ". $class .$dataAttr.">".$value['dos']."<span class='cpt text-center' style='font-size: .8em; color: blue; margin-left: 10px;'>".$value['cpt_code']."</span></li>";
 							//echo "<tr ". $class .$dataAttr." style='height: 1.6em;'><td>".$value['dos']."</td><td class='cpt text-center' style='font-size: .8em; color: blue;''>".$value['cpt_code']."</td></tr>";
-							echo "<div class='trow' " .$dataAttr." style='height: 1.6em;'><div class='tcell' ".$completed."</div><div class='tcell'>".$value['dos']."</div><div class='cpt tcell' style='font-size: .8em; color: blue;''>".$value['cpt_code']."</div></div>";
+							echo "<div class='trow' " .$dataAttr." style='height: 1.6em;'><div class='tcell' ".$completed."</div><div class='tcell'>".$value['dos']."</div><div class='cpt tcell ".$insurance_used."' style='font-size: .8em; color: blue;''>".$value['cpt_code']."</div></div>";
 						}
 
 					}

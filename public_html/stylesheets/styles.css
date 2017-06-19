@@ -237,6 +237,9 @@ h3 {
 .absolute {
   position: absolute; }
 
+.bold {
+  font-family: 'latoregular'; }
+
 .relative {
   position: relative; }
 
@@ -335,6 +338,19 @@ div.checkbox-custom {
   div.checkbox-custom.checked {
     box-shadow: inset 0px 0px 0px 4px #fff;
     background-color: blue; }
+
+div.checkbox-custom2 {
+  height: 1em;
+  width: 1em;
+  border: 1px solid #777777;
+  margin: 5px 20px -2px -20px;
+  cursor: pointer;
+  display: inline-block;
+  background-color: white;
+  z-index: 1; }
+  div.checkbox-custom2.checked {
+    box-shadow: inset 0px 0px 0px 3px #fff;
+    background-color: #02ed68; }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {

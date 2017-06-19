@@ -6,18 +6,27 @@
 
 	$patient->setServices();
 	$pServices = $patient->getServices('y-m-d h:m');
+	//echo "<pre>".print_r($pServices, true)."</pre>";
+	$pSessionCount = $patient->setSessionCount($pServices);
+	$c = count($pServices);
+	//echo $c;
 
 ?>
 
 
 <article class="col-md-12 drop6">
 	
+	<p class="">late cancels: <?= $pSessionCount['lateCancels']; ?></p> 
+
 	<div class="row" style="margin-bottom: 30px;">
+
+			<p class="pull-left" style="margin: 0px 15px 0px 15px;">Total services: <?= $pSessionCount['total']; ?> (Ins: <?= $pSessionCount['total_I']; ?>)(No Ins: <?= $pSessionCount['total_NI']; ?>)</p>
+			<p class="pull-left" style="margin: 0px 15px 0px 15px;">90834s + 90791: <?= $pSessionCount['individual']; ?> (Ins: <?= $pSessionCount['individual_I']; ?>)(No Ins: <?= $pSessionCount['individual_NI']; ?>)</p>
+			<p class="pull-left" style="margin: 0px 15px 0px 15px;">90846s: <?= $pSessionCount['familyWO']; ?> (Ins: <?= $pSessionCount['familyWO_I']; ?>)(No Ins: <?= $pSessionCount['familyWO_NI']; ?>)</p>
+			<p class="pull-left" style="margin: 0px 15px 0px 15px;">90847s: <?= $pSessionCount['familyW']; ?> (Ins: <?= $pSessionCount['familyW_I']; ?>)(No Ins: <?= $pSessionCount['familyW_NI']; ?>)</p>
 		
-		<div class="col-md-3" style="margin-top: 25px;">
-			<p>Number of sessions: <?= count($pServices); ?></p>
-		</div>	
-		
+		<!--
+
 		<div class="form-group col-md-3">
 	    <label for="start_date">Start</label>
 	    <input type="text" class="form-control" id="" name='start_date' value='' onClick="this.select();"></input>
@@ -29,7 +38,8 @@
 	  </div>
 	  
 	  <button name="export" class="btn btn-default col-md-2" style="margin-top: 28px;" >Export</button>  
-	
+		-->
+
 	</div>
 
 	
@@ -57,6 +67,10 @@
 			if(is_array($pServices)){
 
 				foreach( $pServices as $key => $value ){
+
+					//check to see if this is the last key and therefore the session counts
+					if($key == $c){ break; }
+
 
 					echo "<tr><td><div class='checkbox-custom' style='margin-left: 15px;' data-service-id =". $value['id_services'] ."></div></td>
 									<td class='text-center'>".$value['dos']."</td>";

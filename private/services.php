@@ -53,6 +53,13 @@
 
 		public function getSomeByServiceId($args){
 
+			/*
+			echo "**********************\n";
+			echo "get some by service ID\n";
+			print_r($args);
+			echo "\n**********************\n";
+			*/
+
 			$db = $this->db;
 			$result = [];
 
@@ -65,23 +72,25 @@
 SELECT CONCAT(patient.first_name, ' ', patient.last_name) AS name,
 			 services.patient_id,
 	   	 services.dos,
-       services.Charged,
-       services.Ins,
-       services.CPT,
+       services.charged,
+       services.insurance_used,
+       services.cpt_code,
        services.dx1,
        services.dx2,
-       services.dx3
+       services.dx3,
+       services.id_services
 
 FROM 
 
 	(SELECT patient_id_services AS patient_id,
-			DATE_FORMAT(dos, '%a %b %d at %l:%i %p') AS DOS,
-            charged AS Charged,
-            insurance_used AS Ins,
-            cpt_code AS CPT,
+						dos,
+            charged,
+            insurance_used,
+            cpt_code,
             dx1,
             dx2,
-            dx3
+            dx3,
+            id_services
     FROM therapy_practice.services 
     WHERE id_services IN (
 
@@ -133,6 +142,7 @@ EOD;
 
 
 		}
+
 
 	private function setFlash($status, $message, $rowCount=null){
 

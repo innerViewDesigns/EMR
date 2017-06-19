@@ -2,6 +2,7 @@
   
 
   set_include_path(__DIR__ . "/views");
+  
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
   require_once(__DIR__ . "/validations.php");
   require_once(__DIR__ . "/SplClassLoader.php");
@@ -30,6 +31,9 @@
   		//echo "<br>appController::post. ";
       //echo "<br> " . print_r($args, true);
       //parse args and dispatch to appropriate method
+
+      echo "post function";
+      $this->model = new $this->model_name($args);
 
   	}
 
@@ -258,11 +262,17 @@
 
           if (is_multi($data) ){
 
+            echo "is_multi before consolidate: ".print_r($data, true);
+
             $data = consolidateParams($data);
+
+            echo "is_multi after consolidate: ".print_r($data, true);
 
           }
 
           if(array_key_exists('0', $data)){
+
+            //echo "<br><br>array_key_exists '0': ".print_r($data, true);
 
             foreach($data as $key => $value){
 

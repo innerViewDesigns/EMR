@@ -8,7 +8,7 @@
 
 	class otherPayments{
 
-		public   $patient_id, $id, $date, $amount, $payments;
+		public   $patient_id, $id, $date, $amount, $payments = array();
 
 		public 	 $rowCount = 0;
 		private  $db;
@@ -37,7 +37,6 @@
 			
 				}
 
-				$this->setPayments();
 			}
 
 
@@ -84,7 +83,7 @@
 
 		}
 
-		private function setPayments(){
+		public function setPayments(){
 
 			$db = $this->db;
 

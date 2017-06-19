@@ -22,3 +22,23 @@ div.checkbox-custom{
     }
 
 }
+
+div.checkbox-custom2{
+
+    height: 1em;
+    width: 1em;
+    border: 1px solid $gray-light;
+    margin: 5px 20px -2px -20px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: white;
+    z-index: 1;
+
+    &.checked{
+
+        box-shadow: inset 0px 0px 0px 3px #fff;
+        background-color: #02ed68;
+    }
+
+
+}

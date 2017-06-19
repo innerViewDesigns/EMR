@@ -17,7 +17,7 @@
     public   $params;
 
     public   $basePath        = "therapyBusiness";
-    private  $possibleModels  = ['patient', 'patients', 'service', 'services', 'insurance', 'insurances', 'dashboard', 'otherPayments', 'note', 'notes'];
+    private  $possibleModels  = ['patient', 'patients', 'service', 'services', 'insurance', 'insurances', 'dashboard', 'otherPayments', 'note', 'notes', 'invoice'];
     private  $possibleActions = ['post', 'get', 'create', 'update'];
 
   	function __construct(){
@@ -97,7 +97,7 @@
         }
 
       }
-    
+      //echo print_r($this->params, true);
     }
 
     protected function parseUri(){

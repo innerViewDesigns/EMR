@@ -98,12 +98,16 @@
 	public function setServiceByDOS(){
 
 		$db = $this->db;
+		$start = $this->dos . " 00:00:00";
+		$end   = $this->dos . " 23:59:59";
+		
 
 			try{
 
-					$stmt = $db->db->prepare("SELECT * FROM services WHERE patient_id_services = ? AND dos = CAST(? AS DATE);");
+					$stmt = $db->db->prepare("SELECT * FROM services WHERE patient_id_services = ? AND dos BETWEEN ? AND ?;");
 					$stmt->bindParam(1, $this->patient_id, PDO::PARAM_INT);
-					$stmt->bindParam(2, $this->dos);
+					$stmt->bindParam(2, $start);
+					$stmt->bindParam(3, $end);
 					$stmt->execute();
 					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
