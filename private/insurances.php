@@ -126,6 +126,7 @@
 SELECT CONCAT(patient.first_name, ' ', patient.last_name) AS Name,
 	   	 services.dos,
        services.cpt_code,
+       services.insurance_used,
        insurances.allowable_insurance_amount,
        insurances.expected_copay_amount,
        insurances.recieved_copay_amount,
@@ -139,7 +140,8 @@ FROM
 	(SELECT patient_id_services AS patient_id,
 						dos,
             cpt_code,
-            id_services
+            id_services,
+            insurance_used
     FROM therapy_practice.services 
     WHERE id_services IN (
 

@@ -10,13 +10,14 @@
 
 		private $patient_id, $dos, $service_id;
 		private $flash = [];
+		public $insurance_claim;
 		private  $db;
 
 		
 		public function __construct($args = null) {
 			
 			//echo "<br>service::__construct";
-			//echo "<br>service::id = ".print_r($id, true);
+			
 			$this->db = new dbObj();
 			
 			//fb("service::__construct");
@@ -25,6 +26,8 @@
 			if( isset($args) ){
 
 				if(gettype($args) === 'array'){
+
+					//echo "<br>service::args = ".print_r($args, true);
 
 					if(array_key_exists('patient_id', $args)){
 						$this->patient_id = $args['patient_id'];
@@ -50,7 +53,7 @@
 
 		}
 
-		private function getServiceId(){
+		public function setServiceId(){
 
 			//You'll need the service id to retrieve specific insurance claims.
 			//This is being called from this class's setInsurance() method
@@ -101,9 +104,9 @@
 
 			if( empty($this->service_id) ){
 				
-				if(!$this->getServiceId()){
+				if(!$this->setServiceId()){
 
-					echo $this->patient_id." ".$this->dos." It didn't work.";
+					echo $this->patient_id." ".$this->dos." From insurance::setInsurance - It didn't work.\n";
 					return false;
 
 				}
@@ -205,6 +208,19 @@
 
 	}
 
+	public function getServiceId()
+	{
+
+			return $this->service_id;
+
+	}
+
+	public function getInsuranceClaim()
+	{
+
+			return $this->insurance_claim;
+
+	}
 
 	public function getService(){
 

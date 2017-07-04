@@ -55,9 +55,10 @@ class PDF extends FPDF
             $this->pt['pt_info']    = $patientObj->getPersonalInfo();
             $this->pt['pt_info']['balance'] = $patientObj->getBalance();
 
-
             //echo print_r($this->claims, true);
             //echo print_r($this->pt, true);
+
+            $this->claims = $this->PrepareData($this->claims);
         
         }else if(!empty($dates))
         {
@@ -83,6 +84,84 @@ class PDF extends FPDF
 
     }
 
+    function PrepareData($claims)
+    {
+        $localTotal=0;
+
+        foreach($claims as &$value)
+        {
+
+            //if this item represents a service, dos will be a string. Otherwise, it will be a dateTime object.
+            if(gettype($value['dos']) == 'string')
+            {
+                $value['dos'] = preg_replace('/\s\d{2}:\d{2}:\d{2}/', '', $value['dos']);
+                $localTotal += $value['expected_copay_amount'];
+
+            }else
+            {
+                $value['dos'] = $value['dos']->format("Y-m-d");
+            }
+
+
+            if(array_key_exists('cpt_code', $value))
+            {
+                switch($value['cpt_code'])
+                {
+
+                    case 90834:
+                        $value['cpt_code'] = 'Psychotherapy - 45mins';
+                        $value['standard_fee'] = 150.00;
+                        break;
+
+                    case 90791:
+                        $value['cpt_code'] = 'Psychotherapy Intake - 60mins';
+                        $value['standard_fee'] = 200.00;
+                        break;
+
+                    case 90847:
+                        $value['cpt_code'] = 'Family Therapy with Patient - 45mins';
+                        $value['standard_fee'] = 150.00;
+                        break;
+
+                    case 90846:
+                        $value['cpt_code'] = 'Family Therapy without Patient - 45mins';
+                        $value['standard_fee'] = 150.00;
+                        break;   
+
+                    case 90837:
+                        $value['cpt_code'] = 'Psychotherapy - 60mins';
+                        $value['standard_fee'] = 175.00;
+                        break; 
+
+                    case 'late cancel':
+                        $value['cpt_code'] = 'Late Cancel';
+                        $value['standard_fee'] = 150.00;
+                        break;                        
+                }
+
+
+
+            }
+
+        }
+
+        //echo "Total of added expected copays: ".sprintf("%.2f", $localTotal)."\n";
+
+        if($localTotal >= abs($this->pt['pt_info']['balance']) || $this->pt['pt_info']['balance'] > 0)
+        {
+            return $claims;
+
+        }else
+        {
+            //figure out how to throw an error.
+            echo "Local Total: $localTotal"." ".abs($this->pt['pt_info']['balance']);
+            die;
+        }
+        
+        
+
+    }
+
     function prepare($args=[])
     {
 
@@ -96,7 +175,6 @@ class PDF extends FPDF
         $this->lineRowRight = $this->tableRowLeft + $this->footerWidth;
 
 
-        //$pdf->getData($services, array());
 
         //$pdf->AddFont('AppleGaramondLight','', 'AppleGaramond-Light.php');
         $this->AddFont('Cormorant','','CormorantGaramond-Light.php');
@@ -108,9 +186,10 @@ class PDF extends FPDF
         $this->setMargins(15, 15, 15);
 
         $this->firstPageHeader();
-        //$this->addTitle();
-        //$this->addName();
-        $this->addNotes();
+        $this->addTitle();
+        $this->addName();
+        $this->addTable();
+        //$this->addNotes();
         //echo "Testing the line of calls.".print_r($args, true);
 
     }
@@ -224,22 +303,23 @@ class PDF extends FPDF
         $this->Cell( $strWidth, 10, 'Patient Name: ', 0, 0,'L'); 
 
         $this->SetFont('Cormorant','',12);
-        $this->Cell( 0, 10, 'John Doe', 0, 0, 'L');
+        $this->Cell( 0, 10, $this->pt_info['first_name']." ".'last_name', 0, 0, 'L');
 
         $this->Ln(7);
         $this->SetX($this->leftMargin);
 
         $this->SetFont('CormorantBold','',12);
         $strWidth = $this->GetStringWidth('Invoice date: ');
-        $this->Cell( $strWidth, 10, 'Invoice Date: ', 0, 0,'L'); 
+        $this->Cell( $strWidth, 10, 'Invoice Date: ', 0, 0,'L');
+        $this->Cell( $strWidth, 10, date("Y-m-d"), 0, 0,'L'); 
 
-        $this->addTable();
 
     }
 
     function addTable()
     {
 
+        
         $this->Ln(15);
 
         $this->SetFont('CormorantBold','',12);
@@ -254,21 +334,61 @@ class PDF extends FPDF
         $this->Ln(3);
         
         $this->SetFont('Cormorant','',12);
+        */
         
+        $dif = 0;
 
         //Create table
-        for($x=0; $x <= 35; $x++)
-        {
+        foreach($this->claims as $row)
+        {   
+            if(array_key_exists('insurance_used', $row))
+            {
+                if($row['insurance_used'] || strpos($row['cpt_code'], 'Late') == 0)
+                {
+                    $chargeAmount = 'expected_copay_amount';
 
+                }else
+                {
+                    $chargeAmount = 'standard_fee';
+                    $dif += $row['standard_fee'] - $row['expected_copay_amount'];
+
+                }
+                    
+            }
+
+            
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, '05/05/2017', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 60, 10, 'Psychotherapy - 45mins (co-pay)', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, '$30.00', 0, 1,'R');
+            
+            /*
+            if(!array_key_exists('id_other_payments', $row))
+            {
+                echo $row['dos']." ".$row['cpt_code']." ".number_format($row[$chargeAmount], 2)."\n";
+
+            }else
+            {   
+                //this is actually a payment with 'date_recieved'
+                echo $row['dos']." Payment - Thank you! -".$row['amount']."\n";
+
+            }
+            */
 
 
         }
+
+        /*
+        if($dif)
+        {
+            echo "Courtey Adjust: ".sprintf("-%.2f", $dif)."\n";
+
+        }
+        echo "Total Due: ".$this->pt['pt_info']['balance'];
+
+        */
 
         //Draw a line. 
         $this->Line($this->lineRowLeft, $this->GetY() + 2, $this->lineRowRight, $this->GetY() + 2);
@@ -290,6 +410,7 @@ class PDF extends FPDF
         $this->Line($this->lineRowLeft, $this->GetY()+2, $this->lineRowRight, $this->GetY()+2);
 
         $this->addFooter();
+        
     }
 
     function addFooter()
@@ -320,8 +441,19 @@ class PDF extends FPDF
 }
 
 $pdf = New PDF();
-$pdf->prepare();
-$pdf->Output('F', "/Users/Apple/Sites/therapyBusiness/private/fpdf181/test.pdf");
+
+//Donna
+//$services = array(3350, 3320, 3301, 3271, 3243, 3212, 3183, 3153, 3129, 3099);
+//$payments = array(564);
+
+//Matteo 
+$services = array(3374, 3353, 3304, 3266, 3246, 3206);
+$payments = array(579);
+
+$pdf->getData($services, $payments);
+$pdf->addTable();
+//$pdf->prepare();
+//$pdf->Output('F', "/Users/Apple/Sites/therapyBusiness/private/fpdf181/test.pdf");
 
 
 ?>

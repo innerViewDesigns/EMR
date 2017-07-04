@@ -214,7 +214,7 @@ $(document).ready(function(){
 
 								$row.css('background-color', '#d9534f');
 								console.log("else. Here's the returned object: ");
-								console.log(jqXHR);
+								console.log(jqXHR.responseText);
 
 							}
 

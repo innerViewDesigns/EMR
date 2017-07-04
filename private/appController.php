@@ -32,7 +32,7 @@
       //echo "<br> " . print_r($args, true);
       //parse args and dispatch to appropriate method
 
-      echo "post function";
+      //echo "post function";
       $this->model = new $this->model_name($args);
 
   	}

@@ -421,10 +421,9 @@ function createInvoice(){
 
 			});
 
-			//console.log(data);
+			//console.log(data['data-service-id'].join());
+			//console.log(data['data-payment-id'].join());
 
-
-			
 
 			$.ajax({
 
@@ -445,12 +444,12 @@ function createInvoice(){
 					complete : function(jqXHR, status){
 
 
-						console.log(jqXHR);
+						console.log(jqXHR.responseText);
 
 
 					} 
 
-				}); //ajax 
+				}); //ajax */
 				
 
 

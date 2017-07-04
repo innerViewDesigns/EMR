@@ -51,7 +51,7 @@
 
 		}   
 
-		public function getByActive($arg){
+		public function getByActive($arg=1){
 			
 			$db = $this->db;
 			
@@ -67,19 +67,27 @@
 						$this->rawData = $result;
 
 					}else{
-						echo "no results";
+
+						echo "no results from getByActive in patients";
+
 					}
 					
 
 				}catch (PDOException $e){
 
+					//echo "in patients::getByActive. The database error: ".$e->getMessage();
 					$this->setFlash('error', "in patients::getByActive. The database error: ".$e->getMessage());
 
 				}
 
 		}   
 
+		public function getPatients()
+		{
 
+				return $this->rawData;
+
+		}
 
 		public function getnamesAndIds(){
 
