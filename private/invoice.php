@@ -26,9 +26,16 @@
 				//echo print_r($this->services, true);
 				//echo print_r($this->payments, true);
 
-				$pdf->getData($this->services, $this->payments, $this->dates);
+				$tmp = $pdf->getData($this->services, $this->payments, $this->dates);
+				
+				if( gettype($tmp) === "string")
+				{
+						echo $tmp;
+						die;
+				}
+				
 				$pdf->prepare();
-				$pdf->Output('F', "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/Invoices/".date("Y-m-d_")."Invoice-".$pdf->getName().".pdf");
+				$pdf->Output('F', "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/Invoices/".$pdf->getInvoiceDate()."_Invoice-".$pdf->getName().".pdf");
 
 
 			}

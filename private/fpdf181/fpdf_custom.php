@@ -17,6 +17,12 @@ class PDF extends FPDF
     protected $footerWidth  = 130;
     protected $lineRowRight = 0;
     protected $footerText   = "You may pay by check, charge, or cash. If you pay by check, please make it payable to: Michael Lembaris, Psy.D., Psychologist, inc.\n\nMy Federal Tax ID # is: 81-1857287.\n\nThank you in advance for your prompt attention to this invoice. Please contact me if you have any questions. Thank you... Dr. Lembaris";
+    protected $localBalance = false;
+    protected $paymentTotal = 0;
+    protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
+    protected $customDate   = " 2017-11-01";
+    protected $addOn        = ' (co-pay)'; 
+    protected $noInsuranceFee = 125.00;
 
 
 
@@ -78,7 +84,7 @@ class PDF extends FPDF
         }else
         {
 
-            //set the default
+            return "Error Message. getData didn't have any data.";
 
         }
 
@@ -152,18 +158,9 @@ class PDF extends FPDF
 
         }
 
-        //echo "Total of added expected copays: ".sprintf("%.2f", $localTotal)."\n";
 
-        if($localTotal >= abs($this->pt['pt_info']['balance']) || $this->pt['pt_info']['balance'] > 0)
-        {
-            return $claims;
-
-        }else
-        {
-            //figure out how to throw an error.
-            echo "Local Total: $localTotal"." vs. Actual balance:".abs($this->pt['pt_info']['balance']);
-            die;
-        }
+        $this->pt['pt_info']['local_balance'] = $localTotal;
+        return $claims;
         
         
 
@@ -267,11 +264,11 @@ class PDF extends FPDF
         $this->SetXY(-50,12);
 
         // Title
-        $this->Cell(0,0,'5405 Morehouse Dr. STE 120',0,2,'R');
+        $this->Cell(0,0,'3252 Holiday CT., STE 102',0,2,'R');
         
         // Line break
         $this->Ln(4);
-        $this->Cell(0,0,'San Diego, CA 92121',0,2,'R');
+        $this->Cell(0,0,'La Jolla, CA 92037',0,2,'R');
 
         $this->Ln(7);
         $this->Cell(0,0,'(p) 619-887-4068',0,2,'R');
@@ -295,7 +292,7 @@ class PDF extends FPDF
         $this->SetX( ($this->GetPageWidth() / 2) - ($strWidth / 2));
 
 
-        $this->Cell( $strWidth, 8, 'Invoice for professional Services', 'B', 2,'C');        
+        $this->Cell( $strWidth, 8, 'Invoice for Professional Services', 'B', 2,'C');        
 
     }
 
@@ -320,16 +317,20 @@ class PDF extends FPDF
         $strWidth = $this->GetStringWidth('Invoice date: ');
         $this->Cell( $strWidth, 10, 'Invoice Date: ', 0, 0,'L');
 
+
+        $date = $this->customDate ? $this->customDate : date("Y-m-d");
         $this->SetFont('Cormorant','',12);
         $this->SetX($this->GetX() + 2);
-        $this->Cell( 0, 10, date("Y-m-d"), 0, 0,'L'); 
+        $this->Cell( 0, 10, $date, 0, 0,'L'); 
 
 
     }
 
     function addTable()
     {
-
+        $dif          = 0;
+        $addOn        = '';
+        $paymentTotal = 0;
         
         $this->Ln(15);
 
@@ -346,21 +347,32 @@ class PDF extends FPDF
         
         $this->SetFont('Cormorant','',12);
         
-        
-        $dif = 0;
-        $addOn = '';
+
+        /*        
+        $file = __DIR__ . '/feedback.txt';
+        file_put_contents($file, print_r($this->claims, true), FILE_APPEND);
+        */
 
         //Create table
         foreach($this->claims as $row)
         {   
             if(array_key_exists('insurance_used', $row))
             {   
-                $addOn = $row['insurance_used'] ? ' (co-pay)' : '';
+                $addOn = $row['insurance_used'] ? $this->addOn : '';
 
                 //if this was a service check to see if insurance was used or if this was a late cancel
                 if($row['insurance_used'] || strpos(strtolower($row['cpt_code']), 'late') === 0)
                 {
                     $chargeAmount = 'expected_copay_amount';
+
+                    //if insurance WAS used, but i'm out of network, then drop the add on. 
+                    if($row[$chargeAmount] == $this->noInsuranceFee)
+                    {
+                        $addOn = '';
+                        $chargeAmount = 'standard_fee';
+                        $dif += $row['standard_fee'] - $row['expected_copay_amount'];
+                    }
+                    
 
                 }else
                 {
@@ -389,9 +401,13 @@ class PDF extends FPDF
             }else
             {   
                 //this is actually a payment with 'date_recieved'
-                $this->Cell( 60, 10, "Payment - Thank You!", 0, 0,'L');
+                $this->Cell( 60, 10, "Payment - Thank You.", 0, 0,'L');
                 $this->SetX( $this->GetX() + 10);
                 $this->Cell( 25, 10, "-".sprintf("%.2f", $row['amount']), 0, 1,'R');
+
+                //add the payment amount for use in case this is needed.
+
+                $paymentTotal += abs( $row['amount'] );
 
             }
             
@@ -425,15 +441,32 @@ class PDF extends FPDF
         //put x to far right of table, then subtract the width of 'total due: ' + the last cell width + 
         //the space to the left of the last cell width.
         $this->SetX(( $this->tableRowLeft + 100) );
-        $this->Cell( 25, 10, "$".sprintf("%.2f", abs($this->pt['pt_info']['balance'])), 0, 0,'R');
 
+
+        
+        
         //check to see if there is a balance due or an account credit. Then proceed accordingly
+        //$balance = $this->pt['pt_info']['balance'] > 0 ? "Account Credit: " : "Total Due: ";
+        
+        if(!$this->paymentRecord)
+        {
+            //if you're looking for the sum of just the services included in this invoice, grab that value
+            //otherwise, grab the overal balance of all services
+            $balance = $this->localBalance ? $this->pt['pt_info']['local_balance'] : $this->pt['pt_info']['balance'];
+            $lable = $balance > 0 ? "Account Credit: " : "Total Due: ";
 
-        $balance = $this->pt['pt_info']['balance'] > 0 ? "Account Credit: " : "Total Due: ";
-        $strWidth = $this->GetStringWidth($balance);
+        }else
+        {   
+            $balance = $paymentTotal;
+            $lable = "Total paid between 2017-01-01 and 2017-10-13: ";
+        }
+
+        $this->Cell( 25, 10, "$".sprintf("%.2f", abs($balance)), 0, 0,'R');
+
+        $strWidth = $this->GetStringWidth($lable);
 
         $this->SetX( $this->GetX() - 35 - $strWidth);
-        $this->Cell( $strWidth, 10, $balance, 0, 1,'R');
+        $this->Cell( $strWidth, 10, $lable, 0, 1,'R');
         
     
 
@@ -448,8 +481,10 @@ class PDF extends FPDF
         $this->MultiCell( $this->footerWidth + 10, 6, $this->footerText, 0, 'L', false );
         $this->Ln(3);
 
-        $this->Line($this->lineRowLeft, $this->GetY(), $this->lineRowRight, $this->GetY());
-
+        if($this->footerText != "")
+        {
+            $this->Line($this->lineRowLeft, $this->GetY(), $this->lineRowRight, $this->GetY());
+        }
 
 
     }
@@ -463,6 +498,17 @@ class PDF extends FPDF
         $this->SetFont('Cormorant','',10);
         // Page number
         $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+    }
+
+    public function getInvoiceDate()
+    {
+
+        if($this->customDate)
+            return trim($this->customDate);
+        else
+            return date("Y-m-d");
+
+
     }
 
 

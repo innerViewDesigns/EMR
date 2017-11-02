@@ -296,6 +296,16 @@ h3 {
 
 section article button#add-note {
   margin-bottom: 20px; }
+section article td {
+  position: relative; }
+  section article td span.cpt_span {
+    font-size: .7em;
+    position: absolute;
+    top: 68%;
+    left: 81%;
+    color: blue; }
+    section article td span.cpt_span.late-cancel {
+      left: 70%; }
 section article div#service-list {
   padding: 0px 5px 10px 5px;
   height: 400px;

@@ -5,6 +5,25 @@ section{
 		button#add-note{
 			margin-bottom: 20px;
 		}
+		td{
+			
+			position: relative;
+
+			span.cpt_span{
+				font-size: .7em;
+				position: absolute;
+				top: 68%;
+				left: 81%;
+				color: blue;
+				
+				&.late-cancel{
+
+					left: 70%;
+					
+				}
+			
+			}
+		}
 			
 		div#service-list{
 

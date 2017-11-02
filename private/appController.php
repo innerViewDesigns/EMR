@@ -21,7 +21,7 @@
 
   	public function __construct($model = null, $basePath = null){
 
-  		//echo "appController::construct. model: $model";
+  		// echo "Step 7 appController::__construct, model: $model, basePath: $basePath<br>";
       $this->model_name = $model;
       $this->basePath = $basePath;
   	}
@@ -40,7 +40,7 @@
     public function get($args=[]){
 
       //echo "<br>appController::get";
-      //echo "</br>args = ". print_r($args, true);
+      // echo "Step 8 appController::get, args: ".print_r($args, true)."<br>";
         
       $this->model = new $this->model_name($args);
       $this->flash = array_merge_cust($this->flash, $this->model->getFlash());

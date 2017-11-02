@@ -84,11 +84,13 @@
 					{
 
 							$value['service_id_insurance_claim'] = 'undefined';
+							$value['cpt_code'] = "";
 
 					}else
 					{
 
 							$value['id_other_payments'] = 'undefined';
+
 
 					}
 
@@ -98,10 +100,13 @@
 
 					}
 
+					$spanCptClass = $value['cpt_code'] === "late cancel" ? " late-cancel": "";
+
+
 
 
 					echo "<tr data-service-id = ".$value['service_id_insurance_claim']." data-payment-id = ".$value['id_other_payments']." class=".$value['insurance_used'].">
-									<td class='text-center' data-edit='false'><div class='checkbox-custom2'></div>".$value['dos']->format('Y-m-d')."</td>";
+									<td class='text-center' data-edit='false'><div class='checkbox-custom2'></div>".$value['dos']->format('Y-m-d')."<span class='cpt_span".$spanCptClass."'>".$value['cpt_code']."</span></td>";
 
 					if( $value['id_other_payments'] !== 'undefined'){
 
@@ -165,7 +170,14 @@ $(document).ready(function(){
 
 		$(this).hover(function(){
 
-			$(this).css('background-color', '#eee');
+			if($(this).hasClass('bg-info'))
+			{
+				$(this).css('background-color', '#bce0f2');
+			}else
+			{
+				$(this).css('background-color', '#eee');
+			}
+			
 
 		}, function(){
 
@@ -421,8 +433,8 @@ function createInvoice(){
 
 			});
 
-			//console.log(data['data-service-id'].join());
-			//console.log(data['data-payment-id'].join());
+			console.log("service-ids: " + data['data-service-id'].join());
+			console.log("payment-ids: " + data['data-payment-id'].join());
 
 
 			$.ajax({

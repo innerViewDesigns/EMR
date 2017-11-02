@@ -1,0 +1,95 @@
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4248
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509206400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-27
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4240
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509127200
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4194
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508601600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4186
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508522400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 726
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-10-10
+            [amount] => 810.00
+            [type] => check
+            [associated_data] => 8456
+            [datetime] => 1507618800
+            [dos] => 2017-10-10
+        )
+
+    [5] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4088
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1507312800
+            [standard_fee] => 150
+        )
+
+)

@@ -352,7 +352,7 @@ V60.2	Z59.6	Low income
 296.25	F32.4	Major depressive disorder, Single episode, In partial remission
 296.21	F32.0	Major depressive disorder, Single episode, Mild
 296.22	F32.1	Major depressive disorder, Single episode, Moderate
-296.23	F32.2	Major depressive disorder, Single episode, Severe
+296.23		Major depressive disorder, Single episode, Severe
 296.20	F32.9	Major depressive disorder, Single episode, Unspecified
 296.24	F32.3	Major depressive disorder, Single episode, With psychotic features
 331.9	G31.9	Major frontotemporal neurocognitive disorder, Possible

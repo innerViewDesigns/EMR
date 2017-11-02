@@ -82,6 +82,55 @@
 
 		} 
 
+		public function setAllForPatientIncludeDOS($args)
+		{
+			
+			$db = $this->db;
+
+			$sql = <<<EOD
+
+SELECT id_insurance_claim,
+	   service_id_insurance_claim,
+     recieved_insurance_amount,
+     services.dos,
+     services.cpt_code,
+     services.insurance_used
+       
+FROM insurance_claim
+
+JOIN therapy_practice.services AS services
+on id_services = service_id_insurance_claim
+
+WHERE patient_id_insurance_claim = 255 ORDER BY services.dos DESC;
+
+EOD;
+			
+			try{
+
+					$stmt = $db->db->prepare($sql);
+					$stmt->bindParam(1, $args['patient_id'], PDO::PARAM_INT);
+					$stmt->execute();
+					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if($result){
+
+						$this->rawData = $result;
+
+					}else{
+
+						$this->setFlash("error", "No results from the getAllForPatient function in services.php");
+						$this->rawData = [];
+					}
+					
+
+				}catch (PDOException $e){
+
+					$this->setFlash('error', $e);
+
+				}			
+
+		}
+
 		public function setAllForPatient($args){
 			
 			$db = $this->db;

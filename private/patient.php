@@ -16,21 +16,28 @@
 		private  $db;
 
 		
-		public function __construct($id = null) {
+		public function __construct($args=[]) {
 			
-			//echo "<br>patient::__construct";
-			//echo "<br>patient::id = ".print_r($id, true);
+			/*
+					
+					http://localhost/therapyBusiness/patient/get/228 - will yield an array here.
+					You still havn't found a path that leads to a string output.
+
+			*/
+
+			// echo "Step 9 patient::__construct, id: ".print_r($args, true)."<br>";
+
 			$this->db = new dbObj();
 			
-			if( isset($id) ){
+			if( isset($args) ){
 
-				if(gettype($id) === 'array'){
+				if(gettype($args) === 'array'){
 
-					$this->patient_id = $id[0];
+					$this->patient_id = $args[0];
 
-				}elseif( gettype($id) == 'string' || gettype($id) == 'integer'){
+				}elseif( gettype($args) == 'string' || gettype($id) == 'integer'){
 
-					$this->patient_id = $id;
+					$this->patient_id = $args;
 
 				}
 

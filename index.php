@@ -21,6 +21,8 @@
     private  $possibleActions = ['post', 'get', 'create', 'update'];
 
   	function __construct(){
+     
+      // echo "Step 1 frontEndController::__construct<br>";
 
       $this->parseUri();
       $this->run();
@@ -28,10 +30,15 @@
   	}
 
     protected function setModel($model=null, $id=null){
-       
+        
+
+
         if( in_array($model, $this->possibleModels)){
+
           $this->model = $model;
           $this->id    = $id;
+
+          // echo "Step 3 frontEndController::setModel, model: ".$this->model." id: ".$this->id."<br>";
         }
         else{
           echo "'$model' was not a valid model.<br>";
@@ -45,6 +52,7 @@
     
         if( in_array($action, $this->possibleActions)){
           $this->action = $action;
+          // echo "Step 4 frontEndController::setAction, action: ".$this->action."<br>";
         }else{
           echo "'$action' was not a valid action.<br>";
         }
@@ -57,25 +65,34 @@
       
       //if it's actually a query string, parse it
 
-      //echo "<br>index::setparams - " . print_r($arr, true);
-
+      /*
       if(!empty($arr) && preg_match('/\?/', $arr)){
         
         parse_str($arr, $this->params);
-        
-      }elseif(!empty($arr)){
+        // echo "Step 5a frontEndController::setParams, params ".print_r($this->params, true)."<br>";
 
-        $this->params = $arr;
+      }else
+      */
+
+      if(!empty($arr)){
+
+          $this->params = $arr;
+          // echo "Step 5b frontEndController::setParams, params ".print_r($this->params, true)."<br>";
+
+          //if what got passed was just a string. Make it an array to satisfy the run method
+          if(gettype($this->params) === 'string'){
+
+            $this->params = [$this->params];
+            // echo "Step 5c frontEndController::setParams, params ".print_r($this->params, true)."<br>";
+
+          }
+
 
       }
 
 
-      //if what got passed was just a string. Make it an array to satisfy the run method
-      if(gettype($this->params) === 'string'){
+      
 
-        $this->params = [$this->params];
-
-      }
 
       if( !empty($_POST) ){
         
@@ -83,6 +100,7 @@
         foreach($_POST as $key => $value){
       
           $this->params[$key] = $value;
+          // echo "Step 5d frontEndController::setParams, params ".print_r($this->params, true)."<br>";
       
         }
 
@@ -93,19 +111,21 @@
         foreach($_GET as $key => $value){
         
           $this->params[$key] = $value;
+          // echo "Step 5e frontEndController::setParams, params ".print_r($this->params, true)."<br>";
         
         }
 
       }
-      //echo print_r($this->params, true);
+
     }
 
     protected function parseUri(){
 
       //expecting: model/action(post or get)/params (prefaced with the CRUD verb)
       $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
+      
+      // echo "Step 2 frontEndController::parseUri, path: ".$path."<br>";
 
-      //echo "<br>path: $path";
       if (strpos($path, $this->basePath) === 0) {
     
           $path = trim( substr($path, strlen($this->basePath)), "/");
@@ -153,7 +173,7 @@
 
     public function run(){
 
-      //echo "<br>still in index. params: ".print_r($this->params, true).", model: ".print_r($this->model, true).", action: $this->action<br>";
+      // echo "Step 6 frontEndController::run, params ".print_r($this->params, true)."<br>";
       call_user_func_array( array(new appController($this->model), $this->action), array($this->params) );
 
     }
