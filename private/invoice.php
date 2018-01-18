@@ -35,7 +35,8 @@
 				}
 				
 				$pdf->prepare();
-				$pdf->Output('F', "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/Invoices/".$pdf->getInvoiceDate()."_Invoice-".$pdf->getName().".pdf");
+				$label = $pdf->getLabel();
+				$pdf->Output('F', "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/Invoices/".$pdf->getInvoiceDate().$label.$pdf->getName().".pdf");
 
 
 			}

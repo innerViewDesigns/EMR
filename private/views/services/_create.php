@@ -7,9 +7,9 @@
 			<tr>
 				<th class="text-center col-md-3">Patient</th> 
 				<th class="text-center col-md-3">Date</th>
-				<th class="text-center">Type</th>
 				<th class="text-center">$?</th>
 				<th class="text-center">Ins?</th>
+				<th class="text-center">in net?</th>
 				<th class="text-center col-md-2">CPT</th>
 				<th class="text-center col-md-1">Dx1</th>
 				<th class="text-center col-md-1">Dx2</th>
@@ -26,14 +26,15 @@
 					<input type="text" class="form-control" name='dos[]'></input>
 				</td>
 				<td>
-					<input type="text" class="form-control" name='type[]'></input>
-				</td>
-				<td>
 					<input type="hidden" data-type = "former-checkbox" name='charged[]'>
 					<div class="checkbox-custom"></div>
 				</td>
 				<td>	
 					<input type="hidden" data-type = "former-checkbox" name='insurance_used[]'>
+					<div class="checkbox-custom"></div>
+				</td>
+				<td>	
+					<input type="hidden" data-type = "former-checkbox" name='in_network[]'>
 					<div class="checkbox-custom"></div>
 				</td>
 				<td>
@@ -253,11 +254,11 @@ $(document).ready(function(){
 								var s = jqXHR.responseJSON;
 								//console.log(s);
 								
-								$row.find('td').slice(5, 9).each(function(i){
+								$row.find('td').slice(5, 10).each(function(i){
 
 									var $input = $(this).find('input');
 									var col   = $input.attr("data-column-name");
-									//console.log(col);
+									console.log(col);
 
 									$input.val(s[col]);
 
@@ -297,6 +298,23 @@ $(document).ready(function(){
 									if( !$row.find('input[name="charged[]"]').siblings('div').hasClass('checked') ){
 
 										$row.find('input[name="charged[]"]').siblings('div').addClass('checked');
+
+									}
+									
+								}
+
+								if(s['in_network'] == 0){
+
+									$row.find('input[name="in_network[]"]').val('0');
+									$row.find('input[name="in_network[]"]').siblings('div').removeClass('checked');
+
+								}else{
+
+									$row.find('input[name="in_network[]"]').val('1');	
+
+									if( !$row.find('input[name="in_network[]"]').siblings('div').hasClass('checked') ){
+
+										$row.find('input[name="in_network[]"]').siblings('div').addClass('checked');
 
 									}
 

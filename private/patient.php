@@ -35,7 +35,7 @@
 
 					$this->patient_id = $args[0];
 
-				}elseif( gettype($args) == 'string' || gettype($id) == 'integer'){
+				}elseif( gettype($args) == 'string' || gettype($args) == 'integer'){
 
 					$this->patient_id = $args;
 
@@ -290,6 +290,7 @@ EOT;
        services.dos,
        services.charged,
        services.insurance_used,
+       services.in_network,
        services.cpt_code,
        services.dx1,
        services.dx2,

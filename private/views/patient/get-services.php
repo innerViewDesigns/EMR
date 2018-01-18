@@ -55,9 +55,9 @@
 							<tr>
 								<th id='print' class='text-center' style='margin-left: -20px;'>Print</th>
 								<th class='text-center'>Date</th>
-								<th class='text-center'>type</th>
 								<th class='text-center'>charged</th>
 								<th class='text-center'>insurance_used</th>
+								<th class='text-center'>in_net</th>
 								<th class='text-center'>cpt</th>
 								<th class='text-center'>dx1</th>
 								<th class='text-center'>dx2</th>
@@ -75,9 +75,9 @@
 					echo "<tr><td><div class='checkbox-custom' style='margin-left: 15px;' data-service-id =". $value['id_services'] ."></div></td>
 									<td class='text-center'>".$value['dos']."</td>";
 
-					echo	"<td class='text-center'>".$value['type']."</td>"
-								."<td class='text-center'>".$value['charged']."</td>"
+					echo	"<td class='text-center'>".$value['charged']."</td>"
 								."<td class='text-center'>".$value['insurance_used']."</td>"
+								."<td class='text-center'>".$value['in_network']."</td>"
 								."<td class='text-center'>".$value['cpt_code']."</td>"
 								."<td class='text-center'>".$value['dx1']."</td>"
 								."<td class='text-center'>".$value['dx2']."</td>"

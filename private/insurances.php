@@ -176,6 +176,7 @@ SELECT CONCAT(patient.first_name, ' ', patient.last_name) AS Name,
 	   	 services.dos,
        services.cpt_code,
        services.insurance_used,
+       services.in_network,
        insurances.allowable_insurance_amount,
        insurances.expected_copay_amount,
        insurances.recieved_copay_amount,
@@ -190,7 +191,8 @@ FROM
 						dos,
             cpt_code,
             id_services,
-            insurance_used
+            insurance_used,
+            in_network
     FROM therapy_practice.services 
     WHERE id_services IN (
 
@@ -238,7 +240,7 @@ EOD;
 
 				}catch (PDOException $e){
 
-					//echo "\n*************$e";
+					echo "\n*************$e";
 					$this->setFlash('error', "This from insurances::getSomeByServiceId - ".$e->getMessage());
 					return false;
 
@@ -251,8 +253,9 @@ EOD;
 	{
 
 			///////////////////////////////////
-			//Payments will need a dos index for 
-		  //the usort function below
+			//Payments will need an index for 
+		  //the usort function below. That index will
+		  //be 'datetime'
 		  ///////////////////////////////////
 
 			if( !empty( $payments )){

@@ -383,7 +383,15 @@
 									if( $tmp != FALSE)
 									{
 
-											preg_match('/[^\s]+/', substr($file[$lineNum+1], $tmp), $matches);
+											/*
+														
+														Match everything but a space: /[^\s]+/
+														Match everything up to a comma: /[^,]+/
+
+
+											*/
+
+											preg_match('/[^,]+/', substr($file[$lineNum+1], $tmp), $matches);
 											$services[$ctr] = array('name' => $matches[0]);
 											continue;
 

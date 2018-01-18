@@ -1,8 +1,8 @@
 <?php
 //require("fpdf.php");
-//require($_SERVER['DOCUMENT_ROOT']."/therapyBusiness/private/insurances.php");
-//require($_SERVER['DOCUMENT_ROOT']."/therapyBusiness/private/Services.php");
-//require($_SERVER['DOCUMENT_ROOT']."/therapyBusiness/private/otherPayments.php");
+//require("/Users/Apple/Sites/therapyBusiness/private/insurances.php");
+// require("/Users/Apple/Sites/therapyBusiness/private/Services.php");
+//require("/Users/Apple/Sites/therapyBusiness/private/otherPayments.php");
 //require("/Users/Apple/Sites/therapyBusiness/private/patient.php");
 //require("/Users/Apple/Sites/therapyBusiness/private/note.php");
 
@@ -20,9 +20,11 @@ class PDF extends FPDF
     protected $localBalance = false;
     protected $paymentTotal = 0;
     protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
-    protected $customDate   = " 2017-11-01";
+    protected $customDate   = false;//" 2018-01-01";
     protected $addOn        = ' (co-pay)'; 
-    protected $noInsuranceFee = 125.00;
+    protected $notesOnly    = false;
+    protected $insurancePayments = 0;
+    protected $corrections  = false;
 
 
 
@@ -43,7 +45,7 @@ class PDF extends FPDF
             $outServices  = $serviceObj->getSomeByServiceId($inServices);
 
 
-            //When intantiated, all other_payments for this patient are set
+            //When intantiated, all other_payments for this patient that were passed in are retrieved. 
             $paymentsObj   = New otherPayments($claims[0]['patient_id_insurance_claim']);
             $paymentsObj->getSomeById($inPayments);
 
@@ -60,9 +62,13 @@ class PDF extends FPDF
 
             $this->pt['pt_info']    = $patientObj->getPersonalInfo();
             $this->pt['pt_info']['balance'] = $patientObj->getBalance();
+            //$this->pt['pt_info']['preBalance'] = $this->setPreBalance();
 
             //echo print_r($this->claims, true);
             //echo print_r($this->pt, true);
+
+            $file = __DIR__ . '/errors.txt';
+            file_put_contents($file, print_r($this->pt, true), FILE_APPEND);
 
             $this->claims = $this->PrepareData($this->claims);
         
@@ -99,7 +105,8 @@ class PDF extends FPDF
 
     function PrepareData($claims)
     {
-        $localTotal=0;
+        $localTotalExpected=0;
+        $localTotalAllowed=0;
 
         foreach($claims as &$value)
         {
@@ -108,7 +115,8 @@ class PDF extends FPDF
             if(gettype($value['dos']) == 'string')
             {
                 $value['dos'] = preg_replace('/\s\d{2}:\d{2}:\d{2}/', '', $value['dos']);
-                $localTotal += $value['expected_copay_amount'];
+                $localTotalExpected += $value['expected_copay_amount'];
+                $localTotalAllowed  += $value['allowable_insurance_amount'];
 
             }else
             {
@@ -159,7 +167,8 @@ class PDF extends FPDF
         }
 
 
-        $this->pt['pt_info']['local_balance'] = $localTotal;
+        $this->pt['pt_info']['local_balance_expected'] = 0 - $localTotalExpected;
+        $this->pt['pt_info']['local_balance_allowable'] = 0 - $localTotalAllowed;
         return $claims;
         
         
@@ -189,11 +198,26 @@ class PDF extends FPDF
 
         $this->setMargins(15, 15, 15);
 
+        //You need these lines when you're getting the notes....
+        //$patientObj = New patient(238);  
+        //$this->pt['pt_info']  = $patientObj->getPersonalInfo();
+
         $this->firstPageHeader();
         $this->addTitle();
         $this->addName();
-        $this->addTable();
-        $this->addFooter();
+
+        if(!$this->notesOnly)
+        {
+            $this->addTable();
+            $this->addFooter();
+
+        }else
+        {
+
+            $this->addNotes();
+
+        }
+        
 
 
     }
@@ -283,21 +307,25 @@ class PDF extends FPDF
 
     function addTitle()
     {
+        $label = $this->paymentRecord ? "Record of Payments in 2017" : 'Invoice for professional Services';
+
         //coming from firstPageHeader drop down some space. 
         $this->Ln(25);
         $this->SetFont('CormorantBold','',15);
 
         //figure out how to center the text:
-        $strWidth = $this->GetStringWidth('Invoice for professional Services');
+        $strWidth = $this->GetStringWidth($label);
         $this->SetX( ($this->GetPageWidth() / 2) - ($strWidth / 2));
 
 
-        $this->Cell( $strWidth, 8, 'Invoice for Professional Services', 'B', 2,'C');        
+        $this->Cell( $strWidth, 8, $label, 'B', 2,'C');        
 
     }
 
     function addName()
     {
+
+        $label = $this->paymentRecord ? "Printed on: " : 'Invoice Date: ';
 
         //coming from addTitle drop down some space. 
         $this->Ln(10);
@@ -314,8 +342,8 @@ class PDF extends FPDF
         $this->SetX($this->leftMargin);
 
         $this->SetFont('CormorantBold','',12);
-        $strWidth = $this->GetStringWidth('Invoice date: ');
-        $this->Cell( $strWidth, 10, 'Invoice Date: ', 0, 0,'L');
+        $strWidth = $this->GetStringWidth($label);
+        $this->Cell( $strWidth, 10, $label, 0, 0,'L');
 
 
         $date = $this->customDate ? $this->customDate : date("Y-m-d");
@@ -348,7 +376,7 @@ class PDF extends FPDF
         $this->SetFont('Cormorant','',12);
         
 
-        /*        
+        /*      
         $file = __DIR__ . '/feedback.txt';
         file_put_contents($file, print_r($this->claims, true), FILE_APPEND);
         */
@@ -356,32 +384,123 @@ class PDF extends FPDF
         //Create table
         foreach($this->claims as $row)
         {   
+
+            /*
+                Check to see if this was a service or a payment. If it was a service
+                collect the data you need and set the appropriate variables
+            */
+
             if(array_key_exists('insurance_used', $row))
             {   
-                $addOn = $row['insurance_used'] ? $this->addOn : '';
 
-                //if this was a service check to see if insurance was used or if this was a late cancel
-                if($row['insurance_used'] || strpos(strtolower($row['cpt_code']), 'late') === 0)
+                /*
+                    If you're trying to print a payment record. Skip the claims.
+                */
+
+                if($this->paymentRecord)
                 {
-                    $chargeAmount = 'expected_copay_amount';
+                    continue;
+                }
 
-                    //if insurance WAS used, but i'm out of network, then drop the add on. 
-                    if($row[$chargeAmount] == $this->noInsuranceFee)
+                if( $row['insurance_used'] )
+                {
+
+                    if( $row['in_network'] )
                     {
-                        $addOn = '';
-                        $chargeAmount = 'standard_fee';
-                        $dif += $row['standard_fee'] - $row['expected_copay_amount'];
+
+                        /*
+                            Insurance was used and you are in-network. Lable this a "co-pay" or 
+                            "co-insurance" and show the expected copay amount.
+
+                            You've added code here to chage the add on depending on if this patient is
+                            working toward their deductible
+
+                        */
+                        if($row['expected_copay_amount'] == 88)
+                        {
+                            $addOn = ' (deductible)';
+
+                        }else
+                        {
+                            $addOn = $this->addOn;
+                        }
+                        
+                        $chargeAmount = 'expected_copay_amount'; 
+
+                    }else
+                    {
+                        if(!isset($insurancePayments))
+                        {
+                           $insurancePayments = 0;
+                        }
+
+                        /*
+                            Insurance was used but you are out of network.
+
+                            Don't label this as a "co-pay" or 
+                            "co-insurance" and show the allowable amount for this session (what you've agreed
+                            on with the patient), and keep track of the difference between the standard fee
+                            and the allowable.
+
+                        */
+
+                        $addOn = "";
+                        $chargeAmount = 'standard_fee'; 
+                        $dif += $row['standard_fee'] - $row['allowable_insurance_amount'];
+                        $insurancePayments += abs( $row['recieved_insurance_amount'] );
+
                     }
-                    
 
                 }else
                 {
-                    $chargeAmount = 'standard_fee';
-                    $dif += $row['standard_fee'] - $row['expected_copay_amount'];
+                    /*
+                        Insurance was not used 
+
+                        Check to see whether this is a late cancel or whether
+                        this claim just can't go to insurance. 
+
+                    */
+                    
+                    
+
+
+                    if (strpos(strtolower($row['cpt_code']), 'late') === 0)
+                    {
+                        /*
+                            If this is a late cancel, use the co-pay amount and reset the
+                            label
+                        */
+
+                        $chargeAmount = 'allowable_insurance_amount';
+                        $addOn = "";
+
+                        /*
+                            If you are not charging for the late cancel. Show the courtesy adjust
+                        */
+
+                        if( $row['allowable_insurance_amount'] != $row['expected_copay_amount'] )
+                        {
+                            $dif += $row['allowable_insurance_amount'] - $row['expected_copay_amount'];
+                        }
+                        
+
+                    }else
+                    {
+                        /*
+                            This was a service, but the claim just can't go to insurance.
+                            use the standard fee amount
+                        */
+
+                        $chargeAmount = 'standard_fee';
+                        $dif += $row['standard_fee'] - $row['allowable_insurance_amount'];
+                    }
+
 
                 }
+
+
                     
-            }
+            }  // end if( array_key_exists('insurance_used', $row) )
 
             
             $this->SetX($this->tableRowLeft);
@@ -401,6 +520,7 @@ class PDF extends FPDF
             }else
             {   
                 //this is actually a payment with 'date_recieved'
+
                 $this->Cell( 60, 10, "Payment - Thank You.", 0, 0,'L');
                 $this->SetX( $this->GetX() + 10);
                 $this->Cell( 25, 10, "-".sprintf("%.2f", $row['amount']), 0, 1,'R');
@@ -416,7 +536,7 @@ class PDF extends FPDF
         }
 
         
-        if($dif)
+        if(isset($dif) && $dif > 0)
         {
             
             $this->SetX($this->tableRowLeft);
@@ -425,6 +545,47 @@ class PDF extends FPDF
             $this->Cell( 60, 10, 'Courtesy Adjust', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, "-".sprintf("%.2f", $dif), 0, 1,'R');
+
+        }
+
+        /*
+            
+            Custom Line Item:
+
+        
+
+        $temp = 205.00;
+        $this->SetX($this->tableRowLeft);
+        $this->Cell( 20, 10, "", 0, 0,'L');
+        $this->SetX( $this->GetX() + 10);
+        $this->Cell( 60, 10, 'Insurance Payments (recieved)', 0, 0,'L');
+        $this->SetX( $this->GetX() + 10);
+        $this->Cell( 25, 10, "-".sprintf("%.2f", $temp), 0, 1,'R');
+
+        */
+
+        if( isset($insurancePayments) )
+        {
+
+            $insurancePayments += $this->insurancePayments;
+            $this->SetX($this->tableRowLeft);
+            $this->Cell( 20, 10, "", 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 60, 10, 'Insurance Payments (recieved)', 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 25, 10, "-".sprintf("%.2f", $insurancePayments), 0, 1,'R');   
+                     
+
+        }
+
+        if( $this->corrections)
+        {
+            $this->SetX($this->tableRowLeft);
+            $this->Cell( 20, 10, "", 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 60, 10, 'Underbilled from last invoice', 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 25, 10, sprintf("%.2f", $this->corrections), 0, 1,'R');  
 
         }
 
@@ -451,14 +612,29 @@ class PDF extends FPDF
         if(!$this->paymentRecord)
         {
             //if you're looking for the sum of just the services included in this invoice, grab that value
-            //otherwise, grab the overal balance of all services
-            $balance = $this->localBalance ? $this->pt['pt_info']['local_balance'] : $this->pt['pt_info']['balance'];
+            //otherwise, grab the overall balance of all services
+
+            $balance = $this->localBalance ? $this->pt['pt_info']['local_balance_expected'] : $this->pt['pt_info']['balance'];
+            
+            //Subtract insurancePayments if it's set.
+            if(isset($insurancePayments))
+            {
+                $balance += $insurancePayments;
+            }
+
+            if($this->corrections)
+            {
+                $balance -= $this->corrections;
+
+            }
+            
+
             $lable = $balance > 0 ? "Account Credit: " : "Total Due: ";
 
         }else
         {   
             $balance = $paymentTotal;
-            $lable = "Total paid between 2017-01-01 and 2017-10-13: ";
+            $lable = "Total paid in 2017: ";
         }
 
         $this->Cell( 25, 10, "$".sprintf("%.2f", abs($balance)), 0, 0,'R');
@@ -508,6 +684,18 @@ class PDF extends FPDF
         else
             return date("Y-m-d");
 
+
+    }
+
+    public function getLabel()
+    {
+        if($this->paymentRecord)
+        {
+            return "_PaymentRecord-";
+        }else
+        {
+            return "_Invoice-";
+        }
 
     }
 

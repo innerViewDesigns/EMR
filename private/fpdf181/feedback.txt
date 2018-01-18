@@ -93,3 +93,3779 @@ Array
         )
 
 )
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4248
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509206400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-27
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4240
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509127200
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4194
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508601600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4186
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508522400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 726
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-10-10
+            [amount] => 810.00
+            [type] => check
+            [associated_data] => 8456
+            [datetime] => 1507618800
+            [dos] => 2017-10-10
+        )
+
+    [5] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4088
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1507312800
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-29
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4041
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506697200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3998
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506268800
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-22
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3989
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506092400
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [id_other_payments] => 699
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-09-21
+            [amount] => 60.00
+            [type] => check
+            [associated_data] => 8435
+            [datetime] => 1505977200
+            [dos] => 2017-09-21
+        )
+
+    [10] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3948
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505664000
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-15
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3940
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505487600
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4248
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509206400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-27
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4240
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509127200
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4194
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508601600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4186
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508522400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 726
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-10-10
+            [amount] => 810.00
+            [type] => check
+            [associated_data] => 8456
+            [datetime] => 1507618800
+            [dos] => 2017-10-10
+        )
+
+    [5] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4088
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1507312800
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-29
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4041
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506697200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3998
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506268800
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-22
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3989
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506092400
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [id_other_payments] => 699
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-09-21
+            [amount] => 60.00
+            [type] => check
+            [associated_data] => 8435
+            [datetime] => 1505977200
+            [dos] => 2017-09-21
+        )
+
+    [10] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3948
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505664000
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-15
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3940
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505487600
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4248
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509206400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-27
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4240
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509127200
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4194
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508601600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4186
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508522400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 726
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-10-10
+            [amount] => 810.00
+            [type] => check
+            [associated_data] => 8456
+            [datetime] => 1507618800
+            [dos] => 2017-10-10
+        )
+
+    [5] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4088
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1507312800
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-29
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4041
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506697200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3998
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506268800
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-22
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3989
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506092400
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [id_other_payments] => 699
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-09-21
+            [amount] => 60.00
+            [type] => check
+            [associated_data] => 8435
+            [datetime] => 1505977200
+            [dos] => 2017-09-21
+        )
+
+    [10] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3948
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505664000
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-15
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3940
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505487600
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4248
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509206400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-27
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4240
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1509127200
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4194
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508601600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4186
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1508522400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 726
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-10-10
+            [amount] => 810.00
+            [type] => check
+            [associated_data] => 8456
+            [datetime] => 1507618800
+            [dos] => 2017-10-10
+        )
+
+    [5] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4088
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1507312800
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-29
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 125.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4041
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506697200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3998
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506268800
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-22
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3989
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1506092400
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [id_other_payments] => 699
+            [patient_id_other_payments] => 169
+            [date_recieved] => 2017-09-21
+            [amount] => 60.00
+            [type] => check
+            [associated_data] => 8435
+            [datetime] => 1505977200
+            [dos] => 2017-09-21
+        )
+
+    [10] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3948
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505664000
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => John Hervey
+            [dos] => 2017-09-15
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 125.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 40.00
+            [service_id_insurance_claim] => 3940
+            [patient_id_insurance_claim] => 169
+            [datetime] => 1505487600
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-31
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4275
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509494400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-30
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4265
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509408000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4253
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509220800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4234
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509062400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4220
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508889600
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-23
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4210
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508803200
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4198
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508616000
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4192
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508544000
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4162
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508284800
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-16
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4153
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508198400
+            [standard_fee] => 150
+        )
+
+    [10] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4141
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508011200
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4133
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507852800
+            [standard_fee] => 150
+        )
+
+    [12] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-10
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4119
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507680000
+            [standard_fee] => 150
+        )
+
+    [13] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-09
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4109
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507593600
+            [standard_fee] => 150
+        )
+
+    [14] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4098
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507406400
+            [standard_fee] => 150
+        )
+
+    [15] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-03
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4068
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507075200
+            [standard_fee] => 150
+        )
+
+    [16] => Array
+        (
+            [id_other_payments] => 707
+            [patient_id_other_payments] => 70
+            [date_recieved] => 2017-10-03
+            [amount] => 350.00
+            [type] => credit
+            [associated_data] => 40345345754
+            [datetime] => 1507014000
+            [dos] => 2017-10-03
+        )
+
+    [17] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-02
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4058
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1506988800
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-31
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4275
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509494400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-30
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4265
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509408000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4253
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509220800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4234
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1509062400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4220
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508889600
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-23
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4210
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508803200
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4198
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508616000
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4192
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508544000
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4162
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508284800
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-16
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4153
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508198400
+            [standard_fee] => 150
+        )
+
+    [10] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4141
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1508011200
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4133
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507852800
+            [standard_fee] => 150
+        )
+
+    [12] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-10
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4119
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507680000
+            [standard_fee] => 150
+        )
+
+    [13] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-09
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4109
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507593600
+            [standard_fee] => 150
+        )
+
+    [14] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4098
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507406400
+            [standard_fee] => 150
+        )
+
+    [15] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-03
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4068
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1507075200
+            [standard_fee] => 150
+        )
+
+    [16] => Array
+        (
+            [id_other_payments] => 707
+            [patient_id_other_payments] => 70
+            [date_recieved] => 2017-10-03
+            [amount] => 350.00
+            [type] => credit
+            [associated_data] => 40345345754
+            [datetime] => 1507014000
+            [dos] => 2017-10-03
+        )
+
+    [17] => Array
+        (
+            [Name] => Jordan Anderson
+            [dos] => 2017-10-02
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [allowable_insurance_amount] => 25.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4058
+            [patient_id_insurance_claim] => 70
+            [datetime] => 1506988800
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-11-02
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4290
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1509674400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-10-30
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4266
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1509414000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4236
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1509069600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-10-23
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4212
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1508809200
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-10-09
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4111
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1507599600
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-10-05
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 69.00
+            [service_id_insurance_claim] => 4084
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1507251600
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-10-02
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 69.00
+            [service_id_insurance_claim] => 4060
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1506994800
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 69.00
+            [service_id_insurance_claim] => 4039
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1506646800
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-25
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4017
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1506390000
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 3987
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1506045600
+            [standard_fee] => 150
+        )
+
+    [10] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-18
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 44.00
+            [service_id_insurance_claim] => 3968
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1505785200
+            [standard_fee] => 150
+        )
+
+    [11] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 3938
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1505440800
+            [standard_fee] => 150
+        )
+
+    [12] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-11
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 44.00
+            [service_id_insurance_claim] => 3914
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1505180400
+            [standard_fee] => 150
+        )
+
+    [13] => Array
+        (
+            [Name] => Stuart Swope
+            [dos] => 2017-09-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 44.00
+            [service_id_insurance_claim] => 3884
+            [patient_id_insurance_claim] => 200
+            [datetime] => 1504836000
+            [standard_fee] => 150
+        )
+
+    [14] => Array
+        (
+            [id_other_payments] => 675
+            [patient_id_other_payments] => 200
+            [date_recieved] => 2017-09-01
+            [amount] => 350.00
+            [type] => credit
+            [associated_data] => 40283716416
+            [datetime] => 1504249200
+            [dos] => 2017-09-01
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Anthony O'Neill
+            [dos] => 2017-10-18
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4170
+            [patient_id_insurance_claim] => 72
+            [datetime] => 1508356800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [id_other_payments] => 711
+            [patient_id_other_payments] => 72
+            [date_recieved] => 2017-10-05
+            [amount] => 220.00
+            [type] => credit
+            [associated_data] => 40348134013
+            [datetime] => 1507186800
+            [dos] => 2017-10-05
+        )
+
+    [2] => Array
+        (
+            [Name] => Anthony O'Neill
+            [dos] => 2017-10-02
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4050
+            [patient_id_insurance_claim] => 72
+            [datetime] => 1506963600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Anthony O'Neill
+            [dos] => 2017-09-27
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4028
+            [patient_id_insurance_claim] => 72
+            [datetime] => 1506535200
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Anthony O'Neill
+            [dos] => 2017-09-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 75.00
+            [expected_copay_amount] => 45.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 3981
+            [patient_id_insurance_claim] => 72
+            [datetime] => 1505937600
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Anthony O'Neill
+            [dos] => 2017-09-12
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 75.00
+            [expected_copay_amount] => 45.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 30.00
+            [service_id_insurance_claim] => 3917
+            [patient_id_insurance_claim] => 72
+            [datetime] => 1505239200
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Anthony O'Neill
+            [dos] => 2017-09-05
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 75.00
+            [expected_copay_amount] => 45.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 30.00
+            [service_id_insurance_claim] => 3864
+            [patient_id_insurance_claim] => 72
+            [datetime] => 1504634400
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [id_other_payments] => 683
+            [patient_id_other_payments] => 72
+            [date_recieved] => 2017-09-05
+            [amount] => 180.00
+            [type] => credit
+            [associated_data] => 40291211854
+            [datetime] => 1504594800
+            [dos] => 2017-09-05
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Yonatan Yarkoni
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 35.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4255
+            [patient_id_insurance_claim] => 234
+            [datetime] => 1509228000
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Yonatan Yarkoni
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 35.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4143
+            [patient_id_insurance_claim] => 234
+            [datetime] => 1508018400
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [id_other_payments] => 727
+            [patient_id_other_payments] => 234
+            [date_recieved] => 2017-10-14
+            [amount] => 105.00
+            [type] => check
+            [associated_data] => 137
+            [datetime] => 1507964400
+            [dos] => 2017-10-14
+        )
+
+    [3] => Array
+        (
+            [Name] => Yonatan Yarkoni
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 35.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 53.00
+            [service_id_insurance_claim] => 4100
+            [patient_id_insurance_claim] => 234
+            [datetime] => 1507413600
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-27
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4244
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1509141600
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-23
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4211
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1508806200
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-20
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4190
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1508536800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-16
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4154
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1508201400
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 728
+            [patient_id_other_payments] => 225
+            [date_recieved] => 2017-10-16
+            [amount] => 210.00
+            [type] => credit
+            [associated_data] => 40368948798
+            [datetime] => 1508137200
+            [dos] => 2017-10-16
+        )
+
+    [5] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-09
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4110
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1507596600
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-04
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 120.00
+            [service_id_insurance_claim] => 4074
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1507147200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Lastina Lindsay
+            [dos] => 2017-10-02
+            [cpt_code] => Family Therapy w/ Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 120.00
+            [service_id_insurance_claim] => 4059
+            [patient_id_insurance_claim] => 225
+            [datetime] => 1506991800
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-10-28
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4249
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1509202800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-10-05
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 4077
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1507226400
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 4032
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1506621600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 696
+            [patient_id_other_payments] => 168
+            [date_recieved] => 2017-09-17
+            [amount] => 120.00
+            [type] => credit
+            [associated_data] => 40313151403
+            [datetime] => 1505631600
+            [dos] => 2017-09-17
+        )
+
+    [4] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 3930
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1505412000
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-07
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 0.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 3951
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1504820820
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-10-28
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4249
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1509202800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-10-05
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 4077
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1507226400
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 4032
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1506621600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 696
+            [patient_id_other_payments] => 168
+            [date_recieved] => 2017-09-17
+            [amount] => 120.00
+            [type] => credit
+            [associated_data] => 40313151403
+            [datetime] => 1505631600
+            [dos] => 2017-09-17
+        )
+
+    [4] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 3930
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1505412000
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-07
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 0.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 3951
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1504820820
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-10-28
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4249
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1509202800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-10-05
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 4077
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1507226400
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 4032
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1506621600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 696
+            [patient_id_other_payments] => 168
+            [date_recieved] => 2017-09-17
+            [amount] => 120.00
+            [type] => credit
+            [associated_data] => 40313151403
+            [datetime] => 1505631600
+            [dos] => 2017-09-17
+        )
+
+    [4] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 40.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 48.00
+            [service_id_insurance_claim] => 3930
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1505412000
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => John Poplawski
+            [dos] => 2017-09-07
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 3951
+            [patient_id_insurance_claim] => 168
+            [datetime] => 1504820820
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-31
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4276
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1509498000
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4250
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1509210000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4222
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508896800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4180
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508464800
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4164
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508292000
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4138
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508000400
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-10
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4121
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1507687200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4094
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1507395600
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-03
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4070
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1507082400
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [id_other_payments] => 709
+            [patient_id_other_payments] => 137
+            [date_recieved] => 2017-10-03
+            [amount] => 530.00
+            [type] => credit
+            [associated_data] => 40345526758
+            [datetime] => 1507014000
+            [dos] => 2017-10-03
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-31
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4276
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1509498000
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4250
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1509210000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4222
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508896800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4180
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508464800
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4164
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508292000
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4138
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1508000400
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-10
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4121
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1507687200
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4094
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1507395600
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => Donna  Fremed
+            [dos] => 2017-10-03
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 85.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4070
+            [patient_id_insurance_claim] => 137
+            [datetime] => 1507082400
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [id_other_payments] => 709
+            [patient_id_other_payments] => 137
+            [date_recieved] => 2017-10-03
+            [amount] => 530.00
+            [type] => credit
+            [associated_data] => 40345526758
+            [datetime] => 1507014000
+            [dos] => 2017-10-03
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Elena Smith
+            [dos] => 2017-10-30
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 0
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 150.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4293
+            [patient_id_insurance_claim] => 201
+            [datetime] => 1509386400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Elena Smith
+            [dos] => 2017-10-20
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 0
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 150.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4187
+            [patient_id_insurance_claim] => 201
+            [datetime] => 1508526000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Elena Smith
+            [dos] => 2017-10-04
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 0
+            [allowable_insurance_amount] => 150.00
+            [expected_copay_amount] => 150.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4072
+            [patient_id_insurance_claim] => 201
+            [datetime] => 1507140900
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 710
+            [patient_id_other_payments] => 201
+            [date_recieved] => 2017-10-04
+            [amount] => 270.00
+            [type] => credit
+            [associated_data] => 40347018148
+            [datetime] => 1507100400
+            [dos] => 2017-10-04
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Miguel Mendez
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4252
+            [patient_id_insurance_claim] => 214
+            [datetime] => 1509217200
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Miguel Mendez
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4197
+            [patient_id_insurance_claim] => 214
+            [datetime] => 1508612400
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Miguel Mendez
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4140
+            [patient_id_insurance_claim] => 214
+            [datetime] => 1508007600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Miguel Mendez
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 59.00
+            [service_id_insurance_claim] => 4097
+            [patient_id_insurance_claim] => 214
+            [datetime] => 1507402800
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 719
+            [patient_id_other_payments] => 214
+            [date_recieved] => 2017-10-07
+            [amount] => 40.00
+            [type] => credit
+            [associated_data] => 40352366214
+            [datetime] => 1507359600
+            [dos] => 2017-10-07
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Rachael Caires
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 17.60
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4254
+            [patient_id_insurance_claim] => 252
+            [datetime] => 1509224400
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Rachael Caires
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 17.60
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4199
+            [patient_id_insurance_claim] => 252
+            [datetime] => 1508619600
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Rachael Caires
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 17.60
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4142
+            [patient_id_insurance_claim] => 252
+            [datetime] => 1508014800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Rachael Caires
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 17.60
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 70.40
+            [service_id_insurance_claim] => 4099
+            [patient_id_insurance_claim] => 252
+            [datetime] => 1507410000
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 720
+            [patient_id_other_payments] => 252
+            [date_recieved] => 2017-10-07
+            [amount] => 52.80
+            [type] => credit
+            [associated_data] => 40352604477
+            [datetime] => 1507359600
+            [dos] => 2017-10-07
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4228
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1509040800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4172
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1508436000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy Intake - 60mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4123
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1507831200
+            [standard_fee] => 200
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 722
+            [patient_id_other_payments] => 265
+            [date_recieved] => 2017-10-12
+            [amount] => 132.00
+            [type] => credit
+            [associated_data] => 40361137692
+            [datetime] => 1507791600
+            [dos] => 2017-10-12
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4228
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1509040800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4172
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1508436000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy Intake - 60mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 132.00
+            [expected_copay_amount] => 132.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4123
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1507831200
+            [standard_fee] => 200
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 722
+            [patient_id_other_payments] => 265
+            [date_recieved] => 2017-10-12
+            [amount] => 132.00
+            [type] => credit
+            [associated_data] => 40361137692
+            [datetime] => 1507791600
+            [dos] => 2017-10-12
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4228
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1509040800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4172
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1508436000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy Intake - 60mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 132.00
+            [expected_copay_amount] => 132.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4123
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1507831200
+            [standard_fee] => 200
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 722
+            [patient_id_other_payments] => 265
+            [date_recieved] => 2017-10-12
+            [amount] => 132.00
+            [type] => credit
+            [associated_data] => 40361137692
+            [datetime] => 1507791600
+            [dos] => 2017-10-12
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4228
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1509040800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4172
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1508436000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy Intake - 60mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 132.00
+            [expected_copay_amount] => 132.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4123
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1507831200
+            [standard_fee] => 200
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 722
+            [patient_id_other_payments] => 265
+            [date_recieved] => 2017-10-12
+            [amount] => 132.00
+            [type] => credit
+            [associated_data] => 40361137692
+            [datetime] => 1507791600
+            [dos] => 2017-10-12
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4228
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1509040800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4172
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1508436000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy Intake - 60mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 132.00
+            [expected_copay_amount] => 132.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4123
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1507831200
+            [standard_fee] => 200
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 722
+            [patient_id_other_payments] => 265
+            [date_recieved] => 2017-10-12
+            [amount] => 132.00
+            [type] => credit
+            [associated_data] => 40361137692
+            [datetime] => 1507791600
+            [dos] => 2017-10-12
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4228
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1509040800
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4172
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1508436000
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Jonathan Harrill
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy Intake - 60mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 132.00
+            [expected_copay_amount] => 132.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4123
+            [patient_id_insurance_claim] => 265
+            [datetime] => 1507831200
+            [standard_fee] => 200
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 722
+            [patient_id_other_payments] => 265
+            [date_recieved] => 2017-10-12
+            [amount] => 132.00
+            [type] => credit
+            [associated_data] => 40361137692
+            [datetime] => 1507791600
+            [dos] => 2017-10-12
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Bryan Luu
+            [dos] => 2017-10-28
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4256
+            [patient_id_insurance_claim] => 68
+            [datetime] => 1509231600
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Bryan Luu
+            [dos] => 2017-10-21
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4201
+            [patient_id_insurance_claim] => 68
+            [datetime] => 1508626800
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Bryan Luu
+            [dos] => 2017-10-14
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4144
+            [patient_id_insurance_claim] => 68
+            [datetime] => 1508022000
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 729
+            [patient_id_other_payments] => 68
+            [date_recieved] => 2017-10-13
+            [amount] => 163.00
+            [type] => check
+            [associated_data] => 0037454451
+            [datetime] => 1507878000
+            [dos] => 2017-10-13
+        )
+
+    [4] => Array
+        (
+            [Name] => Bryan Luu
+            [dos] => 2017-10-07
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 25.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4101
+            [patient_id_insurance_claim] => 68
+            [datetime] => 1507417200
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-10-31
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4273
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1509487200
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-10-25
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4226
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1508961600
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-10-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4218
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1508882400
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-10-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 88.00
+            [service_id_insurance_claim] => 4160
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1508278500
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 13.20
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 74.80
+            [service_id_insurance_claim] => 4092
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1507327200
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-09-29
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 13.20
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 74.80
+            [service_id_insurance_claim] => 4047
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1506723300
+            [standard_fee] => 150
+        )
+
+    [6] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-09-27
+            [cpt_code] => Family Therapy w/o Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 104.00
+            [expected_copay_amount] => 15.60
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 88.40
+            [service_id_insurance_claim] => 4030
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1506542400
+            [standard_fee] => 150
+        )
+
+    [7] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-09-22
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 13.20
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 74.80
+            [service_id_insurance_claim] => 3996
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1506118500
+            [standard_fee] => 150
+        )
+
+    [8] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-09-15
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 13.20
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 74.80
+            [service_id_insurance_claim] => 3947
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1505513700
+            [standard_fee] => 150
+        )
+
+    [9] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-09-06
+            [cpt_code] => Family Therapy w/o Patient - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 104.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 104.00
+            [service_id_insurance_claim] => 3874
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1504728000
+            [standard_fee] => 150
+        )
+
+    [10] => Array
+        (
+            [Name] => Christian Prince
+            [dos] => 2017-09-03
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 88.00
+            [service_id_insurance_claim] => 3854
+            [patient_id_insurance_claim] => 258
+            [datetime] => 1504461600
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => M Bodnar
+            [dos] => 2017-10-31
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4272
+            [patient_id_insurance_claim] => 236
+            [datetime] => 1509483600
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => M Bodnar
+            [dos] => 2017-10-24
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4217
+            [patient_id_insurance_claim] => 236
+            [datetime] => 1508879700
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => M Bodnar
+            [dos] => 2017-10-17
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 59.00
+            [service_id_insurance_claim] => 4159
+            [patient_id_insurance_claim] => 236
+            [datetime] => 1508274900
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => M Bodnar
+            [dos] => 2017-10-10
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 59.00
+            [service_id_insurance_claim] => 4116
+            [patient_id_insurance_claim] => 236
+            [datetime] => 1507669200
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [Name] => M Bodnar
+            [dos] => 2017-10-03
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 69.00
+            [expected_copay_amount] => 10.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 59.00
+            [service_id_insurance_claim] => 4065
+            [patient_id_insurance_claim] => 236
+            [datetime] => 1507064400
+            [standard_fee] => 150
+        )
+
+    [5] => Array
+        (
+            [id_other_payments] => 705
+            [patient_id_other_payments] => 236
+            [date_recieved] => 2017-10-03
+            [amount] => 40.00
+            [type] => credit
+            [associated_data] => 40345181246
+            [datetime] => 1507014000
+            [dos] => 2017-10-03
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Matteo Woods
+            [dos] => 2017-10-26
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 73.00
+            [expected_copay_amount] => 20.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4232
+            [patient_id_insurance_claim] => 245
+            [datetime] => 1509055200
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Matteo Woods
+            [dos] => 2017-10-19
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 73.00
+            [expected_copay_amount] => 20.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4176
+            [patient_id_insurance_claim] => 245
+            [datetime] => 1508450400
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Matteo Woods
+            [dos] => 2017-10-12
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 73.00
+            [expected_copay_amount] => 20.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4131
+            [patient_id_insurance_claim] => 245
+            [datetime] => 1507845600
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [id_other_payments] => 717
+            [patient_id_other_payments] => 245
+            [date_recieved] => 2017-10-06
+            [amount] => 80.00
+            [type] => credit
+            [associated_data] => 40351011633
+            [datetime] => 1507273200
+            [dos] => 2017-10-06
+        )
+
+    [4] => Array
+        (
+            [Name] => Matteo Woods
+            [dos] => 2017-10-05
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 73.00
+            [expected_copay_amount] => 20.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 53.00
+            [service_id_insurance_claim] => 4081
+            [patient_id_insurance_claim] => 245
+            [datetime] => 1507240800
+            [standard_fee] => 150
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-25
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4224
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1508955300
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-18
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4165
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1508350500
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-11
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 58.00
+            [service_id_insurance_claim] => 4124
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1507744800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 58.00
+            [service_id_insurance_claim] => 4087
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1507309200
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 714
+            [patient_id_other_payments] => 142
+            [date_recieved] => 2017-10-06
+            [amount] => 178.00
+            [type] => credit
+            [associated_data] => 40350587691
+            [datetime] => 1507273200
+            [dos] => 2017-10-06
+        )
+
+)
+Array
+(
+    [0] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-25
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4224
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1508955300
+            [standard_fee] => 150
+        )
+
+    [1] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-18
+            [cpt_code] => Late Cancel
+            [insurance_used] => 0
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 88.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [service_id_insurance_claim] => 4165
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1508350500
+            [standard_fee] => 150
+        )
+
+    [2] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-11
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 58.00
+            [service_id_insurance_claim] => 4124
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1507744800
+            [standard_fee] => 150
+        )
+
+    [3] => Array
+        (
+            [Name] => Mike Pham
+            [dos] => 2017-10-06
+            [cpt_code] => Psychotherapy - 45mins
+            [insurance_used] => 1
+            [in_network] => 1
+            [allowable_insurance_amount] => 88.00
+            [expected_copay_amount] => 30.00
+            [recieved_copay_amount] => 0.00
+            [recieved_insurance_amount] => 58.00
+            [service_id_insurance_claim] => 4087
+            [patient_id_insurance_claim] => 142
+            [datetime] => 1507309200
+            [standard_fee] => 150
+        )
+
+    [4] => Array
+        (
+            [id_other_payments] => 714
+            [patient_id_other_payments] => 142
+            [date_recieved] => 2017-10-06
+            [amount] => 178.00
+            [type] => credit
+            [associated_data] => 40350587691
+            [datetime] => 1507273200
+            [dos] => 2017-10-06
+        )
+
+)

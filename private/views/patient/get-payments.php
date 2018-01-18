@@ -410,6 +410,7 @@ $(document).ready(function(){
 function createInvoice(){
 
 			//gather data
+			console.log("testing, 1 2");
 
 			var data = { 'data-service-id' : [], 'data-payment-id' : [] };
 

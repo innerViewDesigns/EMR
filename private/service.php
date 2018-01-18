@@ -135,16 +135,17 @@
 
 			try{
 
-					$stmt = $db->db->prepare("INSERT INTO services (patient_id_services, type, dos, charged, insurance_used, cpt_code, dx1, dx2, dx3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+					$stmt = $db->db->prepare("INSERT INTO services (patient_id_services, type, dos, charged, insurance_used, in_network, cpt_code, dx1, dx2, dx3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 					$stmt->bindParam(1, $args['patient_id'], PDO::PARAM_INT);
 					$stmt->bindParam(2, $args['type'], PDO::PARAM_STR);
 					$stmt->bindParam(3, $args['dos']);
 					$stmt->bindParam(4, $args['charged']);
 					$stmt->bindParam(5, $args['insurance_used'], PDO::PARAM_INT);
-					$stmt->bindParam(6, $args['cpt_code'], PDO::PARAM_INT);
-					$stmt->bindParam(7, $args['dx1'], PDO::PARAM_STR);
-					$stmt->bindParam(8, $args['dx2'], PDO::PARAM_STR);
-					$stmt->bindParam(9, $args['dx3'], PDO::PARAM_STR);	
+					$stmt->bindParam(6, $args['in_network'], PDO::PARAM_INT);
+					$stmt->bindParam(7, $args['cpt_code'], PDO::PARAM_INT);
+					$stmt->bindParam(8, $args['dx1'], PDO::PARAM_STR);
+					$stmt->bindParam(9, $args['dx2'], PDO::PARAM_STR);
+					$stmt->bindParam(10, $args['dx3'], PDO::PARAM_STR);	
 
 					$stmt->execute();
 					$newId = $db->db->lastInsertId();
@@ -162,7 +163,7 @@
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "This from services::create - ".$e->getMessage());
+					$this->setFlash('error', "This from service::create - ".$e->getMessage());
 					return false;
 
 				}
