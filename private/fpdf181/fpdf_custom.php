@@ -17,22 +17,31 @@ class PDF extends FPDF
     protected $footerWidth  = 130;
     protected $lineRowRight = 0;
     protected $footerText   = "You may pay by check, charge, or cash. If you pay by check, please make it payable to: Michael Lembaris, Psy.D., Psychologist, inc.\n\nMy Federal Tax ID # is: 81-1857287.\n\nThank you in advance for your prompt attention to this invoice. Please contact me if you have any questions. Thank you... Dr. Lembaris";
-    protected $localBalance = false;
-    protected $paymentTotal = 0;
+    
+    //protected $paymentTotal = 0;
+    
     protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
-    protected $customDate   = false;//" 2018-01-01";
-    protected $addOn        = ' (co-pay)'; 
     protected $notesOnly    = false;
-    protected $insurancePayments = 0;
+
+    protected $customDate   = false;//" 2018-01-01";
+    protected $localBalance = false;
+    protected $addOn        = ' (co-pay)'; 
+    
+    protected $insurancePayments = 0; //This is to account for previous insurance payments that have not yet been accounted for. 
+
     protected $corrections  = false;
+    protected $displayPreviousBalance = true;
+    protected $subtractInsurancePayments = false;
 
 
 
     function getData($inServices = array(), $inPayments=array(), $dates = array())
     {   
+
         $claims      = array();
         $outServices = array();
         $outPayments = array();
+        $patientId   = 0;
 
         if(!empty($inServices))
         {
@@ -44,34 +53,77 @@ class PDF extends FPDF
             $claims       = $insurancesObj->setSomeByServiceId($inServices);
             $outServices  = $serviceObj->getSomeByServiceId($inServices);
 
+            /*
+                Grab the pt ID
+            */
+
+            $patientId = $claims[0]['patient_id_insurance_claim'];
+
+
 
             //When intantiated, all other_payments for this patient that were passed in are retrieved. 
-            $paymentsObj   = New otherPayments($claims[0]['patient_id_insurance_claim']);
+            $paymentsObj   = New otherPayments($patientId);
             $paymentsObj->getSomeById($inPayments);
 
+
+
             //When instantiated, all info for this pt is set.
-            $patientObj    = New patient($claims[0]['patient_id_insurance_claim']);            
+            $patientObj    = New patient($patientId);            
+
+
             
             $outPayments  = $paymentsObj->getPayments();
             $patientObj->setBalance();
 
-            //echo print_r($outServices, true);
-            //echo print_r($claims, true);
+
+            /*
+                Pair the claims and payments and order by date. Descending.
+            */
 
             $this->claims = $insurancesObj->pairClaimsAndPayments($claims, $outServices, $outPayments, true);
 
+
+
+            /*
+                Get the expected copays, recieved copays, and recieved insurance for this patient
+                prior to the first date given.
+            */
+
+            $dateMarker = $this->claims[count($this->claims) - 1]['dos']->format('Y-m-d H:i:s');
+            $patientObj->setBalanceByDate($dateMarker);
+
+            $this->claims = $this->PrepareData($this->claims);
+
+
             $this->pt['pt_info']    = $patientObj->getPersonalInfo();
             $this->pt['pt_info']['balance'] = $patientObj->getBalance();
-            //$this->pt['pt_info']['preBalance'] = $this->setPreBalance();
+            $this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
+            $this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
+            $this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
+            $this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
+            
+
+            $this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['expectedCopays'] - $this->pt['pt_info']['priorTotals']['recievedCopay'] - $this->pt['pt_info']['priorTotals']['payments'];
+
+            /*
+                Negative number indicates a credit. Switch it around to make more sense. 
+            */
+
+            $this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['balance'] < 0 ? abs( $this->pt['pt_info']['priorTotals']['balance'] ) : 0 -  $this->pt['pt_info']['priorTotals']['balance'];
+
+
+            //echo print_r($this->pt['pt_info']['priorTotals'], true);
+
 
             //echo print_r($this->claims, true);
             //echo print_r($this->pt, true);
-
+            /*
             $file = __DIR__ . '/errors.txt';
             file_put_contents($file, print_r($this->pt, true), FILE_APPEND);
 
             $this->claims = $this->PrepareData($this->claims);
-        
+            */
+
         }else if(!empty($dates))
         {
             if(array_key_exists('startDate', $dates) && !array_key_exists('endDate', $dates))
@@ -416,6 +468,7 @@ class PDF extends FPDF
                             working toward their deductible
 
                         */
+
                         if($row['expected_copay_amount'] == 88)
                         {
                             $addOn = ' (deductible)';
@@ -428,11 +481,8 @@ class PDF extends FPDF
                         $chargeAmount = 'expected_copay_amount'; 
 
                     }else
-                    {
-                        if(!isset($insurancePayments))
-                        {
-                           $insurancePayments = 0;
-                        }
+                    {   
+
 
                         /*
                             Insurance was used but you are out of network.
@@ -443,6 +493,18 @@ class PDF extends FPDF
                             and the allowable.
 
                         */
+
+                        if(!isset($insurancePayments))
+                        {
+                            /*
+                                Initiate this variable to keep track of recieved
+                                'out-of-network' insurance payments. 
+                            */
+
+                           $insurancePayments = 0;
+                        }
+
+
 
                         $addOn = "";
                         $chargeAmount = 'standard_fee'; 
@@ -461,7 +523,7 @@ class PDF extends FPDF
 
                     */
                     
-                    
+                    $addOn = "";
 
 
                     if (strpos(strtolower($row['cpt_code']), 'late') === 0)
@@ -472,7 +534,7 @@ class PDF extends FPDF
                         */
 
                         $chargeAmount = 'allowable_insurance_amount';
-                        $addOn = "";
+                        
 
                         /*
                             If you are not charging for the late cancel. Show the courtesy adjust
@@ -493,6 +555,7 @@ class PDF extends FPDF
 
                         $chargeAmount = 'standard_fee';
                         $dif += $row['standard_fee'] - $row['allowable_insurance_amount'];
+
                     }
 
 
@@ -535,6 +598,19 @@ class PDF extends FPDF
 
         }
 
+        if( $this->displayPreviousBalance )
+        {
+
+            $this->SetX($this->tableRowLeft);
+            $this->Cell( 20, 10, "", 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 60, 10, 'Previous Balance', 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 25, 10, sprintf("%.2f", $this->pt['pt_info']['priorTotals']['balance']), 0, 1,'R');   
+                     
+
+        }
+
         
         if(isset($dif) && $dif > 0)
         {
@@ -548,30 +624,33 @@ class PDF extends FPDF
 
         }
 
-        /*
+        
             
-            Custom Line Item:
+       //     Custom Line Item:
 
         
 
-        $temp = 205.00;
+        $temp = 1045.68;
         $this->SetX($this->tableRowLeft);
         $this->Cell( 20, 10, "", 0, 0,'L');
         $this->SetX( $this->GetX() + 10);
-        $this->Cell( 60, 10, 'Insurance Payments (recieved)', 0, 0,'L');
+        $this->Cell( 60, 10, 'Insurance Payments (expected)', 0, 0,'L');
         $this->SetX( $this->GetX() + 10);
         $this->Cell( 25, 10, "-".sprintf("%.2f", $temp), 0, 1,'R');
 
-        */
+        
 
         if( isset($insurancePayments) )
-        {
+        {   
+            /*
+                There were some out-of-network claims. List how much you got from the insurance so far.
+            */
 
             $insurancePayments += $this->insurancePayments;
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Insurance Payments (recieved)', 0, 0,'L');
+            $this->Cell( 60, 10, 'Insurance Payments Received', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, "-".sprintf("%.2f", $insurancePayments), 0, 1,'R');   
                      
@@ -617,7 +696,7 @@ class PDF extends FPDF
             $balance = $this->localBalance ? $this->pt['pt_info']['local_balance_expected'] : $this->pt['pt_info']['balance'];
             
             //Subtract insurancePayments if it's set.
-            if(isset($insurancePayments))
+            if(isset($insurancePayments) && $this->subtractInsurancePayments)
             {
                 $balance += $insurancePayments;
             }
@@ -698,6 +777,7 @@ class PDF extends FPDF
         }
 
     }
+
 
 
 }

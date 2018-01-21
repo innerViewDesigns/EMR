@@ -8,8 +8,7 @@
 
 	class otherPayments{
 
-		public   $patient_id, $id, $date, $amount, $payments = array();
-
+		public   $patient_id, $id, $date, $amount, $payments = array(), $previousPayments = array();
 		public 	 $rowCount = 0;
 		private  $db;
 
@@ -76,6 +75,43 @@
 
 				$this->setFlash('error', "From other_payments getSomeById method: ".$e->getMessage() );
 
+			}
+
+
+
+
+		}
+
+		public function getPreviousPaymentsTotal($id, $date = '2018-01-01 00:00:00'){
+
+			$sql = "SELECT coalesce(SUM(amount), 0) AS total FROM other_payments WHERE patient_id_other_payments = ? AND date_recieved < ?";
+			
+			$db = $this->db;
+
+			try{
+
+					$stmt = $db->db->prepare($sql);
+					$stmt->bindParam(1, $id, PDO::PARAM_INT);
+					$stmt->bindParam(2, $date);
+					$stmt->execute();
+					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if($result){
+
+						$this->previousPayments = $result;
+						return $result[0]['total'];
+
+					}else{
+
+						$this->setFlash("error", "getSomeById from other_payments failed or there were no payments for these ids: ".print_r($args, true));
+						echo "Error in getPreviousPaymentsTotal";
+					}
+					
+
+			}catch(PDOException $e){
+
+				$this->setFlash('error', "From other_payments getSomeById method: ".$e->getMessage() );
+				echo $e->getMessage();
 			}
 
 

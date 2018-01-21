@@ -9,7 +9,7 @@
 	class patient{
 
 		private  $personalInfo;
-		public   $services, $balance, $otherNotes, $allNotes;
+		public   $services, $balance, $otherNotes, $allNotes, $previousBalance;
 		private  $flash = [];
 
 		public 	 $rowCount = 0;
@@ -139,6 +139,44 @@ EOT;
 			}catch(PDOException $e){
 
 				$this->fail($e, 'From trying to set the balance in patient.php: '.$e->getMessage());
+
+			}
+
+	}
+
+	public function setBalanceByDate($date = '2018-01-01 00:00:00'){
+
+		$db = $this->db;
+		$sql =<<<EOT
+								SELECT	coalesce(SUM(expected_copay_amount),0)     AS 'expectedCopay',
+									      coalesce(SUM(recieved_insurance_amount),0) AS 'recievedInsurance',
+							          coalesce(SUM(recieved_copay_amount),0)     AS 'recievedCopay'
+							    FROM insurance_claim 
+							    WHERE service_id_insurance_claim IN (SELECT id_services FROM services WHERE dos < ? AND patient_id_services = ?);
+EOT;
+		
+
+			try{
+
+					$stmt = $db->db->prepare($sql);
+					$stmt->bindParam(1, $date);
+					$stmt->bindParam(2, $this->patient_id, PDO::PARAM_INT);
+					$stmt->execute();
+					$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+					if($result){
+
+						$this->previousBalance = $result;
+
+					}else{
+						$this->setFlash('error', "No balance could be calculated");
+					}
+					
+
+			}catch(PDOException $e){
+
+				//$this->fail($e, 'From trying to set the balance in patient.php: '.$e->getMessage());
+				echo ' From trying to set the balance in patient.php: '.$e->getMessage();
 
 			}
 

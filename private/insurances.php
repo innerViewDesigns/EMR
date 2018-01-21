@@ -252,6 +252,7 @@ EOD;
 	public function pairClaimsAndPayments($claims, $services, $payments=array(), $invoice = false)
 	{
 
+
 			///////////////////////////////////
 			//Payments will need an index for 
 		  //the usort function below. That index will
