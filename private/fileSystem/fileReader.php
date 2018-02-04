@@ -21,19 +21,25 @@
 			function __construct($args=[])
 			{
 					
-					$this->zipNames = scandir($this->dir);
 
-					//this will get only zips files (the returned array) and set will folder names so you can get the
-					//txt files later
+					/*
+							This will return an array with the names of all the zip files in this directory.
+							The class variable $folderNames will also be populated with these values which
+							will match the folders created after unzip
+					*/
 
 					$this->zipNames = $this->setFolderNames();
 
-					//echo "zipNames:\n";
-					//echo print_r($this->zipNames, true);
+
+					/*
+							If there were no zip files, i.e. all files have already been unzipped,
+							then record that. Otherwise, unzip the files. 
+					*/
 
 					if(count($this->zipNames) === 0 )
 					{
 							$this->zipsPresent = false;
+
 					}else
 					{
 							$this->unzipAll();
@@ -44,10 +50,13 @@
 
 					$this->patients = $patients->getPatients();
 
-					//Get the payments and then group by patient name
+					/*
+
+							Get the payments and then group by patient name
+					
+					*/
 
 					$this->services = $this->readInFiles();
-					//echo print_r($this->services, true);
 
 
 					//add the patient id to the new services. If you fail to pair up an entry log that in a file
@@ -55,6 +64,10 @@
 
 					$this->linkNamesAndIds();
 
+
+					
+					//Record all payments in a CSV file
+					$this->recordAllClaims();
 
 					//log zero dollar payments and those patients with no patientId set
 					//each in their own txt file and unset those entries from services,
@@ -180,6 +193,7 @@
 
 					foreach ($this->services as $key => &$value)
 					{		
+
 
 							//update the recieved insurance amount
 
@@ -327,7 +341,8 @@
 									//correct for names with spaces
 									$value1['name'] = preg_replace('/\s/', '', $value1['name']);
 
-									if(preg_match("/".$value['name']."/", $value1['name']))
+									//if(preg_match("/".$value['name']."/", $value1['name']))
+									if($value['name'] == $value1['name'])
 									{
 											$value['patient_id'] = $value1['patient_id'];
 											continue;
@@ -344,8 +359,11 @@
 			{
 
 					//////////////////////////////////////////////////////////////////////////////////////////
-					//this first bit is to be used when there are no zip files
+					/*
+							This first bit is to be used when there are no zip files. You haven't yet collected the 
+							folder names, so do that. 
 
+					*/	
 					if( $this->zipsPresent === false )
 					{
 							$fileNames = scandir($this->dir);
@@ -364,7 +382,7 @@
 					//////////////////////////////////////////////////////////////////////////////////////////
 
 					$services = [];
-					$ctr = 0;
+					$ctr      = 0;
 
 					//loop through files in folder
 					foreach($this->folderNames as $remit)
@@ -375,9 +393,10 @@
 							//loop through each line in the file
 							foreach($file as $lineNum => $line)
 							{
-									//////////////////////////////////////////////////////////////////
-									//If this is the header row, drop down a line and extract the name
-									//////////////////////////////////////////////////////////////////
+
+									/*
+											If this is the header row, drop down a line and extract the name
+									*/
 
 									$tmp = strpos($line, 'Last,First');
 									if( $tmp != FALSE)
@@ -391,15 +410,19 @@
 
 											*/
 
-											preg_match('/[^,]+/', substr($file[$lineNum+1], $tmp), $matches);
+											preg_match('/[^\s]+/', substr($file[$lineNum+1], $tmp), $matches);
 											$services[$ctr] = array('name' => $matches[0]);
+
+											$services[$ctr]['file'] = $remit;
 											continue;
 
 									}
 
-									//////////////////////////////////////////////////////////////////////////////
-									//If this is the header row, drop down a line and extract the date and payment
-									//////////////////////////////////////////////////////////////////////////////
+									/*
+
+											If this is the header row, drop down a line and extract the date and payment
+									
+									*/
 
 									$tmp = strpos($line, 'Svc Date');
 									if($tmp != FALSE)
@@ -412,8 +435,12 @@
 											$date[0] = DateTime::createFromFormat('m/d/Y', $date[0]);
 
 
-											//Check to see if this is a new patient (i.e., whether the above if statement fired)
-											//if not, this is another line-item and so use the name of the last patient. 
+											/*
+											
+													Check to see if this is a new patient (i.e., whether the above if statement fired)
+													if not, this is another line-item and so use the name of the last patient. 
+
+											*/
 
 											if(!array_key_exists($ctr, $services))
 											{
@@ -460,25 +487,30 @@
 			public function setFolderNames()
 			{
 					/*
-							You have already scaned the directory and have an array with 
-							all the file names there. Here you're 
-
 								1) gathering the zip files so that you can unzip them
 
-								2) gathering the name of the zip files that you can use them
-								   to gather the txt file after unzip.
+								2) gathering the name of the zip files that you can then use
+								   to gather the txt files after unzip.
 
 							return value = array with zip names
 
 					*/
 
+					$allFiles  = scandir($this->dir);
 					$onlyZips  = [];
 
-					foreach($this->zipNames as $value)
+					foreach($allFiles as $value)
 					{
 
 							$tmp = explode('.', $value);
 							
+							/*
+									Check to make sure that this isn't a hidden file
+									in which case there would only be one item in the 
+									returned array. 
+
+									Also check to make sure that this is a zip file
+							*/
 						
 							if(count($tmp) == 2 && $tmp[1] == 'zip')
 							{
@@ -500,38 +532,57 @@
 			public function unzipAll()
 			{
 
-					//loop through files in this directory and unzip them.
+					/*
+
+							loop through files in this directory and unzip them.
+					
+					*/
 					$zip = new ZipArchive;
 
 					foreach($this->zipNames as $value)
 					{
 
-							if ($zip->open($this->dir."/".$value) === TRUE) {
+							if ($zip->open($this->dir."/".$value) === TRUE)
+							{
 
 							    $zip->extractTo($this->dir.'/');
 							    $zip->close();
 							    unlink($this->dir."/".$value);
 
-							} else {
-							    echo 'failed';
+							}else 
+							{
+
+							    echo 'Failed to unzip ' . $value;
+							
 							}
 
 
 					}
 
-					//Then clean up the folder leaving the '.' the '..' and '.DS_Store'
+
+
+					/*
+
+							Then clean up the folder leaving the '.' the '..' and '.DS_Store'
+					
+					*/
+
 					$files = scandir($this->dir);
 					
 					foreach($files as $value)
 					{	
+
 							if(strpos($value, '.') === 0)
 								continue;
 
 							$tmp = explode('.', $value);
 
 							if(count($tmp) === 2 && $tmp[1] != 'txt')
-							{		
+							{	
+									//delete the file
+
 									unlink($this->dir."/".$value);
+							
 							}
 					}
 							
@@ -551,17 +602,36 @@
 
 			}
 
-			private function listResults($key='', $array=[])
+			public function listResults($key='', $array=[])
 			{
 
 					echo "**********************\n      $key\n**********************\n\n";
-					foreach($array as $key => $value)
+					foreach($this->services as $key => $value)
 					{
 
-							echo $value['name']." - ".$value['dos']." - ".$value['payment']."\n";
+							echo $value['name']." - ".$value['dos']." - ".$value['payment']." - ".$value['file']."\n";
 
 					}
 
+
+
+			}
+
+			public function recordAllClaims()
+			{
+
+				$file = "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/remits/data/history.txt";
+
+				file_put_contents($file, "******************************************************\n\n", FILE_APPEND);
+
+				foreach($this->services as $key => $value)
+				{
+
+						file_put_contents($file, $value['name']." - ".$value['dos']." - ".$value['payment']." - ".$value['file']."\n", FILE_APPEND);
+
+				}
+
+				file_put_contents($file, "******************************************************\n\n", FILE_APPEND);
 
 
 			}

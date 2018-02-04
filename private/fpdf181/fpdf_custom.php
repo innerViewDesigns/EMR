@@ -23,14 +23,16 @@ class PDF extends FPDF
     protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
     protected $notesOnly    = false;
 
-    protected $customDate   = false;//" 2018-01-01";
+    protected $customDate   = " 2018-02-01";
     protected $localBalance = false;
     protected $addOn        = ' (co-pay)'; 
     
     protected $insurancePayments = 0; //This is to account for previous insurance payments that have not yet been accounted for. 
+    protected $customLineItem = false;
+    protected $customAdjustment = 149.90;
 
     protected $corrections  = false;
-    protected $displayPreviousBalance = true;
+    protected $displayPreviousBalance = false;
     protected $subtractInsurancePayments = false;
 
 
@@ -89,27 +91,33 @@ class PDF extends FPDF
                 prior to the first date given.
             */
 
+            /*
+
             $dateMarker = $this->claims[count($this->claims) - 1]['dos']->format('Y-m-d H:i:s');
             $patientObj->setBalanceByDate($dateMarker);
+            
+            */
 
-            $this->claims = $this->PrepareData($this->claims);
-
+            
+            
+            
 
             $this->pt['pt_info']    = $patientObj->getPersonalInfo();
             $this->pt['pt_info']['balance'] = $patientObj->getBalance();
-            $this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
-            $this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
-            $this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
-            $this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
+            //$this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
+            //$this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
+            //$this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
+            //$this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
             
+            $this->claims = $this->PrepareData($this->claims);
 
-            $this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['expectedCopays'] - $this->pt['pt_info']['priorTotals']['recievedCopay'] - $this->pt['pt_info']['priorTotals']['payments'];
+            //$this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['expectedCopays'] - $this->pt['pt_info']['priorTotals']['recievedCopay'] - $this->pt['pt_info']['priorTotals']['payments'];
 
             /*
                 Negative number indicates a credit. Switch it around to make more sense. 
             */
 
-            $this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['balance'] < 0 ? abs( $this->pt['pt_info']['priorTotals']['balance'] ) : 0 -  $this->pt['pt_info']['priorTotals']['balance'];
+            //$this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['balance'] < 0 ? abs( $this->pt['pt_info']['priorTotals']['balance'] ) : 0 -  $this->pt['pt_info']['priorTotals']['balance'];
 
 
             //echo print_r($this->pt['pt_info']['priorTotals'], true);
@@ -221,6 +229,8 @@ class PDF extends FPDF
 
         $this->pt['pt_info']['local_balance_expected'] = 0 - $localTotalExpected;
         $this->pt['pt_info']['local_balance_allowable'] = 0 - $localTotalAllowed;
+
+
         return $claims;
         
         
@@ -628,15 +638,18 @@ class PDF extends FPDF
             
        //     Custom Line Item:
 
-        
+        if($this->customLineItem)
+        {
 
-        $temp = 1045.68;
-        $this->SetX($this->tableRowLeft);
-        $this->Cell( 20, 10, "", 0, 0,'L');
-        $this->SetX( $this->GetX() + 10);
-        $this->Cell( 60, 10, 'Insurance Payments (expected)', 0, 0,'L');
-        $this->SetX( $this->GetX() + 10);
-        $this->Cell( 25, 10, "-".sprintf("%.2f", $temp), 0, 1,'R');
+            
+            $this->SetX($this->tableRowLeft);
+            $this->Cell( 20, 10, "", 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 60, 10, 'Insurance Payments (expected)', 0, 0,'L');
+            $this->SetX( $this->GetX() + 10);
+            $this->Cell( 25, 10, "-".sprintf("%.2f", $this->customAdjustment), 0, 1,'R');
+
+        }
 
         
 
@@ -650,7 +663,7 @@ class PDF extends FPDF
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Insurance Payments Received', 0, 0,'L');
+            $this->Cell( 60, 10, 'Insurance Payments (received)', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, "-".sprintf("%.2f", $insurancePayments), 0, 1,'R');   
                      
