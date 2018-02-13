@@ -32,7 +32,7 @@ class PDF extends FPDF
     protected $customAdjustment = 149.90;
 
     protected $corrections  = false;
-    protected $displayPreviousBalance = false;
+    protected $displayPreviousBalance = true;
     protected $subtractInsurancePayments = false;
 
 
@@ -91,24 +91,27 @@ class PDF extends FPDF
                 prior to the first date given.
             */
 
-            /*
+            if(!gettype($this->claims[count($this->claims) - 1]['dos']) === 'string') 
+            {
 
-            $dateMarker = $this->claims[count($this->claims) - 1]['dos']->format('Y-m-d H:i:s');
+                $dateMarker = $this->claims[count($this->claims) - 1]['dos']->format('Y-m-d H:i:s');
+
+            }else
+            {
+                $dateMarker = $this->claims[count($this->claims) - 1]['dos'];                
+
+            }
             $patientObj->setBalanceByDate($dateMarker);
+         
             
-            */
-
-            
-            
-            
-
             $this->pt['pt_info']    = $patientObj->getPersonalInfo();
             $this->pt['pt_info']['balance'] = $patientObj->getBalance();
-            //$this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
-            //$this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
-            //$this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
-            //$this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
-            
+            $this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
+            $this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
+            $this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
+            $this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
+            $this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['payments'] - $patientObj->previousBalance['expectedCopay'];
+
             $this->claims = $this->PrepareData($this->claims);
 
             //$this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['expectedCopays'] - $this->pt['pt_info']['priorTotals']['recievedCopay'] - $this->pt['pt_info']['priorTotals']['payments'];
@@ -165,8 +168,9 @@ class PDF extends FPDF
 
     function PrepareData($claims)
     {
-        $localTotalExpected=0;
-        $localTotalAllowed=0;
+        $localTotalExpected = 0;
+        $localTotalAllowed  = 0;
+        $localPayments      = 0;
 
         foreach($claims as &$value)
         {
@@ -181,6 +185,7 @@ class PDF extends FPDF
             }else
             {
                 $value['dos'] = $value['dos']->format("Y-m-d");
+                $localPayments += $value["amount"];
             }
 
 
@@ -229,6 +234,7 @@ class PDF extends FPDF
 
         $this->pt['pt_info']['local_balance_expected'] = 0 - $localTotalExpected;
         $this->pt['pt_info']['local_balance_allowable'] = 0 - $localTotalAllowed;
+        $this->pt['pt_info']['local_balance_payments'] = $localPayments;
 
 
         return $claims;
@@ -611,10 +617,12 @@ class PDF extends FPDF
         if( $this->displayPreviousBalance )
         {
 
+            $label = $this->pt['pt_info']['priorTotals']['balance'] > 0 ? "Previous Balance (credit)" : "Previous Balance";
+
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Previous Balance', 0, 0,'L');
+            $this->Cell( 60, 10, $label, 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, sprintf("%.2f", $this->pt['pt_info']['priorTotals']['balance']), 0, 1,'R');   
                      
@@ -717,6 +725,14 @@ class PDF extends FPDF
             if($this->corrections)
             {
                 $balance -= $this->corrections;
+
+            }
+
+            //if displaying previous balance, and localbalance is true make it work
+            if($this->localBalance && $this->displayPreviousBalance)
+            {
+
+                $balance = $balance + $this->pt['pt_info']['local_balance_payments'] + $this->pt['pt_info']['priorTotals']['balance'];
 
             }
             

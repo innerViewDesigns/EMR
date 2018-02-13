@@ -370,7 +370,7 @@
 
 							foreach($fileNames as $value)
 							{
-									if(strpos($value, '.') === 0)
+									if(strpos($value, '.') === 0 || strpos($value, '.') === FALSE)
 										continue;
 
 									array_push($this->folderNames, trim($value, ".txt"));
@@ -424,13 +424,13 @@
 									
 									*/
 
-									$tmp = strpos($line, 'Svc Date');
-									if($tmp != FALSE)
+									$svcDateLineNum = strpos($line, 'Svc Date');
+									if($svcDateLineNum != FALSE)
 									{	
-											$tmp1 = strpos($line, 'Payment Amt');
+											$paymentLineNum = strpos($line, 'Payment Amt');
 
-											preg_match('/[^\s]+/', substr($file[$lineNum+1], $tmp), $date);
-											preg_match('/[^\s]+/', substr($file[$lineNum+1], $tmp1), $payment);
+											preg_match('/[^\s]+/', substr($file[$lineNum+1], $svcDateLineNum), $date);
+											preg_match('/[^\s]+/', substr($file[$lineNum+1], $paymentLineNum), $payment);
 
 											$date[0] = DateTime::createFromFormat('m/d/Y', $date[0]);
 
@@ -450,6 +450,78 @@
 											$services[$ctr]['dos'] = $date[0]->format('Y-m-d');
 											$services[$ctr]['payment'] = $payment[0];
 											$services[$ctr]['filename'] = $remit;
+
+
+											/*
+
+													Get the Adjustment Details (Deductible Amounts)
+														1. Get the file, drop down three lines from the current line ($lineNum),
+															 and look for "Adjustment Group"
+														2. If it's not there, do nothing
+														3. If it is there get the positions of the digits and the reason code
+														4. increment the line number and assigns the line to a variable that will be
+														   easier to use
+
+														Enter a loop
+
+														5. Make sure that this is not an empty line
+														6. Look for the string "PATIENT RESPONSIBILITY". If it exists
+														   extract the amount and the reason. Then assign these values
+														   the the array that you've been building. If not, advance the
+														   counter and loop through again until you find an empty line
+
+											*/
+											
+											$adjCtr = 3;
+											$adjGroupLineNum = strpos($file[$lineNum+$adjCtr], 'Adjustment Group');
+
+											if($adjGroupLineNum != FALSE)
+											{
+
+												$digitPos   = strpos($file[$lineNum+$adjCtr], 'Adj Amt');
+												$reasonPos  = strpos($file[$lineNum+$adjCtr], 'Translated Reason Code');
+												
+												$adjCtr++;
+												$adjLine = $file[$lineNum + $adjCtr];
+
+												$services[$ctr]['adjustments'] = array();
+
+												while( trim($adjLine) != '' )
+												{
+														preg_match('/^([A-Za-z]+\s?)+/', substr($adjLine, $adjGroupLineNum), $label);
+														preg_match('/[^\s]+/', substr($adjLine, $digitPos), $patientResp);
+														preg_match('/^([A-Za-z]+\s?)+/', substr($adjLine, $reasonPos), $reason);
+
+														$services[$ctr]['adjustments']["label"]       = $label[0];
+														$services[$ctr]['adjustments']["patientResp"] = $patientResp[0];
+														$services[$ctr]['adjustments']["reason"]      = $reason[0];
+
+														break;
+
+														$adjCtr++;
+
+													/*
+
+														Check to make sure you're not at the end of the file. 
+													
+													*/
+
+
+													if( ($lineNum+$adjCtr) < count($file) )
+													{
+
+														$adjLine = $file[$lineNum + $adjCtr];
+
+													}else
+													{
+														break;
+													}
+
+
+												}
+
+											}
+
 
 											$ctr++;
 											
@@ -622,16 +694,45 @@
 
 				$file = "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/remits/data/history.txt";
 
-				file_put_contents($file, "******************************************************\n\n", FILE_APPEND);
-
 				foreach($this->services as $key => $value)
 				{
 
-						file_put_contents($file, $value['name']." - ".$value['dos']." - ".$value['payment']." - ".$value['file']."\n", FILE_APPEND);
+						$padding = 20 - strlen($value['name']);
+
+						file_put_contents($file, $value['name'], FILE_APPEND);
+						
+						for($x=0; $x < $padding; $x++)
+						{
+							file_put_contents($file, " ", FILE_APPEND);
+						}
+						
+						file_put_contents($file, "- ".$value['dos']." - ".$value['payment']." - ".$value['file'], FILE_APPEND);
+
+						if( $value['payment'] == 0.00 )
+						{
+
+							file_put_contents($file, "\n", FILE_APPEND);
+
+							foreach($value['adjustments'] as $key1 => $value1)
+							{
+
+								file_put_contents($file, "\n          " . $key1 .": " . $value1, FILE_APPEND);	
+							
+							}
+
+							file_put_contents($file, "\n\n", FILE_APPEND);
+
+
+						}else
+						{
+
+							file_put_contents($file, "\n", FILE_APPEND);							
+
+						}
 
 				}
 
-				file_put_contents($file, "******************************************************\n\n", FILE_APPEND);
+				file_put_contents($file, "\n******************************************************\n\n", FILE_APPEND);
 
 
 			}
