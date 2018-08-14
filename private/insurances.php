@@ -269,6 +269,8 @@ EOD;
 				}
 
 			}
+		
+
 
 			///////////////////////////////////
 			//pair each claim with it's own DOS
@@ -340,8 +342,31 @@ EOD;
 				}	
 			}
 
+			
+
 			$claims =	array_merge($claims, $payments);
 
+			/*
+
+			echo "<h1>Just before Usort:</h1>";
+			echo "<pre>".count($claims)."</pre>";
+			echo "<pre>".print_r($claims, true)."</pre>";
+			
+					
+
+			echo "<pre>".count($payments)."</pre>";
+			echo "<pre>".print_r($payments[0], true)."</pre>";
+
+
+			echo "<pre>".count($claims)."</pre>";
+			echo "<pre>".print_r($claims[0], true)."</pre>";
+
+			
+			echo "<pre>".count($services)."</pre>";
+			echo "<pre>".print_r($services[0], true)."</pre>";
+			*/
+			
+			
 
 			///////////////////
 			//Then sort by date
@@ -349,14 +374,28 @@ EOD;
 
 		  usort($claims, function($a, $b) {
 
-			  $ab = $a['datetime'];
-			  $bd = $b['datetime'];
+		  	if(!array_key_exists('datetime', $a))
+		  		echo '<pre>'.print_r($a, true).'</pre>';
+		  	else
+			  	$ab = $a['datetime'];
+
+			  if(!array_key_exists('datetime', $b))
+		  		echo '<pre>'.print_r($b, true).'</pre>';
+		  	else
+			  	$bd = $b['datetime'];
 
 			  if ($ab == $bd) {
+
 			    return 0;
+
+			  }else
+			  {
+					return $ab < $bd ? 1 : -1;
+
 			  }
 
-			  return $ab < $bd ? 1 : -1;
+
+			  
 
 			});
 

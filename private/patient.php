@@ -146,6 +146,11 @@ EOT;
 
 	public function setBalanceByDate($date = '2018-01-01 00:00:00'){
 
+		if($date instanceof DateTime)
+		{
+			$date = $date->format('Y-m-d H:i:s');
+		}
+
 		$db = $this->db;
 		$sql =<<<EOT
 								SELECT	coalesce(SUM(expected_copay_amount),0)     AS 'expectedCopay',
@@ -323,7 +328,6 @@ EOT;
 		$sql = <<<EOT
 			 SELECT services.id_services,
 	     services.patient_id_services,
-       services.goal_id_services,
        services.type,
        services.dos,
        services.charged,
@@ -333,6 +337,7 @@ EOT;
        services.dx1,
        services.dx2,
        services.dx3,
+       services.hrs,
        notes.completed
 
 			 FROM services

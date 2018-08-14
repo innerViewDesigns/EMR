@@ -84,6 +84,12 @@
 
 		public function getPreviousPaymentsTotal($id, $date = '2018-01-01 00:00:00'){
 
+			if($date instanceof DateTime)
+			{
+				$date = $date->format('Y-m-d H:i:s');
+			}
+
+
 			$sql = "SELECT coalesce(SUM(amount), 0) AS total FROM other_payments WHERE patient_id_other_payments = ? AND date_recieved < ?";
 			
 			$db = $this->db;

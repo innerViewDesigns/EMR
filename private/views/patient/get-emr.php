@@ -30,10 +30,18 @@
 						foreach( $servicesAndNotes as &$value){
 
 							if( isset($value['cpt_code']) ){
+
 								if($value['cpt_code'] == ""){
 									$value["cpt_code"] = '(none)';
+								}else
+								{
+										
+										$value['cpt_code'] = $value['cpt_code'] === 'reservation fee' ? 'RF' : $value['cpt_code'];
+
 								}
+
 							}else{
+								$value['type'] = $value['type'] === 'payment info' ? 'PayInf' : $value['type'];
 								$value['cpt_code'] = "(".$value['type'].")";
 							}
 

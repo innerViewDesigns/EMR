@@ -32,6 +32,15 @@
 	$other_payments->setPayments();
 	$payments = $other_payments->getPayments();
 
+	/*
+	echo "<pre>".count($claims)."</pre>";
+	echo "<pre>".print_r($claims[0], true)."</pre>";
+	echo "<pre>".count($services)."</pre>";
+	echo "<pre>".print_r($services[0], true)."</pre>";
+	echo "<pre>".count($payments)."</pre>";
+	echo "<pre>".print_r($payments[0], true)."</pre>";
+	*/
+
 	$claims = $insurance_claims->pairClaimsAndPayments($claims, $services, $payments, false);
 	//echo "<pre>".print_r($claims, true)."</pre>";
 ?>
@@ -90,6 +99,7 @@
 					{
 
 							$value['id_other_payments'] = 'undefined';
+							$value['cpt_code'] = $value['cpt_code'] === 'reservation fee' ? 'RF' : $value['cpt_code'];
 
 
 					}
@@ -130,7 +140,7 @@
 									."<td class='text-center' data-column-name='allowable_insurance_amount' data-edit='true'>".$value['allowable_insurance_amount']."</td>"
 									."<td class='text-center' data-column-name='expected_copay_amount' data-edit='true'>".$value['expected_copay_amount']."</td>";
 									
-									if( preg_match('/(late cancel)|(no show)/', $value['cpt_code']) ){
+									if( preg_match('/(late cancel)|(no show)|(RF)/', $value['cpt_code']) ){
 									
 										echo "<td class='text-center' data-column-name='recieved_insurance_amount' data-edit='false' style='color: red;'>".$value['cpt_code']."</td>";
 									

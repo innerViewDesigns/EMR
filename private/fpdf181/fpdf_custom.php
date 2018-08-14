@@ -23,16 +23,18 @@ class PDF extends FPDF
     protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
     protected $notesOnly    = false;
 
-    protected $customDate   = " 2018-02-01";
-    protected $localBalance = false;
-    protected $addOn        = ' (co-pay)'; 
+    protected $customDate   = " 2018-08-01";
+    protected $localBalance = true;
+    protected $addOn        = ' (co-pay)';//' (deductible)'; 
     
     protected $insurancePayments = 0; //This is to account for previous insurance payments that have not yet been accounted for. 
+    protected $displayInsurancePayments = false;
+
     protected $customLineItem = false;
     protected $customAdjustment = 149.90;
 
     protected $corrections  = false;
-    protected $displayPreviousBalance = true;
+    protected $displayPreviousBalance = false;
     protected $subtractInsurancePayments = false;
 
 
@@ -106,11 +108,12 @@ class PDF extends FPDF
             
             $this->pt['pt_info']    = $patientObj->getPersonalInfo();
             $this->pt['pt_info']['balance'] = $patientObj->getBalance();
+
             $this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
             $this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
             $this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
             $this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
-            $this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['payments'] - $patientObj->previousBalance['expectedCopay'];
+            $this->pt['pt_info']['priorTotals']['balance'] = ($this->pt['pt_info']['priorTotals']['payments'] + $patientObj->previousBalance['recievedCopay']) - $patientObj->previousBalance['expectedCopay'];
 
             $this->claims = $this->PrepareData($this->claims);
 
@@ -171,21 +174,25 @@ class PDF extends FPDF
         $localTotalExpected = 0;
         $localTotalAllowed  = 0;
         $localPayments      = 0;
+        $services           = 0;
+        $payments           = 0;
 
         foreach($claims as &$value)
         {
-
             //if this item represents a service, dos will be a string. Otherwise, it will be a dateTime object.
+
             if(gettype($value['dos']) == 'string')
             {
                 $value['dos'] = preg_replace('/\s\d{2}:\d{2}:\d{2}/', '', $value['dos']);
                 $localTotalExpected += $value['expected_copay_amount'];
                 $localTotalAllowed  += $value['allowable_insurance_amount'];
+                $services += 1; 
 
             }else
             {
                 $value['dos'] = $value['dos']->format("Y-m-d");
                 $localPayments += $value["amount"];
+                $payments += 1;
             }
 
 
@@ -219,10 +226,20 @@ class PDF extends FPDF
                         $value['standard_fee'] = 175.00;
                         break; 
 
+                    case 11111:
+                        $value['cpt_code'] = 'Report writing - 2hrs';
+                        $value['standard_fee'] = 300.00;
+                        break;
+
                     case 'late cancel':
                         $value['cpt_code'] = 'Late Cancel';
                         $value['standard_fee'] = 150.00;
-                        break;                        
+                        break;    
+
+                    case 'reservation fee':
+                        $value['cpt_code'] = 'Reservation Fee';
+                        $value['standard_fee'] = 150.00;
+                        break;                
                 }
 
 
@@ -235,7 +252,8 @@ class PDF extends FPDF
         $this->pt['pt_info']['local_balance_expected'] = 0 - $localTotalExpected;
         $this->pt['pt_info']['local_balance_allowable'] = 0 - $localTotalAllowed;
         $this->pt['pt_info']['local_balance_payments'] = $localPayments;
-
+        echo count($claims) . ", Services:  " . $services . ", Payments: " . $payments . ", Payment Amt: " . $localPayments;
+        echo "\n" . $localTotalExpected;
 
         return $claims;
         
@@ -375,7 +393,7 @@ class PDF extends FPDF
 
     function addTitle()
     {
-        $label = $this->paymentRecord ? "Record of Payments in 2017" : 'Invoice for professional Services';
+        $label = $this->paymentRecord ? "Record of Payments in 2017" : 'Invoice for Professional Services';
 
         //coming from firstPageHeader drop down some space. 
         $this->Ln(25);
@@ -542,7 +560,7 @@ class PDF extends FPDF
                     $addOn = "";
 
 
-                    if (strpos(strtolower($row['cpt_code']), 'late') === 0)
+                    if (strpos(strtolower($row['cpt_code']), 'late') === 0 || strpos(strtolower($row['cpt_code']), 'reservation') === 0 )
                     {
                         /*
                             If this is a late cancel, use the co-pay amount and reset the
@@ -661,7 +679,7 @@ class PDF extends FPDF
 
         
 
-        if( isset($insurancePayments) )
+        if( isset($insurancePayments) && $this->displayInsurancePayments)
         {   
             /*
                 There were some out-of-network claims. List how much you got from the insurance so far.
@@ -683,7 +701,7 @@ class PDF extends FPDF
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Underbilled from last invoice', 0, 0,'L');
+            $this->Cell( 60, 10, 'Over billed from last invoice', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, sprintf("%.2f", $this->corrections), 0, 1,'R');  
 
@@ -719,12 +737,13 @@ class PDF extends FPDF
             //Subtract insurancePayments if it's set.
             if(isset($insurancePayments) && $this->subtractInsurancePayments)
             {
-                $balance += $insurancePayments;
+                $balance -= $insurancePayments;
+                //$balance = 585.00;
             }
 
             if($this->corrections)
             {
-                $balance -= $this->corrections;
+                $balance = $balance + $this->corrections;
 
             }
 
@@ -732,8 +751,8 @@ class PDF extends FPDF
             if($this->localBalance && $this->displayPreviousBalance)
             {
 
-                $balance = $balance + $this->pt['pt_info']['local_balance_payments'] + $this->pt['pt_info']['priorTotals']['balance'];
-
+                //$balance = $balance + $this->pt['pt_info']['local_balance_payments'] + $this->pt['pt_info']['priorTotals']['balance'];
+                $balance = $balance + $this->pt['pt_info']['priorTotals']['balance'] + $this->pt['pt_info']['local_balance_payments'];
             }
             
 

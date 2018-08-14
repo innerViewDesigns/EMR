@@ -17,6 +17,7 @@
 			private $folderNames = [];
 			private $services = [];
 			public  $patients = [];
+			private $test = false;
 
 			function __construct($args=[])
 			{
@@ -62,17 +63,23 @@
 					//add the patient id to the new services. If you fail to pair up an entry log that in a file
 					//in the remits directory
 
+
 					$this->linkNamesAndIds();
-
-
 					
-					//Record all payments in a CSV file
-					$this->recordAllClaims();
+
+
+					if(!$this->test)
+					{
+							//Record all payments in a CSV file
+							$this->recordAllClaims();
+					}
 
 					//log zero dollar payments and those patients with no patientId set
 					//each in their own txt file and unset those entries from services,
 
+
 					$this->recordDenials();
+					
 
 
 					//then get the service IDs you need to update the database
@@ -80,11 +87,14 @@
 					$this->setServiceIds();
 					//echo print_r($this->setServiceIds(), true);
 
-					
+					/*foreach($this->services as $key => $value)
+					{
+						echo "After setServiceIds: ".$value['name']." - ".$value['dos']."\n";
+					}
 					//$this->nullCases();
 					//then update the database and check for null cases
 					//$this->updateClaims();
-					
+					*/
 
 			}
 
@@ -191,18 +201,20 @@
 					$failed = [];
 					$duplicates = [];
 
+
 					foreach ($this->services as $key => &$value)
 					{		
-
 
 							//update the recieved insurance amount
 
 							$value['claim_values']['recieved_insurance_amount'] = floatval($value['claim_values']['recieved_insurance_amount']);
 							$value['payment'] = floatval($value['payment']);
 
+
 							if($value['claim_values']['recieved_insurance_amount'] === 0.00)
 							{
 									$value['claim_values']['recieved_insurance_amount'] += $value['payment'];
+
 
 							}else
 							{
@@ -212,6 +224,8 @@
 
 							}
 							
+							
+
 							$service_id = $insurances->update($value['service_id'], $value['claim_values']);
 							
 							if($service_id)
@@ -223,7 +237,7 @@
 									array_push($failed, $value);
 
 							}
-
+							
 					}
 
 					if(count($failed) != 0)
@@ -235,8 +249,6 @@
 					if(count($duplicates) != 0)
 						$this->listResults("Duplicates", $duplicates);
 
-					//check to see if you're missing any payments for these patients
-					$this->nullCases();
 			}
 
 			private function setServiceIds()
@@ -313,7 +325,6 @@
 					/*
 							
 							1. Get all last names into an array
-							2. Get all first names into an array
 							3. Run array count values on each and assign to new arrays
 							4. loop through each service
 							5. test the last name against the count of the appropriate key
@@ -322,7 +333,6 @@
 
 					*/
 
-
 					foreach($this->patients as $key => $value)
 					{	
 
@@ -330,21 +340,36 @@
 
 					}
 
-					foreach($this->services as &$value)
+					foreach($this->services as &$service)
 					{
 							//grab the last name from the new service
 							//preg_match('/[^,]+/', $value['name'], $lastName);
 							
 							//then loop through the patients and match them up.
-							foreach($this->patients as &$value1)
+
+
+							foreach($this->patients as &$patient)
 							{		
 									//correct for names with spaces
-									$value1['name'] = preg_replace('/\s/', '', $value1['name']);
+									$patient['name'] = preg_replace('/\s/', '', $patient['name']);
 
-									//if(preg_match("/".$value['name']."/", $value1['name']))
-									if($value['name'] == $value1['name'])
+									//echo $service['name'] . " " . $patient['name'] . PHP_EOL;
+									
+									/*
+									if($service['name'] == 'ORNDORFFPLUNKET,FR')
 									{
-											$value['patient_id'] = $value1['patient_id'];
+											echo $service['name'] . " " . $patient['name'] . PHP_EOL;
+									}
+									*/
+									
+
+									//if(preg_match("/(".$service['name'].")/", $patient['name']))
+									//if($service['name'] == $patient['name'])
+									//if(strcmp($patient['name'], $service['name']) === 0)
+									if(substr_count($patient['name'], $service['name']))
+									{		
+
+											$service['patient_id'] = $patient['patient_id'];
 											continue;
 									}
 
@@ -352,6 +377,20 @@
 
 					}
 
+					$file = "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/remits/NoPatientID.txt";
+
+					foreach($this->services as $key => $value)
+					{
+
+							if(!array_key_exists('patient_id', $value))
+							{	
+									echo "No ID match for: ".$value['name']."\n";
+
+									file_put_contents($file, print_r($value, true), FILE_APPEND);
+									unset($this->services[$key]);
+							}
+
+					}
 
 			}
 
@@ -406,14 +445,17 @@
 														
 														Match everything but a space: /[^\s]+/
 														Match everything up to a comma: /[^,]+/
+														Match everything up to a digit: /[^\d]+/
 
 
 											*/
 
-											preg_match('/[^\s]+/', substr($file[$lineNum+1], $tmp), $matches);
+											preg_match('/[^\d]+/', substr($file[$lineNum+1], $tmp), $matches);
+											//$services[$ctr] = array('name' => $matches[0]);
+											$matches[0] = preg_replace('/\s/', '', trim($matches[0]));
 											$services[$ctr] = array('name' => $matches[0]);
-
 											$services[$ctr]['file'] = $remit;
+
 											continue;
 
 									}
@@ -425,6 +467,7 @@
 									*/
 
 									$svcDateLineNum = strpos($line, 'Svc Date');
+
 									if($svcDateLineNum != FALSE)
 									{	
 											$paymentLineNum = strpos($line, 'Payment Amt');
@@ -445,12 +488,13 @@
 											if(!array_key_exists($ctr, $services))
 											{
 													$services[$ctr]['name'] = $matches[0];
+													$services[$ctr]['file'] = $remit;
 											}
 
 											$services[$ctr]['dos'] = $date[0]->format('Y-m-d');
 											$services[$ctr]['payment'] = $payment[0];
-											$services[$ctr]['filename'] = $remit;
 
+											//echo $services[$ctr]['name'] . " - " . $services[$ctr]['dos'] . "\n";
 
 											/*
 
@@ -459,7 +503,7 @@
 															 and look for "Adjustment Group"
 														2. If it's not there, do nothing
 														3. If it is there get the positions of the digits and the reason code
-														4. increment the line number and assigns the line to a variable that will be
+														4. increment the line number and assign the line to a variable that will be
 														   easier to use
 
 														Enter a loop
@@ -486,19 +530,21 @@
 
 												$services[$ctr]['adjustments'] = array();
 
-												while( trim($adjLine) != '' )
+												$ctr1 = 0;
+
+												while( trim($adjLine, "-") != '' )
 												{
 														preg_match('/^([A-Za-z]+\s?)+/', substr($adjLine, $adjGroupLineNum), $label);
 														preg_match('/[^\s]+/', substr($adjLine, $digitPos), $patientResp);
-														preg_match('/^([A-Za-z]+\s?)+/', substr($adjLine, $reasonPos), $reason);
+														preg_match('/^.[^\.]+/', substr($adjLine, $reasonPos), $reason);
+														//preg_match('/^([A-Za-z\-\/]+\s?)+/', substr($adjLine, $reasonPos), $reason);
 
-														$services[$ctr]['adjustments']["label"]       = $label[0];
-														$services[$ctr]['adjustments']["patientResp"] = $patientResp[0];
-														$services[$ctr]['adjustments']["reason"]      = $reason[0];
-
-														break;
+														$services[$ctr]['adjustments'][$ctr1]["Label"]       = $label[0];
+														$services[$ctr]['adjustments'][$ctr1]["Adj. Amt."]   = $patientResp[0];
+														$services[$ctr]['adjustments'][$ctr1]["Reason"]      = $reason[0];
 
 														$adjCtr++;
+														$ctr1++;
 
 													/*
 
@@ -507,15 +553,18 @@
 													*/
 
 
-													if( ($lineNum+$adjCtr) < count($file) )
-													{
+														if( ($lineNum+$adjCtr) < count($file) )
+														{
 
-														$adjLine = $file[$lineNum + $adjCtr];
+															$adjLine = $file[$lineNum + $adjCtr];
 
-													}else
-													{
-														break;
-													}
+														}else
+														{
+
+															break;
+														
+														}
+
 
 
 												}
@@ -533,6 +582,7 @@
 					}
 
 					//organize the array by grouping patients and then return it.
+
 
 					return $this->sortByPatient($services);
 
@@ -678,7 +728,7 @@
 			{
 
 					echo "**********************\n      $key\n**********************\n\n";
-					foreach($this->services as $key => $value)
+					foreach($array as $key => $value)
 					{
 
 							echo $value['name']." - ".$value['dos']." - ".$value['payment']." - ".$value['file']."\n";
@@ -713,11 +763,30 @@
 
 							file_put_contents($file, "\n", FILE_APPEND);
 
+							/*
+									
+									The structure of $value['adjustments'] is:
+										array('1' => array(
+																		'label' => '...',
+																		'patientResp' => '...',
+																		'reason' => '...')
+																			
+												  )
+
+							*/
+
 							foreach($value['adjustments'] as $key1 => $value1)
 							{
 
-								file_put_contents($file, "\n          " . $key1 .": " . $value1, FILE_APPEND);	
-							
+								foreach($value1 as $key2 => $value2)
+								{
+
+									file_put_contents($file, "\n          " . $key2 .": " . $value2, FILE_APPEND);	
+
+								}
+
+									file_put_contents($file, "\n", FILE_APPEND);
+
 							}
 
 							file_put_contents($file, "\n\n", FILE_APPEND);
