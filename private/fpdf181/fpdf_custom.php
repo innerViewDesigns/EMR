@@ -21,10 +21,11 @@ class PDF extends FPDF
     //protected $paymentTotal = 0;
     
     protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
-    protected $notesOnly    = false;
+    protected $notesOnly    = true;
+    protected $notesPtId    = 302;
 
-    protected $customDate   = " 2018-08-01";
-    protected $localBalance = true;
+    protected $customDate   = false;//" 2018-11-01";
+    protected $localBalance = false;
     protected $addOn        = ' (co-pay)';//' (deductible)'; 
     
     protected $insurancePayments = 0; //This is to account for previous insurance payments that have not yet been accounted for. 
@@ -289,7 +290,7 @@ class PDF extends FPDF
         //$this->pt['pt_info']  = $patientObj->getPersonalInfo();
 
         $this->firstPageHeader();
-        $this->addTitle();
+        if(!$this->notesOnly){$this->addTitle();}
         $this->addName();
 
         if(!$this->notesOnly)
@@ -310,7 +311,7 @@ class PDF extends FPDF
 
     function addNotes()
     {
-        $patient_id = 238;
+        $patient_id = $this->notesPtId;
         $patient = New patient($patient_id);
 
         $patient->setServices();
@@ -394,6 +395,7 @@ class PDF extends FPDF
     function addTitle()
     {
         $label = $this->paymentRecord ? "Record of Payments in 2017" : 'Invoice for Professional Services';
+        //$label = "Confidential Medical Record";
 
         //coming from firstPageHeader drop down some space. 
         $this->Ln(25);
@@ -412,6 +414,13 @@ class PDF extends FPDF
     {
 
         $label = $this->paymentRecord ? "Printed on: " : 'Invoice Date: ';
+        //$label = "Printed on: ";
+        
+        if($this->notesOnly)
+        {
+
+            $label = "Printed on: ";
+        }
 
         //coming from addTitle drop down some space. 
         $this->Ln(10);
@@ -423,7 +432,7 @@ class PDF extends FPDF
 
         $this->SetFont('Cormorant','',12);
         $this->Cell( $strWidth, 10, $this->pt['pt_info']['first_name']." ".$this->pt['pt_info']['last_name'], 0, 0, 'L');
-
+        //$this->pt['pt_info']['first_name']." ".$this->pt['pt_info']['last_name']
         $this->Ln(7);
         $this->SetX($this->leftMargin);
 
@@ -642,7 +651,8 @@ class PDF extends FPDF
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 60, 10, $label, 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 25, 10, sprintf("%.2f", $this->pt['pt_info']['priorTotals']['balance']), 0, 1,'R');   
+            //$this->Cell( 25, 10, sprintf("%.2f", $this->pt['pt_info']['priorTotals']['balance']), 0, 1,'R');   
+            $this->Cell( 25, 10, sprintf("%.2f", abs($this->pt['pt_info']['priorTotals']['balance'])), 0, 1,'R');   
                      
 
         }
@@ -757,6 +767,7 @@ class PDF extends FPDF
             
 
             $lable = $balance > 0 ? "Account Credit: " : "Total Due: ";
+            //$lable = "Current Balance: ";
 
         }else
         {   
@@ -816,6 +827,11 @@ class PDF extends FPDF
 
     public function getLabel()
     {
+        if($this->notesOnly){
+
+            return "_MedicalRecord-";
+        }
+
         if($this->paymentRecord)
         {
             return "_PaymentRecord-";
