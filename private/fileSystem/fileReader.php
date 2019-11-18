@@ -1,6 +1,6 @@
 <?php
 	
-	set_include_path("/Users/Apple/Sites/therapyBusiness/private/");
+	set_include_path("/Users/Lembaris/Sites/therapyBusiness/private/");
 
 	require("insurance.php");
 	require("insurances.php");
@@ -11,7 +11,7 @@
 
 	class fileReader
 	{
-			private $dir = "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/remits";
+			private $dir = "/Users/Lembaris/SkyDrive/Therapy Business/BandM Commune/remits";
 			private $zipNames;
 			private $zipsPresent = true;
 			private $folderNames = [];
@@ -29,7 +29,9 @@
 							will match the folders created after unzip
 					*/
 
+					
 					$this->zipNames = $this->setFolderNames();
+
 
 
 					/*
@@ -377,7 +379,7 @@
 
 					}
 
-					$file = "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/remits/NoPatientID.txt";
+					$file = "/Users/Lembaris/SkyDrive/Therapy Business/BandM Commune/remits/NoPatientID.txt";
 
 					foreach($this->services as $key => $value)
 					{
@@ -618,6 +620,7 @@
 
 					*/
 
+
 					$allFiles  = scandir($this->dir);
 					$onlyZips  = [];
 
@@ -644,7 +647,6 @@
 
 					}
 
-
 					return $onlyZips;
 
 
@@ -659,7 +661,9 @@
 							loop through files in this directory and unzip them.
 					
 					*/
-					$zip = new ZipArchive;
+
+
+					$zip = new ZipArchive();
 
 					foreach($this->zipNames as $value)
 					{
@@ -742,7 +746,7 @@
 			public function recordAllClaims()
 			{
 
-				$file = "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/remits/data/history.txt";
+				$file = "/Users/Lembaris/SkyDrive/Therapy Business/BandM Commune/remits/data/history.txt";
 
 				foreach($this->services as $key => $value)
 				{

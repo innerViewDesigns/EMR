@@ -36,7 +36,7 @@
 				
 				$pdf->prepare();
 				$label = $pdf->getLabel();
-				$pdf->Output('F', "/Users/Apple/SkyDrive/Therapy Business/BandM Commune/Invoices/".$pdf->getInvoiceDate().$label.$pdf->getName().".pdf");
+				$pdf->Output('F', "/Users/Lembaris/SkyDrive/Therapy Business/BandM Commune/Invoices/".$pdf->getInvoiceDate().$label.$pdf->getName().".pdf");
 
 
 			}

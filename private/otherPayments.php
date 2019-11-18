@@ -2,8 +2,8 @@
 
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
 	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
   $classLoader->register();
 
 	class otherPayments{

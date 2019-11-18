@@ -21,21 +21,23 @@ class PDF extends FPDF
     //protected $paymentTotal = 0;
     
     protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
-    protected $notesOnly    = true;
-    protected $notesPtId    = 302;
+    protected $paymentRecordTitle = 'Record of Payments: October - December 2018';
+    protected $notesOnly    = false;
+    protected $notesPtId    = 238;
 
-    protected $customDate   = false;//" 2018-11-01";
-    protected $localBalance = false;
-    protected $addOn        = ' (co-pay)';//' (deductible)'; 
-    
+    protected $customDate   = " 2019-11-01";
+    protected $localBalance = true;
+    protected $addOn        = ' (co-pay)'; 
+    protected $displayCourtesy = true;
+
     protected $insurancePayments = 0; //This is to account for previous insurance payments that have not yet been accounted for. 
     protected $displayInsurancePayments = false;
 
     protected $customLineItem = false;
-    protected $customAdjustment = 149.90;
+    protected $customAdjustment = 103;
 
     protected $corrections  = false;
-    protected $displayPreviousBalance = false;
+    protected $displayPreviousBalance = true;
     protected $subtractInsurancePayments = false;
 
 
@@ -222,6 +224,11 @@ class PDF extends FPDF
                         $value['standard_fee'] = 150.00;
                         break;   
 
+                    case 90839:
+                        $value['cpt_code'] = 'Crisis Intervention - 45mins';
+                        $value['standard_fee'] = 150.00;
+                        break;
+
                     case 90837:
                         $value['cpt_code'] = 'Psychotherapy - 60mins';
                         $value['standard_fee'] = 175.00;
@@ -368,7 +375,7 @@ class PDF extends FPDF
     function firstPageHeader()
     {
         // Logo
-        $this->Image('/Users/Apple/sites/therapyBusiness/public_html/media/ML-Garamond-Psychoanalysis(full).png',null,null,75);
+        $this->Image('/Users/Lembaris/sites/therapyBusiness/public_html/media/ML-Garamond-Psychoanalysis(full).png',null,null,75);
         $this->SetFont('Cormorant','',12);
 
 
@@ -394,7 +401,7 @@ class PDF extends FPDF
 
     function addTitle()
     {
-        $label = $this->paymentRecord ? "Record of Payments in 2017" : 'Invoice for Professional Services';
+        $label = $this->paymentRecord ? $this->paymentRecordTitle : 'Invoice for Professional Services';
         //$label = "Confidential Medical Record";
 
         //coming from firstPageHeader drop down some space. 
@@ -658,7 +665,7 @@ class PDF extends FPDF
         }
 
         
-        if(isset($dif) && $dif > 0)
+        if(isset($dif) && $dif > 0 && $this->displayCourtesy)
         {
             
             $this->SetX($this->tableRowLeft);
@@ -699,7 +706,7 @@ class PDF extends FPDF
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Insurance Payments (received)', 0, 0,'L');
+            $this->Cell( 60, 10, 'Insurance Payments (expected)', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 25, 10, "-".sprintf("%.2f", $insurancePayments), 0, 1,'R');   
                      
@@ -772,7 +779,7 @@ class PDF extends FPDF
         }else
         {   
             $balance = $paymentTotal;
-            $lable = "Total paid in 2017: ";
+            $lable = "Total: ";
         }
 
         $this->Cell( 25, 10, "$".sprintf("%.2f", abs($balance)), 0, 0,'R');

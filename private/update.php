@@ -1,6 +1,6 @@
 <?php
 
-set_include_path("/Users/Apple/Sites/therapyBusiness/private/");
+set_include_path("/Users/Lembaris/Sites/therapyBusiness/private/");
 require_once("validations.php");
 require_once("get.php");
 require_once("FirePHPCore/fb.php");

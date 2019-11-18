@@ -1,7 +1,7 @@
 <?php
 
 
-set_include_path("/Users/Apple/Sites/therapyBusiness/private/");
+set_include_path("/Users/Lembaris/Sites/therapyBusiness/private/");
 require_once("validations.php");
 require_once("update.php");
 require_once("insert.php");

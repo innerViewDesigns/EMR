@@ -2,8 +2,8 @@
 
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
 	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
   $classLoader->register();
 
 	class service{
@@ -142,7 +142,7 @@
 					$stmt->bindParam(4, $args['charged']);
 					$stmt->bindParam(5, $args['insurance_used'], PDO::PARAM_INT);
 					$stmt->bindParam(6, $args['in_network'], PDO::PARAM_INT);
-					$stmt->bindParam(7, $args['cpt_code'], PDO::PARAM_INT);
+					$stmt->bindParam(7, $args['cpt_code'], PDO::PARAM_STR);
 					$stmt->bindParam(8, $args['dx1'], PDO::PARAM_STR);
 					$stmt->bindParam(9, $args['dx2'], PDO::PARAM_STR);
 					$stmt->bindParam(10, $args['dx3'], PDO::PARAM_STR);	

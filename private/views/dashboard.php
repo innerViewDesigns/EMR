@@ -51,7 +51,7 @@
 
 
 	<section class="row">
-
+	<!--	<pre> <?php print_r($newList) ?> </pre> -->
 		<article class="drop6 col-md-12">
 
 			<button class="upper-right btn" id="collapse-last-week">

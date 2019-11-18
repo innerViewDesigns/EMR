@@ -122,7 +122,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 		echo "------------last else";
 		$this->fontpath = '';
 	} */
-	$this->fontpath = "/Users/Apple/Sites/therapyBusiness/private/fpdf181/font/";
+	$this->fontpath = "/Users/Lembaris/Sites/therapyBusiness/private/fpdf181/font/";
 	// Core fonts
 	$this->CoreFonts = array('courier', 'helvetica', 'times', 'symbol', 'zapfdingbats');
 	// Scale factor

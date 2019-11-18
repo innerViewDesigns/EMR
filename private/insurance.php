@@ -2,8 +2,8 @@
 
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
 	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Apple/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Apple/Sites/therapyBusiness/private');
+	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
+	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
   $classLoader->register();
 
 	class insurance{
@@ -183,7 +183,7 @@
 					$stmt->bindParam(1, $args['insurance_name'], PDO::PARAM_INT);
 					$stmt->bindParam(2, $args['allowable_insurance_amount'], PDO::PARAM_STR);
 					$stmt->bindParam(3, $args['expected_copay_amount']);
-					$stmt->bindParam(4, $args['recieved_insurance_amount'], PDO::PARAM_INT);
+					$stmt->bindParam(4, $args['recieved_insurance_amount']);
 					$stmt->bindParam(5, $args['recieved_copay_amount'], PDO::PARAM_INT);
 					$stmt->bindParam(6, $args['service_id_insurance_claim'], PDO::PARAM_INT);
 
