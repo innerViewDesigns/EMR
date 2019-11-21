@@ -4,7 +4,7 @@
 			<div class="form-group col-md-4">
 	   		<label for="Patient">Patient</label>
 	    	<input type="text" data-easy-auto="true" name="patient" class="form-control" id="patientInput">
-	    	<input type="hidden" name='patient_id[]'></input>
+	    	<input type="hidden" name='patient_id'></input>
 	  	</div>
 
 		  <div class="form-group col-md-4">
@@ -35,7 +35,7 @@
 $("#myModal input[data-easy-auto='true']").each(function(){
 
 					var $el    		= $(this),
-							$hiddenEl = $("input[name='patient_id[]']");
+							$hiddenEl = $("input[name='patient_id']");
 
 
 					var options = {
@@ -109,13 +109,13 @@ $("#myModal input[data-easy-auto='true']").each(function(){
 		e.preventDefault();
 
 		var data = 	{ "data" : [{
-					patient_id_notes 	: $('input[name="patient_id[]"]').val(),
+					patient_id_notes 	: $('input[name="patient_id"]').val(),
 					associated_date		: $('input[name="date"]').val(),
 					type 							: $('input[name="type"]').val(),
 					note 							: $('textarea').val()
 
 				}],
-				"template_name": ["note/_info_only"]
+				"template_name": "note/_info_only"
 				
 			};
 

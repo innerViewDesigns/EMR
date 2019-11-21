@@ -9,6 +9,7 @@
   $classLoader = new SplClassLoader(NULL, __DIR__);
   $classLoader->register();
 
+
   class appController{
 
     public $model;
@@ -21,33 +22,44 @@
 
   	public function __construct($model = null, $basePath = null){
 
-  		// echo "Step 7 appController::__construct, model: $model, basePath: $basePath<br>";
       $this->model_name = $model;
       $this->basePath = $basePath;
+
   	}
 
   	public function post($args=[]){
 
-  		//echo "<br>appController::post. ";
-      //echo "<br> " . print_r($args, true);
-      //parse args and dispatch to appropriate method
-
-      //echo "post function";
       $this->model = new $this->model_name($args);
 
   	}
 
-    public function get($args=[]){
+    public function get(array $params){
 
-      //echo "<br>appController::get";
-      // echo "Step 8 appController::get, args: ".print_r($args, true)."<br>";
+      /*
+          There's been a get request relating to the above noted model. The model
+          name has already been assigned to a property of this, appController object.
+          Now instantiate a new model object and pass it the parameters recieved from
+          the initial request. This will contain any user_params as well as any POST
+          or GET data in key => value pairs. 
+
+          user_params => 
+          template_name =>
+          remote => <boolean>
+          
+          If the 'remote' key is present. It means this is an ajax request and there
+          will also be a key for 'template_name.' 
+
+          user_params by model
+            patient - patient_id 
+      */
+
         
-      $this->model = new $this->model_name($args);
+      $this->model = new $this->model_name($params);
       $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
 
-      if( !empty($args) ){
+      if( !empty($params) ){
 
-        if( array_key_exists('remote', $args) ){
+        if( array_key_exists('remote', $params) ){
 
           $this->renderView($args['template_name']);
 
@@ -72,92 +84,97 @@
 
     public function create($args=[]){
 
-     //echo "<br>appController::create.";
-     
+
+      /*
+        The curl contained the 'create' action and this method was executed by 
+        index.php and passed the parameters. First, check to see if this was an
+        ajax call. If it was, it will contain the array key 'data.'
+      */
       
       $this->action = 'create';
       $this->lastInsertIds = [];
       
       if ( !empty($args) ) { 
 
-        //echo "<br><pre>appController::create::args: " . print_r($args, true) . "</pre>";
-        //echo "<br><pre>" . print_r(consolidateParams($args), true) . "</pre></br>";
+
+          if (array_key_exists('data', $args) ){
 
 
-              if (array_key_exists('data', $args) ){
+                /*
+
+                  if this was an ajax call. then snag the data and send 
+                  it to the model. It will have needed informaiton for 
+                  constructing the model object.
+                
+                */
+
+                $data  = $args['data'];
+                $this->model = new $this->model_name($data);
 
 
-                    //if this was an ajax call. then snag the data and send it to the model. It will have needed informaiton for constructing the model object.
 
-                    $data  = $args['data'];
-                    $this->model = new $this->model_name($data);
+          }else{
 
+                /*
+                  If data was not set (i.e., this wasn't an ajax call) then 
+                  try to consolidate the params. This will be the case for 
+                  
+                    add patient
+                    add services
 
+                  First, check to see if this is a nested array. If so, then run
+                  the consolidateParams function. If not, then just grab the data
 
-              }else{
+                */
+             
 
-                    //if data was not set (i.e., this wasn't an ajax call) then try to consolidate the params. This would be the case for add patient, for instance, or add services
+                $this->model = new $this->model_name;
+
+                if (is_multi($args) ){
                  
+                  $data = consolidateParams($args);
 
-                    $this->model = new $this->model_name;
+                }else{
 
-                    if (is_multi($args) ){
-                     
+                  $data = is_array($args) ? $args : array($args);
 
-                        $data = consolidateParams($args);
-                     
+                }
 
-                    }else{
-
-                        //this want's an ajax call, but you still only want to deal with the $data variable, so load it and make sure that it's an array
-
-                        $data = is_array($args) ? $args : array($args);
+          }
 
 
-                    }
+        /*
+            Loop through $data and send values to be created in the database.
+            Keep track of how many you've entered, and then log the flash message.
 
-              }
-
-
-        //Loop through $data and send values to be created in the database. Save the ids.
+        */
 
         foreach($data as $key => $value){
 
-            $id = $this->model->create($value);
+          $id = $this->model->create($value);
 
-            if($id){
+          if($id){
 
-                array_push( $this->lastInsertIds, $id );
+            array_push( $this->lastInsertIds, $id );
 
-            }
+          }
         
-        }        
+        }    
 
 
 
-        $new_record_count = count( $this->lastInsertIds);
+        if(count($this->lastInsertIds) === 0){
 
+            array_push($this->flash, array("Error", "Nothing added to the database."));
 
+        }else{
 
-        switch($new_record_count){
-
-            case 1:
-
-                $this->flash = array("success" => "One item was successfully created.");
-                break;
-
-            case ($new_record_count > 1):
-
-                $this->flash = array("success" => count($this->lastInsertIds) . " items were successfully created.");
-                break;
-
-            default:
-
-                $this->flash = array("error" => "Something went wrong. Nothing added to the database");
-                break;
-
+            array_push($this->flash, array("Success", count($this->lastInsertIds)." rows were successfully added to database."));
         }
 
+        /*
+            
+        */
         
 
         if( array_key_exists('template_name', $args) ){

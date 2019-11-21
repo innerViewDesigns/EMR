@@ -16,45 +16,29 @@
 		private  $db;
 
 		
-		public function __construct($args=[]) {
+		public function __construct(array $args) {
 			
 			/*
-					
-					http://localhost/therapyBusiness/patient/get/228 - will yield an array here.
-					You still havn't found a path that leads to a string output.
-
+					You will have been passed an array with a key including 'user_param'
 			*/
 
-			// echo "Step 9 patient::__construct, id: ".print_r($args, true)."<br>";
-
 			$this->db = new dbObj();
-			
-			if( isset($args) ){
 
-				if(gettype($args) === 'array'){
+			if( !empty($args) ){
 
-					$this->patient_id = $args[0];
+				$this->patient_id = $args['user_param'];
 
-				}elseif( gettype($args) == 'string' || gettype($args) == 'integer'){
-
-					$this->patient_id = $args;
-
-				}
-
-				$this->populate();
 			}
 
+			
+			$this->populate();
+			
 
 		}    
 		
 
 		private function populate(){
 
-			//dispatch various setter methods
-			//$this->setServices();
-			//$this->setInsurance_claims();
-			//$this->setInvoices();
-			//$this->setBalanceOwed();
 			$this->setPersonalInfo();
 			$this->setBalance();
 

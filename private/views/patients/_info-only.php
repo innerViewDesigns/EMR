@@ -1,9 +1,14 @@
 <?php
 	
-	$patients = $this->model;
+	/*
+			Grab the model that should already have been instaciated by the appController.
+			It was passed the user_params which should be available in the $args property, 
+			a string.
+	*/
 
+	$patients = $this->model;
 	
-	switch($patients->args[0]) {
+	switch($patients->args) {
 		
 		case 'all':
 			$patients->getAll();

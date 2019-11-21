@@ -78,7 +78,7 @@
 
 							var value = $("#easyAuto").getSelectedItemData().patient_id;
 
-							console.log("value: " + value);
+							//console.log("value: " + value);
 
 							$("#easyAutoHidden").val(value).trigger("change");
 

@@ -1,6 +1,6 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
+	//require_once(__DIR__ . "/FirePHPCore/fb.php");
 	require_once(__DIR__ . "/validations.php");
 	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
 	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
@@ -19,14 +19,17 @@
 		
 		public function __construct($args = null) {
 			
-			//echo "<br>service::__construct";
-			//echo "<br>service::id = ".print_r($id, true);
 			$this->db = new dbObj();
-			
-			//fb("service::__construct");
-			//fb("id: " . $args['patient_id']);
 
-			if( isset($args) ){
+			/*
+
+				When originating from services/_create.php, there won't be a patient ID. 
+				Args will be empty. 
+
+			*/
+
+
+			if( !empty($args) ){
 
 				if(gettype($args) === 'array'){
 
@@ -66,7 +69,7 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "This from service::setService, ".$e->getMessage());
+				$this->setFlash(array('Error', "This from service::setService, ".$e->getMessage()));
 
 			}
 	}
@@ -89,7 +92,7 @@
 
 		}else{
 
-			$this->setFlash('error', 'Could not find the service with patient_id: ' . $this->patient_id . ' and dos: ' . $this->dos . ".");
+			$this->setFlash(array('Error', 'Could not find the service with patient_id: ' . $this->patient_id . ' and dos: ' . $this->dos . "."));
 			
 		}
 
@@ -116,7 +119,7 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', $e);
+				$this->setFlash(array('Error', $e));
 
 			}		
 
@@ -125,11 +128,10 @@
 
 	public function create($args){
 
-		//echo "<br>service::create, args: " . print_r($args, true);
 		$db = $this->db;
 		$args = $this->sanatizeParams($args);
 		$args = deal_with_null_case($args);
-		//echo "<br>service::create, args: " . print_r($args, true);
+
 
 		if($args){
 
@@ -157,20 +159,20 @@
 
 					}else{
 
-						$this->setFlash('error', 'Something went wrong when adding {$args["patient_id"]}\'s services.' );
+						$this->setFlash(array('Error', 'Something went wrong when adding {$args["patient_id"]}\'s services.' ));
 						return false;
 					}
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "This from service::create - ".$e->getMessage());
+					$this->setFlash(array('error', "This from service::create - ".$e->getMessage()));
 					return false;
 
 				}
 
 			}else{
 
-				$this->setFlash('error', "The args conditional in services.php::create failed");
+				$this->setFlash(array('Error', "The args conditional in services.php::create failed"));
 				return false;
 
 			} 
@@ -185,14 +187,9 @@
 
 	}
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash($flash){
 
-		if(empty($rowCount)){
-			$this->flash = array($status => $message);
-		}else{
-			$this->rowCount += $rowCount;
-			$this->flash = array($status => $rowCount . " " . $message);
-		}
+		array_push($this->flash, $flash);
 
 	}
 
@@ -205,14 +202,17 @@
 
 	private function sanatizeParams($args){
 
-		//make sure that all files are present
+		/*
+			1. Make sure that all files are present
+			2. deal with the special case of a missing patient_id
+		*/
+
+
 		$requiredKeys = ['type', 'dos', 'cpt_code', 'dx1', 'dx2', 'dx3'];
 
-
-		//deal with the special case of patient_id
 		if( !array_key_exists('patient_id', $args) ){
 
-			$this->setFlash("error", "Failed in service.php::create - No patient id given");
+			$this->setFlash(array("error", "Failed in service.php::create - No patient id given"));
 			return false;
 
 		}

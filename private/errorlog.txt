@@ -1,0 +1,9 @@
+[20-Nov-2019 06:20:26 UTC] PHP Notice:  Undefined index: user_param in /Users/Lembaris/Sites/therapyBusiness/private/patients.php on line 22
+[20-Nov-2019 06:20:26 UTC] PHP Notice:  Undefined index: user_param in /Users/Lembaris/Sites/therapyBusiness/private/appController.php on line 52
+[20-Nov-2019 17:05:50 UTC] PHP Notice:  Undefined offset: 0 in /Users/Lembaris/Sites/therapyBusiness/private/patient.php on line 36
+[20-Nov-2019 17:07:36 UTC] PHP Notice:  Undefined offset: 0 in /Users/Lembaris/Sites/therapyBusiness/private/patient.php on line 36
+[20-Nov-2019 17:17:19 UTC] PHP Notice:  Undefined offset: 0 in /Users/Lembaris/Sites/therapyBusiness/private/patient.php on line 34
+[21-Nov-2019 03:54:41 UTC] PHP Warning:  Illegal string offset 'user_params' in /Users/Lembaris/Sites/therapyBusiness/private/views/patients/_info-only.php on line 11
+[21-Nov-2019 03:55:04 UTC] PHP Warning:  Illegal string offset 'user_param' in /Users/Lembaris/Sites/therapyBusiness/private/views/patients/_info-only.php on line 11
+[21-Nov-2019 18:46:44 UTC] PHP Notice:  Undefined variable: args in /Users/Lembaris/Sites/therapyBusiness/private/appController.php on line 64
+[21-Nov-2019 18:47:11 UTC] PHP Notice:  Undefined variable: args in /Users/Lembaris/Sites/therapyBusiness/private/appController.php on line 64

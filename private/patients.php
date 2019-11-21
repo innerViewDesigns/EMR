@@ -16,11 +16,15 @@
   	public   $flash = [];
 
 		
-		function __construct($args=[]){
+		function __construct($args){
+
+			/*
+					The arguments supplied to this model should include the key 'user_param.'
+					Grab that and keep it for later use. 
+			*/
 
 			$this->db = new dbObj();
-			$this->args = $args;
-
+			$this->args = $args['user_param'];
 
 		} 
 
