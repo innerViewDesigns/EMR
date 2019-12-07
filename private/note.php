@@ -15,14 +15,25 @@
 
 		
 		public function __construct($args = null) {
-			
-			//echo "<br>note::__construct";
-			//echo "<br>note::args = ".print_r($args, true);
+
 			$this->db = new dbObj();
 
-			if( isset($args) ){
+			/*
+
+				args will sometimes be a nested array. If so, detect that and correct for it.
+				Then search for some of the needed information for various operations. 
+				Apparently, there is a case for when the service_id is sent on it's own. 
+
+			*/
+
+			if( !empty($args) ){
 
 				if(gettype($args) === 'array'){
+
+					if(array_key_exists(0, $args))
+					{
+						$args = $args[0];
+					}
 
 					if(array_key_exists('service_id', $args)){
 						$this->service_id = $args['service_id'];
@@ -34,6 +45,7 @@
 				}
 
 			}elseif( gettype($args) === 'string'){
+
 				$this->service_id = $args;
 			
 			}
@@ -60,7 +72,7 @@
 
 						}else{
 							
-							$this->setFlash('error', 'There was a problem in fetching the note with notes_id #' . $this->note_id . ".");
+							$this->setFlash( array('Error', 'There was a problem in fetching the note with notes_id #' . $this->note_id . "."));
 							return false;
 
 						}
@@ -68,7 +80,7 @@
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "Something went wrong with note::setNotebyId. Here's the message: " . $e->getMessage());
+					$this->setFlash(array('Error', "Something went wrong with note::setNotebyId. Here's the message: " . $e->getMessage()));
 
 				}
 			}else{
@@ -99,7 +111,7 @@
 
 						}else{
 							
-							$this->setFlash('error', 'There was a problem in fetching the note with service_id #' . $this->service_id . ".");
+							$this->setFlash(array('Error', 'There was a problem in fetching the note with service_id #' . $this->service_id . "."));
 							return false;
 
 						}
@@ -107,7 +119,7 @@
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "Something went wrong with note::setNotebyServiceId. Here's the message: " . $e->getMessage());
+					$this->setFlash(array('error', "Something went wrong with note::setNotebyServiceId. Here's the message: " . $e->getMessage()));
 
 				}
 			}else{
@@ -119,8 +131,10 @@
 
 	public function update($args){
 
-		//echo "<br>note::update, args: " . print_r($args, true);
+		fb(print_r($args, true));
+
 		$db = $this->db;
+
 
 		if( isset($this->service_id) ){
 			
@@ -131,6 +145,7 @@
 			
 			$sql = "UPDATE notes set note = ? WHERE notes_id = ?";
 			$serviceId = false;
+		
 		}
 		
 		try{
@@ -138,19 +153,41 @@
 			$stmt = $db->db->prepare($sql);
 			$stmt->bindParam(1, $args['note']);
 
-			if($serviceId){	$stmt->bindParam(2, $this->service_id, PDO::PARAM_INT); }
+			if($serviceId)
+			{	
+				
+				$stmt->bindParam(2, $this->service_id, PDO::PARAM_INT); 
+			
+			}else
+			{ 
+				$stmt->bindParam(2, $this->notes_id, PDO::PARAM_INT); 
+			}
 
-			else{ $stmt->bindParam(2, $this->notes_id, PDO::PARAM_INT); }
+			if( $stmt->execute() )
+			{
 
-			if( $stmt->execute() ){
-
-				if( $serviceId ) {return $this->service_id;}
-				else{return $this->notes_id;}
+				if( $serviceId )
+				{
+					return $this->service_id;
+				
+				}else
+				{
+					return $this->notes_id;
+				}
 
 			}else{
 				
-				if( $serviceId ) {$this->setFlash('error', 'There was a problem in fetching the note with service_id #' . $this->service_id . ".");}
-				else{ $this->setFlash('error', 'There was a problem in fetching the note with notes_id #' . $this->notes_id . ".");}
+				if( $serviceId )
+				{
+				
+					$this->setFlash(array('Error', 'There was a problem in fetching the note with service_id #' . $this->service_id . "."));
+				
+				}else
+				{ 
+				
+					$this->setFlash(array('error', 'There was a problem in fetching the note with notes_id #' . $this->notes_id . "."));
+
+				}
 				
 				return false;
 
@@ -159,7 +196,7 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "Something went wrong with note::update. Here's the message: " . $e->getMessage());
+				$this->setFlash(array('error', "Something went wrong with note::update. Here's the message: " . $e->getMessage()));
 				return false;
 			}
 
@@ -167,10 +204,8 @@
 
 	public function create($args){
 
-		//echo "<br>notes::create, args: " . print_r($args, true);
 		$db = $this->db;
 		$args = $this->sanatizeParams($args);
-		//echo "<br>service::create, args: " . print_r($args, true);
 
 		if($args){
 
@@ -202,14 +237,14 @@
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "This from notes::create - ".$e->getMessage());
+					$this->setFlash(array('Error', "This from notes::create - ".$e->getMessage()));
 					return false;
 
 				}
 
 			}else{
 
-				$this->setFlash('error', "The args conditional in notes.php::create failed");
+				$this->setFlash( array('Error', "The args conditional in notes.php::create failed. Are you sure you passed something?"));
 				return false;
 
 			} 
@@ -232,14 +267,9 @@
 
 	}
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash(array $flash){
 
-		if(empty($rowCount)){
-			array_push($this->flash, array($status => $message));
-		}else{
-			$this->rowCount += $rowCount;
-			array_push($this->flash, array($status => $rowCount . " " . $message));
-		}
+		array_push($this->flash, $flash);
 
 	}
 
@@ -264,12 +294,12 @@
 		//deal with the special case of patient_id
 		if( !array_key_exists('patient_id_notes', $args) ){
 
-			$this->setFlash("error", "Failed in notes.php::create - No patient id given");
+			$this->setFlash( array("Error", "Failed in notes.php::create - No patient ID given"));
 			return false;
 
 		}elseif( !array_key_exists('note', $args ) ){
 
-			$this->setFlash("error", "Failed in notes.php::create - No patient id given");
+			$this->setFlash( array("error", "Failed in notes.php::create - No note given"));
 			return false;
 
 		}

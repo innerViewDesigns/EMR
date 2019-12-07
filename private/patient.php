@@ -1,10 +1,10 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
+	//require_once(__DIR__ . "/FirePHPCore/fb.php");
+	//require_once(__DIR__ . "/validations.php");
+	//require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
+	//$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
+  //$classLoader->register();
 
 	class patient{
 
@@ -61,13 +61,13 @@
 						$this->personalInfo = $result;
 
 					}else{
-						$this->setFlash('error', "No results from fetch patient with id: ".$this->patient_id.".");
+						$this->setFlash(array('error', "No results from fetch patient with id: ".$this->patient_id."."));
 					}
 					
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', 'From trying to pull patient #'.$this->patient_id.": ".$e->getMessage());
+				$this->setFlash(array('error', 'From trying to pull patient #'.$this->patient_id.": ".$e->getMessage()));
 
 			}
 	}
@@ -116,7 +116,7 @@ EOT;
 						$this->balance = $result['balance'];
 
 					}else{
-						$this->setFlash('error', "No balance could be calculated");
+						$this->setFlash(array('error', "No balance could be calculated"));
 					}
 					
 
@@ -158,7 +158,7 @@ EOT;
 						$this->previousBalance = $result;
 
 					}else{
-						$this->setFlash('error', "No balance could be calculated");
+						$this->setFlash(array('Error', "No balance could be calculated"));
 					}
 					
 
@@ -174,7 +174,6 @@ EOT;
 
 	public function create($args){
 
-		//echo "<br>patient::create, args: " . print_r($args, true);
 		$db = $this->db;
 
 		$args = $this->sanatizeParams($args);
@@ -198,17 +197,17 @@ EOT;
 
 				if($newId){
 
-					$this->setFlash('success', 'New patients added', $stmt->rowCount());
+					$this->setFlash(array('Success', 'New patients added', $stmt->rowCount()));
 					return $newId;
 
 				}else{
 
-					$this->setFlash('error', 'Something went wrong when adding those patients.' );
+					$this->setFlash(array('Error', 'Something went wrong when adding those patients.' ));
 				}
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "This from patient create: ".$e->getMessage());
+				$this->setFlash(array('Error', "This from patient create: ".$e->getMessage()));
 
 			}
 
@@ -236,7 +235,7 @@ EOT;
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "This went wrong when trying to fetch all of that person's notes: ".$e->getMessage());
+					$this->setFlash(array('Error', "This went wrong when trying to fetch all of that person's notes: ".$e->getMessage()));
 
 				}
 
@@ -299,7 +298,7 @@ EOT;
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "This went wrong when trying to fetch that person's other notes: ".$e->getMessage());
+				$this->setFlash(array('Error', "This went wrong when trying to fetch that person's other notes: ".$e->getMessage()));
 
 			}
 
@@ -347,12 +346,12 @@ EOT;
 					//$this->services = $this->setSessionCount($this->services);
 
 				}else{
-					$this->setFlash('error', 'Something went wrong when fetching this patients services.' );
+					$this->setFlash(array('Error', 'Something went wrong when fetching this patients services.' ));
 				}
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', $e->getMessage());
+				$this->setFlash(array('Error', $e->getMessage()));
 
 			}
 	}
@@ -474,7 +473,7 @@ EOT;
 		}else{
 
 			//other notes was empty and therefore there is nothing to combine. 
-			$this->setFlash('error', "Service variable was empty. Nothing to combine.");
+			$this->setFlash(array('Error', "Service variable was empty. Nothing to combine."));
 			return false;
 		
 		}
@@ -591,7 +590,7 @@ EOT;
 
 	}
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash(array $flash){
 
 		if(empty($rowCount)){
 			$this->flash = array($status => $message);

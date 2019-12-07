@@ -5,7 +5,7 @@
 			It was passed the user_params which should be available in the $args property, 
 			a string.
 	*/
-
+			
 	$patients = $this->model;
 	
 	switch($patients->args) {

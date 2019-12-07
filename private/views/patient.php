@@ -1,7 +1,9 @@
 <?php 
+
 	if($this->action !== 'create'){
 		$patient = $this->model; 
 	}
+	
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">

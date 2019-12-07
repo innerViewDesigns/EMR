@@ -4,19 +4,6 @@
 		$patient = $this->model;
 	}
 
-	//If you are displaying this after an update then collect the service IDs...
-
-	if( isset($this->lastUpdatedIds) ){
-		if( array_key_exists('service_id', $this->lastUpdatedIds) ){
-			$lastUpdatedIds = [];
-			foreach($this->lastUpdatedIds as $key => $value){
-				if($key === 'service_id'){
-					array_push( $lastUpdatedIds, $value);
-				}
-			}
-		}
-	}
-
 	$insurance_claims = new insurances();
 	$insurance_claims->setAllForPatient(array('patient_id'=>$patient->patient_id));
 	$claims = $insurance_claims->getClaims();
@@ -25,24 +12,14 @@
 	$services = $patient->getServices();
 	$sessionCount = $patient->setSessionCount($services);
 
-	//echo "<pre>".print_r($services, true)."</pre>";
-
 	
 	$other_payments = new otherPayments(array('patient_id'=>$patient->patient_id));
 	$other_payments->setPayments();
 	$payments = $other_payments->getPayments();
 
-	/*
-	echo "<pre>".count($claims)."</pre>";
-	echo "<pre>".print_r($claims[0], true)."</pre>";
-	echo "<pre>".count($services)."</pre>";
-	echo "<pre>".print_r($services[0], true)."</pre>";
-	echo "<pre>".count($payments)."</pre>";
-	echo "<pre>".print_r($payments[0], true)."</pre>";
-	*/
 
 	$claims = $insurance_claims->pairClaimsAndPayments($claims, $services, $payments, false);
-	//echo "<pre>".print_r($claims, true)."</pre>";
+
 ?>
 
 <article class="col-md-12 drop6">
@@ -65,7 +42,7 @@
 			include(dirname(__DIR__)."/_flash.php");
 
 
-			echo "<h3 id='payments' style='padding-top: 25px;'>Payments</h3>";
+			echo "<h3 id='payments' data-patient-id='".$patient->patient_id."' style='padding-top: 25px;'>Payments</h3>";
 
 			echo "<table class='col-md-12 table'>
 							<tr>
@@ -345,6 +322,8 @@ $(document).ready(function(){
 
 				url : g.basePath + "insurance/update",
 
+				method : "POST",
+
 				data: {
 
 					'remote'				: 'true',
@@ -355,7 +334,7 @@ $(document).ready(function(){
 
 				beforeSend : function(){
 
-					console.log(data);
+
 
 				},
 
@@ -420,9 +399,8 @@ $(document).ready(function(){
 function createInvoice(){
 
 			//gather data
-			console.log("testing, 1 2");
 
-			var data = { 'data-service-id' : [], 'data-payment-id' : [] };
+			var data = { 'data-service-id' : [], 'data-payment-id' : [], 'data-patient-id' : $('h3#payments').attr('data-patient-id')};
 
 			$('div.checkbox-custom2.checked').each(function(){
 
@@ -444,14 +422,13 @@ function createInvoice(){
 
 			});
 
-			console.log("service-ids: " + data['data-service-id'].join());
-			console.log("payment-ids: " + data['data-payment-id'].join());
-
 
 			$.ajax({
 
 					url : g.basePath + "invoice/post",
 
+					method : 'POST',
+					
 					data: {
 
 						'data'   : data
@@ -460,7 +437,6 @@ function createInvoice(){
 
 					beforeSend : function(){
 
-						console.log("sending...");
 
 					},
 

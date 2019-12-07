@@ -9,7 +9,7 @@
 	$patient->setOtherNotes();
 
 	$servicesAndNotes = $patient->combineOtherNotesAndServices($patient->getOtherNotes(), $patient->getServices());
-	$this->flash = array_merge_cust($this->flash, $patient->getFlash());
+	$this->flash = array_merge($this->flash, $patient->getFlash());
 
 
 ?>
@@ -32,7 +32,9 @@
 							if( isset($value['cpt_code']) ){
 
 								if($value['cpt_code'] == ""){
+
 									$value["cpt_code"] = '(none)';
+									
 								}else
 								{
 										

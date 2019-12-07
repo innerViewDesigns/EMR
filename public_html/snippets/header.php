@@ -27,8 +27,8 @@
 
 	<button id="get-patient" class="btn btn-default">submit</button>
 	<a href="services/create"><button class="btn btn-default">Add Services</button></a>
-	<a href="insurances/update"><button class="btn btn-default">Ins Payments</button></a>
 	<a href="otherPayments/create"><button class="btn btn-default">Other Payments</button></a>
+	<a href="insurances/update"><button class="btn btn-default">Ins Payments</button></a>
 	
 
 	<div class="pull-right">

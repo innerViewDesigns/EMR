@@ -1,17 +1,16 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
+	//require_once(__DIR__ . "/FirePHPCore/fb.php");
+	//require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
+	//$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
+  //$classLoader->register();
 
   class services{
 
   	public   $services;
   	private  $db;
-  	private  $rawData;
-  	private  $flash;
+  	private  $rawData = [];
+  	private  $flash=[];
 
 		function __construct($args=[]){
 
@@ -21,14 +20,14 @@
 
 		} 
 
-		public function getAllForPatient(){
+		public function setAllForPatient($patient_id){
 			
 			$db = $this->db;
 			
 			try{
 
-					$stmt = $db->db->prepare("SELECT * FROM services WHERE patient_id = ?");
-					$stmt->bindParam(1, $args['patient_id'], PDO::PARAM_INT);
+					$stmt = $db->db->prepare("SELECT * FROM services WHERE patient_id_services = ?");
+					$stmt->bindParam(1, $patient_id, PDO::PARAM_INT);
 					$stmt->execute();
 					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -37,14 +36,14 @@
 						$this->rawData = $result;
 
 					}else{
-						$this->setFlash("error", "No results from the getAllForPatient function in services.php");
+
+						$this->setFlash(array("Error", "No results from the getAllForPatient function in services.php"));
 					}
 					
 
 				}catch (PDOException $e){
 
-					$this->setFlash('error', $e);
-					//fb($e);
+					$this->setFlash(array('Error', $e));
 
 				}
 
@@ -146,15 +145,22 @@ EOD;
 		}
 
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash(array $flash){
 
-			if(empty($rowCount)){
-				$this->flash[$status] = $message;
-			}else{
-				$this->rowCount += $rowCount;
-				$this->flash[$status] = $rowCount . " " . $message;
-			}
+			array_push($this->flash, $flash);
 
+	}
+
+	public function getServices()
+	{
+		if(!empty($this->rawData))
+		{
+			return $this->rawData;
+		}
+		else
+		{
+			return $this->flash;
+		}
 	}
 
 	public function getFlash(){

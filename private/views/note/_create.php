@@ -1,4 +1,4 @@
-	<form action="http://localhost/~Apple/therapyBusiness/note/create" method="post" id="add-otherNotes-form">
+	<form action="note/create" method="post" id="add-otherNotes-form">
 		<div class="row">
 
 			<div class="form-group col-md-4">
@@ -115,7 +115,8 @@ $("#myModal input[data-easy-auto='true']").each(function(){
 					note 							: $('textarea').val()
 
 				}],
-				"template_name": "note/_info_only"
+				"template_name": "_info_only",
+				"remote"       : "true"
 				
 			};
 

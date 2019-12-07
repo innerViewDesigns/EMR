@@ -1,16 +1,10 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
-
   class insurances{
 
   	public   $services;
   	private  $db;
-  	private  $rawData;
+  	private  $rawData = [];
   	private  $flash = [];
 
 		function __construct($args=[]){
@@ -82,7 +76,7 @@
 
 		} 
 
-		public function setAllForPatientIncludeDOS($args)
+		public function setAllForPatientIncludeDOS($patient_id)
 		{
 			
 			$db = $this->db;
@@ -91,24 +85,29 @@
 
 SELECT id_insurance_claim,
 	   service_id_insurance_claim,
+	   allowable_insurance_amount,
+	   expected_copay_amount,
+	   recieved_insurance_amount,
+	   recieved_copay_amount,
      recieved_insurance_amount,
      services.dos,
      services.cpt_code,
-     services.insurance_used
+     services.insurance_used,
+     services.in_network
        
 FROM insurance_claim
 
 JOIN therapy_practice.services AS services
 on id_services = service_id_insurance_claim
 
-WHERE patient_id_insurance_claim = 255 ORDER BY services.dos DESC;
+WHERE patient_id_insurance_claim = ? ORDER BY services.dos DESC;
 
 EOD;
 			
 			try{
 
 					$stmt = $db->db->prepare($sql);
-					$stmt->bindParam(1, $args['patient_id'], PDO::PARAM_INT);
+					$stmt->bindParam(1, $patient_id, PDO::PARAM_INT);
 					$stmt->execute();
 					$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -118,14 +117,14 @@ EOD;
 
 					}else{
 
-						$this->setFlash("error", "No results from the getAllForPatient function in services.php");
-						$this->rawData = [];
+						$this->setFlash(array("Error", "No results from the getAllForPatient function in services.php"));
+
 					}
 					
 
 				}catch (PDOException $e){
 
-					$this->setFlash('error', $e);
+					$this->setFlash(array('Error', $e));
 
 				}			
 
@@ -406,18 +405,20 @@ EOD;
 
 	public function getClaims(){
 
-		return $this->rawData;
+		if(!empty($this->rawData))
+		{
+			return $this->rawData;	
+		}else
+		{
+			return $this->flash;
+		}
+		
 
 	}
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash(array $flash){
 
-			if(empty($rowCount)){
-				$this->flash[$status] = $message;
-			}else{
-				$this->rowCount += $rowCount;
-				$this->flash[$status] = $rowCount . " " . $message;
-			}
+			array_push($this->flash, $flash);
 
 	}
 

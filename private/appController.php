@@ -1,14 +1,4 @@
 <?php
-  
-
-  set_include_path(__DIR__ . "/views");
-  
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-  require_once(__DIR__ . "/validations.php");
-  require_once(__DIR__ . "/SplClassLoader.php");
-  $classLoader = new SplClassLoader(NULL, __DIR__);
-  $classLoader->register();
-
 
   class appController{
 
@@ -20,10 +10,9 @@
     public $lastUpdatedIds;
     public $flash = [];
 
-  	public function __construct($model = null, $basePath = null){
+  	public function __construct($model = null){
 
       $this->model_name = $model;
-      $this->basePath = $basePath;
 
   	}
 
@@ -50,29 +39,27 @@
           will also be a key for 'template_name.' 
 
           user_params by model
-            patient - patient_id 
+            patient   - patient_id
+            patients  - active | inactive | all
       */
 
-        
       $this->model = new $this->model_name($params);
-      $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
+
 
       if( !empty($params) ){
 
         if( array_key_exists('remote', $params) ){
 
-          $this->renderView($args['template_name']);
+          $this->renderView($params['template_name']);
 
         }else{
 
-          $this->action = 'get';
           $this->renderView();
 
         }
 
       }else{
 
-        $this->action = 'get';
         $this->renderView();
 
       }
@@ -82,17 +69,18 @@
 
     }
 
-    public function create($args=[]){
-
-
+    private function workHorse($args=[])
+    {
       /*
-        The curl contained the 'create' action and this method was executed by 
+        The url contained the 'create' action and this method was executed by 
         index.php and passed the parameters. First, check to see if this was an
-        ajax call. If it was, it will contain the array key 'data.'
+        ajax POST request. If it was, it will contain the array key 'data.' Data
+        will include all the model information. Other necessary information, like
+        <template_name> and <remote>, if present, will be included at the top level
+        of the $args variable. 
       */
       
-      $this->action = 'create';
-      $this->lastInsertIds = [];
+      $databaseFeedback = [];
       
       if ( !empty($args) ) { 
 
@@ -105,11 +93,11 @@
                   if this was an ajax call. then snag the data and send 
                   it to the model. It will have needed informaiton for 
                   constructing the model object.
+
                 
                 */
 
                 $data  = $args['data'];
-                $this->model = new $this->model_name($data);
 
 
 
@@ -126,13 +114,12 @@
                   the consolidateParams function. If not, then just grab the data
 
                 */
-             
-
-                $this->model = new $this->model_name;
+                
 
                 if (is_multi($args) ){
                  
                   $data = consolidateParams($args);
+                  $args['template_name'] = $this->model_name . 's//';
 
                 }else{
 
@@ -141,6 +128,8 @@
                 }
 
           }
+
+          $this->model = new $this->model_name($data);
 
 
         /*
@@ -151,11 +140,11 @@
 
         foreach($data as $key => $value){
 
-          $id = $this->model->create($value);
+          $id = call_user_func(array($this->model, $this->action), $value);
 
           if($id){
 
-            array_push( $this->lastInsertIds, $id );
+            array_push( $databaseFeedback, $id );
 
           }
         
@@ -163,214 +152,40 @@
 
 
 
-        if(count($this->lastInsertIds) === 0){
+        if(count($databaseFeedback) === 0){
 
-            array_push($this->flash, array("Error", "Nothing added to the database."));
-
-        }else{
-
-            array_push($this->flash, array("Success", count($this->lastInsertIds)." rows were successfully added to database."));
-        }
-
-        /*
-            
-        */
-        
-
-        if( array_key_exists('template_name', $args) ){
-
-            //I'm not sure why template_name would be an array...
-
-            if( is_array($args['template_name'])){
-
-              $args['template_name'] = $args['template_name'][0];
-
-            }
-         
-
-
-            if( preg_match('/\//', $args['template_name']) ){
-             
-                //if template_name is actually a url with model name included then grab those components
-
-                if(count(explode('/', $args['template_name'])) > 2){
-
-
-                  list($this->model_name, $this->template_name, $params) = explode("/", $args['template_name']);
-
-                
-                }else{
-
-
-                  list($this->model_name, $this->template_name) = explode("/", $args['template_name']);
-                  $params = null;
-
-                
-                }
-
-
-                $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-                $this->model = new $this->model_name($params);
-                $this->renderView($this->template_name);
-
-
-
-            }else{
-
-
-                $this->template_name = $args['template_name'];
-                $this->renderView($this->template_name);
-
-
-            }
-
+            array_push($this->flash, array("Error", "Something went wrong."));
+            return array($databaseFeedback, $args);
 
         }else{
 
-            //"template_name" didn't exist. The default action here will be to pluralize the model and return all of the representative objects of that class
-
-            $this->model_name = $this->model_name . 's';
-            $this->action = 'get';
-            $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-            $this->model = new $this->model_name;
-            $this->renderView();
-
-
+            array_push($this->flash, array("Success", count($databaseFeedback)." items were successfully {$this->action}d."));
+            return array($databaseFeedback, $args);
         }
-      
+
          
-      }else{ 
+      }
 
 
-          //if there were no arguments, display the form
+    }
 
-          $this->renderView();
+    public function create($args=[]){
 
 
-      } 
-      
-    
+      list($this->lastInsertIds, $args) = $this->workHorse($args);
+      $this->renderView($args);
+
+
 
     } //create
 
 
     public function update($args=null){
-      //echo "<br>appController::update.";
-      //echo "<br>appController::args: " . print_r($args, true) . "<br>";
-
-      $this->action   = 'update';
-      $lastUpdatedIds = [];
-      
-
-      if ( !empty($args) ) { 
-
-        if( is_array($args) ){
-
-          if (array_key_exists('data', $args) ){
-
-             $data  = $args['data'];
-             $this->model = new $this->model_name($data);
-
-          }else{
-
-            $this->model = new $this->model_name;
-
-          }
-
-          if (is_multi($data) ){
-
-            echo "is_multi before consolidate: ".print_r($data, true);
-
-            $data = consolidateParams($data);
-
-            echo "is_multi after consolidate: ".print_r($data, true);
-
-          }
-
-          if(array_key_exists('0', $data)){
-
-            //echo "<br><br>array_key_exists '0': ".print_r($data, true);
-
-            foreach($data as $key => $value){
-
-                $id = $this->model->update($value);
-
-                if($id){
-
-                  array_push( $lastUpdatedIds, $id);
-
-                }
-                
-            }
-
-          }else{
-
-            $id = $this->model->update($data);
-
-              if($id){
-
-                array_push( $lastUpdatedIds, $id);
-
-              }
-
-          }
-
-        }else{
-
-          $id = $this->model->update($args);
-
-        }
-
-        if( isset($lastUpdatedIds) ){
-
-          $this->lastUpdatedIds = $lastUpdatedIds;
-          $this->flash = array("success" => count($lastUpdatedIds)." items were successfully updated.");
-
-        }else{
-
-           $this->flash = array("success" => "One item was successfully updated.");
-
-        }
-        
-
-        if( array_key_exists('template_name', $args) ){
-         
-         
-          if( preg_match('/\//', $args['template_name']) ){
-
-            list($this->model_name, $this->template_name, $params) = explode("/", $args['template_name']);
-            $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-            $this->model = new $this->model_name($params);
-            $this->renderView($this->template_name);
-
-          }else{
-
-            $this->template_name = $args['template_name'];
-            $this->renderView($this->template_name);
-
-          }
-
-          
-          
-
-        }else{
-
-          $this->model_name = $this->model_name . 's';
-          $this->action = 'get';
-          $this->flash = array_merge_cust($this->flash, $this->model->getFlash());
-          $this->model = new $this->model_name;
-          $this->renderView();
 
 
-        }
-      
-         
-      }else{ 
 
-        //if there were no arguments, display the form
-        $this->renderView();
-
-      } 
+      list($this->lastUpdatedIds, $args) = $this->workHorse($args);
+      $this->renderView($args);
 
       
     }
@@ -379,18 +194,73 @@
       
     }
 
-    private function renderView($template_name=null){
+    public function renderView($args=NULL){
 
-      if( !empty($template_name) ){
+      /*
+        Render view may be passed an array, a string, or nothing at all.
+        The default behavior is to return the file from private/model_name.
+        If there's a template passed, then return private/model_name/template_name
 
-         include($this->model_name . "/" . $template_name .".php");
+        A special case is when the template name is a full path that does not 
+        correspond with the originating model. This occures when from the get-payments.php
+        file from the patient model, we submit form to insurance/update, but want to return
+        patient/get-payments.php for a particular patient (patient/get-payments/<patient_id>)
 
-      }else{
+      */
+
+
+      $template = "";
+
+      fb('rederView::$args -- ' . gettype($args) );
+
+      if(gettype($args) === 'array' && array_key_exists('template_name', $args))
+      {
+
+        if(preg_match('#\/#', $args['template_name']))
+        {
+          
+          list($this->model_name, $template_name, $user_params) = explode('/', $args['template_name']);
+          $this->model = new $this->model_name(array('user_param' => $user_params));
+          if(!empty($template_name))
+          {
+            include($this->model_name . "/" .$template_name . ".php");  
+            exit;
+          
+          }else
+          {
+            $this->action = 'get';
+            include($this->model_name.'.php');
+            exit;
+          }
+          
+
+
+        }
+
+        $template = $args['template_name'].".php";
+
+      }elseif(gettype($args === 'string') && !empty($args))
+      {
+
+        $template = $args.".php";
+        
+      }
+
+
+      if(empty($template))
+      {
 
         include($this->model_name . ".php");
 
-      }
 
+      }else
+      {
+
+        include($this->model_name . "/" . $template);  
+
+      }
+      
+      
     }
 
   }

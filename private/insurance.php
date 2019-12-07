@@ -1,10 +1,9 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
+	//require_once(__DIR__ . "/validations.php");
+	//require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
+	//$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
+  //$classLoader->register();
 
 	class insurance{
 
@@ -81,7 +80,7 @@
 
 			}else{
 
-				$this->setFlash('error', 'The service_id and dos seem not to have been sent to insurance.php.');
+				$this->setFlash(array('Error', 'The service_id and dos seem not to have been sent to insurance.php.'));
 
 				return false;
 			}
@@ -135,7 +134,7 @@
 
 					}else{
 						
-						$this->setFlash('error', 'There was a problem in fetching the service with id #' . $this->service_id . ".");
+						$this->setFlash(array('Error', 'There was a problem in fetching the service with id #' . $this->service_id . "."));
 						return false;
 
 					}
@@ -143,7 +142,7 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "Something went wrong with insurance::setInsurance. Here's the message: " . $e->getMessage());
+				$this->setFlash(array('Error', "Something went wrong with insurance::setInsurance. Here's the message: " . $e->getMessage()));
 
 			}
 	}
@@ -161,21 +160,21 @@
 			
 			if( !$this->setInsurance() ){
 
-				$this->setFlash('error', "Tried to call setInsurance in insurance::update but that failed for some reason.");
+				$this->setFlash(array('Error', "Tried to call setInsurance in insurance::update but that failed for some reason."));
 
 			}
 
 
 		}else{
 
-			$this->setFlash('error', "Can't update this insurance claim without a service_id. Here's what was passed to this function: ".print_r($args, true));
+			$this->setFlash(array('Error', "Can't update this insurance claim without a service_id. Here's what was passed to this function: ".print_r($args, true)));
 
 		}
 
 		
 		$args = $this->mergeNewData($args);
 		$args = deal_with_null_case($args);
-		//echo "<br>service::create, args: " . print_r($args, true);
+
 
 			try{
 
@@ -190,18 +189,18 @@
 
 					if( $stmt->execute() ){
 
-						return array('service_id' => $this->service_id);
+						return $this->service_id;
 
 
 					}else{
 
-						$this->setFlash('error', 'Something went wrong when updating '.$this->service_id.'s insurance claim.' );
+						$this->setFlash(array('Error', 'Something went wrong when updating '.$this->service_id.'s insurance claim.' ));
 
 					}
 
 				}catch(PDOException $e){
 
-					$this->setFlash('error', "Something went wrong when updating ".$this->service_id."'s insurance claim.".$e->getMessage());
+					$this->setFlash(array('Error', "Something went wrong when updating ".$this->service_id."'s insurance claim.".$e->getMessage()));
 
 				}
 
@@ -228,14 +227,9 @@
 
 	}
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash(array $flash){
 
-		if(empty($rowCount)){
-			$this->flash = array($status => $message);
-		}else{
-			$this->rowCount += $rowCount;
-			$this->flash = array($status => $rowCount . " " . $message);
-		}
+		array_push($this->flash, $flash);
 
 	}
 
@@ -293,7 +287,7 @@
 		//deal with the special case of patient_id
 		if( !array_key_exists('patient_id', $args) ){
 
-			$this->setFlash("error", "Failed in service.php::create - No patient id given");
+			$this->setFlash(array("Error", "Failed in service.php::create - No patient id given"));
 			return false;
 
 		}

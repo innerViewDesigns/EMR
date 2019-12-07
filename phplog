@@ -84,3 +84,261 @@
  Sun, 10 Nov 2019 21:21:13 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 94) - Sending http request via Curl
  Sun, 10 Nov 2019 21:21:13 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 96) - Response from AnetApi: 
  Sun, 10 Nov 2019 21:21:13 +0000 ERROR : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 106) - CURL ERROR: SSL certificate problem: self signed certificate in certificate chain
+ Tue, 03 Dec 2019 07:07:30 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 112) - Request Serialization Begin
+ Tue, 03 Dec 2019 07:07:30 +0000 DEBUG : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 113) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 12.23
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerProfilePaymentType Object
+                (
+                    [createProfile:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 
+                    [customerProfileId:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 36731856
+                    [paymentProfile:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => net\authorize\api\contract\v1\PaymentProfileType Object
+                        (
+                            [paymentProfileId:net\authorize\api\contract\v1\PaymentProfileType:private] => 32689274
+                            [cardCode:net\authorize\api\contract\v1\PaymentProfileType:private] => 
+                        )
+
+                    [shippingProfileId:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 
+                )
+
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 59aLCmhw34
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1575356850
+)
+
+ Tue, 03 Dec 2019 07:07:30 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - Request  Serialization End
+ Tue, 03 Dec 2019 07:07:30 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 77) -  Url: https://apitest.authorize.net/xml/v1/request.api/xml/v1/request.api
+ Tue, 03 Dec 2019 07:07:30 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 79) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[59aLCmhw34]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <refId><![CDATA[ref1575356850]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>12.23</amount>
+    <profile>
+      <customerProfileId><![CDATA[36731856]]></customerProfileId>
+      <paymentProfile>
+        <paymentProfileId><![CDATA[32689274]]></paymentProfileId>
+      </paymentProfile>
+    </profile>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Tue, 03 Dec 2019 07:07:30 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 92) - Sending 'XML' Request type
+ Tue, 03 Dec 2019 07:07:30 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 97) - Sending http request via Curl
+ Tue, 03 Dec 2019 07:07:31 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 99) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1575356850</refId><messages><resultCode>Error</resultCode><message><code>E00040</code><text>Customer Profile ID or Customer Payment Profile ID not found.</text></message></messages><transactionResponse /></createTransactionResponse>
+ Tue, 03 Dec 2019 07:07:31 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 125) - Response De-Serialization Begin
+ Tue, 03 Dec 2019 07:07:31 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 127) - Response De-Serialization End
+ Tue, 03 Dec 2019 07:10:44 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 112) - Request Serialization Begin
+ Tue, 03 Dec 2019 07:10:44 +0000 DEBUG : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 113) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 12.23
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerProfilePaymentType Object
+                (
+                    [createProfile:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 
+                    [customerProfileId:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 36731856
+                    [paymentProfile:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => net\authorize\api\contract\v1\PaymentProfileType Object
+                        (
+                            [paymentProfileId:net\authorize\api\contract\v1\PaymentProfileType:private] => 32689274
+                            [cardCode:net\authorize\api\contract\v1\PaymentProfileType:private] => 
+                        )
+
+                    [shippingProfileId:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 
+                )
+
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 59aLCmhw34
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1575357044
+)
+
+ Tue, 03 Dec 2019 07:10:44 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - Request  Serialization End
+ Tue, 03 Dec 2019 07:10:44 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 77) -  Url: https://apitest.authorize.net/xml/v1/request.api/xml/v1/request.api
+ Tue, 03 Dec 2019 07:10:44 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 79) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[59aLCmhw34]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <refId><![CDATA[ref1575357044]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>12.23</amount>
+    <profile>
+      <customerProfileId><![CDATA[36731856]]></customerProfileId>
+      <paymentProfile>
+        <paymentProfileId><![CDATA[32689274]]></paymentProfileId>
+      </paymentProfile>
+    </profile>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Tue, 03 Dec 2019 07:10:44 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 92) - Sending 'XML' Request type
+ Tue, 03 Dec 2019 07:10:44 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 97) - Sending http request via Curl
+ Tue, 03 Dec 2019 07:10:46 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 99) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1575357044</refId><messages><resultCode>Error</resultCode><message><code>E00040</code><text>Customer Profile ID or Customer Payment Profile ID not found.</text></message></messages><transactionResponse /></createTransactionResponse>
+ Tue, 03 Dec 2019 07:10:46 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 125) - Response De-Serialization Begin
+ Tue, 03 Dec 2019 07:10:46 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 127) - Response De-Serialization End
+ Tue, 03 Dec 2019 18:57:26 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 112) - Request Serialization Begin
+ Tue, 03 Dec 2019 18:57:26 +0000 DEBUG : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 113) - net\authorize\api\contract\v1\CreateTransactionRequest Object
+(
+    [transactionRequest:net\authorize\api\contract\v1\CreateTransactionRequest:private] => net\authorize\api\contract\v1\TransactionRequestType Object
+        (
+            [transactionType:net\authorize\api\contract\v1\TransactionRequestType:private] => authCaptureTransaction
+            [amount:net\authorize\api\contract\v1\TransactionRequestType:private] => 12.23
+            [currencyCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [payment:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [profile:net\authorize\api\contract\v1\TransactionRequestType:private] => net\authorize\api\contract\v1\CustomerProfilePaymentType Object
+                (
+                    [createProfile:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 
+                    [customerProfileId:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 36731856
+                    [paymentProfile:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => net\authorize\api\contract\v1\PaymentProfileType Object
+                        (
+                            [paymentProfileId:net\authorize\api\contract\v1\PaymentProfileType:private] => 32689274
+                            [cardCode:net\authorize\api\contract\v1\PaymentProfileType:private] => 
+                        )
+
+                    [shippingProfileId:net\authorize\api\contract\v1\CustomerProfilePaymentType:private] => 
+                )
+
+            [solution:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [callId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [authCode:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [refTransId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [splitTenderId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [order:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [lineItems:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [tax:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [duty:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipping:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [taxExempt:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [poNumber:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customer:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [billTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [shipTo:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [customerIP:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [cardholderAuthentication:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [retail:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [employeeId:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [transactionSettings:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+            [userFields:net\authorize\api\contract\v1\TransactionRequestType:private] => 
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 59aLCmhw34
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1575399446
+)
+
+ Tue, 03 Dec 2019 18:57:26 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 115) - Request  Serialization End
+ Tue, 03 Dec 2019 18:57:26 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 77) -  Url: https://apitest.authorize.net/xml/v1/request.api/xml/v1/request.api
+ Tue, 03 Dec 2019 18:57:26 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 79) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<createTransactionRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[59aLCmhw34]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <refId><![CDATA[ref1575399446]]></refId>
+  <transactionRequest>
+    <transactionType><![CDATA[authCaptureTransaction]]></transactionType>
+    <amount>12.23</amount>
+    <profile>
+      <customerProfileId><![CDATA[36731856]]></customerProfileId>
+      <paymentProfile>
+        <paymentProfileId><![CDATA[32689274]]></paymentProfileId>
+      </paymentProfile>
+    </profile>
+  </transactionRequest>
+</createTransactionRequest>
+
+ Tue, 03 Dec 2019 18:57:26 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 91) - Sending 'XML' Request type
+ Tue, 03 Dec 2019 18:57:26 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 96) - Sending http request via Curl
+ Tue, 03 Dec 2019 18:57:27 +0000 INFO : [_sendRequest] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/util/HttpClient.php : 98) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1575399446</refId><messages><resultCode>Error</resultCode><message><code>E00040</code><text>Customer Profile ID or Customer Payment Profile ID not found.</text></message></messages><transactionResponse /></createTransactionResponse>
+ Tue, 03 Dec 2019 18:57:27 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 125) - Response De-Serialization Begin
+ Tue, 03 Dec 2019 18:57:27 +0000 INFO : [execute] (/Users/Lembaris/Sites/therapyBusiness/private/AuthorizeNet/lib/net/authorize/api/controller/base/ApiOperationBase.php : 127) - Response De-Serialization End

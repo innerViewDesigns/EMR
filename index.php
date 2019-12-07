@@ -5,6 +5,7 @@
 
 	require_once(__DIR__ . "/private/FirePHPCore/fb.php");
 	require_once(__DIR__ . "/private/SplClassLoader.php");
+  require_once(__DIR__ . "/private/validations.php");
 	$classLoader = new SplClassLoader(NULL, __DIR__ . '/private');
   $classLoader->register();
 
@@ -32,7 +33,6 @@
     protected function setModel($model=null, $id=null){
         
 
-
         if( in_array($model, $this->possibleModels)){
 
           $this->model = $model;
@@ -44,7 +44,7 @@
           echo "'$model' was not a valid model.<br>";
 
         }
-      
+
     }
     
     protected function setAction($action=null){
@@ -71,7 +71,7 @@
           What got passed was an array with possition '0' set
           to whatever came after model/action/<user_params>.
           Check to see if there was actually something there and
-          if assign it to a property of this object.
+          if so assign it to a property of this object.
 
           Then check to see if there is any POST or GET data and
           add that to the property if there was. 
@@ -104,15 +104,15 @@
         }
       }
 
-      fb(print_r($this->params, true));
+      //fb("From index.php::params: ".print_r($this->params, true));
 
     }
 
     protected function parseUri(){
 
-      //fb($_SERVER["REQUEST_URI"]);
+      fb($_SERVER["REQUEST_URI"]);
       //fb("GET variable: ". print_r($_GET, true) );
-      fb("POST variable: ".print_r($_POST, true) );
+      //fb("POST variable: ".print_r($_POST, true) );
 
 
       /*
@@ -162,6 +162,9 @@
 
         $this->setModel($model);
           
+      }else
+      {
+        $this->setModel('dashboard');
       }
 
 
@@ -169,6 +172,9 @@
         
         $this->setAction($action);
       
+      }else
+      {
+        $this->setAction('get');
       }
 
       $newParams[0] = $params;
@@ -181,8 +187,12 @@
     public function run(){
 
       $app = new appController($this->model);
+      $app->action = $this->action;
 
-      call_user_func(array($app, $this->action), $this->params);
+
+      call_user_func(array($app, $this->action), $this->params);  
+      
+      
 
     }
 

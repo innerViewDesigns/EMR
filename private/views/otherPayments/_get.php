@@ -6,7 +6,7 @@
 
 	if( isset($this->lastInsertIds) ) {
 		$rows = $otherPayments->getSomeById($this->lastInsertIds);
-		$this->flash = array_merge_cust($this->flash, $otherPayments->getFlash());
+		$this->flash = array_merge($this->flash, $otherPayments->getFlash());
 	}
 
 ?>

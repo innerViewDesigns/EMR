@@ -1,6 +1,5 @@
 <?php
-	
-	//set_include_path(__DIR__ . "/fpdf181/");
+
 
 	require(__DIR__ . "/fpdf181/fpdf.php");
 	require(__DIR__ . "/fpdf181/fpdf_custom.php");
@@ -15,26 +14,34 @@
 
 		private $services = [];
 		private $payments = [];
-		private $dates    = [];
+		private $patientId = '';
 
 
 			function __construct($args=[])
-			{
+			{	
+
+				/*
+						
+						$args is an array with two key of note: service_ids and payment_ids. It's structured 
+						like this:
+
+						count($data) = 1
+							count($data[0]) = 3
+								data-service-id
+								data-payment-id
+								data-patient-id
+
+						Get the service and payment ids and assign them to properties of this object. Then send that information to 
+						the pdf object. 
+				*/
+
+				$this->parseData($args['data']);
 
 				$pdf = New PDF();
-				$this->parseData($args['data']);
-				//echo print_r($this->services, true);
-				//echo print_r($this->payments, true);
-
-				$tmp = $pdf->getData($this->services, $this->payments, $this->dates);
+				$data = $pdf->myConstruct($this->services, $this->payments, $this->patientId);
 				
-				if( gettype($tmp) === "string")
-				{
-						echo $tmp;
-						die;
-				}
 				
-				$pdf->prepare();
+				$pdf->prepare($data);
 				$label = $pdf->getLabel();
 				$pdf->Output('F', "/Users/Lembaris/SkyDrive/Therapy Business/BandM Commune/Invoices/".$pdf->getInvoiceDate().$label.$pdf->getName().".pdf");
 
@@ -57,8 +64,18 @@
 
 									$this->payments = $args['data-payment-id'];					
 
+							}if(array_key_exists('data-patient-id', $args))
+							{
+
+									$this->patientId = $args['data-patient-id'];
 							}
 					
+					}
+
+					if(empty($this->services) && empty($this->payments))
+					{
+						echo "Error. No data given.";
+						die;
 					}
 
 

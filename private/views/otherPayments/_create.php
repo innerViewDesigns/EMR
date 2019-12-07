@@ -50,8 +50,6 @@ $(document).ready(function(){
 
 		if( typeof g.easyAutoData !== 'undefined'){
 
-			console.log("past the first if...");
-
 				$('table#payments').find('tr').last().find("input[data-easy-auto='true']").each(function(){
 
 					var $el    		= $(this),
@@ -195,6 +193,8 @@ $(document).ready(function(){
 		$.ajax({
 
 				url : g.basePath + "otherPayments/create",
+
+				method: 'POST',
 
 				data: {
 

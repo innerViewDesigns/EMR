@@ -1,5 +1,12 @@
 <?php
+	
+	/*
+		Coming from appController, $this refers to the conroller object. The
+		model will already have been instanciated.
 
+	*/
+
+	$patient = $this->model;
 	$demo = $patient->getPersonalInfo();
 
 ?>

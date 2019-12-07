@@ -19,7 +19,7 @@
 	}
 
 
-	$this->flash = array_merge_cust($this->flash, $noteModel->getFlash());
+	$this->flash = array_merge($this->flash, $noteModel->getFlash());
 	
 
 	include(dirname(__DIR__)."/_flash.php"); 
@@ -54,17 +54,20 @@ $(document).ready(function(){
 
 				url : g.basePath + "note/update",
 
+				method : "POST",
+				
 				data: {
 
 					template_name : "_get",
 					remote				: 'true',
-					data 					: 
+					data 					: [
 
 						{
 							note 			 : $('textarea#noteTextarea').val(),
 							service_id : $('div#note').attr('data-service-id'),
 							notes_id   : $('div#note').attr('data-notes-id')
 						}
+					]
 					
 
 					

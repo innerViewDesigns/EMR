@@ -1,7 +1,6 @@
 <?php
 
 	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	
 	require_once(__DIR__ . "/SplClassLoader.php");
 	$classLoader = new SplClassLoader(NULL, __DIR__);
   $classLoader->register();
@@ -16,15 +15,19 @@
   	public   $flash = [];
 
 		
-		function __construct($args){
+		function __construct($args=''){
 
 			/*
 					The arguments supplied to this model should include the key 'user_param.'
 					Grab that and keep it for later use. 
 			*/
 
+
 			$this->db = new dbObj();
-			$this->args = $args['user_param'];
+			if(!empty($args))
+			{
+				$this->args = $args['user_param'];
+			}
 
 		} 
 
@@ -58,7 +61,7 @@
 		public function getByActive($arg=1){
 			
 			$db = $this->db;
-			
+
 			try{
 
 					$stmt = $db->db->prepare("SELECT * FROM patients WHERE active = ?");

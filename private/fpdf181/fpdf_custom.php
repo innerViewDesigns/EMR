@@ -9,8 +9,8 @@
 
 class PDF extends FPDF
 {
-    public $claims          = array();
-    public $pt              = array();
+    public $localItems      = array();
+
     protected $leftMargin   = 10;
     protected $tableRowLeft = 0;
     protected $lineRowLeft  = 0;
@@ -18,186 +18,402 @@ class PDF extends FPDF
     protected $lineRowRight = 0;
     protected $footerText   = "You may pay by check, charge, or cash. If you pay by check, please make it payable to: Michael Lembaris, Psy.D., Psychologist, inc.\n\nMy Federal Tax ID # is: 81-1857287.\n\nThank you in advance for your prompt attention to this invoice. Please contact me if you have any questions. Thank you... Dr. Lembaris";
     
-    //protected $paymentTotal = 0;
     
-    protected $paymentRecord = false; //Are you looking to display the total number of payments made during this date range?
-    protected $paymentRecordTitle = 'Record of Payments: October - December 2018';
+    private $docType = 'invoice'; //options are 'invoice' , 'medical_record' , 'payment_record'
+    protected $paymentRecordTitle = 'Record of Payments since January 1st';
     protected $notesOnly    = false;
     protected $notesPtId    = 238;
 
-    protected $customDate   = " 2019-11-01";
-    protected $localBalance = true;
-    protected $addOn        = ' (co-pay)'; 
-    protected $displayCourtesy = true;
+    protected $customDate   = " 2019-12-01";
+    protected $localBalance = false;
+    protected $displayPreviousBalance = false;
+    protected $displayCourtesy = false;
 
-    protected $insurancePayments = 0; //This is to account for previous insurance payments that have not yet been accounted for. 
-    protected $displayInsurancePayments = false;
+    protected $insurancePayments = 0; 
+    
 
-    protected $customLineItem = false;
-    protected $customAdjustment = 103;
-
-    protected $corrections  = false;
-    protected $displayPreviousBalance = true;
-    protected $subtractInsurancePayments = false;
-
-
-
-    function getData($inServices = array(), $inPayments=array(), $dates = array())
+    function myConstruct($serviceIds = array(), $paymentIds=array(), $patientId='')
     {   
 
-        $claims      = array();
-        $outServices = array();
-        $outPayments = array();
-        $patientId   = 0;
+        /*
 
-        if(!empty($inServices))
-        {
+            You have a list of service_ids and payment_ids. Here's what to do next:
 
-            //get the list
-            $insurancesObj = New insurances();
-            $serviceObj    = New services();
+            1. Get all insurance claims for this patient. Include DOS, CPT, and whether insurance was used from the services table.
+               Make sure it's ordered by DOS descending. All of the columns will be: 
 
-            $claims       = $insurancesObj->setSomeByServiceId($inServices);
-            $outServices  = $serviceObj->getSomeByServiceId($inServices);
-
-            /*
-                Grab the pt ID
-            */
-
-            $patientId = $claims[0]['patient_id_insurance_claim'];
+                id_insurance_claim,
+                service_id_insurance_claim,
+                allowable_insurance_amount,
+                expected_copay_amount,
+                recieved_insurance_amount,
+                recieved_copay_amount,
+                recieved_insurance_amount,
+                services.dos,
+                services.cpt_code,
+                services.insurance_used
 
 
+            2. Do some calculations and keep these in a different array.
+                The sum-total of all expected co-pays - expected_copays
+                The sum-total of all recieved co-pays - recieved_copays
+                The sum-total of all allowed_amounts  - allowed_amounts
+                The sum-total of all recieved insurances - recieved_insurances
 
-            //When intantiated, all other_payments for this patient that were passed in are retrieved. 
-            $paymentsObj   = New otherPayments($patientId);
-            $paymentsObj->getSomeById($inPayments);
+            6. Get all the other_payments for this patient and calculate the sum-total of all payments.
+               Then put that value in the same array as above ($sumTotals)
 
+            7. Combine the other_payments array with claims array making sure that it's ordered by descending date
 
+            8. Get the selected services and payments out of the claims array and put them into a new array ($localClaims)
 
-            //When instantiated, all info for this pt is set.
-            $patientObj    = New patient($patientId);            
+            9. Get the last date from the descending $localClaims list, and use that to loop back through the $sumTotals
+               array to calculate a "previous balance"
 
-
+            9. Then calculate the local totals from the $localClaims array
+                5a. Sum of allowed_amount
+                5b. Sum of co-pay_amounts (local_balance)
             
-            $outPayments  = $paymentsObj->getPayments();
-            $patientObj->setBalance();
+            -------------------------------------------------------------------
+
+            At bottom you're interested in:
+                local_balance = sum of expected_copays from local date range
+                overall_balance = (sum of all expected_copays) - (sum of all other_payments) - (sum of all recieved_copays)
+                previous_balance = (sum of all expected_copays before a certain date) - (sum of all other_payments before a certain date) - (sum of all recieved_copays before a certain date)
 
 
-            /*
-                Pair the claims and payments and order by date. Descending.
-            */
-
-            $this->claims = $insurancesObj->pairClaimsAndPayments($claims, $outServices, $outPayments, true);
+        */
 
 
+        $allInsurances = $this->get_all_insurances($patientId);
 
-            /*
-                Get the expected copays, recieved copays, and recieved insurance for this patient
-                prior to the first date given.
-            */
+        $allDirectPayments = $this->get_all_direct_payments($patientId);
+        
+        /*
+            sumTotals will now be structured like this:
 
-            if(!gettype($this->claims[count($this->claims) - 1]['dos']) === 'string') 
-            {
+                'expected_copays' => $expected_copays, 
+                'recieved_copays' => $recieved_copays, 
+                'allowed_amounts' => $allowed_amounts,
+                'recieved_insurances' => $recieved_insurances,
+                'direct_payments' => $direct_payments)
 
-                $dateMarker = $this->claims[count($this->claims) - 1]['dos']->format('Y-m-d H:i:s');
+            A 'dos' key is added to the $allDirectPayments array to help with the usort function later
 
-            }else
-            {
-                $dateMarker = $this->claims[count($this->claims) - 1]['dos'];                
+        */
 
-            }
-            $patientObj->setBalanceByDate($dateMarker);
-         
-            
-            $this->pt['pt_info']    = $patientObj->getPersonalInfo();
-            $this->pt['pt_info']['balance'] = $patientObj->getBalance();
+        $combinedClaimsAndPayments = array_merge($allInsurances, $allDirectPayments);
 
-            $this->pt['pt_info']['priorTotals']['expectedCopays'] = $patientObj->previousBalance['expectedCopay'];
-            $this->pt['pt_info']['priorTotals']['recievedInsurance'] = $patientObj->previousBalance['recievedInsurance'];
-            $this->pt['pt_info']['priorTotals']['recievedCopay'] = $patientObj->previousBalance['recievedCopay'];
-            $this->pt['pt_info']['priorTotals']['payments'] = $paymentsObj->getPreviousPaymentsTotal($patientId, $dateMarker);
-            $this->pt['pt_info']['priorTotals']['balance'] = ($this->pt['pt_info']['priorTotals']['payments'] + $patientObj->previousBalance['recievedCopay']) - $patientObj->previousBalance['expectedCopay'];
+        $totals['sum_totals'] = $this->calculate_totals($combinedClaimsAndPayments);
+        $sumTotals = $totals['sum_totals'];
 
-            $this->claims = $this->PrepareData($this->claims);
+        $balances['overall_balance'] = $this->calculate_balance($sumTotals['recieved_copays'], $sumTotals['direct_payments'], $sumTotals['expected_copays']);
 
-            //$this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['expectedCopays'] - $this->pt['pt_info']['priorTotals']['recievedCopay'] - $this->pt['pt_info']['priorTotals']['payments'];
+        $combinedClaimsAndPayments = $this->combine_claims_and_payments($combinedClaimsAndPayments);
 
-            /*
-                Negative number indicates a credit. Switch it around to make more sense. 
-            */
+        /*
+            This leaves $combinedClaimsAndPayments intact. It includes everything, even beyond the submitted date
+            range at this point.
+        */
 
-            //$this->pt['pt_info']['priorTotals']['balance'] = $this->pt['pt_info']['priorTotals']['balance'] < 0 ? abs( $this->pt['pt_info']['priorTotals']['balance'] ) : 0 -  $this->pt['pt_info']['priorTotals']['balance'];
+        $localItems = $this->pull_local_items($combinedClaimsAndPayments, $serviceIds, $paymentIds);
+        $totals['local_totals'] = $this->calculate_totals($localItems);
+        $localTotals = $totals['local_totals'];
+
+        /*
+            $totals['previous_totals'] will now be structured like this:
+
+                'expected_copays' => $expected_copays, 
+                'recieved_copays' => $recieved_copays, 
+                'allowed_amounts' => $allowed_amounts,
+                'recieved_insurances' => $recieved_insurances,
+                'direct_payments' => $direct_payments)
+
+            $combinedClaimsAndPayments now only goes up to and not including or overlapping the submitted items
+
+        */
+
+        $previousClaimsandPayments = $this->create_previous_claims_list($combinedClaimsAndPayments, $localItems);
+        $totals['previous_totals'] = $this->calculate_totals($previousClaimsandPayments);
+        $previousTotals = $totals['previous_totals'];
 
 
-            //echo print_r($this->pt['pt_info']['priorTotals'], true);
+        /*
+            $balances['previous_balance'] what's owed or credited upto the first date in the supplied
+                                          service list
+
+            $balances['overall_balance'] what's owed or credited inclusive of all entered services and payments
+                                         not just the ones sent by the user to this function.
+
+            $balances['local_balance'] what's owed or credited upto and including what's been sent to this function
+        */
 
 
-            //echo print_r($this->claims, true);
-            //echo print_r($this->pt, true);
-            /*
-            $file = __DIR__ . '/errors.txt';
-            file_put_contents($file, print_r($this->pt, true), FILE_APPEND);
+        $balances['previous_balance'] = $this->calculate_balance($previousTotals['recieved_copays'], $previousTotals['direct_payments'], $previousTotals['expected_copays']);
 
-            $this->claims = $this->PrepareData($this->claims);
-            */
+        $balances['local_balance'] = $this->calculate_balance(
+                                                                ( $previousTotals['recieved_copays'] + $localTotals['recieved_copays'] ),
+                                                                ( $previousTotals['direct_payments'] + $localTotals['direct_payments'] ),
+                                                                ( $previousTotals['expected_copays'] + $localTotals['expected_copays'] )
+                                                             );
 
-        }else if(!empty($dates))
-        {
-            if(array_key_exists('startDate', $dates) && !array_key_exists('endDate', $dates))
-            {
 
-                //get the list based on this month
+        $localItems = $this->PrepareData($localItems);
+        $this->patient = $this->setPatientInfo($patientId);
 
-            }else if(array_key_exists('startDate', $dates) && array_key_exists('endDate', $dates))
-            {
+        return array($localItems, $balances);
+   
 
-                //get the list based on this date range
 
-            }
 
+    }
+
+
+    private function setPatientInfo($patientId)
+    {
+        $patientObject = New Patient(array('user_param' => $patientId));
+        $patient = $patientObject->getPersonalInfo();
+        return $patient; 
+    }
+
+    private function create_previous_claims_list($combinedClaimsAndPayments, $localItems)
+    {   
+        /*
+            To get the previous_balance you need to separate out the $localItems from the combinedItems.
+
+            Start by checking to see if the final item in the $localItems array is a claim or a payment.
+            Then get the associated ID and log the appropriate array key. Then slice the combined array. 
+
+            Also grap the first item to detect if a service or payment gets left out during "display local
+            balance" option. 
+        */
+
+        $fullCount = count($combinedClaimsAndPayments);
+        $localCount = count($localItems);
+        $previousCount = 0;    
+
+
+        if(array_key_exists('service_id_insurance_claim', $localItems[count($localItems)-1]))
+        {   
+
+            $claimCutOff = $localItems[count($localItems)-1]['service_id_insurance_claim'];
+            $needle = 'service_id_insurance_claim';
 
         }else
         {
+            $paymentCutOff = $localItems[count($localItems)-1]['id_other_payments'];
+            $needle = 'id_other_payments';
+        }
 
-            return "Error Message. getData didn't have any data.";
+
+        $cutOff = isset($claimCutOff) ? $claimCutOff : $paymentCutOff;
+
+        foreach($combinedClaimsAndPayments as $key => $value)
+        {   
+            if(array_key_exists($needle, $value) && $value[$needle] == $cutOff)
+            {
+                $index = $key + 1;
+                break;
+            }
 
         }
 
+
+
+        $previousClaimsandPayments = array_slice($combinedClaimsAndPayments, $index);
+
+        $previousCount = count($previousClaimsandPayments);
+        
+        if($previousCount + $localCount != $fullCount)
+        {
+            /*
+                There was once service or payment missing.
+            */
+            $dif = $fullCount - ($previousCount + $localCount);
+
+            echo "Ops. You missed " . $dif . " items. Did you mean to?";
+
+        }
+
+
+        return $previousClaimsandPayments;
+
+    }
+
+    private function calculate_totals(&$list)
+    {
+        $expected_copays = 0;
+        $recieved_copays = 0;
+        $allowed_amounts = 0;
+        $recieved_insurances = 0;
+        $direct_payments = 0;
+
+        foreach($list as &$value)
+        {
+            if(array_key_exists('service_id_insurance_claim', $value))
+            {
+                $expected_copays += $value['expected_copay_amount'];
+                $recieved_copays += $value['recieved_copay_amount'];
+                $allowed_amounts += $value['allowable_insurance_amount'];
+                $recieved_insurances += $value['recieved_insurance_amount'];
+
+            }else
+            {
+
+                if( !array_key_exists('dos', $value) )
+                {
+                    /*
+                        Add a 'dos' key to help the usort function later on
+                    */
+
+                    $value['dos'] = $value['date_recieved'];
+                    $value['dos'] = $value['dos'] . " 00:00:00";
+
+                }
+
+                $direct_payments += $value['amount'];
+            }
+        }
+
+        $totals = array('expected_copays' => $expected_copays, 
+                            'recieved_copays' => $recieved_copays, 
+                            'allowed_amounts' => $allowed_amounts,
+                            'recieved_insurances' => $recieved_insurances,
+                            'direct_payments' => $direct_payments);
+
+
+
+        return $totals;
+    }
+
+    private function pull_local_items($combinedClaimsAndPayments, $serviceIds, $paymentIds)
+    {
+        $localItems = [];
+
+        foreach($combinedClaimsAndPayments as $value)
+        {
+            if(array_key_exists('service_id_insurance_claim', $value) && in_array($value['service_id_insurance_claim'], $serviceIds))
+            {
+                array_push($localItems, $value);
+
+            }elseif(array_key_exists('id_other_payments', $value) && in_array($value['id_other_payments'], $paymentIds))
+            {
+                array_push($localItems, $value);
+            }
+        }
+
+        return $localItems;
+
+    }
+
+
+    private function get_all_insurances($patientId)
+    {
+        $insurancesObject = New insurances();
+        $insurancesObject->setAllForPatientIncludeDOS($patientId);
+        $insurances = $insurancesObject->getClaims();
+        return $insurances;
+    }
+
+    private function get_all_direct_payments($patientId)
+    {
+        $directPaymentsObject = New otherPayments($patientId);
+        $directPaymentsObject->setPayments();
+        $directPayments = $directPaymentsObject->getPayments();
+        return $directPayments;
+
+    }
+
+    private function combine_claims_and_payments($list)
+    {
+
+        function cmp($a, $b)
+        {   
+
+            $aa = DateTime::createFromFormat('Y-m-d H:i:s', $a['dos']);
+            $aa = $aa->format('Y-m-d H:i:s');
+
+            $bb = DateTime::createFromFormat('Y-m-d H:i:s', $b['dos']);
+            $bb = $bb->format('Y-m-d H:i:s');
+
+            $aa = strtotime($aa);
+            $bb = strtotime($bb);
+
+            if($aa == $bb)
+            {
+                return 0;
+            }
+
+            return ($aa < $bb) ? 1 : -1;
+        }
+
+        usort($list, 'cmp');
+
+        return $list;
     }
 
     public function getName()
     {
+        return $this->patient['last_name'] . "_" . $this->patient['first_name'];
+    }
 
-        return $this->pt['pt_info']['last_name']."_".$this->pt['pt_info']["first_name"];
+
+    private function calculate_balance($moneyIn1, $moneyIn2, $moneyOwed)
+    {   
+        /*
+            Negative values mean that more is owed than has been paid.
+            Positive values connote an account credit or date_range surplus
+        */
+
+        $balance = ($moneyIn1 + $moneyIn2) - $moneyOwed;
+        return $balance;
 
     }
 
-    function PrepareData($claims)
+
+    function PrepareData($localItems)
     {
-        $localTotalExpected = 0;
-        $localTotalAllowed  = 0;
-        $localPayments      = 0;
-        $services           = 0;
-        $payments           = 0;
 
-        foreach($claims as &$value)
+        /*
+            You're getting ready to print out the invoice table. There are a couple of cases to account
+            and prepare for. 
+
+            1. If a service is 'in-network,' then the charge to be listed is the co-pay or deductible amount.
+               The balance to be shown, then, is the previous_balance + any additional payments through the
+               submitted date range - the sum_of_expected_copays in the submitted date range
+               
+
+            2. If a service is not 'in-network,' then the charge to be listed is my fee. The balance to be 
+               shown should still be the sum of expected co-pays, but a "curtosy adjust" should be listed 
+               showing the difference between the sum_of_standard_fees and the sum_of_expected_copays. The
+               balance to be shown is the same as above:
+                    (previous_balance + any additional payments through the submitted date range) - sum_of_expected_copays in the submitted date range
+
+            
+
+            1. Loop through the given services and payments.
+
+            2. Start by striping the time portion of the DOS value.
+
+            3. Then replace the cpt_code with a language description of the service
+
+            4. Then create a new key for this array to point to the associated standard_fee for the service.
+
+            5. If this is a service, create a 2nd additional key for displayed_charge and set that equal to
+               the standard_fee if in_network == 0 and to the expected_copay_amount if in_network == 1
+
+            6. If the former, subtract the expected_copay_amount from the standard_fee and keep track of that difference
+
+
+        */
+
+        $dif = $courtesy_adjust = 0;
+
+
+        foreach($localItems as &$value)
         {
-            //if this item represents a service, dos will be a string. Otherwise, it will be a dateTime object.
 
-            if(gettype($value['dos']) == 'string')
-            {
-                $value['dos'] = preg_replace('/\s\d{2}:\d{2}:\d{2}/', '', $value['dos']);
-                $localTotalExpected += $value['expected_copay_amount'];
-                $localTotalAllowed  += $value['allowable_insurance_amount'];
-                $services += 1; 
-
-            }else
-            {
-                $value['dos'] = $value['dos']->format("Y-m-d");
-                $localPayments += $value["amount"];
-                $payments += 1;
-            }
-
+            $value['dos'] = preg_replace('/\s\d{2}:\d{2}:\d{2}/', '', $value['dos']);
 
             if(array_key_exists('cpt_code', $value))
             {
@@ -241,7 +457,7 @@ class PDF extends FPDF
 
                     case 'late cancel':
                         $value['cpt_code'] = 'Late Cancel';
-                        $value['standard_fee'] = 150.00;
+                        $value['displayed_charge'] = $value['allowable_insurance_amount'];
                         break;    
 
                     case 'reservation fee':
@@ -250,31 +466,45 @@ class PDF extends FPDF
                         break;                
                 }
 
+                if( isset($value['in_network']) && $value['in_network'] == '1' )
+                {
+                    $value['displayed_charge'] = $value['expected_copay_amount'];
+                    $value['add_on'] = $value['expected_copay_amount'] == 88 ? ' deductible' : ' co-pay';
+
+                }else
+                {
+
+                    $value['displayed_charge'] = $value['standard_fee'];
+                    $courtesy_adjust += $value['standard_fee'] - $value['expected_copay_amount'];
+
+                }
 
 
             }
 
         }
 
+        if($courtesy_adjust)
+        {
+            $localItems['courtesy_adjust'] = $courtesy_adjust;
+        }
 
-        $this->pt['pt_info']['local_balance_expected'] = 0 - $localTotalExpected;
-        $this->pt['pt_info']['local_balance_allowable'] = 0 - $localTotalAllowed;
-        $this->pt['pt_info']['local_balance_payments'] = $localPayments;
-        echo count($claims) . ", Services:  " . $services . ", Payments: " . $payments . ", Payment Amt: " . $localPayments;
-        echo "\n" . $localTotalExpected;
 
-        return $claims;
+        return $localItems;
         
         
 
     }
 
-    function prepare($args=[])
+    function prepare($data)
     {
 
-        //////////////
-        //Definitions
-        //////////////
+        $localItems = $data[0];
+        $balances = $data[1];
+
+        /*
+            Definitions
+        */
 
         $this->tableRowLeft = ($this->GetPageWidth() - 125) / 2;
         $this->lineRowLeft  = $this->tableRowLeft - 10;
@@ -283,7 +513,10 @@ class PDF extends FPDF
 
 
 
-        //$pdf->AddFont('AppleGaramondLight','', 'AppleGaramond-Light.php');
+        /*
+            Set the Font and page variables up
+        */
+
         $this->AddFont('Cormorant','','CormorantGaramond-Light.php');
         $this->AddFont('CormorantBold','','CormorantGaramond-Bold.php');
 
@@ -292,17 +525,19 @@ class PDF extends FPDF
 
         $this->setMargins(15, 15, 15);
 
-        //You need these lines when you're getting the notes....
-        //$patientObj = New patient(238);  
-        //$this->pt['pt_info']  = $patientObj->getPersonalInfo();
+        /*
+            Add the header, Title, and Name
+        */
 
         $this->firstPageHeader();
-        if(!$this->notesOnly){$this->addTitle();}
+
+        $this->addTitle();
+        
         $this->addName();
 
-        if(!$this->notesOnly)
+        if( $this->docType != 'medical_record')
         {
-            $this->addTable();
+            $this->addTable($localItems, $balances);
             $this->addFooter();
 
         }else
@@ -325,24 +560,6 @@ class PDF extends FPDF
         $patient->setOtherNotes();
         $servicesAndNotes = $patient->combineOtherNotesAndServices($patient->getOtherNotes(), $patient->getServices());
 
-        //echo "at least you made it to the addNotes funciton.";
-        //echo print_r($notes, true);
-
-        ///////////
-        //Add title
-        ///////////
-
-        $this->Ln(25);
-        $this->SetFont('CormorantBold','',15);
-
-        //figure out how to center the text:
-        $strWidth = $this->GetStringWidth('Confidential Medical Record');
-        $this->SetX( ($this->GetPageWidth() / 2) - ($strWidth / 2));
-
-        //print the title
-        $this->Cell( $strWidth, 8, 'Confidential Medical Record', 'B', 2,'C');  
-        $this->Ln(15);
-        $this->SetFont('Cormorant','',12);
 
         foreach($servicesAndNotes as $key => $value)
         {
@@ -401,35 +618,59 @@ class PDF extends FPDF
 
     function addTitle()
     {
-        $label = $this->paymentRecord ? $this->paymentRecordTitle : 'Invoice for Professional Services';
-        //$label = "Confidential Medical Record";
 
-        //coming from firstPageHeader drop down some space. 
+        
+        switch($this->docType)
+        {
+            case 'invoice':
+                $title = 'Invoice for Professional Services';
+                break;
+
+            case 'payment_record':
+                $title = $this->paymentRecordTitle;
+                break;
+
+            case 'medical_record':
+                $title = 'Confidential Medical Record';
+                break;
+
+        }
+
+        /*
+            Coming from firstPageHeader drop down some space. 
+        */
+
         $this->Ln(25);
         $this->SetFont('CormorantBold','',15);
 
-        //figure out how to center the text:
-        $strWidth = $this->GetStringWidth($label);
+        /*
+            figure out how to center the text:
+        */
+
+        $strWidth = $this->GetStringWidth($title);
         $this->SetX( ($this->GetPageWidth() / 2) - ($strWidth / 2));
 
 
-        $this->Cell( $strWidth, 8, $label, 'B', 2,'C');        
+        $this->Cell( $strWidth, 8, $title, 'B', 2,'C');        
 
     }
 
     function addName()
     {
 
-        $label = $this->paymentRecord ? "Printed on: " : 'Invoice Date: ';
-        //$label = "Printed on: ";
-        
-        if($this->notesOnly)
+        if($this->docType != 'invoice') 
         {
-
-            $label = "Printed on: ";
+            $lable = "Printed on: ";
+        }else
+        {
+            $label = 'Invoice Date: ';
         }
+        
 
-        //coming from addTitle drop down some space. 
+        /*
+            Coming from addTitle drop down some space. 
+        */
+
         $this->Ln(10);
         $this->SetX($this->leftMargin);
 
@@ -438,8 +679,8 @@ class PDF extends FPDF
         $this->Cell( $strWidth, 10, 'Patient Name: ', 0, 0,'L'); 
 
         $this->SetFont('Cormorant','',12);
-        $this->Cell( $strWidth, 10, $this->pt['pt_info']['first_name']." ".$this->pt['pt_info']['last_name'], 0, 0, 'L');
-        //$this->pt['pt_info']['first_name']." ".$this->pt['pt_info']['last_name']
+        $this->Cell( $strWidth, 10, $this->patient['first_name']." ".$this->patient['last_name'], 0, 0, 'L');
+
         $this->Ln(7);
         $this->SetX($this->leftMargin);
 
@@ -456,7 +697,7 @@ class PDF extends FPDF
 
     }
 
-    function addTable()
+    function addTable($localItems, $balances)
     {
         $dif          = 0;
         $addOn        = '';
@@ -466,154 +707,27 @@ class PDF extends FPDF
 
         $this->SetFont('CormorantBold','',12);
         
-        //Center the table title
-        $strWidth = $this->GetStringWidth('Description of Services, Dates of Service, Associated Fees or Account Activity');
+        /*
+            Center the table header
+        */
+
+        $tableHeader = 'Description of Services, Dates of Service, Associated Fees or Account Activity';
+        
+        $strWidth = $this->GetStringWidth($tableHeader);
         $this->SetX( (($this->GetPageWidth() - $strWidth) / 2) - 23 );
 
-        //Set the table title
-        $this->Cell(0 , 13, 'Description of Services, Dates of Service, Associated Fees or Account Activity', 0, 2,'C');    
+        /*
+            Set the table title
+        */
 
+        $this->Cell(0 , 13, $tableHeader, 0, 2,'C');    
         $this->Ln(3);
-        
         $this->SetFont('Cormorant','',12);
         
 
-        /*      
-        $file = __DIR__ . '/feedback.txt';
-        file_put_contents($file, print_r($this->claims, true), FILE_APPEND);
-        */
 
-        //Create table
-        foreach($this->claims as $row)
+        foreach($localItems as $row)
         {   
-
-            /*
-                Check to see if this was a service or a payment. If it was a service
-                collect the data you need and set the appropriate variables
-            */
-
-            if(array_key_exists('insurance_used', $row))
-            {   
-
-                /*
-                    If you're trying to print a payment record. Skip the claims.
-                */
-
-                if($this->paymentRecord)
-                {
-                    continue;
-                }
-
-                if( $row['insurance_used'] )
-                {
-
-                    if( $row['in_network'] )
-                    {
-
-                        /*
-                            Insurance was used and you are in-network. Lable this a "co-pay" or 
-                            "co-insurance" and show the expected copay amount.
-
-                            You've added code here to chage the add on depending on if this patient is
-                            working toward their deductible
-
-                        */
-
-                        if($row['expected_copay_amount'] == 88)
-                        {
-                            $addOn = ' (deductible)';
-
-                        }else
-                        {
-                            $addOn = $this->addOn;
-                        }
-                        
-                        $chargeAmount = 'expected_copay_amount'; 
-
-                    }else
-                    {   
-
-
-                        /*
-                            Insurance was used but you are out of network.
-
-                            Don't label this as a "co-pay" or 
-                            "co-insurance" and show the allowable amount for this session (what you've agreed
-                            on with the patient), and keep track of the difference between the standard fee
-                            and the allowable.
-
-                        */
-
-                        if(!isset($insurancePayments))
-                        {
-                            /*
-                                Initiate this variable to keep track of recieved
-                                'out-of-network' insurance payments. 
-                            */
-
-                           $insurancePayments = 0;
-                        }
-
-
-
-                        $addOn = "";
-                        $chargeAmount = 'standard_fee'; 
-                        $dif += $row['standard_fee'] - $row['allowable_insurance_amount'];
-                        $insurancePayments += abs( $row['recieved_insurance_amount'] );
-
-                    }
-
-                }else
-                {
-                    /*
-                        Insurance was not used 
-
-                        Check to see whether this is a late cancel or whether
-                        this claim just can't go to insurance. 
-
-                    */
-                    
-                    $addOn = "";
-
-
-                    if (strpos(strtolower($row['cpt_code']), 'late') === 0 || strpos(strtolower($row['cpt_code']), 'reservation') === 0 )
-                    {
-                        /*
-                            If this is a late cancel, use the co-pay amount and reset the
-                            label
-                        */
-
-                        $chargeAmount = 'allowable_insurance_amount';
-                        
-
-                        /*
-                            If you are not charging for the late cancel. Show the courtesy adjust
-                        */
-
-                        if( $row['allowable_insurance_amount'] != $row['expected_copay_amount'] )
-                        {
-                            $dif += $row['allowable_insurance_amount'] - $row['expected_copay_amount'];
-                        }
-                        
-
-                    }else
-                    {
-                        /*
-                            This was a service, but the claim just can't go to insurance.
-                            use the standard fee amount
-                        */
-
-                        $chargeAmount = 'standard_fee';
-                        $dif += $row['standard_fee'] - $row['allowable_insurance_amount'];
-
-                    }
-
-
-                }
-
-
-                    
-            }  // end if( array_key_exists('insurance_used', $row) )
 
             
             $this->SetX($this->tableRowLeft);
@@ -622,12 +736,12 @@ class PDF extends FPDF
             
             
             
-            if(!array_key_exists('id_other_payments', $row))
+            if( !array_key_exists('id_other_payments', $row) )
             {
                 
                 $this->Cell( 60, 10, $row['cpt_code'].$addOn, 0, 0,'L');
                 $this->SetX( $this->GetX() + 10);
-                $this->Cell( 25, 10, sprintf("%.2f", $row[$chargeAmount]), 0, 1,'R');
+                $this->Cell( 25, 10, sprintf("%.2f", $row['displayed_charge']), 0, 1,'R');
                 
 
             }else
@@ -638,10 +752,6 @@ class PDF extends FPDF
                 $this->SetX( $this->GetX() + 10);
                 $this->Cell( 25, 10, "-".sprintf("%.2f", $row['amount']), 0, 1,'R');
 
-                //add the payment amount for use in case this is needed.
-
-                $paymentTotal += abs( $row['amount'] );
-
             }
             
 
@@ -651,21 +761,20 @@ class PDF extends FPDF
         if( $this->displayPreviousBalance )
         {
 
-            $label = $this->pt['pt_info']['priorTotals']['balance'] > 0 ? "Previous Balance (credit)" : "Previous Balance";
+            $label = $balances['previous_balance'] > 0 ? "Previous Balance (credit)" : "Previous Balance (owed)";
 
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 60, 10, $label, 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            //$this->Cell( 25, 10, sprintf("%.2f", $this->pt['pt_info']['priorTotals']['balance']), 0, 1,'R');   
-            $this->Cell( 25, 10, sprintf("%.2f", abs($this->pt['pt_info']['priorTotals']['balance'])), 0, 1,'R');   
+            $this->Cell( 25, 10, sprintf("%.2f", $balances['previous_balance']), 0, 1,'R');   
                      
 
         }
 
         
-        if(isset($dif) && $dif > 0 && $this->displayCourtesy)
+        if(isset($localItems['courtesy_adjust']) && $this->displayCourtesy)
         {
             
             $this->SetX($this->tableRowLeft);
@@ -673,59 +782,26 @@ class PDF extends FPDF
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 60, 10, 'Courtesy Adjust', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 25, 10, "-".sprintf("%.2f", $dif), 0, 1,'R');
+            $this->Cell( 25, 10, "-".sprintf("%.2f", $localItems['courtesy_adjust']), 0, 1,'R');
 
         }
 
-        
-            
-       //     Custom Line Item:
 
-        if($this->customLineItem)
-        {
-
-            
-            $this->SetX($this->tableRowLeft);
-            $this->Cell( 20, 10, "", 0, 0,'L');
-            $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Insurance Payments (expected)', 0, 0,'L');
-            $this->SetX( $this->GetX() + 10);
-            $this->Cell( 25, 10, "-".sprintf("%.2f", $this->customAdjustment), 0, 1,'R');
-
-        }
-
-        
-
-        if( isset($insurancePayments) && $this->displayInsurancePayments)
+        if( $this->insurancePayments )
         {   
             /*
                 There were some out-of-network claims. List how much you got from the insurance so far.
             */
 
-            $insurancePayments += $this->insurancePayments;
             $this->SetX($this->tableRowLeft);
             $this->Cell( 20, 10, "", 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
             $this->Cell( 60, 10, 'Insurance Payments (expected)', 0, 0,'L');
             $this->SetX( $this->GetX() + 10);
-            $this->Cell( 25, 10, "-".sprintf("%.2f", $insurancePayments), 0, 1,'R');   
+            $this->Cell( 25, 10, "-".sprintf("%.2f", $this->insurancePayments), 0, 1,'R');   
                      
 
         }
-
-        if( $this->corrections)
-        {
-            $this->SetX($this->tableRowLeft);
-            $this->Cell( 20, 10, "", 0, 0,'L');
-            $this->SetX( $this->GetX() + 10);
-            $this->Cell( 60, 10, 'Over billed from last invoice', 0, 0,'L');
-            $this->SetX( $this->GetX() + 10);
-            $this->Cell( 25, 10, sprintf("%.2f", $this->corrections), 0, 1,'R');  
-
-        }
-
-
-        
 
         //Draw a line. 
         $this->Line($this->lineRowLeft, $this->GetY() + 2, $this->lineRowRight, $this->GetY() + 2);
@@ -740,57 +816,28 @@ class PDF extends FPDF
 
 
         
-        
-        //check to see if there is a balance due or an account credit. Then proceed accordingly
-        //$balance = $this->pt['pt_info']['balance'] > 0 ? "Account Credit: " : "Total Due: ";
-        
-        if(!$this->paymentRecord)
+        if($this->docType == 'invoice')
         {
             //if you're looking for the sum of just the services included in this invoice, grab that value
             //otherwise, grab the overall balance of all services
 
-            $balance = $this->localBalance ? $this->pt['pt_info']['local_balance_expected'] : $this->pt['pt_info']['balance'];
+            $balance = $this->localBalance ?  $balances['local_balance'] : $balances['overall_balance'];
             
             //Subtract insurancePayments if it's set.
-            if(isset($insurancePayments) && $this->subtractInsurancePayments)
+            if($this->insurancePayments)
             {
-                $balance -= $insurancePayments;
-                //$balance = 585.00;
-            }
-
-            if($this->corrections)
-            {
-                $balance = $balance + $this->corrections;
-
-            }
-
-            //if displaying previous balance, and localbalance is true make it work
-            if($this->localBalance && $this->displayPreviousBalance)
-            {
-
-                //$balance = $balance + $this->pt['pt_info']['local_balance_payments'] + $this->pt['pt_info']['priorTotals']['balance'];
-                $balance = $balance + $this->pt['pt_info']['priorTotals']['balance'] + $this->pt['pt_info']['local_balance_payments'];
+                $balance -= $this->insurancePayments;
             }
             
 
             $lable = $balance > 0 ? "Account Credit: " : "Total Due: ";
-            //$lable = "Current Balance: ";
 
-        }else
-        {   
-            $balance = $paymentTotal;
-            $lable = "Total: ";
         }
 
         $this->Cell( 25, 10, "$".sprintf("%.2f", abs($balance)), 0, 0,'R');
-
         $strWidth = $this->GetStringWidth($lable);
-
         $this->SetX( $this->GetX() - 35 - $strWidth);
         $this->Cell( $strWidth, 10, $lable, 0, 1,'R');
-        
-    
-
         $this->Line($this->lineRowLeft, $this->GetY()+2, $this->lineRowRight, $this->GetY()+2);
         
     }
@@ -834,18 +881,26 @@ class PDF extends FPDF
 
     public function getLabel()
     {
-        if($this->notesOnly){
 
-            return "_MedicalRecord-";
-        }
+        switch($this->docType)
+        {
+            case 'medical_record':
+                return "_MedicalRecord-";
+                break;
 
-        if($this->paymentRecord)
-        {
-            return "_PaymentRecord-";
-        }else
-        {
-            return "_Invoice-";
+            case 'payment_record':
+                return "_PaymentRecord-";
+                break;
+
+            case 'invoice':
+                return "_Invoice-";
+                break;
+
+            default:
+                return "Something_Went_Wrong";
+                break;
         }
+        
 
     }
 

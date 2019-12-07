@@ -65,54 +65,6 @@ function is_multi($a) {
 
 }
 
-function array_merge_cust($arr1, $arr2){
-
-	$cnt1 = count($arr1);
-	$cnt2 = count($arr2);
-
-	if($cnt1 > $cnt2){
-
-		if($cnt1 == 0){
-			return array_merge($arr1, $arr2);
-		}
-
-		$keys2 = array_keys($arr1);
-		$keys1 = array_keys($arr2);
-
-	}else{
-
-		if($cnt2 == 0){
-			return array_merge($arr1, $arr2);
-		}
-
-		$keys1 = array_keys($arr1);
-		$keys2 = array_keys($arr2);
-
-	}
-
-	$count = 0;
-
-	//loop through the first set of keys
-	foreach($keys1 as $key){
-
-		//if this key is equal to the key in the other array at the same position
-		if($key == $keys2[$count]){
-
-			//create a new key value pair in the second array by appending a numeral to the key and 
-			//preserving the value
-			$arr2[$key.$count] = $arr2[$key];
-
-			//then destroy the original key => value pair.
-			unset($arr2[$key]);
-		}
-
-		$count++;
-	}
-
-
-	return array_merge($arr1, $arr2);
-
-}
 
 function consolidateParams($args){
 

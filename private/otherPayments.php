@@ -1,15 +1,11 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
 
 	class otherPayments{
 
 		public   $patient_id, $id, $date, $amount, $payments = array(), $previousPayments = array();
 		public 	 $rowCount = 0;
+		private  $flash = [];
 		private  $db;
 
 		
@@ -28,7 +24,11 @@
 			
 						$this->patient_id = $args['patient_id'];
 			
-					}	
+					}elseif(array_key_exists('user_param', $args))
+					{	
+						$this->patient_id = $args['user_param'];
+
+					}
 			
 				}elseif( gettype($args) === 'string'){
 			
@@ -66,14 +66,14 @@
 
 					}else{
 
-						$this->setFlash("error", "getSomeById from other_payments failed or there were no payments for these ids: ".print_r($args, true));
+						$this->setFlash(array("Error", "getSomeById from other_payments failed or there were no payments for these ids: ".print_r($args, true)));
 
 					}
 					
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "From other_payments getSomeById method: ".$e->getMessage() );
+				$this->setFlash(array('error', "From other_payments getSomeById method: ".$e->getMessage() ));
 
 			}
 
@@ -109,14 +109,13 @@
 
 					}else{
 
-						$this->setFlash("error", "getSomeById from other_payments failed or there were no payments for these ids: ".print_r($args, true));
-						echo "Error in getPreviousPaymentsTotal";
+						$this->setFlash(array("Error", "getSomeById from other_payments failed or there were no payments for these ids: ".print_r($args, true)));
 					}
 					
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "From other_payments getSomeById method: ".$e->getMessage() );
+				$this->setFlash(array('error', "From other_payments getSomeById method: ".$e->getMessage() ));
 				echo $e->getMessage();
 			}
 
@@ -142,14 +141,14 @@
 
 					}else{
 
-						$this->setFlash("error", "setPayments failed or there were no payments for this patient");
+						$this->setFlash(array("Error", "setPayments failed or there were no payments for this patient"));
 
 					}
 					
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "From other_payments setPayments method: ".$e->getMessage() );
+				$this->setFlash(array('Error', "From other_payments setPayments method: ".$e->getMessage() ));
 
 			}
 	}
@@ -157,7 +156,6 @@
 
 	public function create($args){
 
-		echo "<br>other_payments::create, args: " . print_r($args, true);
 		$db = $this->db;
 
 		try{
@@ -174,18 +172,18 @@
 
 				if($newId){
 
-					$this->setFlash('success', 'New payments added', $stmt->rowCount());
+					$this->setFlash(array('Success', 'New payments added', $stmt->rowCount()));
 					return $newId;
 
 				}else{
 
-					$this->setFlash('error', 'Something went wrong when adding those payments.');
+					$this->setFlash(array('error', 'Something went wrong when adding those payments.'));
 					return false;
 				}
 
 			}catch(PDOException $e){
 
-				$this->setFlash('error', "from other_payments::create: ".$e->getMessage());
+				$this->setFlash(array('error', "from other_payments::create: ".$e->getMessage()));
 				return false;
 
 			}
@@ -196,21 +194,23 @@
 
 	public function getPayments(){
 
-
-		return $this->payments;
+		if(!empty($this->payments))
+		{
+			return $this->payments;	
+			
+		}else
+		{
+			return $this->flash;
+		}
+		
 
 	}
 
 
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash(array $flash){
 
-		if(empty($rowCount)){
-			$this->flash = array($status => $message);
-		}else{
-			$this->rowCount += $rowCount;
-			$this->flash = array($status => $rowCount . " " . $message);
-		}
+		array_push(	$this->flash, $flash );
 
 	}
 
