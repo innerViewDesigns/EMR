@@ -23,8 +23,8 @@
 
   	function __construct(){
      
-      // echo "Step 1 frontEndController::__construct<br>";
-
+      //fb("Step 1 frontEndController::__construct");
+      error_log("Front end controller. Construct.\n", 3, __DIR__ . "/private/errorlog.txt");
       $this->parseUri();
       $this->run();
 
@@ -41,7 +41,7 @@
         }
         else{
 
-          echo "'$model' was not a valid model.<br>";
+          fb("'$model' was not a valid model.");
 
         }
 
@@ -57,7 +57,7 @@
           // echo "Step 4 frontEndController::setAction, action: ".$this->action."<br>";
 
         }else{
-          echo "'$action' was not a valid action.<br>";
+          fb("Bad action tried.");
         }
     
       }
@@ -104,13 +104,13 @@
         }
       }
 
-      //fb("From index.php::params: ".print_r($this->params, true));
+      fb("From index.php::params: ".print_r($this->params, true));
 
     }
 
     protected function parseUri(){
 
-      fb($_SERVER["REQUEST_URI"]);
+      //fb($_SERVER["REQUEST_URI"]);
       //fb("GET variable: ". print_r($_GET, true) );
       //fb("POST variable: ".print_r($_POST, true) );
 
@@ -136,7 +136,7 @@
 
       }else{
     
-        echo "<p style='color: black;'>Error in the parseUri funciton of index.php</p>";
+       fb("Error in the parseUri funciton of index.php");
     
         include('home.php');
 

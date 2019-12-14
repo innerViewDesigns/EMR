@@ -258,7 +258,7 @@ $(document).ready(function(){
 
 									var $input = $(this).find('input');
 									var col   = $input.attr("data-column-name");
-									console.log(col);
+
 
 									$input.val(s[col]);
 

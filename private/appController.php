@@ -183,7 +183,7 @@
     public function update($args=null){
 
 
-
+      fb("Update function.");
       list($this->lastUpdatedIds, $args) = $this->workHorse($args);
       $this->renderView($args);
 

@@ -4,3 +4,6 @@
 [submodule "private/AuthorizeNet"]
 	path = private/AuthorizeNet
 	url = https://github.com/AuthorizeNet/sdk-php
+[submodule "private/mysqldump-php"]
+	path = private/Mysqldump
+	url = https://github.com/ifsnop/mysqldump-php

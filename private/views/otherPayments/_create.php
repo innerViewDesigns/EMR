@@ -1,41 +1,40 @@
-<h1>Add Other Payments</h1>
+<h1>Add Payments</h1>
 
 <article class="drop6 col-md-12">
 
-	<form action="" method="post" id="add-otherPayments-form">
-		<table id="payments" class="table col-md-12">
-			<tr>
-				<th class="text-center col-md-offset-2 col-md-2">Patient</th> 
-				<th class="text-center col-md-2">Date</th>
-				<th class="text-center col-md-2">Amount</th>
-				<th class="text-center col-md-2">type</th>
-				<th class="text-center col-md-2">data</th>
-			</tr>
+	<form action="otherPayments/create" class="col-md-12" method="post" id="add-otherPayments-form">
 
-			<tr data-clone="true" data-type="insert_data">
-				
-				<td >
-					<input type="text" class="form-control" data-easy-auto="true" name='patient[]' onClick="this.select()"></input>
-				  <input type="hidden" name='patient_id[]'></input>
-				</td>
-				
-				<td>
-					<input type="text" class="form-control" name='date_recieved[]'></input>
-				</td>
-				
-				<td>
-					<input type="text" class="relative form-control" name='amount[]'></input>
-				</td>
-				<td>
-					<input type="text" class="relative form-control" name='type[]'></input>
-				</td>
-				<td>
-					<input type="text" class="relative form-control" name='associated_data[]'></input>
-					<div class="glyph glyphicon glyphicon-minus"></div>
-				</td>
-			</tr>
+			<table id="payments" class="table row">
+				<tr>
+					<th class="text-center col-md-3">Patient</th> 
+					<th class="text-center col-md-2">Date</th>
+					<th class="text-center col-md-2">Amount</th>
+					<th class="text-center col-md-2">type</th>
+					<th class="text-center col-md-2">data</th>
+				</tr>
 
-		</table>
+				<tr data-clone="true" data-type="insert_data">
+					<td >
+						<input type="text" class="form-control" data-easy-auto="true" name='patient[]' onClick="this.select()"></input>
+					  <input type="hidden" name='patient_id[]'></input>
+					</td>
+					
+					<td>
+						<input type="text" class="form-control" name='date_recieved[]'></input>
+					</td>
+					
+					<td>
+						<input type="text" class="relative form-control" name='amount[]'></input>
+					</td>
+					<td>
+						<input type="text" class="relative form-control" name='type[]'></input>
+					</td>
+					<td>
+						<input type="text" class="relative form-control" name='associated_data[]'></input>
+					</td>
+				</tr>
+			</table>
+
 		  <button type="submit" class="btn btn-default" id="submit">Submit</button>
 		  <button class="btn btn-default" id="add-more-payments">Add Another</button>
 	</form>
@@ -45,6 +44,26 @@
 <script>
 
 $(document).ready(function(){
+
+	function attachRemoveEventHandler()
+	{
+		$('div.glyphicon-minus').css("cursor", "pointer").click(function(){
+
+			$(this).parents('tr').remove();
+
+		});
+	}
+
+	function attachDateHandler()
+	{
+		$('input[name="date_recieved[]"]').datetimepicker({
+
+			validateOnBlur:false,
+			timepicker:false,
+			format:"Y-m-d"
+
+		});
+	}
 
 	function waitForElement(){
 
@@ -130,6 +149,7 @@ $(document).ready(function(){
 	} //waitForElement
 
 	waitForElement();
+	attachDateHandler();
 
 
 	//////////////////////////////////
@@ -140,9 +160,10 @@ $(document).ready(function(){
 	$('#add-more-payments').click(function(e){
 
 		var $row = $('table#payments tr:last');
-		console.log($row);
 		var clone = $row.clone();
-		clone.find("input[data-easy-auto='true']").after("<input type='text' data-easy-auto='true' name='patient' onClick='this.select()'></input>").remove();
+
+		clone.find("input[data-easy-auto='true']").after("<input type='text' style='width: 100%' data-easy-auto='true' name='patient[]' onClick='this.select()'></input>").remove();
+		clone.find("input:last").after("<div class='glyph glyphicon glyphicon-minus'></div>")
 		clone.find("input").slice(2, 6).each(function(){
 
 			$(this).val("");
@@ -156,8 +177,12 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 		waitForElement();
+		attachRemoveEventHandler();
+		attachDateHandler();
 
 	});
+
+	/*
 
 	$("button#submit").click(function(e){
 
@@ -220,22 +245,7 @@ $(document).ready(function(){
 
 	}); //submit button click
 
-	$('div.glyphicon-minus').css("cursor", "pointer").click(function(){
-
-		$(this).parents('tr').remove();
-
-	});
-
-	$('input[name="date_recieved[]"]').datetimepicker({
-
-		validateOnBlur:false,
-		timepicker:false,
-		format:"Y-m-d"
-
-	});
-
-
-
+	*/
 
 
 });

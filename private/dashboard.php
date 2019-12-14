@@ -1,6 +1,6 @@
 <?php
 	date_default_timezone_set('America/Los_Angeles');
-
+	include_once("private/Mysqldump/src/Ifsnop/Mysqldump/Mysqldump.php");
 
 	class dashboard{
 
@@ -60,7 +60,56 @@
 
 		private function databaseBackup()
 		{
-			fb("database backup");
+
+			$dbHelper = new dbHelper();
+			$password = $dbHelper->password;
+
+			$date = date("Ymd-His");
+			$path = "/Users/Lembaris/Skydrive/Therapy Business/Business/Backup/";
+			$zip_file_with_path = $path.$date.".zip";
+			$sql_file_with_path = $path.$date.".sql";
+			$sql_file = $date.".sql";
+			$zip_file = $date.".zip";
+			
+
+			
+			try
+			{
+					$dump = new Ifsnop\Mysqldump\Mysqldump('mysql:host=127.0.0.1;dbname=therapy_practice','lembaris', $password);
+					$dump->start($sql_file_with_path);
+
+			}catch(Exception $e)
+			{
+				fb($e->getMessage());
+			}
+			
+			
+			if(file_exists($sql_file_with_path))
+			{			
+
+				try
+				{
+						$zip = new ZipArchive();
+						$zip->open($zip_file_with_path, ZIPARCHIVE::CREATE);
+						$zip->addFile($sql_file_with_path, $sql_file);
+						$zip->setEncryptionName($sql_file, ZipArchive::EM_AES_256, $password);
+						$zip->close();
+						unlink($sql_file_with_path);
+
+				}catch(Exception $e)
+				{
+					$this->setFlash(array("Error", $e->getMessage()));
+				}
+
+
+			
+
+			}else
+			{
+				fb("There was no file.");
+			}
+
+			
 
 		}
 		
@@ -288,13 +337,14 @@ EOT;
 		}
 
 
-		private function setFlash($e, $function_name){
+		private function setFlash($flash){
 
-			$this->flash = array($e => $function_name);
+			array_push($this->flash, $flash);
 			
 		}
 
 		public function getFlash(){
+
 			return $this->flash;
 		}
 		

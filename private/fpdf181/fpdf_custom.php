@@ -1,11 +1,4 @@
 <?php
-//require("fpdf.php");
-//require("/Users/Apple/Sites/therapyBusiness/private/insurances.php");
-// require("/Users/Apple/Sites/therapyBusiness/private/Services.php");
-//require("/Users/Apple/Sites/therapyBusiness/private/otherPayments.php");
-//require("/Users/Apple/Sites/therapyBusiness/private/patient.php");
-//require("/Users/Apple/Sites/therapyBusiness/private/note.php");
-
 
 class PDF extends FPDF
 {
@@ -469,7 +462,7 @@ class PDF extends FPDF
                 if( isset($value['in_network']) && $value['in_network'] == '1' )
                 {
                     $value['displayed_charge'] = $value['expected_copay_amount'];
-                    $value['add_on'] = $value['expected_copay_amount'] == 88 ? ' deductible' : ' co-pay';
+                    $value['add_on'] = $value['expected_copay_amount'] == 88 ? ' (deductible)' : ' (co-pay)';
 
                 }else
                 {
@@ -739,7 +732,7 @@ class PDF extends FPDF
             if( !array_key_exists('id_other_payments', $row) )
             {
                 
-                $this->Cell( 60, 10, $row['cpt_code'].$addOn, 0, 0,'L');
+                $this->Cell( 60, 10, $row['cpt_code'].$row['add_on'], 0, 0,'L');
                 $this->SetX( $this->GetX() + 10);
                 $this->Cell( 25, 10, sprintf("%.2f", $row['displayed_charge']), 0, 1,'R');
                 

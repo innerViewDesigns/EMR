@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 		$.ajax({
 
-				url : g.basePath + "note/update",
+				url : "note/update",
 
 				method : "POST",
 				
@@ -93,6 +93,7 @@ $(document).ready(function(){
 
 				complete : function(jqXHR, status){
 
+					console.log(jqXHR);
 					$('article div[data-target=put-note-here').append(jqXHR.responseText);
 					$('div.flash').css("width", "70%").addClass('pull-right').css('margin-right', "2.5%");
 					

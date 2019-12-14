@@ -131,7 +131,7 @@
 
 	public function update($args){
 
-		fb(print_r($args, true));
+		//fb(print_r($args, true));
 
 		$db = $this->db;
 

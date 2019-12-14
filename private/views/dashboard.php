@@ -241,6 +241,8 @@
 
 				url: 'dashboard/get',
 
+				dataType: 'json',
+
 				method: "POST",
 
 				data: {
@@ -251,12 +253,16 @@
 
 						},
 
-				dataType: 'json',
-
 				complete : function(jqXHR, status){
 
 					console.log(jqXHR);
-					console.log(status);
+				
+				},
+
+				success : function(data, jqXHR, status){
+
+					console.log(data);
+					//console.log(jqXHR);
 					
 					if( typeof jqXHR.responseJSON !== 'undefined'){
 
@@ -264,6 +270,10 @@
 
 					}
 			
+				},
+
+				error : function(jqXHR, textStatus, errorThrown){
+
 				}
 
 			});

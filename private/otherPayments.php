@@ -73,7 +73,7 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash(array('error', "From other_payments getSomeById method: ".$e->getMessage() ));
+				$this->setFlash(array('Error', "From other_payments getSomeById method: ".$e->getMessage() ));
 
 			}
 
@@ -115,8 +115,8 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash(array('error', "From other_payments getSomeById method: ".$e->getMessage() ));
-				echo $e->getMessage();
+				$this->setFlash(array('Error', "From other_payments getSomeById method: ".$e->getMessage() ));
+
 			}
 
 
@@ -172,18 +172,17 @@
 
 				if($newId){
 
-					$this->setFlash(array('Success', 'New payments added', $stmt->rowCount()));
 					return $newId;
 
 				}else{
 
-					$this->setFlash(array('error', 'Something went wrong when adding those payments.'));
+					$this->setFlash(array('Error', 'Something went wrong when adding those payments.'));
 					return false;
 				}
 
 			}catch(PDOException $e){
 
-				$this->setFlash(array('error', "from other_payments::create: ".$e->getMessage()));
+				$this->setFlash(array('Error', "from other_payments::create: ".$e->getMessage()));
 				return false;
 
 			}

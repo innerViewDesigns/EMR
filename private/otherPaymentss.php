@@ -22,8 +22,6 @@
 		public function update($service_id, $values){
 
 			$db = $this->db;
-			//echo "<br>$service_id";
-			//echo "<br>".print_r($values);
 
 			$values = deal_with_null_case($values);
 
@@ -50,14 +48,14 @@
 
 					}else{
 
-						$this->setFlash("error", "Something went wrong when trying to update insurance claim for service #" . $service_id.".");
+						$this->setFlash(array("Error", "Something went wrong when trying to update insurance claim for service #" . $service_id."."));
 						return false;
 					}
 					
 
 				}catch (PDOException $e){
 
-					$this->setFlash('error', $e->getMessage());
+					$this->setFlash(array('Error', $e->getMessage()));
 					return false;
 
 
@@ -83,14 +81,14 @@
 
 					}else{
 
-						$this->setFlash("error", "No results from the getAllForPatient function in services.php");
+						$this->setFlash(array("error", "No results from the getAllForPatient function in services.php"));
 					
 					}
 					
 
 				}catch (PDOException $e){
 
-					$this->setFlash('error', $e);
+					$this->setFlash(array('error', $e));
 
 				}
 
@@ -135,7 +133,7 @@ EOD;
 
 			}else{
 				//add to the flash message and return false. 
-				$this->setFlash("error", "the args variable in services::getSomeByServiceId was not an array");
+				$this->setFlash(array("error", "the args variable in services::getSomeByServiceId was not an array"));
 				return false;
 			}
 			
@@ -159,7 +157,7 @@ EOD;
 
 				}catch (PDOException $e){
 
-					$this->setFlash('error', "This from other_paymentss setSomeById: " . $e->getMessage());
+					$this->setFlash(array('error', "This from other_paymentss setSomeById: " . $e->getMessage()));
 					return false;
 
 				}
@@ -173,14 +171,9 @@ EOD;
 
 	}
 
-	private function setFlash($status, $message, $rowCount=null){
+	private function setFlash($flash){
 
-			if(empty($rowCount)){
-				$this->flash[$status] = $message;
-			}else{
-				$this->rowCount += $rowCount;
-				$this->flash[$status] = $rowCount . " " . $message;
-			}
+		array_push($this->flash, $flash);
 
 	}
 

@@ -1,469 +1,73 @@
-[04-Dec-2019 00:54:02 UTC] PHP Parse error:  syntax error, unexpected ';' in /Users/Lembaris/Sites/therapyBusiness/private/otherPayments.php on line 29
-[04-Dec-2019 01:53:36 UTC] PHP Parse error:  syntax error, unexpected ':' in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 121
-[04-Dec-2019 07:45:18 UTC] PHP Parse error:  syntax error, unexpected '}' in /Users/Lembaris/Sites/therapyBusiness/private/Services.php on line 152
-[04-Dec-2019 07:45:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDF::myConstruct() in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php:42
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#2 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#4 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php on line 42
-[04-Dec-2019 07:46:06 UTC] PHP Warning:  array_push() expects parameter 1 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/Services.php on line 150
-[04-Dec-2019 08:19:16 UTC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 153
-[04-Dec-2019 08:19:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 139
-[04-Dec-2019 08:20:41 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 139
-[04-Dec-2019 08:20:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 141
-[04-Dec-2019 08:36:12 UTC] PHP Warning:  require(/Users/Lembaris/Sites/therapyBusiness/private/other/payments.php): failed to open stream: No such file or directory in /Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php on line 159
-[04-Dec-2019 08:36:12 UTC] PHP Fatal error:  require(): Failed opening required '/Users/Lembaris/Sites/therapyBusiness/private/other/payments.php' (include_path='/Users/Lembaris/Sites/therapyBusiness/private/views/') in /Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php on line 159
-[04-Dec-2019 09:22:15 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 218
-[04-Dec-2019 09:23:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on string in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:136
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(153): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(101): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(42): PDF->myConstruct(Array, Array, '238')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 136
-[04-Dec-2019 09:23:47 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 138
-[04-Dec-2019 09:23:47 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on bool in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:139
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(153): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(101): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(42): PDF->myConstruct(Array, Array, '238')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 139
-[04-Dec-2019 09:24:25 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 135
-[04-Dec-2019 09:24:25 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 139
-[04-Dec-2019 09:24:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on bool in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:140
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(154): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(101): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(42): PDF->myConstruct(Array, Array, '238')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 140
-[04-Dec-2019 09:26:13 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 135
-[04-Dec-2019 09:26:13 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 140
-[04-Dec-2019 09:26:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on bool in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:141
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(155): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(101): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(42): PDF->myConstruct(Array, Array, '238')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 141
-[04-Dec-2019 09:27:13 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 135
-[04-Dec-2019 09:27:13 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 140
-[04-Dec-2019 09:27:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on bool in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:141
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(155): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(101): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(42): PDF->myConstruct(Array, Array, '238')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 141
-[04-Dec-2019 09:38:14 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 106
-[04-Dec-2019 10:24:44 UTC] PHP Parse error:  syntax error, unexpected ';' in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 124
-[04-Dec-2019 10:25:15 UTC] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH) in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 136
-[04-Dec-2019 10:38:58 UTC] PHP Notice:  Undefined variable: previous_balance in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 110
-[04-Dec-2019 10:50:27 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 824
-[04-Dec-2019 10:51:00 UTC] PHP Notice:  Undefined variable: localItems in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 103
-[04-Dec-2019 10:51:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 134
-[04-Dec-2019 10:51:00 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 134
-[04-Dec-2019 10:51:00 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 141
-[04-Dec-2019 10:51:00 UTC] PHP Notice:  Undefined variable: index in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 158
-[04-Dec-2019 10:51:00 UTC] PHP Notice:  Undefined variable: previousBalances in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 110
-[04-Dec-2019 10:51:00 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 608
-[04-Dec-2019 10:51:00 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 608
-[04-Dec-2019 10:51:00 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 472 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:626
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(472): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 626
-[04-Dec-2019 10:51:37 UTC] PHP Notice:  Undefined variable: previousBalances in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 110
-[04-Dec-2019 10:51:37 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 608
-[04-Dec-2019 10:51:37 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 608
-[04-Dec-2019 10:51:37 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 472 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:626
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(472): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 626
-[04-Dec-2019 10:51:50 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 608
-[04-Dec-2019 10:51:50 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 608
-[04-Dec-2019 10:51:50 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 472 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:626
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(472): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 626
-[04-Dec-2019 10:57:08 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 581
-[04-Dec-2019 10:57:08 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 581
-[04-Dec-2019 10:57:08 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 445 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:599
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(445): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 599
-[04-Dec-2019 11:01:53 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 587
-[04-Dec-2019 11:01:53 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 587
-[04-Dec-2019 11:01:53 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 451 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:605
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(451): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 605
-[04-Dec-2019 11:03:23 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 589
-[04-Dec-2019 11:03:23 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 589
-[04-Dec-2019 11:03:23 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 453 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:607
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(453): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 607
-[04-Dec-2019 11:05:33 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 589
-[04-Dec-2019 11:05:33 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 589
-[04-Dec-2019 11:05:33 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 453 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:607
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(453): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 607
-[04-Dec-2019 11:06:06 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PDF::addTable(), 0 passed in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 446 and exactly 1 expected in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:600
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(446): PDF->addTable()
-#1 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(44): PDF->prepare()
-#2 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#6 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 600
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: in_network in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 646
-[04-Dec-2019 11:06:35 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 888
-[04-Dec-2019 11:06:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDF::getName() in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php:46
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#2 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#4 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php on line 46
-[04-Dec-2019 11:08:07 UTC] PHP Notice:  Undefined index: pt_info in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 888
-[04-Dec-2019 11:08:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDF::getName() in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php:46
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#2 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#4 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php on line 46
-[04-Dec-2019 11:19:21 UTC] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH) in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 124
-[04-Dec-2019 11:19:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDF::getName() in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php:46
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#2 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#4 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/invoice.php on line 46
-[04-Dec-2019 17:11:37 UTC] PHP Notice:  Undefined variable: label in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 579
-[04-Dec-2019 17:11:37 UTC] PHP Notice:  Undefined variable: label in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 583
-[05-Dec-2019 21:55:13 UTC] PHP Parse error:  syntax error, unexpected '$localItems' (T_VARIABLE) in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 160
-[05-Dec-2019 21:55:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDF::calculate_totals() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:109
-Stack trace:
-#0 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(41): PDF->myConstruct(Array, Array, '335')
-#1 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#2 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#4 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#5 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 109
-[05-Dec-2019 21:55:56 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 312
-[05-Dec-2019 21:55:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on bool in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:313
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(327): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(114): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(41): PDF->myConstruct(Array, Array, '335')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 313
-[05-Dec-2019 21:58:02 UTC] PHP Notice:  Only variables should be passed by reference in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 106
-[05-Dec-2019 21:58:02 UTC] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 309
-[05-Dec-2019 21:58:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function format() on bool in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php:310
-Stack trace:
-#0 [internal function]: cmp(Array, Array)
-#1 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(324): usort(Array, 'cmp')
-#2 /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php(111): PDF->combine_claims_and_payments(Array, Array)
-#3 /Users/Lembaris/Sites/therapyBusiness/private/invoice.php(41): PDF->myConstruct(Array, Array, '335')
-#4 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(21): invoice->__construct(Array)
-#5 /Users/Lembaris/Sites/therapyBusiness/index.php(193): appController->post(Array)
-#6 /Users/Lembaris/Sites/therapyBusiness/index.php(29): frontEndController->run()
-#7 /Users/Lembaris/Sites/therapyBusiness/index.php(201): frontEndController->__construct()
-#8 {main}
-  thrown in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 310
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined variable: combined in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 327
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 120
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 268
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 137
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined offset: -1 in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 187
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 187
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined offset: -1 in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 194
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 201
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined variable: index in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 211
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 211
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 226
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined variable: previoudTotals in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 155
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Array to string conversion in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 461
-[05-Dec-2019 22:00:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 697
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 758
-[05-Dec-2019 22:00:16 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 857
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 120
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 268
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 137
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined offset: -1 in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 187
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 187
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined offset: -1 in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 194
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 201
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined variable: index in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 211
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 211
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 226
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined variable: previoudTotals in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 155
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Array to string conversion in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 461
-[05-Dec-2019 22:00:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 697
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 758
-[05-Dec-2019 22:00:35 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 857
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 120
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 268
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined variable: combinedClaimsAndPayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 137
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined offset: -1 in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 187
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 187
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined offset: -1 in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 194
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 201
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined variable: index in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 211
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  array_slice() expects parameter 1 to be array, null given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 211
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 226
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined variable: previoudTotals in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 155
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Array to string conversion in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 461
-[05-Dec-2019 22:49:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 697
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 758
-[05-Dec-2019 22:49:14 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 857
-[05-Dec-2019 22:52:05 UTC] PHP Notice:  Undefined variable: previoudTotals in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 155
-[05-Dec-2019 22:52:05 UTC] PHP Notice:  Array to string conversion in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:52:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:52:05 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 461
-[05-Dec-2019 22:52:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 697
-[05-Dec-2019 22:52:05 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 758
-[05-Dec-2019 22:52:05 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 857
-[05-Dec-2019 22:52:22 UTC] PHP Notice:  Array to string conversion in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:52:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 385
-[05-Dec-2019 22:52:22 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 461
-[05-Dec-2019 22:52:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 697
-[05-Dec-2019 22:52:22 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 758
-[05-Dec-2019 22:52:22 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 857
-[05-Dec-2019 22:52:42 UTC] PHP Notice:  Undefined index: sum_of_copays in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 453
-[05-Dec-2019 22:52:42 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 388
-[05-Dec-2019 22:52:42 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 390
-[05-Dec-2019 22:52:42 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 461
-[05-Dec-2019 22:52:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 697
-[05-Dec-2019 22:52:42 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 758
-[05-Dec-2019 22:52:42 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 857
-[05-Dec-2019 22:53:17 UTC] PHP Notice:  Undefined variable: claims in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 459
-[05-Dec-2019 22:53:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 695
-[05-Dec-2019 22:53:17 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 756
-[05-Dec-2019 22:53:17 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 855
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined variable: chargeAmount in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 710
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined index:  in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 710
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined variable: chargeAmount in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 710
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined index:  in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 710
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined variable: chargeAmount in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 710
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined index:  in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 710
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 756
-[05-Dec-2019 22:53:39 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 855
-[05-Dec-2019 22:54:58 UTC] PHP Notice:  Undefined property: PDF::$displayInsurancePayments in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 756
-[05-Dec-2019 22:54:58 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 855
-[05-Dec-2019 22:56:51 UTC] PHP Notice:  Undefined property: PDF::$paymentRecord in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 854
-[07-Dec-2019 14:51:19 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 474
-[07-Dec-2019 14:51:19 UTC] PHP Notice:  Undefined index: courtesy_adjust in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 475
-[07-Dec-2019 14:51:19 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 413
-[07-Dec-2019 14:51:19 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:51:19 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 413
-[07-Dec-2019 14:51:19 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:51:19 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 730
-[07-Dec-2019 14:51:19 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 730
-[07-Dec-2019 14:54:15 UTC] PHP Notice:  Undefined index: courtesy_adjust in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 480
-[07-Dec-2019 14:54:15 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 413
-[07-Dec-2019 14:54:15 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:54:15 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 413
-[07-Dec-2019 14:54:15 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:54:15 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 735
-[07-Dec-2019 14:54:15 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 735
-[07-Dec-2019 14:55:01 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 413
-[07-Dec-2019 14:55:01 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:55:01 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 413
-[07-Dec-2019 14:55:01 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:55:01 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 740
-[07-Dec-2019 14:55:01 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 740
-[07-Dec-2019 14:57:45 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:57:45 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 14:57:45 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:57:45 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 14:57:45 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 14:57:45 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 14:57:55 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:57:55 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 14:57:55 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 14:57:55 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 14:57:55 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 14:57:55 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 15:00:43 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 15:00:43 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 15:00:43 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 15:00:43 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 15:00:43 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 15:00:43 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 15:57:47 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 15:57:47 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 15:57:47 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 415
-[07-Dec-2019 15:57:47 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 417
-[07-Dec-2019 15:57:47 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 15:57:47 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 742
-[07-Dec-2019 15:59:27 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 423
-[07-Dec-2019 15:59:27 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 425
-[07-Dec-2019 15:59:27 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 423
-[07-Dec-2019 15:59:27 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 425
-[07-Dec-2019 15:59:27 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 750
-[07-Dec-2019 15:59:27 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 750
-[07-Dec-2019 16:52:23 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 423
-[07-Dec-2019 16:52:23 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 425
-[07-Dec-2019 16:52:23 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 423
-[07-Dec-2019 16:52:23 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 425
-[07-Dec-2019 16:52:23 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 750
-[07-Dec-2019 16:52:23 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 750
-[07-Dec-2019 16:53:04 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 424
-[07-Dec-2019 16:53:04 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 426
-[07-Dec-2019 16:53:04 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 424
-[07-Dec-2019 16:53:04 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 426
-[07-Dec-2019 16:53:04 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 751
-[07-Dec-2019 16:53:04 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 751
-[07-Dec-2019 16:55:34 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 428
-[07-Dec-2019 16:55:34 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 430
-[07-Dec-2019 16:55:34 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 428
-[07-Dec-2019 16:55:34 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 430
-[07-Dec-2019 16:55:34 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 755
-[07-Dec-2019 16:55:34 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 755
-[07-Dec-2019 17:49:36 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 491
-[07-Dec-2019 17:49:36 UTC] PHP Notice:  Undefined index: courtesy_adjust in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 492
-[07-Dec-2019 17:49:36 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 429
-[07-Dec-2019 17:49:36 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 431
-[07-Dec-2019 17:49:36 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 429
-[07-Dec-2019 17:49:36 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 431
-[07-Dec-2019 17:49:36 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 747
-[07-Dec-2019 17:49:36 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 747
-[07-Dec-2019 17:53:50 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 491
-[07-Dec-2019 17:53:50 UTC] PHP Notice:  Undefined index: courtesy_adjust in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 492
-[07-Dec-2019 17:53:50 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 429
-[07-Dec-2019 17:53:50 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 431
-[07-Dec-2019 17:53:50 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 429
-[07-Dec-2019 17:53:50 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 431
-[07-Dec-2019 17:53:50 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 747
-[07-Dec-2019 17:53:50 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 747
-[07-Dec-2019 18:02:17 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 492
-[07-Dec-2019 18:02:17 UTC] PHP Notice:  Undefined index: courtesy_adjust in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 493
-[07-Dec-2019 18:02:17 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 430
-[07-Dec-2019 18:02:17 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 432
-[07-Dec-2019 18:02:17 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 430
-[07-Dec-2019 18:02:17 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 432
-[07-Dec-2019 18:02:17 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 748
-[07-Dec-2019 18:02:17 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 748
-[07-Dec-2019 18:07:08 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 489
-[07-Dec-2019 18:07:08 UTC] PHP Notice:  Undefined index: courtesy_adjust in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 490
-[07-Dec-2019 18:07:08 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 427
-[07-Dec-2019 18:07:08 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 429
-[07-Dec-2019 18:07:08 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 427
-[07-Dec-2019 18:07:08 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 429
-[07-Dec-2019 18:07:08 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 745
-[07-Dec-2019 18:07:08 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, float given in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 745
-[07-Dec-2019 18:14:03 UTC] PHP Parse error:  syntax error, unexpected '0' (T_LNUMBER) in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 778
-[07-Dec-2019 18:14:16 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 479
-[07-Dec-2019 18:14:16 UTC] PHP Notice:  Undefined index: dif in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 479
+Front end controller. Construct.Front end controller. Construct.Front end controller. Construct.Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+[13-Dec-2019 21:54:31 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf.php on line 1054
+[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: label in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 688
+[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: label in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 689
+[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: balance in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 837
+[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: lable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 838
+[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: lable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 840
+Front end controller. Construct.
+[13-Dec-2019 21:55:18 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf.php on line 1054
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+[13-Dec-2019 22:55:47 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf.php on line 1054
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
+Front end controller. Construct.
