@@ -1,12 +1,5 @@
 <?php
 
-
-  require_once(__DIR__ . "/dbObj.php");
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once(__DIR__ . "/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, __DIR__);
-  $classLoader->register();
-
 function deal_with_null_case($value){
 	
 	if( gettype($value) === 'array' ){
@@ -33,6 +26,18 @@ function deal_with_null_case($value){
 
 function is_multi($a) {
 
+	/*
+		The primary use case here is an array submitted by POST from the form on "add services"
+		or "add other_payments." In these cases the array will be structured like this:
+
+			data == array( patient_id == array([0] => patient_id1, [2] => patient_id2, [3] => patient_id3 )
+										        CPT == array([0] => CPT1, [1] => CPT2, [3] => CPT3)
+										)
+
+		If this is true. You'll have to consolidate the data. Grouping each nth item of the nested arrays.
+		That's what the function consolidate_params does. 
+	*/
+
 	if( is_array($a) ){
 
 	  foreach ($a as $v) {
@@ -48,7 +53,6 @@ function is_multi($a) {
 	    		return false;
 
 	    	}
-
 
 	    }else{
 
@@ -68,12 +72,11 @@ function is_multi($a) {
 
 function consolidateParams($args){
 
-	$keys = array_keys($args);						 //get all of the field names
+	
+
+	$keys = array_keys($args);						 
 	$organized = [];
 
-	//echo "<br>keys: " . print_r($keys, true);
-	//echo "<br>count: " . count($keys);
-	//echo "<br>count: " . count($keys[0]);
 
 	for($i=0; $i<count($args[$keys[0]]); $i++){   //loop through objects  
 

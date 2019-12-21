@@ -1,12 +1,12 @@
 <?php
 
 
-	require(__DIR__ . "/fpdf181/fpdf.php");
-	require(__DIR__ . "/fpdf181/fpdf_custom.php");
-	require(__DIR__ . "/insurances.php");
-	require(__DIR__ . "/Services.php");
-	require(__DIR__ . "/otherPayments.php");
-	require(__DIR__ . "/patient.php");
+	require_once("Users/Lembaris/Sites/therapybusiness/vendor/setasign/fpdf/fpdf.php");
+	require_once(__DIR__ . "/fpdf_custom.php");
+	require_once(__DIR__ . "/insurances.php");
+	require_once(__DIR__ . "/Services.php");
+	require_once(__DIR__ . "/otherPayments.php");
+	require_once(__DIR__ . "/patient.php");
 
 
 	class invoice

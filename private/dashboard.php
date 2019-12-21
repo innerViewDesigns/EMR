@@ -1,7 +1,7 @@
 <?php
-	date_default_timezone_set('America/Los_Angeles');
-	include_once("private/Mysqldump/src/Ifsnop/Mysqldump/Mysqldump.php");
-
+	
+	require_once( __DIR__ . "/Mysqldump/src/Ifsnop/Mysqldump/Mysqldump.php");
+	
 	class dashboard{
 
 		private  $db;

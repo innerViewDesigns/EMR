@@ -15,8 +15,7 @@
 	
 	$other_payments = new otherPayments(array('patient_id'=>$patient->patient_id));
 	$other_payments->setPayments();
-	$payments = $other_payments->getPayments();
-
+	$payments = $other_payments->getPayments();	
 
 	$claims = $insurance_claims->pairClaimsAndPayments($claims, $services, $payments, false);
 
@@ -36,8 +35,6 @@
 	
 
 		<?php
-
-			//echo "<br>".print_r($claims, true);
 
 			include(dirname(__DIR__)."/_flash.php");
 

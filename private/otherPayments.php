@@ -3,8 +3,9 @@
 
 	class otherPayments{
 
-		public   $patient_id, $id, $date, $amount, $payments = array(), $previousPayments = array();
+		public   $patient_id, $id, $date, $amount, $previousPayments = array();
 		public 	 $rowCount = 0;
+		private  $payments = [];
 		private  $flash = [];
 		private  $db;
 
@@ -138,10 +139,12 @@
 					if($result){
 
 						$this->payments = $result;
+						return true;
 
 					}else{
 
 						$this->setFlash(array("Error", "setPayments failed or there were no payments for this patient"));
+						return false;
 
 					}
 					
@@ -193,14 +196,7 @@
 
 	public function getPayments(){
 
-		if(!empty($this->payments))
-		{
-			return $this->payments;	
-			
-		}else
-		{
-			return $this->flash;
-		}
+		return $this->payments;
 		
 
 	}

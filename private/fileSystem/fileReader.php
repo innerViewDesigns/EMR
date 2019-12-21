@@ -1,12 +1,20 @@
 <?php
 	
-	set_include_path("/Users/Lembaris/Sites/therapyBusiness/private/");
-
+	//set_include_path("/Users/Lembaris/Sites/therapyBusiness/private/");
+	
+	require_once('/Users/Lembaris/Sites/therapyBusiness/private/validations.php');
+	require_once('/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php');
+  $classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private/');
+  $classLoader->register();
+	
+	/*
+	require_once("dbObj.php");
 	require("insurance.php");
 	require("insurances.php");
 	require("Services.php");
 	require("otherPayments.php");
 	require("patients.php");
+	*/
 
 
 	class fileReader

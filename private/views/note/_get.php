@@ -1,43 +1,43 @@
 <?php 
+	
+	$noteModel = $this->model;
 
-	if( !isset($note) ){
-		$noteModel = $this->model;
+	if(isset($this->lastInsertIds) && count($this->lastInsertIds) == 1)
+	{
+		$id = $this->lastInsertIds[0];
+
+		if($noteModel->setNoteById($id))
+		{
+
+		}
+
+	}elseif(isset($noteModel->service_id_notes))
+	{
+		$noteModel->setNoteByServiceId();
+
+	}elseif(isset($noteModel->notes_id))
+	{
+		$noteModel->setNoteById();
 	}
 
-	if( $noteModel->setNoteByServiceId() ){
-
-		$note = $noteModel->getNote();
-
-	}elseif( $noteModel->setNoteById() ){
-
-		$note = $noteModel->getNote();
-
-	}else{
-
-		$note = ['note' => '(undefined)'];
-
-	}
-
-
-	$this->flash = array_merge($this->flash, $noteModel->getFlash());
 	
 
 	include(dirname(__DIR__)."/_flash.php"); 
 
 ?>
 
-<div id="note" <?php if( isset( $note['service_id_notes'] ) ){
+<div id="note" <?php if( isset( $noteModel->service_id_notes ) ){
 
-												echo "data-service-id='".$note['service_id_notes']."'";
+												echo "data-service-id='".$noteModel->service_id_notes."'";
 								
-											}elseif( isset ($note['notes_id']) ){
+											}elseif( isset ($noteModel->notes_id) ){
 
-												echo "data-notes-id='".$note['notes_id']."'";
+												echo "data-notes-id='".$noteModel->notes_id."'";
 
 											} ?> class='col-md-9 col-lg-9' >
 
 	
-	<textarea class="form-control" name="note" id="noteTextarea" style="width: 100%;" rows="15"><?php if(isset($note['note'])){echo $note['note'];} ?></textarea>
+	<textarea class="form-control" name="note" id="noteTextarea" style="width: 100%;" rows="15"><?php if(!empty($noteModel->properties)){echo $noteModel->properties['note'];} ?></textarea>
 	<button id="update" class="pull-right btn btn-primary" style="margin-top: 15px;">Update</button>
 
 

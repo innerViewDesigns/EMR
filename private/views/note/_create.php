@@ -109,6 +109,7 @@ $("#myModal input[data-easy-auto='true']").each(function(){
 		e.preventDefault();
 
 		var data = 	{ "data" : [{
+					
 					patient_id_notes 	: $('input[name="patient_id"]').val(),
 					associated_date		: $('input[name="date"]').val(),
 					type 							: $('input[name="type"]').val(),
@@ -124,6 +125,8 @@ $("#myModal input[data-easy-auto='true']").each(function(){
 		$.ajax({
 
 			url   		 : g.basePath + "note/create",
+
+			method     : "post",
 
 			data  		 : data,
 

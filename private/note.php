@@ -1,15 +1,11 @@
 <?php
 
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
-
   class note{
 
-		private $service_id, $patient_id, $insurance_claim_id, $invoice_id, $other_payments_id, $notes_id;
-		private $note, $notes;
+		private $rawData;
+		public $properties = [];
+		public $service_id_notes;
+		public $notes_id; 
 		private $flash = [];
 		private $db;
 
@@ -33,10 +29,14 @@
 					if(array_key_exists(0, $args))
 					{
 						$args = $args[0];
+
+					}elseif( array_key_exists('data', $args))
+					{
+						$args = $args['data'][0];
 					}
 
 					if(array_key_exists('service_id', $args)){
-						$this->service_id = $args['service_id'];
+						$this->service_id_notes = $args['service_id'];
 					}
 					if(array_key_exists('notes_id', $args)){
 						$this->notes_id = $args['notes_id'];
@@ -49,6 +49,8 @@
 				$this->service_id = $args;
 			
 			}
+
+			fb("notes::__contsruct - notes_id: ".$this->notes_id);
 
 		}    
 		
@@ -67,7 +69,8 @@
 
 						if($result){
 
-							$this->note = $result[0];
+							$this->rawData = $result[0];
+							$this->populateModel();
 							return true;
 
 						}else{
@@ -93,25 +96,27 @@
 
 		public function setNotebyServiceId(){
 
+			fb("setNotebyServiceId");
 			$db = $this->db;
 
-			if($this->service_id){
+			if($this->service_id_notes){
 				
 				try{
 
 						$stmt = $db->db->prepare("SELECT * FROM notes WHERE service_id_notes = ?");
-						$stmt->bindParam(1, $this->service_id, PDO::PARAM_INT);
+						$stmt->bindParam(1, $this->service_id_notes, PDO::PARAM_INT);
 						$stmt->execute();
 						$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 						if($result){
 
-							$this->note = $result[0];
+							$this->rawData = $result[0];
+							$this->populateModel();
 							return true;
 
 						}else{
 							
-							$this->setFlash(array('Error', 'There was a problem in fetching the note with service_id #' . $this->service_id . "."));
+							$this->setFlash(array('Error', 'There was a problem in fetching the note with service_id #' . $this->service_id_notes . "."));
 							return false;
 
 						}
@@ -119,7 +124,7 @@
 
 				}catch(PDOException $e){
 
-					$this->setFlash(array('error', "Something went wrong with note::setNotebyServiceId. Here's the message: " . $e->getMessage()));
+					$this->setFlash(array('Error', "Something went wrong with note::setNotebyServiceId. Here's the message: " . $e->getMessage()));
 
 				}
 			}else{
@@ -131,49 +136,38 @@
 
 	public function update($args){
 
-		//fb(print_r($args, true));
 
 		$db = $this->db;
 
+		if($args['service_id']){
 
-		if( isset($this->service_id) ){
-			
 			$sql = "UPDATE notes set note = ? WHERE service_id_notes = ?";
-			$serviceId = true;
 
-		}elseif( isset($this->notes_id) ){
-			
+		}else{
+
 			$sql = "UPDATE notes set note = ? WHERE notes_id = ?";
-			$serviceId = false;
-		
+
 		}
+		
 		
 		try{
 
 			$stmt = $db->db->prepare($sql);
 			$stmt->bindParam(1, $args['note']);
 
-			if($serviceId)
+			if($args['service_id'])
 			{	
-				
-				$stmt->bindParam(2, $this->service_id, PDO::PARAM_INT); 
+				$stmt->bindParam(2, $args['service_id'], PDO::PARAM_INT); 
 			
 			}else
 			{ 
-				$stmt->bindParam(2, $this->notes_id, PDO::PARAM_INT); 
+				$stmt->bindParam(2, $args['notes_id'], PDO::PARAM_INT); 
 			}
 
 			if( $stmt->execute() )
 			{
-
-				if( $serviceId )
-				{
-					return $this->service_id;
 				
-				}else
-				{
-					return $this->notes_id;
-				}
+				return $args['service_id'] ? $args['service_id'] : $args['notes_id'];
 
 			}else{
 				
@@ -185,7 +179,7 @@
 				}else
 				{ 
 				
-					$this->setFlash(array('error', 'There was a problem in fetching the note with notes_id #' . $this->notes_id . "."));
+					$this->setFlash(array('Error', 'There was a problem in fetching the note with notes_id #' . $this->notes_id . "."));
 
 				}
 				
@@ -196,7 +190,7 @@
 
 			}catch(PDOException $e){
 
-				$this->setFlash(array('error', "Something went wrong with note::update. Here's the message: " . $e->getMessage()));
+				$this->setFlash(array('Error', "Something went wrong with note::update. Here's the message: " . $e->getMessage()));
 				return false;
 			}
 
@@ -233,6 +227,10 @@
 
 						return $newId;
 
+					}else{
+
+						$this->setFlash(array('Error', "Something went wrong when adding {$args["patient_id_notes"]}'s note." ));
+						return false;
 					}
 
 				}catch(PDOException $e){
@@ -261,7 +259,7 @@
 		}else
 		{
 
-			return $this->flash;
+			return FALSE;
 
 		}
 
@@ -282,6 +280,17 @@
 	private function mergeNewData($args){
 
 		
+
+	}
+
+	private function populateModel(){
+
+
+		foreach($this->rawData as $key => $value)
+		{
+				$this->properties[$key] = $value;
+		}
+
 
 	}
 

@@ -1,11 +1,4 @@
 <?php
-
-	//require_once(__DIR__ . "/FirePHPCore/fb.php");
-	require_once(__DIR__ . "/validations.php");
-	require_once("/Users/Lembaris/Sites/therapyBusiness/private/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, '/Users/Lembaris/Sites/therapyBusiness/private');
-  $classLoader->register();
-
 	class service{
 
 		public   $patient_id, $id_services, $type, $dos;
@@ -159,13 +152,13 @@
 
 					}else{
 
-						$this->setFlash(array('Error', 'Something went wrong when adding {$args["patient_id"]}\'s services.' ));
+						$this->setFlash(array('Error', "Something went wrong when adding {$args["patient_id"]}'s services." ));
 						return false;
 					}
 
 				}catch(PDOException $e){
 
-					$this->setFlash(array('error', "This from service::create - ".$e->getMessage()));
+					$this->setFlash(array('Error', "This from service::create - ".$e->getMessage()));
 					return false;
 
 				}

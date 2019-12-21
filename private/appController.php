@@ -10,15 +10,17 @@
     public $lastUpdatedIds;
     public $flash = [];
 
-  	public function __construct($model = null){
+  	public function __construct($model, $model_name, $action){
 
-      $this->model_name = $model;
+      $this->model = $model;
+      $this->model_name = $model_name;
+      $this->action = $action;
 
   	}
 
   	public function post($args=[]){
 
-      $this->model = new $this->model_name($args);
+      //$this->model = new $this->model_name($args);
 
   	}
 
@@ -43,7 +45,7 @@
             patients  - active | inactive | all
       */
 
-      $this->model = new $this->model_name($params);
+      //$this->model = new $this->model_name($params);
 
 
       if( !empty($params) ){
@@ -80,7 +82,8 @@
         of the $args variable. 
       */
       
-      $databaseFeedback = [];
+      $updated_or_created_ids = [];
+      $failures = [];
       
       if ( !empty($args) ) { 
 
@@ -98,6 +101,7 @@
                 */
 
                 $data  = $args['data'];
+                unset($args['data']);
 
 
 
@@ -111,7 +115,8 @@
                     add services
 
                   First, check to see if this is a nested array. If so, then run
-                  the consolidateParams function. If not, then just grab the data
+                  the consolidateParams function. If not, then just grab the data.
+
 
                 */
                 
@@ -119,17 +124,33 @@
                 if (is_multi($args) ){
                  
                   $data = consolidateParams($args);
+                  unset($args);
                   $args['template_name'] = $this->model_name . 's//';
 
                 }else{
 
                   $data = is_array($args) ? $args : array($args);
+                  error_log("\nappController::workHorse - ".$_SERVER["REQUEST_URI"]." - no data key and args wasn't a nested array: \n", 3, __DIR__ . "/private/errorlog.txt");
 
                 }
 
           }
 
-          $this->model = new $this->model_name($data);
+          /*
+            
+            At this point. All application data should be stripped from $args and assigned to $data.
+
+            Do you need to send $data to the model?
+
+              service/create - no
+                In this case the params have been consolodated and there is no usable key in the array
+                (It's just array([0]=><first service> [1]=><second_service>))
+
+              note/update - no
+
+          */
+
+          //$this->model = new $this->model_name($data);
 
 
         /*
@@ -144,23 +165,54 @@
 
           if($id){
 
-            array_push( $databaseFeedback, $id );
+            array_push( $updated_or_created_ids, $id );
 
           }
         
         }    
 
+        /*
+          You're trying to account for three cases here.
+            1. It was a complete failure and nothing was updated or created. In that case, get the flash message from the model and 
+            add it to the appController flash.
+
+            2. It was a complete success. In that case, add a custome flash to the appController flash including the number of 
+            database entries affected. 
+
+            3. It was a partial success. In that case, add a custom flash message to the appController flash, but also get the flash
+            from the model. This is sort of a hack, but at least you'll be sending back information. 
 
 
-        if(count($databaseFeedback) === 0){
+          In all cases, send back the IDs of successful database rows, along with the original params with the data striped out.
+          Then start by combining the flash message from the model with the flash message of the appController object. 
 
-            array_push($this->flash, array("Error", "Something went wrong."));
-            return array($databaseFeedback, $args);
+        */
 
+        $flash_from_model = $this->model->getFlash();
+        if(count($flash_from_model) > 0)
+        {
+          foreach($flash_from_model as $flash)
+          {
+            array_push( $this->flash, $flash );
+          }  
+        }
+        
+
+        if(count($updated_or_created_ids) === 0){
+
+            return array($updated_or_created_ids, $args);
+
+        }elseif(count($updated_or_created_ids) === count($data)){
+
+            array_push($this->flash, array("Success", count($updated_or_created_ids)." items were successfully {$this->action}d. No errors detected."));
+            return array($updated_or_created_ids, $args);
+        
         }else{
 
-            array_push($this->flash, array("Success", count($databaseFeedback)." items were successfully {$this->action}d."));
-            return array($databaseFeedback, $args);
+            array_push($this->flash, array("Success", count($updated_or_created_ids)." items were successfully {$this->action}d. However, some errors were detected..."));
+            return array($updated_or_created_ids, $args);
+
+
         }
 
          
@@ -182,11 +234,8 @@
 
     public function update($args=null){
 
-
-      fb("Update function.");
       list($this->lastUpdatedIds, $args) = $this->workHorse($args);
       $this->renderView($args);
-
       
     }
 
@@ -195,6 +244,16 @@
     }
 
     public function renderView($args=NULL){
+
+      if(gettype($args) == 'array')
+      {
+     
+        error_log("\nappController::renderView - args WAS an array: \n".print_r($args, true), 0);
+     
+      }else
+      {
+        error_log("\nappController::renderView - args was NOT an array: ".$args, 0);
+      }
 
       /*
         Render view may be passed an array, a string, or nothing at all.
@@ -211,7 +270,6 @@
 
       $template = "";
 
-      fb('rederView::$args -- ' . gettype($args) );
 
       if(gettype($args) === 'array' && array_key_exists('template_name', $args))
       {

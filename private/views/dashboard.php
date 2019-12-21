@@ -2,8 +2,6 @@
 	
 	$dashboard = $this->model; 
 
-	fb("dashboard view" . isset($dashboard->startDate) . ", " . $dashboard->endDate);
-
 	$newList = $dashboard->getLastWeeksServices();
 
 
@@ -53,7 +51,7 @@
 
 	<section class="row">
 
-		<article class="drop6 col-md-6">
+		<article class="drop6 col-md-7">
 
 			<h3 id="hide-delete-buttons">Last weeks services</h3>
 
@@ -156,11 +154,11 @@
 			?>
 		</article>
 
-		<article class='col-md-6' id='data-backup-article'>
+		<article class='col-md-5' id='data-backup-article'>
 			<a href="dashboard/get/database-backup"><button id='data-backup-button' class='center-block'>Make Database Back-up</button></a>
 		</article>
 
-		<article class='col-md-6'>
+		<article class='col-md-5'>
 			<a href="dashboard/get/add-claims-to-file"><button id='claims-to-file' class='center-block'>Add Claims to File</button></a>
 		</article>
 

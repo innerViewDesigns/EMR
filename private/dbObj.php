@@ -1,11 +1,6 @@
 <?php
 
 	require_once(__DIR__ . "/protected/dbHelper.php");
-	require_once(__DIR__ . "/FirePHPCore/fb.php");
-	
-	require_once(__DIR__ . "/SplClassLoader.php");
-	$classLoader = new SplClassLoader(NULL, __DIR__);
-  $classLoader->register();
 
 	class dbObj{
 

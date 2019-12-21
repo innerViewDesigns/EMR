@@ -1,73 +1,4688 @@
-Front end controller. Construct.Front end controller. Construct.Front end controller. Construct.Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-[13-Dec-2019 21:54:31 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf.php on line 1054
-[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: label in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 688
-[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: label in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 689
-[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: balance in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 837
-[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: lable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 838
-[13-Dec-2019 21:54:31 UTC] PHP Notice:  Undefined variable: lable in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf_custom.php on line 840
-Front end controller. Construct.
-[13-Dec-2019 21:55:18 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf.php on line 1054
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-[13-Dec-2019 22:55:47 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /Users/Lembaris/Sites/therapyBusiness/private/fpdf181/fpdf.php on line 1054
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
-Front end controller. Construct.
+[19-Dec-2019 18:47:23 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/67 - params: 
+Array
+(
+    [user_param] => 67
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/67 - args was not an array: [19-Dec-2019 18:47:23 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:47:24 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/67?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 67
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/67?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:48:25 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/318 - params: 
+Array
+(
+    [user_param] => 318
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/318 - args was not an array: [19-Dec-2019 18:48:25 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:48:26 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/318?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 318
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/318?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:50:42 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/insurance/update - params: 
+Array
+(
+    [remote] => true
+    [template_name] => patient/get-payments/318
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [service_id] => 8951
+                    [recieved_insurance_amount] => 86.80
+                )
+
+            [1] => Array
+                (
+                    [service_id] => 8932
+                    [recieved_insurance_amount] => 86.80
+                )
+
+            [2] => Array
+                (
+                    [service_id] => 8908
+                    [recieved_insurance_amount] => 86.80
+                )
+
+            [3] => Array
+                (
+                    [service_id] => 8888
+                    [recieved_insurance_amount] => 86.80
+                )
+
+            [4] => Array
+                (
+                    [service_id] => 8862
+                    [recieved_insurance_amount] => 86.80
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/insurance/update - args was an array: 
+Array
+(
+    [remote] => true
+    [template_name] => patient/get-payments/318
+)
+[19-Dec-2019 18:51:16 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/340 - params: 
+Array
+(
+    [user_param] => 340
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/340 - args was not an array: [19-Dec-2019 18:51:16 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:51:17 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/340?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 340
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/340?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:52:49 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/329 - params: 
+Array
+(
+    [user_param] => 329
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/329 - args was not an array: [19-Dec-2019 18:52:49 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:52:50 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/329?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 329
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/329?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:53:26 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/344 - params: 
+Array
+(
+    [user_param] => 344
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/344 - args was not an array: [19-Dec-2019 18:53:26 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:53:27 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/344?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 344
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/344?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:54:26 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/340 - params: 
+Array
+(
+    [user_param] => 340
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/340 - args was not an array: [19-Dec-2019 18:54:26 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:54:27 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/340?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 340
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/340?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:54:51 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310 - params: 
+Array
+(
+    [user_param] => 310
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310 - args was not an array: [19-Dec-2019 18:54:51 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[19-Dec-2019 18:54:52 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 95
+[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 98
+[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 103
+[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[19-Dec-2019 18:54:52 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[19-Dec-2019 18:54:57 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-services
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - args was not an array: get-services[19-Dec-2019 18:54:58 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 95
+[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 98
+[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 103
+[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[19-Dec-2019 18:54:58 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[19-Dec-2019 18:55:31 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-services
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - args was not an array: get-services[19-Dec-2019 18:55:32 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-emr
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-emr - args was not an array: get-emr[19-Dec-2019 18:55:34 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 95
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 98
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 103
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[19-Dec-2019 18:55:34 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 95
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 98
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 103
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[19-Dec-2019 18:55:34 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[19-Dec-2019 18:55:57 America/Los_Angeles] 
+
+
+
+------------------------------
+index::setParams - /therapyBusiness/insurance/update - params: 
+Array
+(
+    [remote] => true
+    [template_name] => patient/get-payments/310
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [service_id] => 8821
+                    [recieved_insurance_amount] => 92.17
+                )
+
+            [1] => Array
+                (
+                    [service_id] => 8785
+                    [recieved_insurance_amount] => 92.17
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/insurance/update - args was an array: 
+Array
+(
+    [remote] => true
+    [template_name] => patient/get-payments/310
+)
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 95
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 98
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 103
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[19-Dec-2019 18:55:57 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[20-Dec-2019 08:54:12 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-services
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - args was not an array: get-services[20-Dec-2019 08:54:13 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[20-Dec-2019 08:54:13 America/Los_Angeles] Array
+(
+    [0] => Array
+        (
+            [id_insurance_claim] => 8938
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 9063
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-17 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1576620000
+        )
+
+    [1] => Array
+        (
+            [id_insurance_claim] => 8849
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8974
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-10 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1576015200
+        )
+
+    [2] => Array
+        (
+            [id_insurance_claim] => 8848
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8973
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-03 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1575410400
+        )
+
+    [3] => Array
+        (
+            [id_insurance_claim] => 8825
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8950
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-26 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1574805600
+        )
+
+    [4] => Array
+        (
+            [id_insurance_claim] => 8782
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8907
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-19 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1574200800
+        )
+
+    [5] => Array
+        (
+            [id_insurance_claim] => 8736
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8861
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-12 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1573596000
+        )
+
+    [6] => Array
+        (
+            [id_insurance_claim] => 8696
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8821
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-05 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1572991200
+        )
+
+    [7] => Array
+        (
+            [id_insurance_claim] => 8660
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8785
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-29 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1572382800
+        )
+
+    [8] => Array
+        (
+            [id_insurance_claim] => 8609
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8734
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-22 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1571778000
+        )
+
+    [9] => Array
+        (
+            [id_insurance_claim] => 8560
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8685
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-15 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1571173200
+        )
+
+    [10] => Array
+        (
+            [id_insurance_claim] => 8515
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8640
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-08 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1570568400
+        )
+
+    [11] => Array
+        (
+            [id_insurance_claim] => 8492
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8617
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-01 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1569963600
+        )
+
+    [12] => Array
+        (
+            [id_insurance_claim] => 8447
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8572
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-24 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1569358800
+        )
+
+    [13] => Array
+        (
+            [id_insurance_claim] => 8406
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8531
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-17 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1568754000
+        )
+
+    [14] => Array
+        (
+            [id_insurance_claim] => 8363
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8488
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-10 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1568149200
+        )
+
+    [15] => Array
+        (
+            [id_insurance_claim] => 8321
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8445
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-03 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1567544400
+        )
+
+    [16] => Array
+        (
+            [id_insurance_claim] => 8297
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8421
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-08-20 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1566334800
+        )
+
+    [17] => Array
+        (
+            [id_insurance_claim] => 8251
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8375
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-08-13 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1565730000
+        )
+
+    [18] => Array
+        (
+            [id_insurance_claim] => 8204
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8328
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-08-06 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1565125200
+        )
+
+    [19] => Array
+        (
+            [id_insurance_claim] => 8159
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8283
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-30 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1564520400
+        )
+
+    [20] => Array
+        (
+            [id_insurance_claim] => 8111
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8235
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-23 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1563915600
+        )
+
+    [21] => Array
+        (
+            [id_insurance_claim] => 8069
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8193
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-16 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1563310800
+        )
+
+    [22] => Array
+        (
+            [id_insurance_claim] => 8024
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8148
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-09 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1562706000
+        )
+
+    [23] => Array
+        (
+            [id_insurance_claim] => 7996
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8120
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-02 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1562101200
+        )
+
+    [24] => Array
+        (
+            [id_insurance_claim] => 7954
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8075
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-06-25 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1561496400
+        )
+
+    [25] => Array
+        (
+            [id_insurance_claim] => 7917
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8038
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-06-18 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1560891600
+        )
+
+    [26] => Array
+        (
+            [id_insurance_claim] => 7871
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7992
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-06-11 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1560286800
+        )
+
+    [27] => Array
+        (
+            [id_insurance_claim] => 7805
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7926
+            [insurance_name] => 
+            [allowable_insurance_amount] => 110.25
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 110.25
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-28 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1559077200
+        )
+
+    [28] => Array
+        (
+            [id_insurance_claim] => 7772
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7893
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-21 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1558472400
+        )
+
+    [29] => Array
+        (
+            [id_insurance_claim] => 7728
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7849
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-14 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1557867600
+        )
+
+    [30] => Array
+        (
+            [id_insurance_claim] => 7683
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7803
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-07 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1557262800
+        )
+
+    [31] => Array
+        (
+            [id_insurance_claim] => 7637
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7757
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-30 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1556658000
+        )
+
+    [32] => Array
+        (
+            [id_insurance_claim] => 7596
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7716
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-23 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1556053200
+        )
+
+    [33] => Array
+        (
+            [id_insurance_claim] => 7551
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7671
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-16 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1555448400
+        )
+
+    [34] => Array
+        (
+            [id_insurance_claim] => 7507
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7625
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-09 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1554843600
+        )
+
+    [35] => Array
+        (
+            [id_insurance_claim] => 7461
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7579
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-02 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1554238800
+        )
+
+    [36] => Array
+        (
+            [id_insurance_claim] => 7412
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7530
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-03-26 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1553634000
+        )
+
+    [37] => Array
+        (
+            [id_insurance_claim] => 7338
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7456
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-03-12 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1552424400
+        )
+
+    [38] => Array
+        (
+            [id_insurance_claim] => 7288
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7406
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-03-05 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1551823200
+        )
+
+    [39] => Array
+        (
+            [id_insurance_claim] => 7238
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7356
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-26 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1551218400
+        )
+
+    [40] => Array
+        (
+            [id_insurance_claim] => 7191
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7309
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-19 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1550613600
+        )
+
+    [41] => Array
+        (
+            [id_insurance_claim] => 7150
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7268
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-12 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1550008800
+        )
+
+    [42] => Array
+        (
+            [id_insurance_claim] => 7104
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7222
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-05 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1549404000
+        )
+
+    [43] => Array
+        (
+            [id_insurance_claim] => 7061
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7179
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-29 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1548799200
+        )
+
+    [44] => Array
+        (
+            [id_insurance_claim] => 7031
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7149
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-24 15:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1548370800
+        )
+
+    [45] => Array
+        (
+            [id_insurance_claim] => 7016
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7134
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-22 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1548194400
+        )
+
+    [46] => Array
+        (
+            [id_insurance_claim] => 6987
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7105
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-17 15:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1547766000
+        )
+
+    [47] => Array
+        (
+            [id_insurance_claim] => 6976
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7094
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 93.63
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-15 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1547589600
+        )
+
+    [48] => Array
+        (
+            [id_insurance_claim] => 6940
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7058
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 93.67
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-08 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1546984800
+        )
+
+    [49] => Array
+        (
+            [id_insurance_claim] => 6876
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 6994
+            [insurance_name] => 
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2018-12-18 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90791
+            [datetime] => 1545170400
+        )
+
+    [50] => Array
+        (
+            [0] => Error
+            [1] => setPayments failed or there were no payments for this patient
+            [datetime] => 
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-20 08:54:13.978061
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+        )
+
+)
+
+[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 97
+[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 100
+[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 105
+[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[20-Dec-2019 08:54:13 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 108
+[20-Dec-2019 08:57:50 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-services
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - args was not an array: get-services[20-Dec-2019 08:57:51 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 265
+[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: date_recieved in /Users/Lembaris/Sites/therapyBusiness/private/insurances.php on line 266
+[20-Dec-2019 08:57:51 America/Los_Angeles] Array
+(
+    [0] => Array
+        (
+            [id_insurance_claim] => 8938
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 9063
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-17 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1576620000
+        )
+
+    [1] => Array
+        (
+            [id_insurance_claim] => 8849
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8974
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-10 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1576015200
+        )
+
+    [2] => Array
+        (
+            [id_insurance_claim] => 8848
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8973
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-03 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1575410400
+        )
+
+    [3] => Array
+        (
+            [id_insurance_claim] => 8825
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8950
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-26 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1574805600
+        )
+
+    [4] => Array
+        (
+            [id_insurance_claim] => 8782
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8907
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-19 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1574200800
+        )
+
+    [5] => Array
+        (
+            [id_insurance_claim] => 8736
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8861
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-12 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1573596000
+        )
+
+    [6] => Array
+        (
+            [id_insurance_claim] => 8696
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8821
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-11-05 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1572991200
+        )
+
+    [7] => Array
+        (
+            [id_insurance_claim] => 8660
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8785
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-29 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1572382800
+        )
+
+    [8] => Array
+        (
+            [id_insurance_claim] => 8609
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8734
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-22 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1571778000
+        )
+
+    [9] => Array
+        (
+            [id_insurance_claim] => 8560
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8685
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-15 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1571173200
+        )
+
+    [10] => Array
+        (
+            [id_insurance_claim] => 8515
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8640
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-08 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1570568400
+        )
+
+    [11] => Array
+        (
+            [id_insurance_claim] => 8492
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8617
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-10-01 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1569963600
+        )
+
+    [12] => Array
+        (
+            [id_insurance_claim] => 8447
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8572
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-24 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1569358800
+        )
+
+    [13] => Array
+        (
+            [id_insurance_claim] => 8406
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8531
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-17 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1568754000
+        )
+
+    [14] => Array
+        (
+            [id_insurance_claim] => 8363
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8488
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-10 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1568149200
+        )
+
+    [15] => Array
+        (
+            [id_insurance_claim] => 8321
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8445
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-09-03 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1567544400
+        )
+
+    [16] => Array
+        (
+            [id_insurance_claim] => 8297
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8421
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-08-20 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1566334800
+        )
+
+    [17] => Array
+        (
+            [id_insurance_claim] => 8251
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8375
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-08-13 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1565730000
+        )
+
+    [18] => Array
+        (
+            [id_insurance_claim] => 8204
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8328
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-08-06 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1565125200
+        )
+
+    [19] => Array
+        (
+            [id_insurance_claim] => 8159
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8283
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-30 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1564520400
+        )
+
+    [20] => Array
+        (
+            [id_insurance_claim] => 8111
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8235
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-23 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1563915600
+        )
+
+    [21] => Array
+        (
+            [id_insurance_claim] => 8069
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8193
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-16 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1563310800
+        )
+
+    [22] => Array
+        (
+            [id_insurance_claim] => 8024
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8148
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-09 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1562706000
+        )
+
+    [23] => Array
+        (
+            [id_insurance_claim] => 7996
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8120
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-07-02 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1562101200
+        )
+
+    [24] => Array
+        (
+            [id_insurance_claim] => 7954
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8075
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-06-25 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1561496400
+        )
+
+    [25] => Array
+        (
+            [id_insurance_claim] => 7917
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8038
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-06-18 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1560891600
+        )
+
+    [26] => Array
+        (
+            [id_insurance_claim] => 7871
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7992
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-06-11 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1560286800
+        )
+
+    [27] => Array
+        (
+            [id_insurance_claim] => 7805
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7926
+            [insurance_name] => 
+            [allowable_insurance_amount] => 110.25
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 110.25
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-28 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1559077200
+        )
+
+    [28] => Array
+        (
+            [id_insurance_claim] => 7772
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7893
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-21 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1558472400
+        )
+
+    [29] => Array
+        (
+            [id_insurance_claim] => 7728
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7849
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-14 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1557867600
+        )
+
+    [30] => Array
+        (
+            [id_insurance_claim] => 7683
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7803
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-05-07 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1557262800
+        )
+
+    [31] => Array
+        (
+            [id_insurance_claim] => 7637
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7757
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-30 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1556658000
+        )
+
+    [32] => Array
+        (
+            [id_insurance_claim] => 7596
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7716
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-23 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1556053200
+        )
+
+    [33] => Array
+        (
+            [id_insurance_claim] => 7551
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7671
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-16 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1555448400
+        )
+
+    [34] => Array
+        (
+            [id_insurance_claim] => 7507
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7625
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-09 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1554843600
+        )
+
+    [35] => Array
+        (
+            [id_insurance_claim] => 7461
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7579
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-04-02 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1554238800
+        )
+
+    [36] => Array
+        (
+            [id_insurance_claim] => 7412
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7530
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-03-26 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1553634000
+        )
+
+    [37] => Array
+        (
+            [id_insurance_claim] => 7338
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7456
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-03-12 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1552424400
+        )
+
+    [38] => Array
+        (
+            [id_insurance_claim] => 7288
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7406
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-03-05 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90837
+            [datetime] => 1551823200
+        )
+
+    [39] => Array
+        (
+            [id_insurance_claim] => 7238
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7356
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-26 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1551218400
+        )
+
+    [40] => Array
+        (
+            [id_insurance_claim] => 7191
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7309
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-19 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1550613600
+        )
+
+    [41] => Array
+        (
+            [id_insurance_claim] => 7150
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7268
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-12 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1550008800
+        )
+
+    [42] => Array
+        (
+            [id_insurance_claim] => 7104
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7222
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-02-05 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1549404000
+        )
+
+    [43] => Array
+        (
+            [id_insurance_claim] => 7061
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7179
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-29 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1548799200
+        )
+
+    [44] => Array
+        (
+            [id_insurance_claim] => 7031
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7149
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-24 15:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1548370800
+        )
+
+    [45] => Array
+        (
+            [id_insurance_claim] => 7016
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7134
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-22 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1548194400
+        )
+
+    [46] => Array
+        (
+            [id_insurance_claim] => 6987
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7105
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-17 15:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1547766000
+        )
+
+    [47] => Array
+        (
+            [id_insurance_claim] => 6976
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7094
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 93.63
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-15 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1547589600
+        )
+
+    [48] => Array
+        (
+            [id_insurance_claim] => 6940
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7058
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 93.67
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-01-08 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90834
+            [datetime] => 1546984800
+        )
+
+    [49] => Array
+        (
+            [id_insurance_claim] => 6876
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 6994
+            [insurance_name] => 
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+            [insurance_used] => bg-info
+            [dos] => DateTime Object
+                (
+                    [date] => 2018-12-18 14:00:00.000000
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+            [cpt_code] => 90791
+            [datetime] => 1545170400
+        )
+
+    [50] => Array
+        (
+            [0] => Error
+            [1] => setPayments failed or there were no payments for this patient
+            [datetime] => 
+            [dos] => DateTime Object
+                (
+                    [date] => 2019-12-20 08:57:51.904064
+                    [timezone_type] => 3
+                    [timezone] => America/Los_Angeles
+                )
+
+        )
+
+)
+
+[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 97
+[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: id_other_payments in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 100
+[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: type in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 105
+[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: associated_data in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 106
+[20-Dec-2019 08:57:51 America/Los_Angeles] PHP Notice:  Undefined index: amount in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 108
+[20-Dec-2019 08:58:22 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-services
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - args was not an array: get-services[20-Dec-2019 08:58:23 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[20-Dec-2019 08:58:23 America/Los_Angeles] Array
+(
+    [0] => Array
+        (
+            [id_insurance_claim] => 6876
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 6994
+            [insurance_name] => 
+            [allowable_insurance_amount] => 85.00
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [1] => Array
+        (
+            [id_insurance_claim] => 6940
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7058
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 93.67
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [2] => Array
+        (
+            [id_insurance_claim] => 6976
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7094
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 93.63
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [3] => Array
+        (
+            [id_insurance_claim] => 6987
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7105
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [4] => Array
+        (
+            [id_insurance_claim] => 7016
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7134
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [5] => Array
+        (
+            [id_insurance_claim] => 7031
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7149
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [6] => Array
+        (
+            [id_insurance_claim] => 7061
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7179
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [7] => Array
+        (
+            [id_insurance_claim] => 7104
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7222
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [8] => Array
+        (
+            [id_insurance_claim] => 7150
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7268
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [9] => Array
+        (
+            [id_insurance_claim] => 7191
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7309
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [10] => Array
+        (
+            [id_insurance_claim] => 7238
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7356
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [11] => Array
+        (
+            [id_insurance_claim] => 7288
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7406
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [12] => Array
+        (
+            [id_insurance_claim] => 7338
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7456
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [13] => Array
+        (
+            [id_insurance_claim] => 7412
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7530
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [14] => Array
+        (
+            [id_insurance_claim] => 7461
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7579
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [15] => Array
+        (
+            [id_insurance_claim] => 7507
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7625
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [16] => Array
+        (
+            [id_insurance_claim] => 7551
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7671
+            [insurance_name] => 
+            [allowable_insurance_amount] => 138.37
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 138.37
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [17] => Array
+        (
+            [id_insurance_claim] => 7596
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7716
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [18] => Array
+        (
+            [id_insurance_claim] => 7637
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7757
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [19] => Array
+        (
+            [id_insurance_claim] => 7683
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7803
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [20] => Array
+        (
+            [id_insurance_claim] => 7728
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7849
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [21] => Array
+        (
+            [id_insurance_claim] => 7772
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7893
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [22] => Array
+        (
+            [id_insurance_claim] => 7805
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7926
+            [insurance_name] => 
+            [allowable_insurance_amount] => 110.25
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 110.25
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [23] => Array
+        (
+            [id_insurance_claim] => 7871
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 7992
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [24] => Array
+        (
+            [id_insurance_claim] => 7917
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8038
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [25] => Array
+        (
+            [id_insurance_claim] => 7954
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8075
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [26] => Array
+        (
+            [id_insurance_claim] => 7996
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8120
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [27] => Array
+        (
+            [id_insurance_claim] => 8024
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8148
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [28] => Array
+        (
+            [id_insurance_claim] => 8069
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8193
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [29] => Array
+        (
+            [id_insurance_claim] => 8111
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8235
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [30] => Array
+        (
+            [id_insurance_claim] => 8159
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8283
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [31] => Array
+        (
+            [id_insurance_claim] => 8204
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8328
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [32] => Array
+        (
+            [id_insurance_claim] => 8251
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8375
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [33] => Array
+        (
+            [id_insurance_claim] => 8297
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8421
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [34] => Array
+        (
+            [id_insurance_claim] => 8321
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8445
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [35] => Array
+        (
+            [id_insurance_claim] => 8363
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8488
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [36] => Array
+        (
+            [id_insurance_claim] => 8406
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8531
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [37] => Array
+        (
+            [id_insurance_claim] => 8447
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8572
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [38] => Array
+        (
+            [id_insurance_claim] => 8492
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8617
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [39] => Array
+        (
+            [id_insurance_claim] => 8515
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8640
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [40] => Array
+        (
+            [id_insurance_claim] => 8560
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8685
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [41] => Array
+        (
+            [id_insurance_claim] => 8609
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8734
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [42] => Array
+        (
+            [id_insurance_claim] => 8660
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8785
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [43] => Array
+        (
+            [id_insurance_claim] => 8696
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8821
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 92.17
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [44] => Array
+        (
+            [id_insurance_claim] => 8736
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8861
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [45] => Array
+        (
+            [id_insurance_claim] => 8782
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8907
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [46] => Array
+        (
+            [id_insurance_claim] => 8825
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8950
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 73.44
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [47] => Array
+        (
+            [id_insurance_claim] => 8848
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8973
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [48] => Array
+        (
+            [id_insurance_claim] => 8849
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 8974
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+    [49] => Array
+        (
+            [id_insurance_claim] => 8938
+            [patient_id_insurance_claim] => 310
+            [service_id_insurance_claim] => 9063
+            [insurance_name] => 
+            [allowable_insurance_amount] => 92.17
+            [expected_copay_amount] => 0.00
+            [recieved_insurance_amount] => 0.00
+            [recieved_copay_amount] => 0.00
+            [invoice_id_insurance_claim] => 
+        )
+
+)
+
+[20-Dec-2019 08:58:23 America/Los_Angeles] PHP Notice:  Undefined index: cpt_code in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 87
+[20-Dec-2019 08:58:23 America/Los_Angeles] PHP Notice:  Undefined index: cpt_code in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 87
+[20-Dec-2019 08:58:23 America/Los_Angeles] PHP Notice:  Undefined index: dos in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[20-Dec-2019 08:58:23 America/Los_Angeles] PHP Fatal error:  Uncaught Error: Call to a member function format() on null in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php:104
+Stack trace:
+#0 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(319): include()
+#1 /Users/Lembaris/Sites/therapyBusiness/private/appController.php(55): appController->renderView('get-payments')
+#2 /Users/Lembaris/Sites/therapyBusiness/index.php(23): appController->get(Array)
+#3 {main}
+  thrown in /Users/Lembaris/Sites/therapyBusiness/private/views/patient/get-payments.php on line 104
+[20-Dec-2019 09:17:17 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-services
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-services - args was not an array: get-services[20-Dec-2019 09:17:18 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - params: 
+Array
+(
+    [user_param] => 310
+    [remote] => true
+    [template_name] => get-payments
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/310?remote=true&template_name=get-payments - args was not an array: get-payments[20-Dec-2019 09:18:08 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/dashboard/get - params: 
+Array
+(
+    [start_date] => 2019-11-01
+    [end_date] => 2019-12-21
+    [include_insurance] => on
+    [include_cash] => on
+)
+
+
+appController::renderView - /therapyBusiness/dashboard/get - args was not an array: [20-Dec-2019 09:18:08 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[20-Dec-2019 09:18:18 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/services/create - params: 
+Array
+(
+)
+
+
+appController::renderView - /therapyBusiness/services/create - args was not an array: [20-Dec-2019 09:18:18 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[20-Dec-2019 09:18:36 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=67 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 67
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=67 - args was not an array: _info-only[20-Dec-2019 09:18:48 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=285 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 285
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=285 - args was not an array: _info-only[20-Dec-2019 09:18:56 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=340 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 340
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=340 - args was not an array: _info-only[20-Dec-2019 09:19:04 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=343 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 343
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=343 - args was not an array: _info-only[20-Dec-2019 09:19:13 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=68 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 68
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=68 - args was not an array: _info-only[20-Dec-2019 09:19:20 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=238 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 238
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=238 - args was not an array: _info-only[20-Dec-2019 09:19:34 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=267 - params: 
+Array
+(
+    [template_name] => _info-only
+    [remote] => true
+    [patient_id] => 267
+)
+
+
+appController::renderView - /therapyBusiness/service/get?template_name=_info-only&remote=true&patient_id=267 - args was not an array: _info-only[20-Dec-2019 09:19:41 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/service/create - params: 
+Array
+(
+    [patient] => Array
+        (
+            [0] => Alejandra Stannard
+            [1] => Gabriel Hammond
+            [2] => Derek Sallay
+            [3] => Megan Jeffords
+            [4] => Bryan Luu
+            [5] => Danielle Long
+            [6] => Patty Contreras
+        )
+
+    [patient_id] => Array
+        (
+            [0] => 67
+            [1] => 285
+            [2] => 340
+            [3] => 343
+            [4] => 68
+            [5] => 238
+            [6] => 267
+        )
+
+    [dos] => Array
+        (
+            [0] => 2019/12/19 13:00
+            [1] => 2019/12/19 14:00
+            [2] => 2019/12/19 15:00
+            [3] => 2019/12/19 17:00
+            [4] => 2019/12/19 18:00
+            [5] => 2019/12/19 19:00
+            [6] => 2019/12/20 08:00
+        )
+
+    [charged] => Array
+        (
+            [0] => 1
+            [1] => 1
+            [2] => 1
+            [3] => 1
+            [4] => 1
+            [5] => 1
+            [6] => 1
+        )
+
+    [insurance_used] => Array
+        (
+            [0] => 1
+            [1] => 0
+            [2] => 1
+            [3] => 1
+            [4] => 1
+            [5] => 1
+            [6] => 1
+        )
+
+    [in_network] => Array
+        (
+            [0] => 0
+            [1] => 0
+            [2] => 1
+            [3] => 1
+            [4] => 1
+            [5] => 0
+            [6] => 1
+        )
+
+    [cpt_code] => Array
+        (
+            [0] => 90834
+            [1] => 90834
+            [2] => 90834
+            [3] => 90834
+            [4] => 90834
+            [5] => 90834
+            [6] => 90834
+        )
+
+    [dx1] => Array
+        (
+            [0] => F31.74
+            [1] => F33.1
+            [2] => F33.1
+            [3] => F33.1
+            [4] => F33.1
+            [5] => F43.10
+            [6] => F41.1
+        )
+
+    [dx2] => Array
+        (
+            [0] => F41.9
+            [1] => 
+            [2] => F43.23
+            [3] => 
+            [4] => 
+            [5] => 
+            [6] => 
+        )
+
+    [dx3] => Array
+        (
+            [0] => 
+            [1] => 
+            [2] => 
+            [3] => 
+            [4] => 
+            [5] => 
+            [6] => 
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/service/create - args was an array: 
+Array
+(
+    [template_name] => services//
+)
+[20-Dec-2019 09:19:41 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[20-Dec-2019 09:22:09 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/267 - params: 
+Array
+(
+    [user_param] => 267
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/267 - args was not an array: [20-Dec-2019 09:22:09 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[20-Dec-2019 09:22:10 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/267?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 267
+    [remote] => true
+    [template_name] => get-emr
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/267?remote=true&template_name=get-emr - args was not an array: get-emr[20-Dec-2019 09:22:11 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8881 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8881
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8881 - args was not an array: _get[20-Dec-2019 09:22:37 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8926 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8926
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8926 - args was not an array: _get[20-Dec-2019 09:23:49 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on November 22, 2019 at 08:00AM. The CPT Code was: 90834, Patients present were Patty Contreras.
+
+HPI
+I have successfully been able to demonstrate to her the unconscious process of compartmentalization of affect that has pervaded her life, and to show her how this compartmentalization corresponds with her conscious orientation toward "achievement" and "success." The normal amount of amnesia of or resistance to these concepts, however, is evident. But in analyzing these concepts she continues to learn that she has defined success in unrealistic terms, terms that must be understood along the lines of some formative childhood experiences. As she is more and more able to associate to those times, and to understand the present in terms of her attempts to correct for the past, then she is also more able to contact long repressed feelings. These moments are experienced by her as significant and meaningful. I have also been able to show patient how her mood lability and anxiety result also from these same basic processes. As she gets more a hold of these connections, things in her life change in a positive way.
+
+Patient continues to report significant improvements in her mood stability and levels. Today she talked primarily about the health emergency of her son who is going to require surgery. I provided empathetic and reflective listening and worked to help patient to clarify her thoughts and feelings. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  appropriate, professional  BEHAVIOR:   cooperative, forthcoming  AFFECT: mostly congruent to ideation   MOOD: "okay," anxious, worried THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+DIAGNOSIS:  
+Generalized anxiety disorder
+		
+
+
+RECOMMENDATIONS/PLAN:
+Once weekly, insight oriented psychotherapy.
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8926
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:23:52 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8996 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8996
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8996 - args was not an array: _get[20-Dec-2019 09:27:45 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 6, 2019 at 08:00AM. The CPT Code was: 90834, Patients present were Patty Contreras.
+
+HPI
+I have successfully been able to demonstrate to her the unconscious process of compartmentalization of affect that has pervaded her life, and to show her how this compartmentalization corresponds with her conscious orientation toward "achievement" and "success." The normal amount of amnesia of or resistance to these concepts, however, is evident. But in analyzing these concepts she continues to learn that she has defined success in unrealistic terms, terms that must be understood along the lines of some formative childhood experiences. As she is more and more able to associate to those times, and to understand the present in terms of her attempts to correct for the past, then she is also more able to contact long repressed feelings. These moments are experienced by her as significant and meaningful. I have also been able to show patient how her mood lability and anxiety result also from these same basic processes. As she gets more a hold of these connections, things in her life change in a positive way.
+
+Patient continues to report significant improvements in her mood stability and levels. Today she talked primarily about the health emergency of her son who is going to require surgery. I provided empathetic and reflective listening and worked to help patient to clarify her thoughts and feelings. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  appropriate, professional  BEHAVIOR:   cooperative, forthcoming  AFFECT: mostly congruent to ideation   MOOD: "okay," anxious, worried THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+DIAGNOSIS:  
+Generalized anxiety disorder
+		
+
+
+RECOMMENDATIONS/PLAN:
+Once weekly, insight oriented psychotherapy.
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8996
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:27:47 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9032 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9032
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9032 - args was not an array: _get[20-Dec-2019 09:32:17 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 13, 2019 at 08:00AM. The CPT Code was: 90834, Patients present were Patty Contreras.
+
+HPI
+I have successfully been able to demonstrate to her the unconscious process of compartmentalization of affect that has pervaded her life, and to show her how this compartmentalization corresponds with her conscious orientation toward "achievement" and "success." The normal amount of amnesia of or resistance to these concepts, however, is evident. But in analyzing these concepts she continues to learn that she has defined success in unrealistic terms, terms that must be understood along the lines of some formative childhood experiences. As she is more and more able to associate to those times, and to understand the present in terms of her attempts to correct for the past, then she is also more able to contact long repressed feelings. These moments are experienced by her as significant and meaningful. I have also been able to show patient how her mood lability and anxiety result also from these same basic processes. As she gets more a hold of these connections, things in her life change in a positive way.
+
+Patient continues to report significant improvements in her mood stability and levels. Today she reported that her son had had his surgery and that it went well. I provided empathetic and reflective listening and worked to help patient to sort out and articulate her thoughts and feelings. Patient also continues to articulate the substantial and seemingly sustainable changes that she's been able to effect in her life and mental health. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  appropriate, professional  BEHAVIOR:   cooperative, forthcoming  AFFECT: mostly congruent to ideation   MOOD: "okay," anxious, worried "but good" THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+DIAGNOSIS:  
+Generalized anxiety disorder
+		
+
+
+RECOMMENDATIONS/PLAN:
+Once weekly, insight oriented psychotherapy.
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9032
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:32:19 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9081 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9081
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9081 - args was not an array: _get[20-Dec-2019 09:35:11 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 20, 2019 at 08:00AM. The CPT Code was: 90834, Patients present were Patty Contreras.
+
+HPI
+I have successfully been able to demonstrate to her the unconscious process of compartmentalization of affect that has pervaded her life, and to show her how this compartmentalization corresponds with her conscious orientation toward "achievement" and "success." The normal amount of amnesia of or resistance to these concepts, however, is evident. But in analyzing these concepts she continues to learn that she has defined success in unrealistic terms, terms that must be understood along the lines of some formative childhood experiences. As she is more and more able to associate to those times, and to understand the present in terms of her attempts to correct for the past, then she is also more able to contact long repressed feelings. These moments are experienced by her as significant and meaningful. I have also been able to show patient how her mood lability and anxiety result also from these same basic processes. As she gets more a hold of these connections, things in her life change in a positive way.
+
+Today patient talked about her continued improved mood and affect control. We were able to see some ways that her old thinking persists, though at a much lower "volume" than before. She continues to abstain from alcohol, to exercise regularly, and to mind her diet. She has gained a great deal of insight into herself, and has demonstrated the ability to put that insight to use. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  appropriate, professional  BEHAVIOR:   cooperative, forthcoming  AFFECT: mostly congruent to ideation   MOOD: "good" THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+DIAGNOSIS:  
+Generalized anxiety disorder
+		
+
+
+RECOMMENDATIONS/PLAN:
+Once weekly, insight oriented psychotherapy.
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9081
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:35:12 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/267?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 267
+    [remote] => true
+    [template_name] => get-emr
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/267?remote=true&template_name=get-emr - args was not an array: get-emr[20-Dec-2019 09:35:30 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/317 - params: 
+Array
+(
+    [user_param] => 317
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/317 - args was not an array: [20-Dec-2019 09:35:31 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[20-Dec-2019 09:35:37 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/dashboard/get - params: 
+Array
+(
+    [start_date] => 2019-11-18
+    [end_date] => 2019-12-21
+    [include_insurance] => on
+    [include_cash] => on
+)
+
+
+appController::renderView - /therapyBusiness/dashboard/get - args was not an array: [20-Dec-2019 09:35:37 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+
+appController::renderView - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - args was not an array: _info-only[20-Dec-2019 09:35:41 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/317?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 317
+    [remote] => true
+    [template_name] => get-emr
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/317?remote=true&template_name=get-emr - args was not an array: get-emr[20-Dec-2019 09:35:42 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8873 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8873
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8873 - args was not an array: _get[20-Dec-2019 09:35:44 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8895 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8895
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8895 - args was not an array: _get[20-Dec-2019 09:43:06 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on November 18, 2019 at 11:00AM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+I have begun to gain a different and better perspective on how patient thinks and what he tends to share in session with me. Today I used this changed perspective to intervene with him differently. I brought attention to that he appears to feel "stuck" and put words more directly to his struggle in a way that made more real and tangible the effect of his homeschooling on his social, emotional, and academic development. Though I was more confrontational with patient, so too was I empathetic and cognizant of his experience of me and the session. Patient became emotional at various points throughout the session, but also seemed to understand and even agree with my observations. The end result was to help patient to face the disadvantage that he's been placed (i.e., by having been allowed to drop out of school) in more directly.
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8895
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:43:08 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8918 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8918
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8918 - args was not an array: _get[20-Dec-2019 09:48:01 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on November 21, 2019 at 12:00PM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+Today I reasserted my stance from last week, again in an empathetic and understanding albeit challenging way. Patient's response was somewhat unclear to me. 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8918
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:48:05 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8938 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8938
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8938 - args was not an array: _get[20-Dec-2019 09:50:53 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on November 25, 2019 at 11:00AM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+Patient reported today that he had been bothered by something that I said to him last time. It was when I confronted him about not knowing what he was talking about (i.e., seeming to anxiously fill the time without having a goal in mind). This led to a conversation about wanting to be treated "like an equal" and having decided that he was "an adult now, and wanted to be treated like one." Even as he said this he expressed some doubts about it, and this opened the opportunity to talk some about what makes one an adult, and whether he and I were actually equals, and how he got the idea that he can "decide" to be an adult anyway. The session seemed productive and rapport seemed reestablished by the end. 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8938
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:50:57 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8960 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8960
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8960 - args was not an array: _get[20-Dec-2019 09:53:03 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 2, 2019 at 11:00AM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+I continue to work with patient to help him to see more clearly that he has been put at a disadvantage by having been allowed to quit school, and to help him to face the challenge of reintegrating into the societal mainstream. From this vantage point his anxiety is more understandable and we are able to be more effectively curious about what he stands to lose (i.e., having complete control over his schedule, not being challenged by those around him, being waited on by his mother, etc.). 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8960
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:53:05 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8989 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8989
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8989 - args was not an array: _get[20-Dec-2019 09:53:12 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 5, 2019 at 12:00PM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+I continue to work with patient to help him to see more clearly that he has been put at a disadvantage by having been allowed to quit school, and to help him to face the challenge of reintegrating into the societal mainstream. From this vantage point his anxiety is more understandable and we are able to be more effectively curious about what he stands to lose (i.e., having complete control over his schedule, not being challenged by those around him, being waited on by his mother, etc.). 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8989
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:53:13 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9012 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9012
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9012 - args was not an array: _get[20-Dec-2019 09:53:18 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 9, 2019 at 11:00AM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+I continue to work with patient to help him to see more clearly that he has been put at a disadvantage by having been allowed to quit school, and to help him to face the challenge of reintegrating into the societal mainstream. From this vantage point his anxiety is more understandable and we are able to be more effectively curious about what he stands to lose (i.e., having complete control over his schedule, not being challenged by those around him, being waited on by his mother, etc.). 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9012
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:53:19 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9025 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9025
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9025 - args was not an array: _get[20-Dec-2019 09:53:25 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 12, 2019 at 12:00PM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+I continue to work with patient to help him to see more clearly that he has been put at a disadvantage by having been allowed to quit school, and to help him to face the challenge of reintegrating into the societal mainstream. From this vantage point his anxiety is more understandable and we are able to be more effectively curious about what he stands to lose (i.e., having complete control over his schedule, not being challenged by those around him, being waited on by his mother, etc.). 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9025
+                )
+
+        )
+
+)
+
+
+appController::renderView - /therapyBusiness/note/update - args was an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+[20-Dec-2019 09:56:53 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/317?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 317
+    [remote] => true
+    [template_name] => get-emr
+)
+
+
+appController::renderView - /therapyBusiness/patient/get/317?remote=true&template_name=get-emr - args was not an array: get-emr[20-Dec-2019 09:56:58 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9046
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - args was not an array: _get[20-Dec-2019 09:56:59 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9025 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9025
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9025 - args was not an array: _get[20-Dec-2019 09:57:02 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9046
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - args was not an array: _get[20-Dec-2019 09:57:09 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9025 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9025
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9025 - args was not an array: _get[20-Dec-2019 09:57:11 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9046
+)
+
+
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - args was not an array: _get
