@@ -2,6 +2,7 @@
     "require": {
         "firephp/firephp-core": "^0.5.2",
         "authorizenet/authorizenet": "^2.0",
-        "setasign/fpdf": "^1.8"
+        "setasign/fpdf": "^1.8",
+        "ifsnop/mysqldump-php": "^2.8"
     }
 }

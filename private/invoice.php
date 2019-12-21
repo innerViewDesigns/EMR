@@ -1,7 +1,6 @@
 <?php
 
 
-	require_once("Users/Lembaris/Sites/therapybusiness/vendor/setasign/fpdf/fpdf.php");
 	require_once(__DIR__ . "/fpdf_custom.php");
 	require_once(__DIR__ . "/insurances.php");
 	require_once(__DIR__ . "/Services.php");

@@ -70,7 +70,7 @@
 					$this->services = $this->readInFiles();
 
 
-					//add the patient id to the new services. If you fail to pair up an entry log that in a file
+					//add the patient id to the new services. If you fail to pair up an entry, log that in a file
 					//in the remits directory
 
 
@@ -95,16 +95,11 @@
 					//then get the service IDs you need to update the database
 
 					$this->setServiceIds();
-					//echo print_r($this->setServiceIds(), true);
 
-					/*foreach($this->services as $key => $value)
-					{
-						echo "After setServiceIds: ".$value['name']." - ".$value['dos']."\n";
-					}
 					//$this->nullCases();
 					//then update the database and check for null cases
 					//$this->updateClaims();
-					*/
+					
 
 			}
 

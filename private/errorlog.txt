@@ -4685,4 +4685,604 @@ Array
 )
 
 
-appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - args was not an array: _get
+appController::renderView - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9046 - args was not an array: _get[21-Dec-2019 08:40:26 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 16, 2019 at 11:00AM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+I continue to work with patient to help him to see more clearly that he has been put at a disadvantage by having been allowed to quit school, and to help him to face the challenge of reintegrating into the societal mainstream. From this vantage point his anxiety is more understandable and we are able to be more effectively curious about what he stands to lose by working to reintegrate (i.e., having complete control over his schedule, not being challenged by those around him, being waited on by his mother, etc.). Acknowledging patient's predicament in this more honest and straightforward way has resulted in productive therapeutic work and renewed/strengthened realistic rapport between he and I. 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9046
+                )
+
+        )
+
+)
+
+[21-Dec-2019 08:40:26 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 08:40:29 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9074 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9074
+)
+
+[21-Dec-2019 08:40:29 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 08:44:12 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 19, 2019 at 12:00PM. The CPT Code was: 90834, Patients present were Griffin Edwards.
+
+HPI
+Patient and I continued down similar lines today. He started by talking about how he will not be able to complete some projects that he was hoping to be able to, due to circumstances outside of his control. He worked to put some words to this disappointment which he also noted wasn't too strong. His mind then moved to the possibility of taking classes at a community college soon. There remains something about this that makes him anxious. I worked to help patient to articulate and gain perspective on this anxiety, and to integrate his feelings about not being able to complete his own projects. As the session progressed, patient's associations led him to consider his family dynamics and specifically his father's role in the family. Significant links between his experience of his father and his anxiety were developed. 
+
+MENTAL STATUS EXAM:    APPEARANCE:  tall, casually dressed (patient tends to wear latency-aged clothing.  t-shirt, and mesh pants, clean)  BEHAVIOR:  cooperative, engaged   AFFECT:  neutral/anxious, punctuated by tearfulness     MOOD:   "okay," anxious   THOUGHT PROCESSES:  sporadically interrupted by his high levels of anxiety, mostly goal oriented and coherent  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+DIAGNOSIS:  
+Panic Disorder
+
+
+RECOMMENDATIONS/PLAN:  Begin insight oriented psychotherapy, twice weekly. Meet regularly with his mother as well.
+
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9074
+                )
+
+        )
+
+)
+
+[21-Dec-2019 08:44:12 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 08:44:14 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/317?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 317
+    [remote] => true
+    [template_name] => get-emr
+)
+
+[21-Dec-2019 08:44:14 America/Los_Angeles] 
+appController::renderView - args was NOT an array: get-emr
+[21-Dec-2019 08:44:20 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/dashboard/get - params: 
+Array
+(
+    [start_date] => 2019-11-18
+    [end_date] => 2019-12-21
+    [include_insurance] => on
+    [include_cash] => on
+)
+
+[21-Dec-2019 08:44:20 America/Los_Angeles] 
+appController::renderView - args was NOT an array: 
+[21-Dec-2019 08:44:20 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+[21-Dec-2019 08:44:20 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _info-only
+[21-Dec-2019 08:44:27 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/dashboard/get - params: 
+Array
+(
+    [start_date] => 2019-11-20
+    [end_date] => 2019-12-21
+    [include_insurance] => on
+    [include_cash] => on
+)
+
+[21-Dec-2019 08:44:27 America/Los_Angeles] 
+appController::renderView - args was NOT an array: 
+[21-Dec-2019 08:44:28 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+[21-Dec-2019 08:44:28 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _info-only
+[21-Dec-2019 08:44:32 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/336 - params: 
+Array
+(
+    [user_param] => 336
+)
+
+[21-Dec-2019 08:44:32 America/Los_Angeles] 
+appController::renderView - args was NOT an array: 
+[21-Dec-2019 08:44:32 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+[21-Dec-2019 08:44:32 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _info-only
+[21-Dec-2019 08:44:34 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/336?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 336
+    [remote] => true
+    [template_name] => get-emr
+)
+
+[21-Dec-2019 08:44:34 America/Los_Angeles] 
+appController::renderView - args was NOT an array: get-emr
+[21-Dec-2019 08:44:35 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8811 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8811
+)
+
+[21-Dec-2019 08:44:35 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 08:44:38 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8920 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8920
+)
+
+[21-Dec-2019 08:44:38 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 09:03:29 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on November 21, 2019 at 02:00PM. The CPT Code was: 90834, Patients present were Jason Ware.
+
+HPI
+I continue to orient patient to treatment, to assess his symptoms, and to help him to articulate goals for treatment. Patient's symptoms are growing more and more clear, even if the underlying causes of those symptoms remain obscure. I help by providing empathetic and reflective listening, and working to help patient to articulate his thoughts and label/explore his emotions. This latter part is difficult for patient, who tends to get caught up in elaborate structures of thought. This is a dynamic that I'm actively interpreting. More and more our sessions are crystallizing around his experience of being disconnected from others, and the profound loneliness that results. He goes back and forth in his mind about whether this dynamic results from something within himself, or whether it is basically the world that's at fault. Often, patient's emotional experience surrounding this issue is quite intense and he can sometimes use language indicating a high level of hopelessness. In these times, I assess for suiciality which, thus far, has been soundly denied. Though patient reports that our sessions are only moderately helpful to him as a "stand in" for a more authentic type of relationship, so too does he report not wishing to discontinue. In my clinical judgment, maintaining a connection with patient seems important not only in the hope of better understanding how he keeps himself isolated from those around him, but in buffering against his hopelessness. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  Clean, well primped, dressed informally in all black but appropriately in presentable jeans and zip-up hoodie.   BEHAVIOR: cooperative   AFFECT:  dysphoric, sad    MOOD:  reported as lonely and depressed  THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+IMPRESSION:  
+Generalized anxiety disorder
+adjustment disorder
+
+
+DIAGNOSIS:  
+Generalized anxiety
+other specified depressive disroder
+		
+
+
+RECOMMENDATIONS/PLAN:  
+Continue insight oriented psychotherapy aimed at better understanding patient's symptoms of anxiety, depression, and lack of connection to those around him. 
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8920
+                )
+
+        )
+
+)
+
+[21-Dec-2019 09:03:29 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 09:03:32 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8940 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8940
+)
+
+[21-Dec-2019 09:03:32 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 09:03:38 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on November 25, 2019 at 01:00PM. The CPT Code was: 90834, Patients present were Jason Ware.
+
+HPI
+I continue to orient patient to treatment, to assess his symptoms, and to help him to articulate goals for treatment. Patient's symptoms are growing more and more clear, even if the underlying causes of those symptoms remain obscure. I help by providing empathetic and reflective listening, and working to help patient to articulate his thoughts and label/explore his emotions. This latter part is difficult for patient, who tends to get caught up in elaborate structures of thought. This is a dynamic that I'm actively interpreting. More and more our sessions are crystallizing around his experience of being disconnected from others, and the profound loneliness that results. He goes back and forth in his mind about whether this dynamic results from something within himself, or whether it is basically the world that's at fault. Often, patient's emotional experience surrounding this issue is quite intense and he can sometimes use language indicating a high level of hopelessness. In these times, I assess for suiciality which, thus far, has been soundly denied. Though patient reports that our sessions are only moderately helpful to him as a "stand in" for a more authentic type of relationship, so too does he report not wishing to discontinue. In my clinical judgment, maintaining a connection with patient seems important not only in the hope of better understanding how he keeps himself isolated from those around him, but in buffering against his hopelessness. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  Clean, well primped, dressed informally in all black but appropriately in presentable jeans and zip-up hoodie.   BEHAVIOR: cooperative   AFFECT:  dysphoric, sad    MOOD:  reported as lonely and depressed  THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+IMPRESSION:  
+Generalized anxiety disorder
+adjustment disorder
+
+
+DIAGNOSIS:  
+Generalized anxiety
+other specified depressive disroder
+		
+
+
+RECOMMENDATIONS/PLAN:  
+Continue insight oriented psychotherapy aimed at better understanding patient's symptoms of anxiety, depression, and lack of connection to those around him. 
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8940
+                )
+
+        )
+
+)
+
+[21-Dec-2019 09:03:38 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 09:03:39 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=8990 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 8990
+)
+
+[21-Dec-2019 09:03:39 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 09:03:44 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 5, 2019 at 02:00PM. The CPT Code was: 90834, Patients present were Jason Ware.
+
+HPI
+I continue to orient patient to treatment, to assess his symptoms, and to help him to articulate goals for treatment. Patient's symptoms are growing more and more clear, even if the underlying causes of those symptoms remain obscure. I help by providing empathetic and reflective listening, and working to help patient to articulate his thoughts and label/explore his emotions. This latter part is difficult for patient, who tends to get caught up in elaborate structures of thought. This is a dynamic that I'm actively interpreting. More and more our sessions are crystallizing around his experience of being disconnected from others, and the profound loneliness that results. He goes back and forth in his mind about whether this dynamic results from something within himself, or whether it is basically the world that's at fault. Often, patient's emotional experience surrounding this issue is quite intense and he can sometimes use language indicating a high level of hopelessness. In these times, I assess for suiciality which, thus far, has been soundly denied. Though patient reports that our sessions are only moderately helpful to him as a "stand in" for a more authentic type of relationship, so too does he report not wishing to discontinue. In my clinical judgment, maintaining a connection with patient seems important not only in the hope of better understanding how he keeps himself isolated from those around him, but in buffering against his hopelessness. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  Clean, well primped, dressed informally in all black but appropriately in presentable jeans and zip-up hoodie.   BEHAVIOR: cooperative   AFFECT:  dysphoric, sad    MOOD:  reported as lonely and depressed  THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+IMPRESSION:  
+Generalized anxiety disorder
+adjustment disorder
+
+
+DIAGNOSIS:  
+Generalized anxiety
+other specified depressive disroder
+		
+
+
+RECOMMENDATIONS/PLAN:  
+Continue insight oriented psychotherapy aimed at better understanding patient's symptoms of anxiety, depression, and lack of connection to those around him. 
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 8990
+                )
+
+        )
+
+)
+
+[21-Dec-2019 09:03:44 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 09:03:46 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9013 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9013
+)
+
+[21-Dec-2019 09:03:46 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 09:03:53 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 9, 2019 at 01:00PM. The CPT Code was: 90834, Patients present were Jason Ware.
+
+HPI
+I continue to orient patient to treatment, to assess his symptoms, and to help him to articulate goals for treatment. Patient's symptoms are growing more and more clear, even if the underlying causes of those symptoms remain obscure. I help by providing empathetic and reflective listening, and working to help patient to articulate his thoughts and label/explore his emotions. This latter part is difficult for patient, who tends to get caught up in elaborate structures of thought. This is a dynamic that I'm actively interpreting. More and more our sessions are crystallizing around his experience of being disconnected from others, and the profound loneliness that results. He goes back and forth in his mind about whether this dynamic results from something within himself, or whether it is basically the world that's at fault. Often, patient's emotional experience surrounding this issue is quite intense and he can sometimes use language indicating a high level of hopelessness. In these times, I assess for suiciality which, thus far, has been soundly denied. Though patient reports that our sessions are only moderately helpful to him as a "stand in" for a more authentic type of relationship, so too does he report not wishing to discontinue. In my clinical judgment, maintaining a connection with patient seems important not only in the hope of better understanding how he keeps himself isolated from those around him, but in buffering against his hopelessness. 
+
+
+MENTAL STATUS EXAM:    APPEARANCE:  Clean, well primped, dressed informally in all black but appropriately in presentable jeans and zip-up hoodie.   BEHAVIOR: cooperative   AFFECT:  dysphoric, sad    MOOD:  reported as lonely and depressed  THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+IMPRESSION:  
+Generalized anxiety disorder
+adjustment disorder
+
+
+DIAGNOSIS:  
+Generalized anxiety
+other specified depressive disroder
+		
+
+
+RECOMMENDATIONS/PLAN:  
+Continue insight oriented psychotherapy aimed at better understanding patient's symptoms of anxiety, depression, and lack of connection to those around him. 
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9013
+                )
+
+        )
+
+)
+
+[21-Dec-2019 09:03:53 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 09:03:55 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/get?template_name=_get&remote=true&service_id=9048 - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [service_id] => 9048
+)
+
+[21-Dec-2019 09:03:55 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _get
+[21-Dec-2019 09:05:30 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/note/update - params: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+    [data] => Array
+        (
+            [0] => Array
+                (
+                    [note] => Service provided by Michael Lembaris, Psy.D. at 3252 Holiday CT., STE 102, La Jolla, CA 92037. It lasted for 45mins and occurred on December 16, 2019 at 01:00PM. The CPT Code was: 90834, Patients present were Jason Ware.
+
+HPI
+I continue to orient patient to treatment, to assess his symptoms, and to help him to articulate goals for treatment. Patient's symptoms are growing more and more clear, even if the underlying causes of those symptoms remain obscure. I help by providing empathetic and reflective listening, and working to help patient to articulate his thoughts and label/explore his emotions. This latter part is difficult for patient, who tends to get caught up in elaborate structures of thought. This is a dynamic that I'm actively interpreting. More and more our sessions are crystallizing around his experience of being disconnected from others, and the profound loneliness that results. He goes back and forth in his mind about whether this dynamic results from something within himself, or whether it is basically the world that's at fault. Often, patient's emotional experience surrounding this issue is quite intense and he can sometimes use language indicating a high level of hopelessness. In these times, I assess for suiciality which, thus far, has been soundly denied. Though patient reports that our sessions are only moderately helpful to him as a "stand in" for a more authentic type of relationship, so too does he report not wishing to discontinue. In my clinical judgment, maintaining a connection with patient seems important not only in the hope of better understanding how he keeps himself isolated from those around him, but in buffering against his hopelessness. 
+
+Today patient reported that his recent interviews with Google did not go as well as he would have liked. This made him feel angry and pessimistic about the future. I engaged by providing empathetic and reflective listening and working to help patient to gain perspective on his thoughts and clarify his feelings. This remains a difficult task, though patient reports continuing to feel thankful and engaged in treatment. 
+
+MENTAL STATUS EXAM:    APPEARANCE:  Clean, well primped, dressed informally in all black but appropriately in presentable jeans and zip-up hoodie.   BEHAVIOR: cooperative   AFFECT:  dysphoric, sad    MOOD:  reported as lonely and depressed  THOUGHT PROCESSES:  clear, coherent, goal directed  THOUGHT CONTENT:  Significant for positive future orientation.  No current suicidal or homicidal ideation, intent or plan. Intrusive and obsessive thoughts. No evidence of dysperceptions.  COGNITION:  Intelligence appears to be average.  Cognitively, patient is alert and oriented x 4.  Concentration and memory are intact.  INSIGHT/JUDGMENT:  Fair/Good.  IMPULSE CONTROL:  intact. 
+
+
+
+IMPRESSION:  
+Generalized anxiety disorder
+adjustment disorder
+
+
+DIAGNOSIS:  
+Generalized anxiety
+other specified depressive disroder
+		
+
+
+RECOMMENDATIONS/PLAN:  
+Continue insight oriented psychotherapy aimed at better understanding patient's symptoms of anxiety, depression, and lack of connection to those around him. 
+
+
+
+Signed
+
+Michael Lembaris, Psy.D.
+Clinical Psychologist 
+Lic. #28191
+                    [service_id] => 9048
+                )
+
+        )
+
+)
+
+[21-Dec-2019 09:05:30 America/Los_Angeles] 
+appController::renderView - args WAS an array: 
+Array
+(
+    [template_name] => _get
+    [remote] => true
+)
+
+[21-Dec-2019 09:05:32 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patient/get/336?remote=true&template_name=get-emr - params: 
+Array
+(
+    [user_param] => 336
+    [remote] => true
+    [template_name] => get-emr
+)
+
+[21-Dec-2019 09:05:32 America/Los_Angeles] 
+appController::renderView - args was NOT an array: get-emr
+[21-Dec-2019 09:05:42 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/dashboard/get - params: 
+Array
+(
+    [start_date] => 2019-11-22
+    [end_date] => 2019-12-21
+    [include_insurance] => on
+    [include_cash] => on
+)
+
+[21-Dec-2019 09:05:42 America/Los_Angeles] 
+appController::renderView - args was NOT an array: 
+[21-Dec-2019 09:05:43 America/Los_Angeles] 
+------------------------------
+index::setParams - /therapyBusiness/patients/get/active?template_name=_info-only&remote=true - params: 
+Array
+(
+    [user_param] => active
+    [template_name] => _info-only
+    [remote] => true
+)
+
+[21-Dec-2019 09:05:43 America/Los_Angeles] 
+appController::renderView - args was NOT an array: _info-only
